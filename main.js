@@ -55,6 +55,7 @@
     "footerGuide": "LumiPilot 使用说明 ↗",
     "title": "Dayang.Cao · 个人网站",
     "home": "Dayang.Cao 个人网站首页",
+    "profileToggle": "查看 Dayang.Cao 的个人介绍",
     "navigation": "主导航",
     "aboutNav": "个人介绍",
     "skip": "跳到正文",
@@ -114,8 +115,9 @@
     "materialsLinkDetails": "Saved market data, material relationships and processes",
     "scopeDescription": "This website provides two project links. LumiPilot is a read-only snapshot of saved records using the existing workspace interface. Concept models, historical records and items requiring verification retain their labels; publication does not change the original dates of price or regulatory sources. Live collection, uploads, editing and account approval require the full backend. TOSPO is an independent website requiring an authorized email. Review sources, applicability and engineering verification status within each project.",
     "footerGuide": "LumiPilot user guide ↗",
-    "title": "Dayang.Cao · Algorithm Engineer",
+    "title": "Dayang.Cao · Personal Website",
     "home": "Dayang.Cao personal website home",
+    "profileToggle": "View Dayang.Cao’s personal introduction",
     "navigation": "Main navigation",
     "aboutNav": "About me",
     "skip": "Skip to content",
@@ -127,6 +129,30 @@
   const themeButton = document.querySelector('.theme-toggle');
   const languageSwitch = document.querySelector('.language-switch');
   const dateNote = document.querySelector('#publication-date');
+  const profileMenu = document.querySelector('.profile-menu');
+  const profileTrigger = document.querySelector('.profile-trigger');
+  const milestones = document.querySelector('.recognition');
+  function closeProfile(restoreFocus = false) {
+    profileMenu.open = false;
+    milestones.open = false;
+    if (restoreFocus) profileTrigger.focus();
+  }
+  document.querySelector('.profile-close').addEventListener('click',() => closeProfile(true));
+  document.addEventListener('click',event => {
+    if (profileMenu.open && !profileMenu.contains(event.target)) closeProfile();
+  });
+  document.addEventListener('keydown',event => {
+    if (event.key === 'Escape' && profileMenu.open) {
+      event.preventDefault();
+      closeProfile(true);
+    }
+  });
+  profileMenu.addEventListener('toggle',() => {
+    if (!profileMenu.open) milestones.open = false;
+  });
+  profileMenu.addEventListener('focusout',event => {
+    if (event.relatedTarget && !profileMenu.contains(event.relatedTarget)) closeProfile();
+  });
   function saved(key) { try { return localStorage.getItem(key); } catch { return null; } }
   function remember(key,value) { try { localStorage.setItem(key,value); } catch { /* Controls work without storage. */ } }
   const query = new URLSearchParams(location.search).get('lang');
