@@ -1,2 +1,9 @@
-# dayang1847-arch.github.io
-Dayang personal website
+# 个人作品集
+
+浏览 LumiPilot 照明研发决策工作台：
+
+[进入 LumiPilot](./LumiPilot/)
+
+网站使用 GitHub Pages 静态托管。项目公开页保留已有资料与结果，支持浏览和检索；资料更新通过重新发布快照完成。完整服务的登录、编辑、上传和外部来源刷新需要后端。
+
+发布内容不包含运行数据库、上传原件或账号与接口凭据。

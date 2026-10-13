@@ -1,0 +1,24 @@
+/* A publication keeps the workbench's desktop layout and source boundaries. */
+.lumi-share-view [hidden] { display:none !important; }
+.lumi-share-view .local-pill { color:#34516a;background:#f0f5f8;border:1px solid #dce6ed;font-size:11px;white-space:nowrap; }
+.lumi-share-view .local-pill .status-dot { display:none; }
+.lumi-share-view .share-publication-note { display:flex;align-items:center;justify-content:space-between;gap:18px;padding:8px 32px;border-bottom:1px solid #e2e9ef;background:#f7fafc;color:#64798b;font-size:11px;line-height:1.6; }
+.lumi-share-view .share-publication-note a { color:#48697f;text-decoration:none;white-space:nowrap; }
+.lumi-share-view .share-publication-note a:hover { color:#235e87;text-decoration:underline; }
+.lumi-share-view form[data-share-readonly="true"] input:disabled,
+.lumi-share-view form[data-share-readonly="true"] textarea:disabled,
+.lumi-share-view form[data-share-readonly="true"] select:disabled { color:#40546a;-webkit-text-fill-color:#40546a;opacity:1;background:#f6f8fa;border-color:#e5eaf0;cursor:default; }
+.lumi-share-view form[data-share-readonly="true"] button[type="submit"] { display:none; }
+.lumi-share-view .share-unavailable-link { color:#8090a0;cursor:default;text-decoration:none;opacity:.75; }
+.lumi-share-view .share-optical-saved { padding:28px 32px;background:linear-gradient(125deg,#f8fafc,#fff); }
+.lumi-share-view .share-optical-saved h3 { margin:10px 0 12px;font-size:19px;color:#253a50; }
+.lumi-share-view .share-optical-saved p { max-width:880px;font-size:13px;line-height:1.9;color:#65768a; }
+.lumi-share-view .share-readonly-label { display:inline-flex;padding:4px 9px;font-size:11px;border:1px solid #d8e6ec;border-radius:5px;color:#3e6575;background:#edf5f7; }
+.lumi-share-view .share-optical-saved dl { display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin:25px 0; }
+.lumi-share-view .share-optical-saved dl > div { padding:16px;background:#fff;border:1px solid #e4eaf0;border-radius:7px; }
+.lumi-share-view .share-optical-saved dt { color:#77869a;font-size:11px; }
+.lumi-share-view .share-optical-saved dd { margin:8px 0 0;color:#3a5067;font-size:13px;line-height:1.8;overflow-wrap:anywhere; }
+.lumi-share-view .share-optical-saved summary { font-size:12px;color:#45677f;cursor:pointer; }
+.lumi-share-view .share-optical-saved pre { max-height:280px;overflow:auto;padding:16px;border:1px solid #e4eaf0;background:#fff;color:#50667c;font:12px/1.8 ui-monospace,SFMono-Regular,Menlo,monospace;white-space:pre-wrap; }
+@media(max-width:1200px) { .lumi-share-view .local-pill { max-width:210px;text-overflow:ellipsis;overflow:hidden; } }
+@media(max-width:760px) { .lumi-share-view .share-optical-saved { padding:20px; } .lumi-share-view .share-optical-saved dl { grid-template-columns:1fr; } }
