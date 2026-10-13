@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0",
+  "version": "1.0.1",
   "publishedDate": "2026-10-14",
   "hosting": "GitHub Pages static",
   "data": "built-in demonstration samples only",
@@ -8,6 +8,11 @@
   "sampleProducts": 8,
   "scenes": 2,
   "modes": 3,
-  "localApp": "LUMINA-local.zip",
-  "source": "source/"
+  "access": "online demonstration only",
+  "fileImports": true,
+  "fileExports": true,
+  "appDownloads": false,
+  "sourcePackages": false,
+  "modelStorage": "visitor browser IndexedDB",
+  "cadConversion": "browser worker, OpenCascade"
 }

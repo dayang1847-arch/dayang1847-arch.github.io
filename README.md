@@ -3,7 +3,7 @@
 本作品集提供四个项目入口：
 
 - [LumiPilot 照明研发决策工作台](./LumiPilot/)：公开浏览照明研发、工程知识与已保存分析。
-- [LUMINA 照明场景演示与 IES 分析](./LUMINA/)：体验三维场景、排布、IES 配光和模拟控制，可下载完整本地版。
+- [LUMINA 照明场景演示与 IES 分析](./LUMINA/)：体验三维场景、排布、IES 配光和模拟控制，仅供在线演示。
 - [TOSPO Outdoor Lighting · 户外照明展示](https://dayang1847-arch.github.io/TP-outdoor-lighting/)：公司介绍、户外产品与工程案例；需使用网站账号和密码登录访问。
 - [越语冒险 · 越南语闯关学习](./vietnamese-learning/)：个人学习项目，包含 14 单元、42 课、420 道互动题与 96 个日常词条；提供发音拆解、音标、词源说明和间隔复习。
 
@@ -27,6 +27,6 @@ TOSPO 在作品集中展示项目简介和登录入口。点击 TOSPO 项目后�
 
 ## LUMINA 发布
 
-`LUMINA/` 为无需后端的在线演示，使用内置样品与浏览器保存。`LUMINA/source/` 保留完整应用源码，`LUMINA/LUMINA-local.zip` 为同一源码的下载包；本地版包含 Node 服务、STEP / IGES 转换、文件库和设备适配接口。在线版不连接实体设备、不上传访问者数据。
+`LUMINA/` 为仅供交互演示的静态网页，使用内置样品与浏览器保存，不连接实体设备、不上传访问者数据。支持产品模型与 IES 导入、浏览器内 CAD 转换、报告导出和含资产的方案打包。不提供应用安装包或完整源码包。
 
-更新演示时，在源码目录运行 `npm ci`、`npm run check`、`npm test`、`npm run build:public`，将 `dist-public/` 复制到 `LUMINA/`，保留预览图、源码及 ZIP。所有资源使用相对路径，分析 Worker 可在 GitHub Pages 子目录中运行。发布时仅包含源码与演示资源，排除 `data/`、依赖目录和本机调试资料。
+更新演示时，在本机应用目录运行 `npm run check`、`npm test`、`npm run build:public`，将 `dist-public/` 的运行资源复制到 `LUMINA/`，保留预览图、许可和发布说明。删除旧的构建资源以免保留过期功能。所有资源使用相对路径，分析 Worker 可在 GitHub Pages 子目录中运行。仅发布在线演示运行文件，排除完整应用源码、安装包、`data/`、依赖目录和本机调试资料。
