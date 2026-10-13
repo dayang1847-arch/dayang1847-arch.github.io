@@ -1,0 +1,40 @@
+{
+  "name": "lumina-lighting-studio",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.13"
+  },
+  "scripts": {
+    "dev": "tsx --no-cache server/index.ts --dev",
+    "build": "tsc --noEmit && vite build",
+    "start": "tsx --no-cache server/index.ts",
+    "test": "tsx --no-cache --test tests/*.test.ts",
+    "check": "tsc --noEmit",
+    "build:public": "node scripts/build-public.mjs"
+  },
+  "dependencies": {
+    "@fastify/multipart": "*",
+    "@fastify/static": "*",
+    "@fastify/websocket": "*",
+    "fastify": "5.12.7",
+    "fflate": "*",
+    "lucide-react": "*",
+    "occt-import-js": "0.0.23",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "three": "0.186.1",
+    "zod": "*"
+  },
+  "devDependencies": {
+    "@types/node": "*",
+    "@types/react": "*",
+    "@types/react-dom": "*",
+    "@types/three": "*",
+    "@vitejs/plugin-react": "*",
+    "tsx": "*",
+    "typescript": "*",
+    "vite": "8.3.4"
+  }
+}

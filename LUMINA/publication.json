@@ -1,0 +1,13 @@
+{
+  "version": "1.0.0",
+  "publishedDate": "2026-10-14",
+  "hosting": "GitHub Pages static",
+  "data": "built-in demonstration samples only",
+  "persistence": "visitor browser",
+  "gateway": "simulation only",
+  "sampleProducts": 8,
+  "scenes": 2,
+  "modes": 3,
+  "localApp": "LUMINA-local.zip",
+  "source": "source/"
+}

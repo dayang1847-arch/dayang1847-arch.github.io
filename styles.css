@@ -56,3 +56,5 @@ main>#works{padding-top:48px}
 .author-notes .award-list h4{font-size:13px}
 footer{padding-top:22px;padding-bottom:30px}
 @media(max-width:720px){main>#works{padding-top:30px}.author-section{padding-top:18px}.author-content{grid-template-columns:1fr;gap:18px}.author-identity h2{font-size:25px}.author-biography>.intro-copy{font-size:13px}.author-summary{min-height:44px;padding-block:10px}.author-details[open]>.author-summary{margin-bottom:16px}header nav{gap:26px}}
+
+.lumina-preview-link{display:block;line-height:0;border-radius:10px;overflow:hidden;border:1px solid #ffffff24;background:#d9dce2}.lumina-preview{display:block;width:100%;height:auto}.lumina-visual .visual-bottom{margin-top:20px}.lumina-visual .date-note{margin-top:13px}

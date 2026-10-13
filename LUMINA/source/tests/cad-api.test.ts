@@ -1,0 +1,18 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { promises as fs } from 'node:fs';
+import path from 'node:path';
+import os from 'node:os';
+import { Store } from '../server/storage';
+import { ConversionQueue } from '../server/jobs';
+import { createApp } from '../server/index';
+
+async function waitJob(queue:ConversionQueue,id:string){for(let i=0;i<250;i++){const j=queue.jobs.get(id)!;if(['ready','error','cancelled'].includes(j.state))return j;await new Promise(r=>setTimeout(r,50));}throw new Error('test conversion timeout');}
+test('STEP and IGES conversion honor meters and assembly hierarchy/colors',async()=>{const dir=await fs.mkdtemp(path.join(os.tmpdir(),'lumina-cad-')),store=new Store(dir),queue=new ConversionQueue(store,()=>{});try{await store.init();
+  for(const [file,id]of [['cube-10x10mm/Cube 10x10.stp','step'],['cube-10x10mm/Cube 10x10.igs','iges'],['cax-if/as1_pe_203.stp','assembly']] as [string,string][]){
+    await fs.mkdir(store.assetDir(id));const job=queue.enqueue(id,file,path.resolve('node_modules/occt-import-js/test/testfiles',file));const done=await waitJob(queue,job.id);assert.equal(done.state,'ready',done.error||'');const data=JSON.parse(await fs.readFile(path.join(store.assetDir(id),'mesh.json'),'utf8'));
+    assert.ok(data.root.children.length>0);if(id==='assembly'){assert.equal(data.meshes.length,18);assert.ok(data.meshes.every((m:any)=>m.name&&m.color));}else{const xs=data.meshes[0].attributes.position.array.filter((_:unknown,i:number)=>i%3===0);assert.ok(Math.abs(Math.max(...xs)-Math.min(...xs)-.01)<1e-6);}
+  }
+}finally{queue.close();await fs.rm(dir,{recursive:true,force:true});}});
+test('bad CAD fails, queued cancellation is immediate and retry uses retained source',async()=>{const dir=await fs.mkdtemp(path.join(os.tmpdir(),'lumina-cad-')),store=new Store(dir),queue=new ConversionQueue(store,()=>{});try{await store.init();for(const id of ['bad','cancel']){await fs.mkdir(store.assetDir(id));await fs.writeFile(path.join(store.assetDir(id),'source.step'),'invalid CAD');}const bad=queue.enqueue('bad','bad.step',path.join(store.assetDir('bad'),'source.step')),cancel=queue.enqueue('cancel','cancel.step',path.join(store.assetDir('cancel'),'source.step'));assert.equal(queue.cancel(cancel.id).state,'cancelled');assert.equal((await waitJob(queue,bad.id)).state,'error');const retry=await queue.retry(bad.id);assert.equal((await waitJob(queue,retry.id)).state,'error');}finally{queue.close();await fs.rm(dir,{recursive:true,force:true});}});
+test('local APIs seed state, reject off-machine origins, save scenes and reject invalid GLB',async()=>{const dir=await fs.mkdtemp(path.join(os.tmpdir(),'lumina-api-'));const {app}=await createApp(dir);try{const state=await app.inject({method:'GET',url:'/api/state'});assert.equal(state.statusCode,200);assert.equal(state.json().products.length,8);assert.equal((await app.inject({method:'POST',url:'/api/devices/configure',headers:{origin:'https://example.invalid'},payload:{connected:false}})).statusCode,403);const plan=state.json().plans[0];plan.fixtures[0].level=25;assert.equal((await app.inject({method:'POST',url:'/api/plans',payload:plan})).statusCode,200);const boundary='lumina-boundary';const payload=Buffer.from(`--${boundary}\r\nContent-Disposition: form-data; name="file"; filename="bad.glb"\r\nContent-Type: application/octet-stream\r\n\r\ninvalid\r\n--${boundary}--\r\n`);const response=await app.inject({method:'POST',url:'/api/uploads',headers:{'content-type':`multipart/form-data; boundary=${boundary}`},payload});assert.equal(response.statusCode,400);assert.match(response.json().error,/GLB/);}finally{await app.close();await fs.rm(dir,{recursive:true,force:true});}});

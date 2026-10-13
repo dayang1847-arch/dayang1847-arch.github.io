@@ -4,7 +4,7 @@
   "zh": {
     "works": "项目作品",
     "scope": "阅读说明",
-    "workCount": "02 / 项目入口",
+    "workCount": "03 / 项目入口",
     "publicStatus": "可在线浏览",
     "lumiTitle": "照明研发与采购决策工作台",
     "lumiDescription": "以照明 OEM/ODM 产品为主线，将市场资料、国家认证、光学验证、电子 BOM 与制造成本连接在同一工作空间，帮助团队核对方案输入、资料依据和待确认事项。",
@@ -51,7 +51,7 @@
     "opticalLinkDetails": "目标规格、已保存分析与来源口径",
     "materialsLink": "材料与工程成本 ↗",
     "materialsLinkDetails": "已保存行情、粒子关系与工艺知识",
-    "scopeDescription": "本作品集提供两个项目入口。LumiPilot 沿用现有工作台界面，发布当前已保存资料的只读版本；页面保留概念模型、历史记录与待核验资料的标记，发布时点不改变原始价格和法规来源日期。实时采集、上传、业务保存和账号审批需要完整后端服务。TOSPO 户外照明展示由独立网站提供，需使用网站账号和密码登录。请在具体项目内核对来源、适用范围及工程验证状态。",
+    "scopeDescription": "本作品集提供三个项目入口。LumiPilot 沿用现有工作台界面，发布当前已保存资料的只读版本；页面保留概念模型、历史记录与待核验资料的标记，发布时点不改变原始价格和法规来源日期。实时采集、上传、业务保存和账号审批需要完整后端服务。TOSPO 户外照明展示由独立网站提供，需使用网站账号和密码登录。请在具体项目内核对来源、适用范围及工程验证状态。 LUMINA 在线版使用内置演示样品，方案与模拟设备记录保存在访问者的浏览器；未连接实体设备。STEP / IGES / GLB 与 IES 产品导入由完整本地版提供，照度分析仅计算人工直接光。",
     "footerGuide": "LumiPilot 使用说明 ↗",
     "title": "DC Web",
     "home": "DC Web 首页",
@@ -60,12 +60,26 @@
     "skip": "跳到正文",
     "themeDark": "切换到深色主题",
     "themeLight": "切换到浅色主题",
-    "switchLanguage": "Switch to English"
+    "switchLanguage": "Switch to English",
+    "luminaTitle": "照明场景演示与 IES 分析系统",
+    "luminaDescription": "在办公展厅与户外园区中选择灯具、搭配排布、调节光输出与色温，通过镜头巡游观察应用效果。逐灯查看 IES 配光，并用直接光照度分析与模拟 DALI / D4i 控制连接场景和设备。",
+    "sceneDemo": "三维场景",
+    "fixtureLayout": "灯具排布",
+    "iesAnalysis": "IES 照度分析",
+    "intelligentControl": "智能控制",
+    "enterLumina": "体验 LUMINA ↗",
+    "downloadLumina": "下载完整本地版 ↓",
+    "luminaAccess": "在线体验无需安装 · 方案保存在浏览器 · CAD 导入使用本地版",
+    "luminaScenes": "内置场景",
+    "luminaSamples": "演示灯具",
+    "luminaModes": "体验模式",
+    "luminaVisualNote": "办公展厅 · 产品仓库与实时灯光",
+    "luminaPreviewAlt": "LUMINA 办公展厅三维灯光演示，包含产品仓库、照明预设和巡游控制"
   },
   "en": {
     "works": "Selected work",
     "scope": "Reading notes",
-    "workCount": "02 / Project links",
+    "workCount": "03 / Project links",
     "publicStatus": "Public preview",
     "lumiTitle": "Lighting R&D and procurement decision workspace",
     "lumiDescription": "A workspace connecting market research, certification requirements, optical analysis, electronic BOMs and manufacturing costs for lighting OEM/ODM products. It helps teams review inputs, supporting evidence and unresolved questions.",
@@ -112,7 +126,7 @@
     "opticalLinkDetails": "Specifications, saved analyses and source definitions",
     "materialsLink": "Materials & engineering costs ↗",
     "materialsLinkDetails": "Saved market data, material relationships and processes",
-    "scopeDescription": "This website provides two project links. LumiPilot is a read-only snapshot of saved records using the existing workspace interface. Concept models, historical records and items requiring verification retain their labels; publication does not change the original dates of price or regulatory sources. Live collection, uploads, editing and account approval require the full backend. TOSPO is an independent website requiring a website account and password. Review sources, applicability and engineering verification status within each project.",
+    "scopeDescription": "This website provides three project links. LumiPilot is a read-only snapshot of saved records using the existing workspace interface. Concept models, historical records and items requiring verification retain their labels; publication does not change the original dates of price or regulatory sources. Live collection, uploads, editing and account approval require the full backend. TOSPO is an independent website requiring a website account and password. Review sources, applicability and engineering verification status within each project. LUMINA uses built-in demonstration samples and saves layouts and simulated device records in the visitor’s browser. It does not connect to physical devices. Importing STEP / IGES / GLB models and IES files requires the full local app; illuminance analysis covers direct artificial light only.",
     "footerGuide": "LumiPilot user guide ↗",
     "title": "DC Web",
     "home": "DC Web home",
@@ -121,7 +135,21 @@
     "skip": "Skip to content",
     "themeDark": "Switch to dark theme",
     "themeLight": "Switch to light theme",
-    "switchLanguage": "切换到中文版"
+    "switchLanguage": "切换到中文版",
+    "luminaTitle": "Lighting scenes and IES analysis",
+    "luminaDescription": "Select and arrange luminaires in an office showroom or outdoor park, adjust light output and color temperature, and explore the results with a camera tour. Inspect each IES file, calculate direct illuminance, and explore simulated DALI / D4i control.",
+    "sceneDemo": "3D scenes",
+    "fixtureLayout": "Luminaire layouts",
+    "iesAnalysis": "IES analysis",
+    "intelligentControl": "Lighting control",
+    "enterLumina": "Explore LUMINA ↗",
+    "downloadLumina": "Download local app ↓",
+    "luminaAccess": "Online demo in Chinese · Layouts stay in your browser · CAD import uses the local app",
+    "luminaScenes": "Built-in scenes",
+    "luminaSamples": "Sample luminaires",
+    "luminaModes": "Experience modes",
+    "luminaVisualNote": "Office showroom · Product library and live lighting",
+    "luminaPreviewAlt": "LUMINA office showroom with 3D lighting, product library, lighting presets and camera controls"
   }
 };
   const themeButton = document.querySelector('.theme-toggle');
@@ -156,6 +184,7 @@
     root.lang = language === 'en' ? 'en' : 'zh-CN';
     document.title = copy[language].title;
     document.querySelectorAll('[data-i18n]').forEach(node => { node.textContent = copy[language][node.dataset.i18n]; });
+    document.querySelectorAll('[data-i18n-alt]').forEach(node => { node.alt = copy[language][node.dataset.i18nAlt]; });
     document.querySelectorAll('[data-i18n-aria]').forEach(node => { node.setAttribute('aria-label',copy[language][node.dataset.i18nAria]); });
     const next = language === 'en' ? 'zh' : 'en';
     const url = new URL(location.href);
