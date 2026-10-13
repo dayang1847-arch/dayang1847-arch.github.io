@@ -1,0 +1,11 @@
+Use case: historical-scene
+Asset type: epic illustrated cover artwork for the existing browser real-time strategy game 万朝逐鹿 (Clash of Dynasties). Wide cinematic landscape, 16:9 composition.
+Primary request: a premium, awe-inspiring ancient Chinese war and dynasty-conquest game cover.
+Scene/backdrop: a monumental walled imperial city with layered gate towers and tiled-roof palaces on the right, a winding river through vast mountain valleys, countless organized infantry and cavalry formations approaching across the plain, towering military banners in the wind. Viewed from a high command ridge; a few small armored commanders seen from behind in the lower right foreground establish scale. Historically grounded Chinese lamellar armor, spears, bows and cavalry; a fictional cross-dynasty setting drawing from Qin, Han, Tang, Song, Yuan and Ming.
+Style/medium: richly detailed cinematic digital matte painting, restrained traditional Chinese ink-painting atmosphere, realistic architecture and materials, sophisticated historical strategy key art, grand environmental storytelling, not a screenshot and not a UI mockup.
+Composition/framing: magnificent city, armies and banners dominate the center-right two-thirds. Leave the left third relatively quiet with dark layered mountain mist for editable game-title UI to be placed later. Keep major subjects comfortably away from all edges for responsive cover cropping. Strong foreground, middle-ground and distant mountain depth.
+Lighting/mood: dramatic storm clouds parting over the capital, shafts of warm dawn light through smoke and mist, majestic resolve and scale, subtle ember-like highlights, visually epic but dignified.
+Color palette: aged bronze and warm gold highlights, deep ink green, charcoal-blue clouds, parchment-colored haze; harmonious with the game's existing warm parchment and muted green interface.
+Materials/textures: weathered stone walls, bronze fittings, textured woven battle standards, worn lamellar armor, natural painterly clouds.
+Text: none. No typography, no logos, no UI elements, no watermark. The actual bilingual game title will be editable HTML.
+Constraints: deliver original cover art; no modern skyscrapers, tanks, aircraft, Western castles or plate armor, magic, dragons, gore, giant close-up face, or an identifiable celebrity.

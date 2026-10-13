@@ -36,7 +36,7 @@
     "opticalLinkDetails": "目标规格、已保存分析与来源口径",
     "materialsLink": "材料与工程成本 ↗",
     "materialsLinkDetails": "已保存行情、粒子关系与工艺知识",
-    "scopeDescription": "本作品集汇集现有项目入口。LumiPilot 沿用现有工作台界面，发布当前已保存资料的只读版本；页面保留概念模型、历史记录与待核验资料的标记，发布时点不改变原始价格和法规来源日期。实时采集、上传、业务保存和账号审批需要完整后端服务。TOSPO 户外照明展示由独立网站提供，需使用网站账号和密码登录。请在具体项目内核对来源、适用范围及工程验证状态。 LUMINA 在线版使用内置演示样品，方案与模拟设备记录保存在访问者的浏览器；未连接实体设备。仅供交互演示，支持产品文件导入、报告导出和方案打包，不提供应用安装包或完整源码包。照度分析仅计算人工直接光。 越语冒险为个人学习项目，进度保存在当前浏览器；发音取决于设备提供的越南语声音，词源结论只覆盖已核实的义项。",
+    "scopeDescription": "本作品集汇集现有项目入口。LumiPilot 沿用现有工作台界面，发布当前已保存资料的只读版本；页面保留概念模型、历史记录与待核验资料的标记，发布时点不改变原始价格和法规来源日期。实时采集、上传、业务保存和账号审批需要完整后端服务。TOSPO 户外照明展示由独立网站提供，需使用网站账号和密码登录。请在具体项目内核对来源、适用范围及工程验证状态。 LUMINA 在线版使用内置演示样品，方案与模拟设备记录保存在访问者的浏览器；未连接实体设备。仅供交互演示，支持产品文件导入、报告导出和方案打包，不提供应用安装包或完整源码包。照度分析仅计算人工直接光。 越语冒险为个人学习项目，进度保存在当前浏览器；发音取决于设备提供的越南语声音，词源结论只覆盖已核实的义项。 万朝逐鹿可直接在浏览器中单人练兵；GitHub Pages 仅提供静态页面，朋友联机需要另行部署并配置服务器。",
     "footerGuide": "LumiPilot 使用说明 ↗",
     "title": "DC Web",
     "home": "DC Web 首页",
@@ -97,7 +97,21 @@
     "practiceVietquest": "练习发音",
     "vietquestSummary": "通过听音、选择与句子排序学习日常越南语和照明商务沟通，按关卡逐步积累。",
     "vietquestPreviewAlt": "成年男性学习者探索越南街景，沿金色星星闯关路线前进",
-    "tospoVisitLabel": "访问 TOSPO（账号密码登录，在新窗口打开）"
+    "tospoVisitLabel": "访问 TOSPO（账号密码登录，在新窗口打开）",
+    "filterStrategy": "策略游戏",
+    "wanchaoName": "万朝逐鹿",
+    "wanchaoTitle": "跨朝代攻城与实时战略",
+    "wanchaoSummary": "选择秦、汉、唐、宋、元或明，在 500 座真实地名城池间发展主城、征募军队并争夺王都。",
+    "wanchaoDescription": "六朝各有专属兵种与名将，在真实地名与经纬度构成的 500 城沙盘中建设主城、发展经济、攻城掠地并争夺王都。单人练兵直接在浏览器中运行；朋友联机需要另行部署并配置服务器地址。",
+    "wanchaoPreviewAlt": "万朝逐鹿的史诗风格战争封面插画",
+    "wanchaoStatus": "练兵可用",
+    "wanchaoAccess": "单人练兵立即可用 · 朋友联机需另行配置服务器",
+    "sixDynasties": "六朝阵营",
+    "fiveHundredCities": "500 座城池",
+    "realtimeStrategy": "实时战略",
+    "dynastyFactions": "朝代阵营",
+    "realCityNames": "真实地名城池",
+    "enterWanchao": "进入游戏"
   },
   "en": {
     "works": "Selected work",
@@ -134,7 +148,7 @@
     "opticalLinkDetails": "Specifications, saved analyses and source definitions",
     "materialsLink": "Materials & engineering costs ↗",
     "materialsLinkDetails": "Saved market data, material relationships and processes",
-    "scopeDescription": "This website brings together the available project links. LumiPilot is a read-only snapshot of saved records using the existing workspace interface. Concept models, historical records and items requiring verification retain their labels; publication does not change the original dates of price or regulatory sources. Live collection, uploads, editing and account approval require the full backend. TOSPO is an independent website requiring a website account and password. Review sources, applicability and engineering verification status within each project. LUMINA uses built-in demonstration samples and saves layouts and simulated device records in the visitor’s browser. It does not connect to physical devices. This interactive demonstration supports product file imports, report exports and scheme bundles. It provides no app installation or complete source packages. Illuminance analysis covers direct artificial light only. VietQuest is a personal learning project. Progress stays in the current browser, pronunciation depends on available Vietnamese voices, and etymology conclusions cover only source-checked senses.",
+    "scopeDescription": "This website brings together the available project links. LumiPilot is a read-only snapshot of saved records using the existing workspace interface. Concept models, historical records and items requiring verification retain their labels; publication does not change the original dates of price or regulatory sources. Live collection, uploads, editing and account approval require the full backend. TOSPO is an independent website requiring a website account and password. Review sources, applicability and engineering verification status within each project. LUMINA uses built-in demonstration samples and saves layouts and simulated device records in the visitor’s browser. It does not connect to physical devices. This interactive demonstration supports product file imports, report exports and scheme bundles. It provides no app installation or complete source packages. Illuminance analysis covers direct artificial light only. VietQuest is a personal learning project. Progress stays in the current browser, pronunciation depends on available Vietnamese voices, and etymology conclusions cover only source-checked senses. Clash of Dynasties provides single-player practice directly in the browser. GitHub Pages hosts static files only; multiplayer requires a separately deployed and configured server.",
     "footerGuide": "LumiPilot user guide ↗",
     "title": "DC Web",
     "home": "DC Web home",
@@ -195,7 +209,21 @@
     "practiceVietquest": "Pronunciation",
     "vietquestSummary": "Learn daily Vietnamese and lighting business communication through listening, choices and sentence ordering.",
     "vietquestPreviewAlt": "An adult male learner explores Vietnam along a golden trail of level stars",
-    "tospoVisitLabel": "Visit TOSPO (account and password required, opens in a new tab)"
+    "tospoVisitLabel": "Visit TOSPO (account and password required, opens in a new tab)",
+    "filterStrategy": "Strategy games",
+    "wanchaoName": "Clash of Dynasties",
+    "wanchaoTitle": "Cross-dynasty conquest and real-time strategy",
+    "wanchaoSummary": "Choose Qin, Han, Tang, Song, Yuan or Ming. Develop your citadel, recruit armies and contest the capital across 500 cities with real place names.",
+    "wanchaoDescription": "Six dynasties have distinct units and historical commanders. Build a citadel, grow an economy and capture cities on a 500-city map using real place names and coordinates. Single-player practice runs directly in the browser; playing with friends requires a separately deployed and configured server.",
+    "wanchaoPreviewAlt": "Epic war cover illustration for Clash of Dynasties",
+    "wanchaoStatus": "Practice available",
+    "wanchaoAccess": "Single-player practice is ready · Multiplayer requires a separately configured server",
+    "sixDynasties": "Six dynasties",
+    "fiveHundredCities": "500 cities",
+    "realtimeStrategy": "Real-time strategy",
+    "dynastyFactions": "Dynasty factions",
+    "realCityNames": "Cities with real place names",
+    "enterWanchao": "Enter game"
   }
 };
   const themeButton = document.querySelector('.theme-toggle');
@@ -291,6 +319,7 @@
     updateTheme();
     updateDate();
     document.querySelectorAll('[data-i18n-placeholder]').forEach(node => { node.placeholder = copy[language][node.dataset.i18nPlaceholder]; });
+    document.querySelectorAll('[data-game-link]').forEach(link => { link.setAttribute('href', `${link.dataset.gameLink}?lang=${language}`); });
     updateProjects();
   }
   updateLanguage();
