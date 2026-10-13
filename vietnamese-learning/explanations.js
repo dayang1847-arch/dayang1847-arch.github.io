@@ -1,5 +1,6 @@
 import { vocabulary } from './vocabulary.js';
 import { IPA_BY_SYLLABLE } from './ipa-data.js';
+import { languageLogic } from './language-logic.js';
 
 // 越南语的书写空格常分隔音节；这里优先按常用词组拆解，避免逐音节硬译。
 const EXTRA = `
@@ -604,14 +605,18 @@ const TONES = [
 ];
 
 function soundBreakdown(syllable) {
-  const lower = syllable.toLowerCase();
+  const normalized = syllable.normalize('NFC');
+  const lower = normalized.toLowerCase();
   if (!IPA_BY_SYLLABLE[lower]) return {
     onset: '—', rhyme: '—', tone: '外来写法', contour: '按整词听音',
     cue: '此写法没有可靠的越南语音节转写，请用整词音频学习。',
   };
-  const onset = ONSETS.find(([letters]) => lower.startsWith(letters));
+  // Remove tone marks only; vowel-shape marks (ê, ă, ư) remain meaningful.
+  const untoned = lower.normalize('NFD').replace(/[\u0301\u0300\u0309\u0303\u0323]/gu, '').normalize('NFC');
+  const onset = ONSETS.find(([letters]) => untoned.startsWith(letters));
   const onsetText = onset ? onset[0] : '';
-  const rhyme = syllable.slice(onsetText.length) || '元音';
+  const sharedI = onsetText === 'gi' && (untoned === 'gi' || untoned.startsWith('giê'));
+  const rhyme = normalized.slice(sharedI ? 1 : onsetText.length) || '元音';
   const decomposed = lower.normalize('NFD');
   const tone = TONES.find(([mark]) => decomposed.includes(mark)) || ['', 'ngang（平声）', '平稳'];
   const vowelNote = /[\u0302\u0306\u031b]/u.test(rhyme.normalize('NFD')) ? '韵母中的变音符号会改变元音音质，要和基本字母一起记。' : '';
@@ -623,7 +628,7 @@ function soundBreakdown(syllable) {
   return {
     onset: onsetText || '∅', rhyme,
     tone: tone[1], contour: tone[2],
-    cue: [initialNote, `韵母 ${rhyme}`, vowelNote, finalNote].filter(Boolean).join('；'),
+    cue: [initialNote, `韵母 ${rhyme}`, sharedI ? '这里的 i 同时参与 gi 的声母拼写和元音表示，不需要再多读一个 i。' : '', vowelNote, finalNote].filter(Boolean).join('；'),
   };
 }
 
@@ -654,7 +659,21 @@ function phraseLogic(phrase, parts) {
 
 export function explainPhrase(phrase) {
   const special = SPECIAL[phrase.vi];
-  if (special) return { parts: special.parts.map(([text, gloss]) => ({ text, gloss, sound: soundBreakdown(text) })), logic: special.logic };
-  const parts = phrase.vi.split(/\s+/).map(text => ({ text, gloss: tokenGlossary.get(text.toLowerCase()) || '结合词组理解', sound: soundBreakdown(text) }));
-  return { parts, logic: phraseLogic(phrase, parts) };
+  const syllables = phrase.vi.normalize('NFC').trim().split(/\s+/u);
+  const parts = special ? special.parts.map(([text, gloss]) => ({ text, gloss, sound: soundBreakdown(text) }))
+    : syllables.map(text => ({ text, gloss: tokenGlossary.get(text.toLowerCase()) || '结合词组理解', sound: soundBreakdown(text) }));
+  const chunks = [];
+  // Attested glossary phrases are learning chunks, not a universal word segmenter.
+  for (let index = 0; index < syllables.length;) {
+    let length = 1;
+    for (let count = Math.min(5, syllables.length - index); count > 1; count--) {
+      if (glossary.has(syllables.slice(index, index + count).join(' ').toLowerCase())) { length = count; break; }
+    }
+    const text = syllables.slice(index, index + length).join(' ');
+    chunks.push({ text, gloss: glossary.get(text.toLowerCase()) || parts[index]?.gloss || '结合语境理解', syllables: syllables.slice(index, index + length) });
+    index += length;
+  }
+  const { rules: grammar, usage } = languageLogic(phrase);
+  const logic = special?.logic || (grammar[0].id === 'context' ? phraseLogic(phrase, parts) : grammar[0].explanation);
+  return { parts, chunks, grammar, usage, logic };
 }

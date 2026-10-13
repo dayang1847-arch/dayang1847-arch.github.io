@@ -1,4 +1,5 @@
 import { COURSE_VERSION, lessons } from './course.js';
+import { explainPhrase } from './explanations.js';
 
 export const STORAGE_KEY = 'vietnamese-quest-progress-v1';
 const DAY = 86400000;
@@ -49,18 +50,21 @@ export function questionsFor(lesson) {
       options: stableShuffle(lesson.phrases.map(p => ({ id: p.id, label: p.zh })), phrase.id + '-zh'),
       answer: phrase.id,
       explanation: `${phrase.vi} = ${phrase.zh}`,
+      logic: explainPhrase(phrase).logic,
     };
   });
   const second = lesson.phrases.map((phrase, index) => {
-    const order = index % 2 === 0;
-    const words = phrase.vi.split(/\s+/).map((word, i) => ({ id: String(i), label: word }));
+    const words = explainPhrase(phrase).chunks.map((chunk, i) => ({ id: String(i), label: chunk.text }));
+    const order = index % 2 === 0 && words.length > 1;
+    const singleChunk = index % 2 === 0 && !order;
     return {
       id: `${phrase.id}-b`, phraseId: phrase.id, lessonId: lesson.id,
-      type: order ? 'order' : 'dialogue', phrase,
-      prompt: order ? `把词语排成“${phrase.zh}”` : `在这个场景，你想说“${phrase.zh}”。选哪一句？`,
-      options: order ? stableShuffle(words, phrase.id + '-order') : stableShuffle(lesson.phrases.map(p => ({ id: p.id, label: p.vi })), phrase.id + '-vi'),
+      type: order ? 'order' : singleChunk ? 'meaning' : 'dialogue', phrase,
+      prompt: order ? `把词块排成“${phrase.zh}”` : singleChunk ? `固定词块“${phrase.vi}”的整体意思是什么？` : `在这个场景，你想说“${phrase.zh}”。选哪一句？`,
+      options: order ? stableShuffle(words, phrase.id + '-order') : stableShuffle(lesson.phrases.map(p => ({ id: p.id, label: singleChunk ? p.zh : p.vi })), phrase.id + '-vi'),
       answer: order ? words.map(w => w.id).join(',') : phrase.id,
       explanation: `${phrase.vi} = ${phrase.zh}`,
+      logic: explainPhrase(phrase).logic,
     };
   });
   return [...first, ...second];

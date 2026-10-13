@@ -1,8 +1,8 @@
 const CACHE_PREFIX = `vietnamese-learning-${encodeURIComponent(self.registration.scope)}-`;
-const CACHE = `${CACHE_PREFIX}v7`;
+const CACHE = `${CACHE_PREFIX}v9`;
 const CORE = [
   './', './index.html', './styles.css', './app.js', './course.js',
-  './vocabulary.js', './explanations.js', './pronunciation.js',
+  './vocabulary.js', './language-logic.js', './assets/cover-v2.jpg', './explanations.js', './pronunciation.js',
   './ipa-data.js', './word-history.js', './spelling-rules.js',
   './engine.js', './manifest.webmanifest',
   './icons/icon-192.png', './icons/icon-512.png', './icons/apple-touch-icon.png',

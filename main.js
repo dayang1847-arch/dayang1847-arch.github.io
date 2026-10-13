@@ -96,7 +96,7 @@
     "enterVietquest": "开始学习",
     "practiceVietquest": "练习发音",
     "vietquestSummary": "通过听音、选择与句子排序学习日常越南语和照明商务沟通，按关卡逐步积累。",
-    "vietquestPreviewAlt": "越语冒险的越字应用图标",
+    "vietquestPreviewAlt": "成年男性学习者探索越南街景，沿金色星星闯关路线前进",
     "tospoVisitLabel": "访问 TOSPO（账号密码登录，在新窗口打开）"
   },
   "en": {
@@ -194,7 +194,7 @@
     "enterVietquest": "Start learning",
     "practiceVietquest": "Pronunciation",
     "vietquestSummary": "Learn daily Vietnamese and lighting business communication through listening, choices and sentence ordering.",
-    "vietquestPreviewAlt": "VietQuest application icon with the Chinese character for Vietnamese",
+    "vietquestPreviewAlt": "An adult male learner explores Vietnam along a golden trail of level stars",
     "tospoVisitLabel": "Visit TOSPO (account and password required, opens in a new tab)"
   }
 };
