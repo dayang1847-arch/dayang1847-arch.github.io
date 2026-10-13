@@ -3,11 +3,11 @@
 本作品集提供两个项目入口：
 
 - [LumiPilot 照明研发决策工作台](./LumiPilot/)：公开浏览照明研发、工程知识与已保存分析。
-- [TOSPO Outdoor Lighting · 户外照明展示](https://tospo-outdoor-lighting.dayang0509.chatgpt.site/)：公司介绍、户外产品与工程案例；需使用已授权邮箱登录访问。
+- [TOSPO Outdoor Lighting · 户外照明展示](https://dayang1847-arch.github.io/TP-outdoor-lighting/)：公司介绍、户外产品与工程案例；需使用网站账号和密码登录访问。
 
 作品集使用 GitHub Pages 静态托管。LumiPilot 公开页保留已有资料与结果，支持浏览和检索；资料更新通过重新发布快照完成。完整服务的登录、编辑、上传和外部来源刷新需要后端。
 
-TOSPO 在作品集中展示项目简介和网站链接，访问权限由独立网站验证。产品资料由受限网站提供。
+TOSPO 在作品集中展示项目简介和登录入口。点击 TOSPO 项目后会前往独立网站，用网站账号和密码登录；产品资料在登录后查看。
 
 发布内容不包含运行数据库、上传原件或账号与接口凭据。
 
