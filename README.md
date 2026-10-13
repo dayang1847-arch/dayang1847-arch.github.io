@@ -19,10 +19,14 @@ TOSPO 在作品集中展示项目简介和登录入口。点击 TOSPO 项目后�
 
 网站名称与浏览器标题统一为 DC Web，首页以项目作品为主。Dayang.Cao 的身份和英文个人介绍放在页面最底部的“About Dayang”内，点击展开；获奖记录置于其“A few milestones”折叠详情内，默认收起。个人介绍在中文和英文界面中都保持英文。作品入口及发布统计来自现有项目和 LumiPilot 数据快照。
 
-- `index.html`：首页结构；`styles.css`：首页样式；`main.js`：中英文字典、主题与语言切换、发布数据统计。
+- `index.html`：项目卡片与页面结构；`styles.css`：响应式网格和首页样式；`main.js`：中英文字典、分类搜索、主题与语言切换、按需加载的发布统计。
+- 卡片在电脑端显示三列、平板端两列、手机端一列。分类、关键词搜索和数量由现有卡片自动计算；项目详情默认收起。手机端使用小缩略图、标题、访问状态与操作按钮；搜索通过按钮展开，详细介绍与访问说明在详情内。
+- 增加项目时沿用 `.project-card`，填写唯一 ID、`data-category` 和 `data-keywords`，在两套字典中补齐内容与图片说明。增加分类时同步添加 `data-filter` 按钮。
+- `assets/lumipilot-preview.webp` 来自实际工作台截图；`assets/lumina-preview.webp` 来自已发布项目预览。TOSPO 使用品牌与内容主题排版。
+- `assets/icons/search.svg` 来自项目已有 Lucide 库，ISC 许可保存在 `assets/icons/lucide-LICENSE`。
 - `assets/icons/sun.svg`、`moon.svg`：官方 Phosphor Light 图标；MIT 许可在 `assets/icons/LICENSE`。
 - 本地预览：`python3 -m http.server 4173 --bind 127.0.0.1`，打开 http://localhost:4173/ 。
-- 只更新首页时，上传 `homepage-update.zip` 内的文件，保持 `assets/icons` 目录结构。现有 LumiPilot 和 TOSPO 目录由原仓库保留。ZIP 本身不会被 GitHub Pages 自动解压。
+- 只更新首页时发布 `index.html`、`styles.css`、`main.js` 和新增的 `assets` 文件，保持目录结构。现有 LumiPilot、TP-outdoor-lighting、LUMINA 和 vietnamese-learning 项目目录由原仓库保留。
 - `.preview/live-backup` 保留此前本地首页；`.preview/current-live` 是本次修改采用的发布源码快照。预览文件不提交到仓库。
 
 ## LUMINA 发布
