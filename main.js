@@ -53,11 +53,10 @@
     "materialsLinkDetails": "已保存行情、粒子关系与工艺知识",
     "scopeDescription": "本作品集提供两个项目入口。LumiPilot 沿用现有工作台界面，发布当前已保存资料的只读版本；页面保留概念模型、历史记录与待核验资料的标记，发布时点不改变原始价格和法规来源日期。实时采集、上传、业务保存和账号审批需要完整后端服务。TOSPO 户外照明展示由独立网站提供，需使用已授权邮箱登录。请在具体项目内核对来源、适用范围及工程验证状态。",
     "footerGuide": "LumiPilot 使用说明 ↗",
-    "title": "Dayang.Cao · 个人网站",
-    "home": "Dayang.Cao 个人网站首页",
-    "profileToggle": "查看 Dayang.Cao 的个人介绍",
+    "title": "DC Web",
+    "home": "DC Web 首页",
     "navigation": "主导航",
-    "aboutNav": "个人介绍",
+    "aboutNav": "关于",
     "skip": "跳到正文",
     "themeDark": "切换到深色主题",
     "themeLight": "切换到浅色主题",
@@ -115,11 +114,10 @@
     "materialsLinkDetails": "Saved market data, material relationships and processes",
     "scopeDescription": "This website provides two project links. LumiPilot is a read-only snapshot of saved records using the existing workspace interface. Concept models, historical records and items requiring verification retain their labels; publication does not change the original dates of price or regulatory sources. Live collection, uploads, editing and account approval require the full backend. TOSPO is an independent website requiring an authorized email. Review sources, applicability and engineering verification status within each project.",
     "footerGuide": "LumiPilot user guide ↗",
-    "title": "Dayang.Cao · Personal Website",
-    "home": "Dayang.Cao personal website home",
-    "profileToggle": "View Dayang.Cao’s personal introduction",
+    "title": "DC Web",
+    "home": "DC Web home",
     "navigation": "Main navigation",
-    "aboutNav": "About me",
+    "aboutNav": "About",
     "skip": "Skip to content",
     "themeDark": "Switch to dark theme",
     "themeLight": "Switch to light theme",
@@ -129,30 +127,6 @@
   const themeButton = document.querySelector('.theme-toggle');
   const languageSwitch = document.querySelector('.language-switch');
   const dateNote = document.querySelector('#publication-date');
-  const profileMenu = document.querySelector('.profile-menu');
-  const profileTrigger = document.querySelector('.profile-trigger');
-  const milestones = document.querySelector('.recognition');
-  function closeProfile(restoreFocus = false) {
-    profileMenu.open = false;
-    milestones.open = false;
-    if (restoreFocus) profileTrigger.focus();
-  }
-  document.querySelector('.profile-close').addEventListener('click',() => closeProfile(true));
-  document.addEventListener('click',event => {
-    if (profileMenu.open && !profileMenu.contains(event.target)) closeProfile();
-  });
-  document.addEventListener('keydown',event => {
-    if (event.key === 'Escape' && profileMenu.open) {
-      event.preventDefault();
-      closeProfile(true);
-    }
-  });
-  profileMenu.addEventListener('toggle',() => {
-    if (!profileMenu.open) milestones.open = false;
-  });
-  profileMenu.addEventListener('focusout',event => {
-    if (event.relatedTarget && !profileMenu.contains(event.relatedTarget)) closeProfile();
-  });
   function saved(key) { try { return localStorage.getItem(key); } catch { return null; } }
   function remember(key,value) { try { localStorage.setItem(key,value); } catch { /* Controls work without storage. */ } }
   const query = new URLSearchParams(location.search).get('lang');
