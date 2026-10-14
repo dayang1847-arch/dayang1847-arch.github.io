@@ -67,6 +67,11 @@ export class SpeechPlayer {
     const id = this.request;
     const clip = this.clips[audioKey(text)];
     let lastError;
+    // Safari on iOS 17+ otherwise treats Web Audio as ambient sound, which
+    // obeys the ringer's silent switch. Select media playback on the tap.
+    try {
+      if (this.env.navigator?.audioSession) this.env.navigator.audioSession.type = 'playback';
+    } catch { /* Experimental API: unsupported settings must not block audio. */ }
     // Unlock the fallback within the original tap even if a remote recording
     // takes several seconds to fail and transient activation then expires.
     if (recordingUrl && clip) {

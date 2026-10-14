@@ -67,3 +67,19 @@ test('真人录音延迟失败时，备用声音通道已在原始点按中开�
   await player.play('Việt Nam',{recordingUrl:'https://example.test/recording.ogg'});
   assert.ok(unlockedBeforeRecording);assert.equal(fixture.starts.length,1);
 });
+
+test('iPhone 的媒体播放通道在下载音频之前启用，避免静音开关影响',async()=>{
+  const session={type:'ambient'};let channelAtFetch;
+  const fixture=environment(async()=>{channelAtFetch=session.type;return {ok:true,arrayBuffer:async()=>new ArrayBuffer(2)};});
+  fixture.env.navigator={audioSession:session};
+  const player=new SpeechPlayer(fixture.env,{'xin chào':clip});
+  await player.play('Xin chào');
+  assert.equal(channelAtFetch,'playback');assert.equal(fixture.starts.length,1);
+});
+
+test('设备不支持设置 AudioSession 时，内置发音仍可正常播放',async()=>{
+  const fixture=environment();
+  fixture.env.navigator={audioSession:{set type(value){throw new Error('unsupported');}}};
+  const player=new SpeechPlayer(fixture.env,{'xin chào':clip});
+  await player.play('Xin chào');assert.equal(fixture.starts.length,1);
+});

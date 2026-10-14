@@ -2,7 +2,7 @@ import { units, lessons, phrases } from './course.js';
 import { vocabulary, vocabularyGroups } from './vocabulary.js';
 import { explainPhrase } from './explanations.js';
 import { learningPrinciples } from './language-logic.js';
-import { SpeechPlayer, playbackMessage, AUDIO_SOURCE } from './speech.js?v=11';
+import { SpeechPlayer, playbackMessage, AUDIO_SOURCE } from './speech.js?v=12';
 import { ipaSource, toneRecords } from './pronunciation.js';
 import { IPA_BY_SYLLABLE } from './ipa-data.js';
 import { getWordHistory } from './word-history.js';
@@ -110,7 +110,7 @@ function pronunciationCatalogView() {
     <div class="catalog-controls"><label>搜索越南语或中文<input id="pronunciation-search" type="search" value="${esc(pronunciationSearch)}" placeholder="搜索全部${isCourse ? '词句' : '词汇'}…" autocomplete="off"></label>${isCourse ? `<label>单元<select id="pronunciation-unit">${units.map(item => `<option value="${item.id}" ${item.id === unit.id ? 'selected' : ''}>${esc(item.title)}</option>`).join('')}</select></label><label>课时<select id="pronunciation-lesson">${unit.lessons.map(item => `<option value="${item.id}" ${item.id === lesson.id ? 'selected' : ''}>${esc(item.title)}</option>`).join('')}</select></label>` : `<label>词汇分类<select id="pronunciation-group">${vocabularyGroups.map(item => `<option value="${item.id}" ${item.id === group.id ? 'selected' : ''}>${esc(item.name)}</option>`).join('')}</select></label>`}</div>
     <p class="catalog-count" role="status">${scope}${search ? ' · 搜索结果' : ''}</p>
     <div class="catalog-list">${visible.length ? visible.map(item => pronunciationRecordView(item, isCourse)).join('') : '<p class="empty">没有找到匹配的词句。试试另一种写法或中文关键词。</p>'}</div>
-    <p class="audio-note">课程、日常词汇及拆解音节均提供内置合成音频，无需安装越南语声音；首次联网缓存后可离线播放。真人录音按每条来源与许可优先使用。</p></section>`;
+    <p class="audio-note">课程、日常词汇及拆解音节均提供内置合成音频，无需安装越南语声音；首次联网缓存后可离线播放。真人录音按每条来源与许可优先使用。</p><p class="audio-note">iPhone 建议用 Safari 打开并调高媒体音量；旧版 iOS 若仍无声，请关闭静音模式。</p></section>`;
 }
 
 function pronunciationRecordView(item, isCourse) {

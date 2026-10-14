@@ -12,7 +12,7 @@
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
   <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
-  <link rel="stylesheet" href="styles.css?v=11">
+  <link rel="stylesheet" href="styles.css?v=12">
 </head>
 <body>
   <div class="shell">
@@ -38,7 +38,7 @@
     </main>
   </div>
   <div id="announcer" class="sr-only" role="status" aria-live="polite"></div>
-  <script type="module" src="app.js?v=11"></script>
+  <script type="module" src="app.js?v=12"></script>
   <script>
     if (!window.AndroidVoice && 'serviceWorker' in navigator) window.addEventListener('load', () => {
       navigator.serviceWorker.register('./service-worker.js').catch(() => {});
