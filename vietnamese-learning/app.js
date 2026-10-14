@@ -2,7 +2,7 @@ import { units, lessons, phrases } from './course.js';
 import { vocabulary, vocabularyGroups } from './vocabulary.js';
 import { explainPhrase } from './explanations.js';
 import { learningPrinciples } from './language-logic.js';
-import { SpeechPlayer, playbackMessage, AUDIO_SOURCE } from './speech.js';
+import { SpeechPlayer, playbackMessage, AUDIO_SOURCE } from './speech.js?v=11';
 import { ipaSource, toneRecords } from './pronunciation.js';
 import { IPA_BY_SYLLABLE } from './ipa-data.js';
 import { getWordHistory } from './word-history.js';

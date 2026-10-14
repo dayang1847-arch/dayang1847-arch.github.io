@@ -1,8 +1,8 @@
 const CACHE_PREFIX = `vietnamese-learning-${encodeURIComponent(self.registration.scope)}-`;
-const CACHE = `${CACHE_PREFIX}v10`;
+const CACHE = `${CACHE_PREFIX}v11`;
 const CORE = [
-  './', './index.html', './styles.css?v=10', './app.js?v=10', './course.js',
-  './speech.js', './audio-data.js', './audio/manifest.json', './audio/SOURCES.md',
+  './', './index.html', './styles.css?v=11', './app.js?v=11', './course.js',
+  './speech.js?v=11', './audio-data.js', './audio/manifest.json', './audio/SOURCES.md',
   './vocabulary.js', './language-logic.js', './assets/cover-v2.jpg', './explanations.js', './pronunciation.js',
   './ipa-data.js', './word-history.js', './spelling-rules.js',
   './engine.js', './manifest.webmanifest',

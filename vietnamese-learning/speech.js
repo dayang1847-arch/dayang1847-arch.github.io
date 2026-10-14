@@ -67,6 +67,14 @@ export class SpeechPlayer {
     const id = this.request;
     const clip = this.clips[audioKey(text)];
     let lastError;
+    // Unlock the fallback within the original tap even if a remote recording
+    // takes several seconds to fail and transient activation then expires.
+    if (recordingUrl && clip) {
+      const Context = this.env.AudioContext || this.env.webkitAudioContext;
+      if (Context) {
+        try { if (!this.context) this.context = new Context(); if (this.context.state !== 'running') this.context.resume()?.catch(() => {}); } catch {}
+      }
+    }
     if (recordingUrl) {
       try { await this.playMedia(recordingUrl, null, id, onStart, onEnd); return; }
       catch (error) { this.current(id); lastError = error; }

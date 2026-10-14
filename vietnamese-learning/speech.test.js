@@ -58,3 +58,12 @@ test('文本规范化保留越南语声调；确实无发音时准确报告',asy
   const fixture=environment();const player=new SpeechPlayer(fixture.env,{});assert.equal(player.available('不存在'),false);
   await assert.rejects(player.play('不存在'),error=>error.kind==='unavailable');
 });
+
+
+test('真人录音延迟失败时，备用声音通道已在原始点按中开启',async()=>{
+  const fixture=environment();let unlockedBeforeRecording=false;
+  const player=new SpeechPlayer(fixture.env,{'việt nam':clip});
+  fixture.env.Audio=class{play(){unlockedBeforeRecording=player.context?.state==='running';return Promise.reject(new Error('late network error'));}pause(){}};
+  await player.play('Việt Nam',{recordingUrl:'https://example.test/recording.ogg'});
+  assert.ok(unlockedBeforeRecording);assert.equal(fixture.starts.length,1);
+});
