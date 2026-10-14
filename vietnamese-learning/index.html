@@ -12,7 +12,7 @@
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
   <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=10">
 </head>
 <body>
   <div class="shell">
@@ -32,12 +32,13 @@
     </aside>
     <main class="main">
       <header class="topbar"><span class="topbar-label">越南语 · 日常与照明商务</span><span id="top-xp" class="xp-pill">✦ 0 XP</span></header>
+      <div id="audio-status" class="audio-status" role="status" aria-live="polite" hidden></div>
       <div id="storage-warning" class="storage-warning" role="status" hidden>当前浏览器无法保存进度。本次学习仍可继续，关闭页面后记录可能丢失。</div>
       <div id="app" class="content"></div>
     </main>
   </div>
   <div id="announcer" class="sr-only" role="status" aria-live="polite"></div>
-  <script type="module" src="app.js"></script>
+  <script type="module" src="app.js?v=10"></script>
   <script>
     if (!window.AndroidVoice && 'serviceWorker' in navigator) window.addEventListener('load', () => {
       navigator.serviceWorker.register('./service-worker.js').catch(() => {});

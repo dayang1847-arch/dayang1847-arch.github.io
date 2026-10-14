@@ -2,6 +2,7 @@ import { units, lessons, phrases } from './course.js';
 import { vocabulary, vocabularyGroups } from './vocabulary.js';
 import { explainPhrase } from './explanations.js';
 import { learningPrinciples } from './language-logic.js';
+import { SpeechPlayer, playbackMessage, AUDIO_SOURCE } from './speech.js';
 import { ipaSource, toneRecords } from './pronunciation.js';
 import { IPA_BY_SYLLABLE } from './ipa-data.js';
 import { getWordHistory } from './word-history.js';
@@ -15,7 +16,7 @@ let progress = loadProgress();
 let page = 'home';
 let session = null;
 let result = null;
-let activeAudio = null;
+const speechPlayer = new SpeechPlayer(window);
 let audioMessage = '';
 let audioRequestId = 0;
 let vocabCategory = 'all';
@@ -39,20 +40,16 @@ const findLesson = id => lessons.find(lesson => lesson.id === id);
 const findUnit = id => units.find(unit => unit.id === id);
 const currentLesson = () => lessons.find(lesson => unlocked(progress, lesson.id) && !progress.clears[lesson.id]?.passed) || lessons.at(-1);
 const due = () => dueReviews(progress).filter(id => questionMap.has(id));
-const voice = () => {
-  const browserVoice = 'speechSynthesis' in window ? speechSynthesis.getVoices().find(item => item.lang.toLowerCase().startsWith('vi')) : null;
-  return window.AndroidVoice?.isAvailable() ? { lang: 'vi-VN', android: true } : browserVoice;
-};
-const canPlay = phrase => Boolean(phrase.audio?.url || voice());
+const canPlayText = text => speechPlayer.available(text);
+const canPlay = phrase => speechPlayer.available(phrase.vi, phrase.audio?.url);
 const ipaFor = syllable => IPA_BY_SYLLABLE[syllable.toLocaleLowerCase('vi')] || '';
 
 function announce(message) { announcer.textContent = ''; requestAnimationFrame(() => { announcer.textContent = message; }); }
 function persist() { if (!saveProgress(progress)) document.querySelector('#storage-warning').hidden = false; }
 function stopAudio() {
   audioRequestId++;
-  if (activeAudio) { activeAudio.pause(); activeAudio = null; }
-  if ('speechSynthesis' in window) speechSynthesis.cancel();
-  window.AndroidVoice?.stop();
+  speechPlayer.stop();
+  setAudioStatus('');
 }
 function setPage(next) {
   stopAudio();
@@ -89,10 +86,10 @@ function pronunciationView() {
     : session.complete ? `<section class="tone-practice card"><div><span class="eyebrow">PRACTICE COMPLETE</span><h2>本轮完成</h2><p>你答对 ${session.score} / ${session.questions.length} 题。可以再听一轮，逐渐熟悉声调轮廓。</p><button class="button button-accent" data-action="start-pronunciation">再练一轮 →</button></div><div class="practice-mark" aria-hidden="true">${session.score}/${session.questions.length}</div></section>`
     : `<section class="tone-practice card"><div class="practice-status"><span class="eyebrow">ROUND ${session.cursor + 1} / ${session.questions.length}</span><h2>这个音节是什么声调？</h2><p>先听发音，再按声调名称作答。</p><button class="button button-dark" data-action="play-tone" data-id="${question.id}">◖)) 播放「${question.mark}」</button></div><div class="tone-choices">${toneRecords.map(tone => `<button class="tone-choice ${session.selected === tone.id && !session.checked ? 'selected' : ''} ${session.checked && tone.id === question.id ? 'right' : ''} ${session.checked && session.selected === tone.id && session.selected !== question.id ? 'wrong' : ''}" data-action="choose-tone" data-id="${tone.id}" ${session.checked ? 'disabled' : ''}><b>${tone.name}</b><small>${tone.zh}</small></button>`).join('')}</div>${session.checked ? `<p class="tone-feedback" role="status">${session.selected === question.id ? '答对了！' : `正确答案：${question.name}（${question.zh}）`} · ${question.contour} · ${question.ipa}</p><button class="button button-accent" data-action="next-tone">${session.cursor === session.questions.length - 1 ? '查看本轮结果' : '下一题'} →</button>` : `<button class="button button-accent" data-action="check-tone" ${session.selected ? '' : 'disabled'}>确认答案</button>`}</section>`;
   return `${pageHead('PRONUNCIATION LAB · 北部参考', '声调与发音训练', '先认识音标，再通过听辨练习建立越南语声调的感觉。')}
-    ${practice}${audioMessage ? `<p class="audio-note" role="status">${esc(audioMessage)}</p>` : !voice() ? '<p class="audio-note" role="status">此设备暂未提供越南语语音；可查看下方 IPA 和声调说明，听辨练习暂时无法播放。</p>' : ''}
-    <section class="card tone-guide"><div class="section-heading"><span class="eyebrow">SIX TONES · 六声调</span><h2>用 ma 听出声调变化</h2><p>同一组辅音和元音，只改变声调符号，词义也会改变。</p></div><div class="tone-grid">${toneRecords.map(tone => `<article class="tone-card"><div class="tone-card-top"><span class="tone-mark" lang="vi">${tone.mark}</span><div><b>${tone.name}</b><small>${tone.zh}</small></div><button class="token-sound" data-action="play-tone" data-id="${tone.id}" aria-label="播放 ${tone.mark}">◖))</button></div><p>${tone.meaning}</p><div class="tone-meta"><span>${tone.contour}</span><code>${tone.ipa}</code></div></article>`).join('')}</div><p class="audio-note">声调不只靠音高区分，声门紧缩、气声和时长也很重要。这里的 IPA 是入门用宽式参考；练习需要设备提供越南语语音。</p></section>
+    ${practice}${audioMessage ? `<p class="audio-note" role="status">${esc(audioMessage)}</p>` : !canPlayText('ma') ? '<p class="audio-note" role="status">发音音频暂不可用，可查看文字与 IPA。</p>' : ''}
+    <section class="card tone-guide"><div class="section-heading"><span class="eyebrow">SIX TONES · 六声调</span><h2>用 ma 听出声调变化</h2><p>同一组辅音和元音，只改变声调符号，词义也会改变。</p></div><div class="tone-grid">${toneRecords.map(tone => `<article class="tone-card"><div class="tone-card-top"><span class="tone-mark" lang="vi">${tone.mark}</span><div><b>${tone.name}</b><small>${tone.zh}</small></div><button class="token-sound" data-action="play-tone" data-id="${tone.id}" aria-label="播放 ${tone.mark}">◖))</button></div><p>${tone.meaning}</p><div class="tone-meta"><span>${tone.contour}</span><code>${tone.ipa}</code></div></article>`).join('')}</div><p class="audio-note">声调不只靠音高区分，声门紧缩、气声和时长也很重要。这里的 IPA 是入门用宽式参考；已提供内置合成音频，六个声调分别独立生成。</p></section>
     ${pronunciationCatalogView()}
-    <section class="card ipa-phrase"><div class="section-heading"><span class="eyebrow">SOUND SOURCE · 发音依据</span><h2>如何阅读发音记录</h2></div><p>方括号内是北部越南语参考转写；上标数字标示音高走向，ˀ 标示喉部收紧。词句中的 368 个不同音节里，363 个已有转写；5 个外来写法保留文字与播放入口。</p><p class="source-note">转写由 <a href="${ipaSource.url}" target="_blank" rel="noopener noreferrer">${ipaSource.label}</a> 生成。它是单个音节的参考读法，连读、语速和说话人会影响实际声音。设备语音的具体口音也取决于设备提供的声音。</p></section>`;
+    <section class="card ipa-phrase"><div class="section-heading"><span class="eyebrow">SOUND SOURCE · 发音依据</span><h2>如何阅读发音记录</h2></div><p>方括号内是北部越南语参考转写；上标数字标示音高走向，ˀ 标示喉部收紧。词句中的 368 个不同音节里，363 个已有转写；5 个外来写法保留文字与播放入口。</p><p class="source-note">转写由 <a href="${ipaSource.url}" target="_blank" rel="noopener noreferrer">${ipaSource.label}</a> 生成。它是单个音节的参考读法，连读、语速和说话人会影响实际声音。内置音频是合成语音；具体音值仍需结合真人材料核对，不把合成声音视为母语教师的发音认证。</p></section>`;
 }
 
 function pronunciationCatalogView() {
@@ -113,13 +110,13 @@ function pronunciationCatalogView() {
     <div class="catalog-controls"><label>搜索越南语或中文<input id="pronunciation-search" type="search" value="${esc(pronunciationSearch)}" placeholder="搜索全部${isCourse ? '词句' : '词汇'}…" autocomplete="off"></label>${isCourse ? `<label>单元<select id="pronunciation-unit">${units.map(item => `<option value="${item.id}" ${item.id === unit.id ? 'selected' : ''}>${esc(item.title)}</option>`).join('')}</select></label><label>课时<select id="pronunciation-lesson">${unit.lessons.map(item => `<option value="${item.id}" ${item.id === lesson.id ? 'selected' : ''}>${esc(item.title)}</option>`).join('')}</select></label>` : `<label>词汇分类<select id="pronunciation-group">${vocabularyGroups.map(item => `<option value="${item.id}" ${item.id === group.id ? 'selected' : ''}>${esc(item.name)}</option>`).join('')}</select></label>`}</div>
     <p class="catalog-count" role="status">${scope}${search ? ' · 搜索结果' : ''}</p>
     <div class="catalog-list">${visible.length ? visible.map(item => pronunciationRecordView(item, isCourse)).join('') : '<p class="empty">没有找到匹配的词句。试试另一种写法或中文关键词。</p>'}</div>
-    <p class="audio-note">真人录音按每条来源与许可使用；其余内容通过本机越南语合成声音播放。设备没有越南语声音时仍可查看文字、IPA 和发音结构。</p></section>`;
+    <p class="audio-note">课程、日常词汇及拆解音节均提供内置合成音频，无需安装越南语声音；首次联网缓存后可离线播放。真人录音按每条来源与许可优先使用。</p></section>`;
 }
 
 function pronunciationRecordView(item, isCourse) {
   const breakdown = explainPhrase(item);
   const lesson = isCourse ? lessons.find(entry => entry.phrases.some(phrase => phrase.id === item.id)) : null;
-  return `<article class="catalog-record"><div class="catalog-record-head"><div><span class="catalog-record-context">${esc(lesson?.title || vocabularyGroups.find(group => group.words.some(word => word.id === item.id))?.name || '')}</span><h3 lang="vi">${esc(item.vi)}</h3><p>${esc(item.zh)}</p></div><button class="sound-button" data-action="play-catalog" data-id="${item.id}" ${canPlay(item) ? '' : 'disabled'} aria-label="播放整句 ${esc(item.vi)}">◖))</button></div><div class="catalog-syllables">${breakdown.parts.map(part => `<div class="catalog-syllable"><div class="catalog-syllable-top"><b lang="vi">${esc(part.text)}</b><button class="token-sound" data-action="play-token" data-text="${esc(part.text)}" ${voice() ? '' : 'disabled'} aria-label="播放音节 ${esc(part.text)}">◖))</button></div><span>${esc(part.gloss)}</span>${ipaFor(part.text) ? `<code>${esc(ipaFor(part.text))}</code>` : `<small>外来写法：按整句听音</small>`}<small>声母 ${esc(part.sound.onset)} · 韵母 ${esc(part.sound.rhyme)}</small><small>${esc(part.sound.tone)} · ${esc(part.sound.contour)}</small><button class="word-detail-link" data-action="open-word-detail" data-text="${esc(part.text)}" data-id="${item.id}">发音与词源 →</button></div>`).join('')}</div><p class="catalog-sound-source">${item.audio?.url ? '真人录音优先，无法播放时使用设备语音' : '设备越南语语音'} · 点击音节可单独听</p></article>`;
+  return `<article class="catalog-record"><div class="catalog-record-head"><div><span class="catalog-record-context">${esc(lesson?.title || vocabularyGroups.find(group => group.words.some(word => word.id === item.id))?.name || '')}</span><h3 lang="vi">${esc(item.vi)}</h3><p>${esc(item.zh)}</p></div><button class="sound-button" data-action="play-catalog" data-id="${item.id}" ${canPlay(item) ? '' : 'disabled'} aria-label="播放整句 ${esc(item.vi)}">◖))</button></div><div class="catalog-syllables">${breakdown.parts.map(part => `<div class="catalog-syllable"><div class="catalog-syllable-top"><b lang="vi">${esc(part.text)}</b><button class="token-sound" data-action="play-token" data-text="${esc(part.text)}" ${canPlayText(part.text) ? '' : 'disabled'} aria-label="播放音节 ${esc(part.text)}">◖))</button></div><span>${esc(part.gloss)}</span>${ipaFor(part.text) ? `<code>${esc(ipaFor(part.text))}</code>` : `<small>外来写法：按整句听音</small>`}<small>声母 ${esc(part.sound.onset)} · 韵母 ${esc(part.sound.rhyme)}</small><small>${esc(part.sound.tone)} · ${esc(part.sound.contour)}</small><button class="word-detail-link" data-action="open-word-detail" data-text="${esc(part.text)}" data-id="${item.id}">发音与词源 →</button></div>`).join('')}</div><p class="catalog-sound-source">${item.audio?.url ? '真人录音优先，内置合成音频备用' : '内置合成音频'} · 点击音节可单独听</p></article>`;
 }
 
 function openWordDetail(text, itemId) {
@@ -165,9 +162,9 @@ function wordDetailView() {
   const remembered = entry.memory || `把“${wordDetail.text}”的发音、${part?.sound.tone || '声调'}和“${part?.gloss || item.zh}”一起记；先听音节，再读完整词句。`;
   return `<div class="word-detail-top"><button class="back-button" data-action="close-word-detail">← 返回${wordDetail.from === 'intro' ? '本课词句' : wordDetail.from === 'pronunciation' ? '发音记录' : '上一页'}</button><span>词句 → 音节 → 词源</span></div>
     ${pageHead('WORD STORY · 词源与记忆', esc(wordDetail.text), `在“${esc(item.vi)}”中：${esc(part?.gloss || item.zh)}`)}
-    <section class="card word-story-hero"><div><span class="eyebrow">SOUND & MEANING</span><h2 lang="vi">${esc(wordDetail.text)}</h2><p>${esc(part?.gloss || item.zh)}</p><div class="word-story-tags"><span>${ipa ? esc(ipa) : '外来写法'}</span><span>${esc(part?.sound.tone || '声调待核')}</span></div></div><button class="button button-outline" data-action="play-token" data-text="${esc(wordDetail.text)}" ${voice() ? '' : 'disabled'}>◖)) 听音节</button></section>
+    <section class="card word-story-hero"><div><span class="eyebrow">SOUND & MEANING</span><h2 lang="vi">${esc(wordDetail.text)}</h2><p>${esc(part?.gloss || item.zh)}</p><div class="word-story-tags"><span>${ipa ? esc(ipa) : '外来写法'}</span><span>${esc(part?.sound.tone || '声调待核')}</span></div></div><button class="button button-outline" data-action="play-token" data-text="${esc(wordDetail.text)}" ${canPlayText(wordDetail.text) ? '' : 'disabled'}>◖)) 听音节</button></section>
     ${chunk?.syllables.length > 1 ? `<p class="word-context-note">当前音节属于词块 <b lang="vi">${esc(chunk.text)}</b>：${esc(chunk.gloss)}。先记词块整体意思，再拆音节练发音。</p>` : ''}
-    <section class="card story-card spelling-card"><span class="eyebrow">WHY IT SOUNDS THIS WAY · 拼写与读音</span><h2>为什么这样读？</h2>${spelling ? `<div class="spelling-formula"><b lang="vi">${esc(part.sound.onset)}</b><span>→</span><strong>${esc(spelling.sound)}</strong><span>+ ${esc(part.sound.rhyme)} · ${esc(part.sound.tone)}</span></div><p>${esc(spelling.why)}</p><p class="sound-rule-note">${esc(part.sound.cue)}</p><p><b>容易混淆：</b>${esc(spelling.contrast)}</p>${spelling.history ? `<p><b>拼写缘由：</b>${esc(spelling.history)}</p>` : ''}<p class="spelling-memory"><b>记忆法：</b>${esc(spelling.memory)}</p><div class="spelling-compare">${spelling.compare.map(sample => `<button class="spelling-sample" data-action="play-token" data-text="${esc(sample)}" ${voice() ? '' : 'disabled'}><span lang="vi">${esc(sample)}</span><small>◖)) 对比听</small></button>`).join('')}</div><p class="spelling-source">依据：${spelling.sources.map(ref => `<a href="${esc(ref.url)}" target="_blank" rel="noopener noreferrer">${esc(ref.title)} ↗</a>`).join(' · ')}</p>` : `<p>${esc(part?.sound.cue || '这一写法需要结合整词听音。')}</p><p class="spelling-memory">先认完整声母，再接韵母和声调；不要直接套英语字母的读法。</p>`}</section>
+    <section class="card story-card spelling-card"><span class="eyebrow">WHY IT SOUNDS THIS WAY · 拼写与读音</span><h2>为什么这样读？</h2>${spelling ? `<div class="spelling-formula"><b lang="vi">${esc(part.sound.onset)}</b><span>→</span><strong>${esc(spelling.sound)}</strong><span>+ ${esc(part.sound.rhyme)} · ${esc(part.sound.tone)}</span></div><p>${esc(spelling.why)}</p><p class="sound-rule-note">${esc(part.sound.cue)}</p><p><b>容易混淆：</b>${esc(spelling.contrast)}</p>${spelling.history ? `<p><b>拼写缘由：</b>${esc(spelling.history)}</p>` : ''}<p class="spelling-memory"><b>记忆法：</b>${esc(spelling.memory)}</p><div class="spelling-compare">${spelling.compare.map(sample => `<button class="spelling-sample" data-action="play-token" data-text="${esc(sample)}" ${canPlayText(sample) ? '' : 'disabled'}><span lang="vi">${esc(sample)}</span><small>◖)) 对比听</small></button>`).join('')}</div><p class="spelling-source">依据：${spelling.sources.map(ref => `<a href="${esc(ref.url)}" target="_blank" rel="noopener noreferrer">${esc(ref.title)} ↗</a>`).join(' · ')}</p>` : `<p>${esc(part?.sound.cue || '这一写法需要结合整词听音。')}</p><p class="spelling-memory">先认完整声母，再接韵母和声调；不要直接套英语字母的读法。</p>`}</section>
     ${entry.headword.toLocaleLowerCase('vi') !== wordDetail.text.toLocaleLowerCase('vi') ? `<p class="word-context-note">本页结合词组 <b lang="vi">${esc(entry.headword)}</b> 解释。越南语的空格分隔音节，词源需要按整个词组判断。</p>` : ''}
     <div class="word-story-grid"><section class="card story-card"><span class="eyebrow">ORIGIN CHECK</span><h2>是不是汉越词？</h2><div class="origin-badge ${entry.verified ? '' : 'pending'}">${esc(entry.kind)}</div>${entry.han ? `<p class="han-character">相关汉字：<strong>${esc(entry.han)}</strong></p>` : ''}<p>${esc(entry.origin)}</p></section>
     <section class="card story-card"><span class="eyebrow">HOW IT CHANGED</span><h2>${entry.verified ? '词义怎么演变' : '词义演变待核'}</h2><p>${esc(entry.evolution)}</p></section></div>
@@ -275,7 +272,7 @@ function recordsView() {
   return `${pageHead('YOUR PROGRESS · 慢慢积累', '学习记录', '每次闯关都留下一点进步。记录只保存在当前浏览器。')}
     <div class="records-summary"><div><span>累计经验</span><b>${progress.xp} XP</b></div><div><span>通关课时</span><b>${cleared} / 42</b></div><div><span>练习次数</span><b>${progress.attemptCount || 0}</b></div></div>
     <section class="card"><div class="section-heading"><span class="eyebrow">RECENT ACTIVITY</span><h3>最近练习</h3></div>${historyRows.length ? historyRows.map(record => `<div class="history-row"><div><strong>${esc(findLesson(record.lessonId)?.title || '课程')}</strong><small>${today(record.at)} · ${record.correct}/${record.total} 题正确${record.skipped ? ` · ${record.skipped} 题因音频不可用跳过` : ''}</small></div>${stars(record.stars)}</div>`).join('') : '<div class="empty">完成一课后，这里会出现你的学习轨迹。</div>'}</section>
-    <section class="card credits"><div class="section-heading"><span class="eyebrow">ABOUT THE AUDIO</span><h3>音频与内容说明</h3></div><p>课程以北部口音为目标。已核实的真人录音优先播放；其他词句使用设备提供的越南语合成声音。浏览器没有可用声音时，相关听力题自动跳过且不计入分数。</p><p>真人录音：<a href="https://commons.wikimedia.org/wiki/File:Vietnam.ogg" target="_blank" rel="noopener noreferrer">“Việt Nam”</a>，作者 Grenouille vert，北部口音，<a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 3.0</a>；本站未修改音频。课程内容经 AI 多轮校对；如发现译文或行业术语问题，可在 <code>course.js</code> 修订。</p></section>`;
+    <section class="card credits"><div class="section-heading"><span class="eyebrow">ABOUT THE AUDIO</span><h3>音频与内容说明</h3></div><p>课程 IPA 以北部口音为参考。已核实的真人录音优先播放；其他词句、词块和音节使用本站内置合成音频。无需手机安装越南语声音，首次缓存后可离线播放。播放失败会提示重试，未听到的题目不能确认答案。</p><p>内置合成音频：Piper / VAIS-1000 越南语模型，模型维护者 Michael Hansen，训练数据许可 CC BY 4.0。本站将合成结果分段、编码为课程音频；合成声音不等于真人录音。<a href="${AUDIO_SOURCE.modelUrl}" target="_blank" rel="noopener noreferrer">模型与来源说明 ↗</a> · <a href="./audio/SOURCES.md" target="_blank" rel="noopener noreferrer">完整音频来源与许可 ↗</a></p><p>真人录音：<a href="https://commons.wikimedia.org/wiki/File:Vietnam.ogg" target="_blank" rel="noopener noreferrer">“Việt Nam”</a>，作者 Grenouille vert，北部口音，<a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 3.0</a>；本站未修改音频。课程内容经 AI 多轮校对；如发现译文或行业术语问题，可在 <code>course.js</code> 修订。</p></section>`;
 }
 
 
@@ -286,25 +283,25 @@ function sourceView(source) {
 function phraseExplanationView(item) {
   const explanation = explainPhrase(item);
   return `<div class="explain-body">
-    <h4 class="breakdown-label">01 · 先理解词块</h4><div class="meaning-chunks">${explanation.chunks.map(chunk => `<div class="meaning-chunk"><div><b lang="vi">${esc(chunk.text)}</b><button class="token-sound" data-action="play-token" data-text="${esc(chunk.text)}" ${voice() ? '' : 'disabled'} aria-label="播放词块 ${esc(chunk.text)}">◖))</button></div><span>${esc(chunk.gloss)}</span></div>`).join('')}</div>
+    <h4 class="breakdown-label">01 · 先理解词块</h4><div class="meaning-chunks">${explanation.chunks.map(chunk => `<div class="meaning-chunk"><div><b lang="vi">${esc(chunk.text)}</b><button class="token-sound" data-action="play-token" data-text="${esc(chunk.text)}" ${canPlayText(chunk.text) ? '' : 'disabled'} aria-label="播放词块 ${esc(chunk.text)}">◖))</button></div><span>${esc(chunk.gloss)}</span></div>`).join('')}</div>
     <p class="chunk-note">词块按本课常用词和搭配划分；空格通常分隔音节，音节不一定是独立的词。</p>
     <h4 class="breakdown-label">02 · 看懂句型与语境</h4><p><b>整句逻辑</b>${esc(explanation.logic)}</p><div class="grammar-cues">${explanation.grammar.map(rule => `<div class="grammar-cue"><b>${esc(rule.title)}</b><code>${esc(rule.pattern)}</code><p>${esc(rule.contrast)}</p>${sourceView(rule.source)}</div>`).join('')}</div>
     ${explanation.usage.map(note => `<p class="usage-cue">${esc(note.text)} ${sourceView(note.source)}</p>`).join('')}
-    <details class="syllable-details" open><summary>03 · 逐音节发音与词源</summary><div class="word-breakdown">${explanation.parts.map(part => `<span class="word-piece"><span class="word-top"><b lang="vi">${esc(part.text)}</b><button class="token-sound" data-action="play-token" data-text="${esc(part.text)}" ${voice() ? '' : 'disabled'} aria-label="播放音节 ${esc(part.text)}">◖))</button></span><small>${esc(part.gloss)}</small>${ipaFor(part.text) ? `<code class="word-ipa">${esc(ipaFor(part.text))}</code>` : '<small>外来写法，按整词听音</small>'}<span class="pronunciation-logic"><span><b>音节结构</b>${esc(part.sound.onset)} + ${esc(part.sound.rhyme)}</span><span><b>声调</b>${esc(part.sound.tone)} · ${esc(part.sound.contour)}</span><small>${esc(part.sound.cue)}</small></span><button class="word-detail-link" data-action="open-word-detail" data-text="${esc(part.text)}" data-id="${item.id}">为什么这样读 · 词源 →</button></span>`).join('')}</div></details>
+    <details class="syllable-details" open><summary>03 · 逐音节发音与词源</summary><div class="word-breakdown">${explanation.parts.map(part => `<span class="word-piece"><span class="word-top"><b lang="vi">${esc(part.text)}</b><button class="token-sound" data-action="play-token" data-text="${esc(part.text)}" ${canPlayText(part.text) ? '' : 'disabled'} aria-label="播放音节 ${esc(part.text)}">◖))</button></span><small>${esc(part.gloss)}</small>${ipaFor(part.text) ? `<code class="word-ipa">${esc(ipaFor(part.text))}</code>` : '<small>外来写法，按整词听音</small>'}<span class="pronunciation-logic"><span><b>音节结构</b>${esc(part.sound.onset)} + ${esc(part.sound.rhyme)}</span><span><b>声调</b>${esc(part.sound.tone)} · ${esc(part.sound.contour)}</span><small>${esc(part.sound.cue)}</small></span><button class="word-detail-link" data-action="open-word-detail" data-text="${esc(part.text)}" data-id="${item.id}">为什么这样读 · 词源 →</button></span>`).join('')}</div></details>
     <p class="sound-rule-note">先合成声母与韵母，再带上声调。音节构词提示用于记忆；历史来源以详解页的核实记录为准。</p></div>`;
 }
 
 function logicCardView(principle) {
   const picked = logicAnswers.get(principle.id);
   const checked = picked !== undefined;
-  return `<span class="eyebrow">RULE ${String(learningPrinciples.indexOf(principle) + 1).padStart(2, '0')}</span><h2>${esc(principle.title)}</h2><p>${esc(principle.body)}</p><div class="logic-example"><b lang="vi">${esc(principle.example)}</b><button class="token-sound" data-action="play-token" data-text="${esc(principle.example)}" ${voice() ? '' : 'disabled'} aria-label="播放示例 ${esc(principle.example)}">◖))</button></div><h3>${esc(principle.prompt)}</h3><div class="logic-choices">${principle.choices.map((choice, index) => `<button class="logic-choice ${checked && index === principle.answer ? 'right' : ''} ${checked && picked === index && index !== principle.answer ? 'wrong' : ''}" data-action="choose-logic" data-id="${principle.id}" data-choice="${index}" ${checked ? 'disabled' : ''}><span>${String.fromCharCode(65 + index)}</span>${esc(choice)}</button>`).join('')}</div>${checked ? `<div class="logic-feedback ${picked === principle.answer ? 'good' : 'bad'}" role="status" tabindex="-1"><b>${picked === principle.answer ? '理解对了' : '看看差别，再记一次'}</b><p>${esc(principle.feedback)}</p></div><button class="text-button" data-action="retry-logic" data-id="${principle.id}">再练一次 ↻</button>` : ''}${sourceView(principle.source)}`;
+  return `<span class="eyebrow">RULE ${String(learningPrinciples.indexOf(principle) + 1).padStart(2, '0')}</span><h2>${esc(principle.title)}</h2><p>${esc(principle.body)}</p><div class="logic-example"><b lang="vi">${esc(principle.example)}</b><button class="token-sound" data-action="play-token" data-text="${esc(principle.example)}" ${canPlayText(principle.example) ? '' : 'disabled'} aria-label="播放示例 ${esc(principle.example)}">◖))</button></div><h3>${esc(principle.prompt)}</h3><div class="logic-choices">${principle.choices.map((choice, index) => `<button class="logic-choice ${checked && index === principle.answer ? 'right' : ''} ${checked && picked === index && index !== principle.answer ? 'wrong' : ''}" data-action="choose-logic" data-id="${principle.id}" data-choice="${index}" ${checked ? 'disabled' : ''}><span>${String.fromCharCode(65 + index)}</span>${esc(choice)}</button>`).join('')}</div>${checked ? `<div class="logic-feedback ${picked === principle.answer ? 'good' : 'bad'}" role="status" tabindex="-1"><b>${picked === principle.answer ? '理解对了' : '看看差别，再记一次'}</b><p>${esc(principle.feedback)}</p></div><button class="text-button" data-action="retry-logic" data-id="${principle.id}">再练一次 ↻</button>` : ''}${sourceView(principle.source)}`;
 }
 
 function logicView() {
   return `${pageHead('LANGUAGE LOGIC · 理解后再记忆', '越南语为什么这样说？', '从词块、词序与语境理解一句话，再用发音规则把它读出来。')}
     <section class="card logic-path"><span>词块 · 完整意思</span><i aria-hidden="true">→</i><span>句型 · 信息顺序</span><i aria-hidden="true">→</i><span>语境 · 对谁说</span><i aria-hidden="true">→</i><span>发音 · 声母韵母声调</span></section>
     <div class="logic-grid">${learningPrinciples.map(principle => `<article class="card logic-card" data-logic-card="${principle.id}">${logicCardView(principle)}</article>`).join('')}</div>
-    <p class="audio-note" role="status">${audioMessage ? esc(audioMessage) : '这些是入门观察点，具体表达请结合课程例句。点击参考链接可查看语言资料；发音由本机越南语声音提供。'}</p><button class="button button-dark" data-page="map">把规律用到闯关中 →</button>`;
+    <p class="audio-note" role="status">${audioMessage ? esc(audioMessage) : '这些是入门观察点，具体表达请结合课程例句。点击参考链接可查看语言资料；示例和音节使用内置合成音频。'}</p><button class="button button-dark" data-page="map">把规律用到闯关中 →</button>`;
 }
 
 function introView() {
@@ -440,62 +437,46 @@ function completeSession() {
   render(true);
 }
 
-function speak(text, onStart, onFailure) {
-  const chosen = voice();
-  if (!chosen) { onFailure(); return; }
-  if (chosen.android) {
-    if (window.AndroidVoice.speak(text)) onStart(); else onFailure();
-    return;
-  }
-  const utterance = new SpeechSynthesisUtterance(text);
-  utterance.voice = chosen;
-  utterance.lang = chosen.lang;
-  utterance.rate = .82;
-  utterance.onstart = onStart;
-  utterance.onerror = onFailure;
-  speechSynthesis.cancel();
-  speechSynthesis.speak(utterance);
+function setAudioStatus(message, state = '') {
+  const status = document.querySelector('#audio-status');
+  if (!status) return;
+  status.hidden = !message;
+  status.textContent = message;
+  status.dataset.state = state;
 }
 
 async function playPhrase(phrase, question = false) {
   stopAudio();
   const requestId = audioRequestId;
-  const success = () => {
-    if (requestId !== audioRequestId) return;
-    if (question && session?.questions[session.cursor]?.phraseId === phrase.id) { session.heard = true; render(); }
-    audioMessage = '';
-  };
-  const fail = () => {
-    if (requestId !== audioRequestId) return;
-    audioMessage = '这条词句暂时没有可用音频。';
-    if (question && session?.questions[session.cursor]?.phraseId === phrase.id) {
+  audioMessage = '';
+  setAudioStatus(`正在准备发音：${phrase.vi}`, 'loading');
+  try {
+    await speechPlayer.play(phrase.vi, {
+      recordingUrl: phrase.audio?.url || '',
+      onStart: () => {
+        if (requestId !== audioRequestId) return;
+        setAudioStatus(`正在播放：${phrase.vi}`, 'playing');
+        if (question && session?.questions[session.cursor]?.phraseId === phrase.id) { session.heard = true; render(); }
+      },
+      onEnd: () => { if (requestId === audioRequestId) setAudioStatus(`播放完成：${phrase.vi}`, 'complete'); },
+    });
+  } catch (error) {
+    if (requestId !== audioRequestId || error.kind === 'cancelled') return;
+    audioMessage = playbackMessage(error);
+    setAudioStatus(audioMessage, 'error');
+    // Network and permission failures remain retryable and are not scored.
+    if (question && error.kind === 'unavailable' && !canPlay(phrase) && session?.questions[session.cursor]?.phraseId === phrase.id) {
       session.results.push({ id: session.questions[session.cursor].id, skipped: true, correct: false });
       session.cursor++;
-      session.selected = '';
-      session.checked = false;
-      session.heard = false;
+      session.selected = ''; session.checked = false; session.heard = false;
       advanceUnavailable();
       if (page === 'quiz') render(true);
-    } else render();
-  };
-  if (phrase.audio?.url) {
-    const player = new Audio(phrase.audio.url);
-    activeAudio = player;
-    player.onerror = () => { if (activeAudio === player) { activeAudio = null; speak(phrase.vi, success, fail); } };
-    try { await player.play(); success(); }
-    catch { if (activeAudio === player) { activeAudio = null; speak(phrase.vi, success, fail); } }
-  } else speak(phrase.vi, success, fail);
+    }
+    announce(audioMessage);
+  }
 }
 
-function playToken(text) {
-  stopAudio();
-  const requestId = audioRequestId;
-  speak(text, () => {}, () => {
-    if (requestId !== audioRequestId) return;
-    audioMessage = '此设备没有可用的越南语发音声音。';
-    render();
-  });
-}
+function playToken(text) { return playPhrase({ vi: text }); }
 
 app.addEventListener('click', event => {
   const button = event.target.closest('button');
