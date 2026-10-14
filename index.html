@@ -7,11 +7,11 @@
 <meta content="DC Web — personal projects in lighting engineering, AI applications, Vietnamese learning and real-time strategy, including LumiPilot, TOSPO, LUMINA, VietQuest and Clash of Dynasties." name="description"/>
 <meta content="#f7f8fa" name="theme-color"/>
 <title>DC Web</title>
-<link rel="icon" href="./assets/favicon-dc.png" type="image/png"/><meta content="light dark" name="color-scheme"/><link href="./styles.css?v=12" rel="stylesheet"/><script defer="" src="./main.js?v=12"></script></head>
+<link rel="icon" href="./assets/favicon-dc.png" type="image/png"/><meta content="light dark" name="color-scheme"/><link href="./styles.css?v=13" rel="stylesheet"/><script defer="" src="./main.js?v=13"></script></head>
 <body><a class="skip-link" data-i18n="skip" href="#main">跳到正文</a>
 <header id="top">
 <a aria-label="DC Web 首页" class="identity" data-i18n-aria="home" href="#top" lang="en">DC Web</a>
-<nav aria-label="主导航" data-i18n-aria="navigation"><a data-i18n="works" href="#works">项目作品</a><a data-i18n="scope" href="#scope">阅读说明</a><a data-i18n="aboutNav" href="#about">关于</a></nav>
+<nav aria-label="主导航" data-i18n-aria="navigation"><a data-i18n="works" href="#works">项目作品</a><a data-i18n="scope" href="#scope" data-open-guide>使用说明</a><a data-i18n="aboutNav" href="#about">关于</a></nav>
 <div class="header-controls"><a class="language-switch" hidden="" href="?lang=en" hreflang="en" lang="en">EN</a><button aria-label="切换到深色主题" class="theme-toggle" hidden="" type="button"><span aria-hidden="true" class="theme-icon theme-sun"></span><span aria-hidden="true" class="theme-icon theme-moon"></span></button></div>
 </header>
 <main id="main">
@@ -97,17 +97,38 @@
   </div>
   <div class="project-empty" hidden><p class="empty-title" data-i18n="emptyTitle">没有找到匹配的项目</p><p data-i18n="emptyDescription">试试其他关键词，或查看全部项目。</p><button class="secondary reset-projects" type="button" data-i18n="resetProjects">清除筛选，查看全部</button></div>
 </section>
-<section aria-labelledby="explore-title" class="explore">
-<div class="section-heading"><h2 data-i18n="exploreTitle" id="explore-title">LumiPilot 快捷入口</h2><span data-i18n="exploreLabel">LumiPilot / 浏览入口</span></div>
-<div class="explore-links"><a href="./LumiPilot/#market"><span class="explore-number">01</span><span><strong data-i18n="marketLink">市场与公开来源 ↗</strong><small data-i18n="marketLinkDetails">竞品资料、品牌名录与采集记录</small></span></a><a href="./LumiPilot/#knowledge"><span class="explore-number">02</span><span><strong data-i18n="knowledgeLink">国家认证与知识 ↗</strong><small data-i18n="knowledgeLinkDetails">按国家、产品及要求查阅依据</small></span></a><a href="./LumiPilot/#optical"><span class="explore-number">03</span><span><strong data-i18n="opticalLink">产品与光学记录 ↗</strong><small data-i18n="opticalLinkDetails">目标规格、已保存分析与来源口径</small></span></a><a href="./LumiPilot/#materials"><span class="explore-number">04</span><span><strong data-i18n="materialsLink">材料与工程成本 ↗</strong><small data-i18n="materialsLinkDetails">已保存行情、粒子关系与工艺知识</small></span></a></div>
+<section aria-labelledby="guide-title" class="site-guide" id="scope">
+  <details class="site-guide-details" id="site-guide">
+    <summary class="site-guide-summary"><h2 id="guide-title"><span data-i18n="guideTitle">DC Web 使用说明书</span><small data-i18n="guideSubtitle">整站浏览 · 项目使用 · 访问与数据</small></h2></summary>
+    <div class="site-guide-content">
+      <section class="guide-chapter" aria-labelledby="guide-browse-title">
+        <h3 id="guide-browse-title"><span class="guide-number" aria-hidden="true">01</span><span data-i18n="guideBrowseTitle">开始浏览</span></h3>
+        <ol class="guide-steps"><li data-i18n="guideBrowseStep1">按分类选择项目，或搜索名称与关键词。手机端点击搜索图标展开输入框。</li><li data-i18n="guideBrowseStep2">点击项目按钮进入应用；展开「项目详情」查看完整介绍与访问说明。</li><li data-i18n="guideBrowseStep3">右上角可以切换中英文和深浅色主题。语言切换会保留当前筛选与关键词。</li></ol>
+      </section>
+      <section class="guide-chapter" aria-labelledby="guide-projects-title">
+        <h3 id="guide-projects-title"><span class="guide-number" aria-hidden="true">02</span><span data-i18n="guideProjectsTitle">各项目怎样使用</span></h3>
+        <div class="guide-projects">
+          <section class="guide-project"><h4>LumiPilot</h4><p data-i18n="guideLumi">查看照明研发项目、市场资料、国家认证、光学与成本记录。公开版本为只读浏览；实时采集、编辑和上传需要完整工作台。</p><a href="./LumiPilot/#help" data-i18n="guideLumiLink">查看项目内使用指南 ↗</a></section>
+          <section class="guide-project"><h4>TOSPO</h4><p data-i18n="guideTospo">浏览公司介绍、户外灯具和工程案例。进入后使用网站账号和密码登录；访问权限由独立网站验证。</p><a href="./TP-outdoor-lighting/" target="_blank" rel="noopener noreferrer" data-i18n="guideTospoLink" data-i18n-aria="tospoVisitLabel" aria-label="访问 TOSPO（账号密码登录，在新窗口打开）">前往账号登录入口 ↗</a></section>
+          <section class="guide-project"><h4>LUMINA</h4><p data-i18n="guideLumina">选择场景与灯具，调整排布和灯光，查看 IES 分析。支持产品文件导入、报告导出和方案打包；在线演示不连接实体设备。</p><a href="./LUMINA/" data-i18n="guideLuminaLink">进入在线演示 ↗</a></section>
+          <section class="guide-project"><h4 data-i18n="vietquestName">越语冒险</h4><p data-i18n="guideVietquest">按课程学习词句，通过听音、选择和句子排序闯关，再用错题复习巩固。发音训练可查阅音标与发音规则，设备提供的越南语声音可能不同。</p><a href="./vietnamese-learning/#home" data-i18n="guideVietquestLink">进入学习首页 ↗</a></section>
+          <section class="guide-project"><h4 data-i18n="wanchaoName">万朝逐鹿</h4><p data-i18n="guideWanchao">选择朝代后进入单人练兵，学习建设、征兵与攻城操作。单人模式直接在浏览器运行；与朋友联机需要另行部署并配置服务器。</p><a href="./wanchao/?lang=zh" data-game-link="./wanchao/" data-i18n="guideWanchaoLink">进入游戏与玩法指南 ↗</a></section>
+        </div>
+      </section>
+      <section class="guide-chapter guide-notes" aria-labelledby="guide-data-title">
+        <h3 id="guide-data-title"><span class="guide-number" aria-hidden="true">03</span><span data-i18n="guideDataTitle">访问与数据说明</span></h3>
+        <p data-i18n="guideLocalData">LUMINA 的方案与模拟设备记录、越语冒险的学习进度保存在当前浏览器。切换设备或清除浏览器数据后，原记录可能无法继续使用；需要保留方案时，先使用项目内提供的导出功能。</p>
+        <p data-i18n="guideEvidence">资料日期、来源和计算范围以项目内部记录为准。LumiPilot 的概念模型与待核验标记保留原义；LUMINA 的照度分析仅计算人工直接光。工程应用前，请核对输入与适用条件。</p>
+      </section>
+    </div>
+  </details>
 </section>
-<section aria-labelledby="scope-title" class="scope" id="scope"><h2 data-i18n="scope" id="scope-title">阅读说明</h2><p data-i18n="scopeDescription">本作品集汇集现有项目入口。LumiPilot 沿用现有工作台界面，发布当前已保存资料的只读版本；页面保留概念模型、历史记录与待核验资料的标记，发布时点不改变原始价格和法规来源日期。实时采集、上传、业务保存和账号审批需要完整后端服务。TOSPO 户外照明展示由独立网站提供，需使用网站账号和密码登录。请在具体项目内核对来源、适用范围及工程验证状态。万朝逐鹿可直接单人练兵；朋友联机需另行配置服务器。</p></section>
 <section aria-label="About Dayang" class="author-section" id="about" lang="en"><details class="author-details"><summary aria-controls="author-content" class="author-summary">About Dayang</summary><div class="author-content" id="author-content"><div class="author-identity"><h2 id="author-name">Dayang.Cao</h2><p class="author-role">Algorithm Engineer</p></div><div class="author-biography"><p class="intro-copy">I’m an Algorithm Engineer. This portfolio brings together my projects in lighting engineering and AI applications, including LumiPilot and Tospo Outdoor Lighting web</p><div class="author-notes"><p>My projects connect domain knowledge, structured information and practical interfaces. They focus on lighting R&amp;D, engineering decision support and product presentation.</p><p>I use this website to share selected work and the thinking behind it.</p><details class="recognition"><summary>A few milestones</summary><ol class="award-list">
 <li><time datetime="2024">2024</time><div><span class="award-prize">National Gold Award</span><h4>China International College Students’ Innovation Competition</h4></div></li>
 <li><time datetime="2023">2023</time><div><span class="award-prize">First Prize</span><h4>Zhejiang Province E-commerce Competition</h4></div></li>
 <li><time datetime="2022">2022</time><div><span class="award-prize">First Prize</span><h4>Zhejiang Province Quantitative Investment Competition</h4></div></li>
 <li><time datetime="2022">2022</time><div><span class="award-prize">First Prize</span><h4>Zhejiang Province Computer Design Competition</h4></div></li>
 </ol></details></div></div></div></details></section></main>
-<footer><span>© 2026 DC Web</span><a data-i18n="footerGuide" href="./LumiPilot/#help">LumiPilot 使用说明 ↗</a></footer>
+<footer><span>© 2026 DC Web</span><a data-i18n="footerGuide" href="#scope" data-open-guide>整站使用说明</a></footer>
 </body>
 </html>

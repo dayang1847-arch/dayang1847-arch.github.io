@@ -3,7 +3,7 @@
   const copy = {
   "zh": {
     "works": "项目作品",
-    "scope": "阅读说明",
+    "scope": "使用说明",
     "publicStatus": "可在线浏览",
     "lumiTitle": "照明研发与采购决策工作台",
     "lumiDescription": "以照明 OEM/ODM 产品为主线，将市场资料、国家认证、光学验证、电子 BOM 与制造成本连接在同一工作空间，帮助团队核对方案输入、资料依据和待确认事项。",
@@ -26,18 +26,7 @@
     "enterTospo": "访问 TOSPO",
     "tospoAccess": "账号密码登录 · 在新窗口打开",
     "tospoDecisionDescription": "通过公司、产品和工程案例了解户外照明展示。 进入网站后，使用账号和密码登录查看展示内容。",
-    "exploreTitle": "LumiPilot 快捷入口",
-    "exploreLabel": "深入查看 / 业务主题",
-    "marketLink": "市场与公开来源 ↗",
-    "marketLinkDetails": "竞品资料、品牌名录与采集记录",
-    "knowledgeLink": "国家认证与知识 ↗",
-    "knowledgeLinkDetails": "按国家、产品及要求查阅依据",
-    "opticalLink": "产品与光学记录 ↗",
-    "opticalLinkDetails": "目标规格、已保存分析与来源口径",
-    "materialsLink": "材料与工程成本 ↗",
-    "materialsLinkDetails": "已保存行情、粒子关系与工艺知识",
-    "scopeDescription": "本作品集汇集现有项目入口。LumiPilot 沿用现有工作台界面，发布当前已保存资料的只读版本；页面保留概念模型、历史记录与待核验资料的标记，发布时点不改变原始价格和法规来源日期。实时采集、上传、业务保存和账号审批需要完整后端服务。TOSPO 户外照明展示由独立网站提供，需使用网站账号和密码登录。请在具体项目内核对来源、适用范围及工程验证状态。 LUMINA 在线版使用内置演示样品，方案与模拟设备记录保存在访问者的浏览器；未连接实体设备。仅供交互演示，支持产品文件导入、报告导出和方案打包，不提供应用安装包或完整源码包。照度分析仅计算人工直接光。 越语冒险为个人学习项目，进度保存在当前浏览器；发音取决于设备提供的越南语声音，词源结论只覆盖已核实的义项。 万朝逐鹿可直接在浏览器中单人练兵；GitHub Pages 仅提供静态页面，朋友联机需要另行部署并配置服务器。",
-    "footerGuide": "LumiPilot 使用说明 ↗",
+    "footerGuide": "整站使用说明",
     "title": "DC Web",
     "home": "DC Web 首页",
     "navigation": "主导航",
@@ -111,11 +100,31 @@
     "realtimeStrategy": "实时战略",
     "dynastyFactions": "朝代阵营",
     "realCityNames": "真实地名城池",
-    "enterWanchao": "进入游戏"
+    "enterWanchao": "进入游戏",
+    "guideTitle": "DC Web 使用说明书",
+    "guideSubtitle": "整站浏览 · 项目使用 · 访问与数据",
+    "guideBrowseTitle": "开始浏览",
+    "guideBrowseStep1": "按分类选择项目，或搜索名称与关键词。手机端点击搜索图标展开输入框。",
+    "guideBrowseStep2": "点击项目按钮进入应用；展开「项目详情」查看完整介绍与访问说明。",
+    "guideBrowseStep3": "右上角可以切换中英文和深浅色主题。语言切换会保留当前筛选与关键词。",
+    "guideProjectsTitle": "各项目怎样使用",
+    "guideLumi": "查看照明研发项目、市场资料、国家认证、光学与成本记录。公开版本为只读浏览；实时采集、编辑和上传需要完整工作台。",
+    "guideLumiLink": "查看项目内使用指南 ↗",
+    "guideTospo": "浏览公司介绍、户外灯具和工程案例。进入后使用网站账号和密码登录；访问权限由独立网站验证。",
+    "guideTospoLink": "前往账号登录入口 ↗",
+    "guideLumina": "选择场景与灯具，调整排布和灯光，查看 IES 分析。支持产品文件导入、报告导出和方案打包；在线演示不连接实体设备。",
+    "guideLuminaLink": "进入在线演示 ↗",
+    "guideVietquest": "按课程学习词句，通过听音、选择和句子排序闯关，再用错题复习巩固。发音训练可查阅音标与发音规则，设备提供的越南语声音可能不同。",
+    "guideVietquestLink": "进入学习首页 ↗",
+    "guideWanchao": "选择朝代后进入单人练兵，学习建设、征兵与攻城操作。单人模式直接在浏览器运行；与朋友联机需要另行部署并配置服务器。",
+    "guideWanchaoLink": "进入游戏与玩法指南 ↗",
+    "guideDataTitle": "访问与数据说明",
+    "guideLocalData": "LUMINA 的方案与模拟设备记录、越语冒险的学习进度保存在当前浏览器。切换设备或清除浏览器数据后，原记录可能无法继续使用；需要保留方案时，先使用项目内提供的导出功能。",
+    "guideEvidence": "资料日期、来源和计算范围以项目内部记录为准。LumiPilot 的概念模型与待核验标记保留原义；LUMINA 的照度分析仅计算人工直接光。工程应用前，请核对输入与适用条件。"
   },
   "en": {
     "works": "Selected work",
-    "scope": "Reading notes",
+    "scope": "User guide",
     "publicStatus": "Public preview",
     "lumiTitle": "Lighting R&D and procurement decision workspace",
     "lumiDescription": "A workspace connecting market research, certification requirements, optical analysis, electronic BOMs and manufacturing costs for lighting OEM/ODM products. It helps teams review inputs, supporting evidence and unresolved questions.",
@@ -138,18 +147,7 @@
     "enterTospo": "Visit TOSPO",
     "tospoAccess": "Account and password required · Opens in a new tab",
     "tospoDecisionDescription": "Explore outdoor lighting through company information, products and project references. Sign in with your website account and password to view the showcase.",
-    "exploreTitle": "LumiPilot shortcuts",
-    "exploreLabel": "Explore further / Topics",
-    "marketLink": "Markets & public sources ↗",
-    "marketLinkDetails": "Competitive research, brands and source records",
-    "knowledgeLink": "Certification & knowledge ↗",
-    "knowledgeLinkDetails": "Browse evidence by country, product and requirement",
-    "opticalLink": "Products & optical records ↗",
-    "opticalLinkDetails": "Specifications, saved analyses and source definitions",
-    "materialsLink": "Materials & engineering costs ↗",
-    "materialsLinkDetails": "Saved market data, material relationships and processes",
-    "scopeDescription": "This website brings together the available project links. LumiPilot is a read-only snapshot of saved records using the existing workspace interface. Concept models, historical records and items requiring verification retain their labels; publication does not change the original dates of price or regulatory sources. Live collection, uploads, editing and account approval require the full backend. TOSPO is an independent website requiring a website account and password. Review sources, applicability and engineering verification status within each project. LUMINA uses built-in demonstration samples and saves layouts and simulated device records in the visitor’s browser. It does not connect to physical devices. This interactive demonstration supports product file imports, report exports and scheme bundles. It provides no app installation or complete source packages. Illuminance analysis covers direct artificial light only. VietQuest is a personal learning project. Progress stays in the current browser, pronunciation depends on available Vietnamese voices, and etymology conclusions cover only source-checked senses. Clash of Dynasties provides single-player practice directly in the browser. GitHub Pages hosts static files only; multiplayer requires a separately deployed and configured server.",
-    "footerGuide": "LumiPilot user guide ↗",
+    "footerGuide": "Website user guide",
     "title": "DC Web",
     "home": "DC Web home",
     "navigation": "Main navigation",
@@ -223,9 +221,38 @@
     "realtimeStrategy": "Real-time strategy",
     "dynastyFactions": "Dynasty factions",
     "realCityNames": "Cities with real place names",
-    "enterWanchao": "Enter game"
+    "enterWanchao": "Enter game",
+    "guideTitle": "DC Web User Guide",
+    "guideSubtitle": "Browse the site · Use the projects · Access & data",
+    "guideBrowseTitle": "Getting started",
+    "guideBrowseStep1": "Choose a category or search project names and keywords. On mobile, tap the search icon to open the input.",
+    "guideBrowseStep2": "Use a project button to open the app. Expand Project details for its full description and access notes.",
+    "guideBrowseStep3": "Switch the language or light/dark theme at the top right. Your current category and search stay in place when the language changes.",
+    "guideProjectsTitle": "Using each project",
+    "guideLumi": "Browse lighting R&D projects, market research, certification, optical analysis and cost records. The public version is read-only; live collection, editing and uploads require the full workspace.",
+    "guideLumiLink": "Read the in-app user guide ↗",
+    "guideTospo": "Explore company information, outdoor luminaires and project references. Sign in with a website account and password; access is verified by the separate website.",
+    "guideTospoLink": "Open the account sign-in page ↗",
+    "guideLumina": "Choose a scene and luminaires, adjust layouts and lighting, and inspect IES analysis. Import product files, export reports and bundle schemes. The online demo does not connect to physical devices.",
+    "guideLuminaLink": "Open the online demo ↗",
+    "guideVietquest": "Learn words and phrases, then complete listening, choice and sentence-ordering lessons. Review mistakes and explore phonetic notation and pronunciation rules. Available Vietnamese voices depend on your device.",
+    "guideVietquestLink": "Open the learning home ↗",
+    "guideWanchao": "Choose a dynasty and enter single-player practice to learn building, recruiting and siege commands. Practice runs in your browser; playing with friends requires a separately deployed and configured server.",
+    "guideWanchaoLink": "Open the game and its play guide ↗",
+    "guideDataTitle": "Access and data",
+    "guideLocalData": "LUMINA schemes and simulated device records, and VietQuest learning progress, stay in the current browser. They may not follow you to another device or survive clearing browser data. Use the project’s export features first when you need to keep a scheme.",
+    "guideEvidence": "Check source dates, references and calculation scope within each project. LumiPilot retains concept-model and verification labels. LUMINA illuminance analysis covers direct artificial light only. Verify inputs and applicability before engineering use."
   }
 };
+  const siteGuide = document.querySelector('#site-guide');
+  document.querySelectorAll('[data-open-guide]').forEach(link => link.addEventListener('click', event => {
+    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    siteGuide.open = true;
+    siteGuide.querySelector('summary').focus({preventScroll:true});
+  }));
+  function openLinkedGuide() { if (location.hash === '#scope') siteGuide.open = true; }
+  openLinkedGuide();
+  window.addEventListener('hashchange', openLinkedGuide);
   const themeButton = document.querySelector('.theme-toggle');
   const languageSwitch = document.querySelector('.language-switch');
   const dateNote = document.querySelector('#publication-date');
