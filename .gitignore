@@ -1,0 +1,12 @@
+.DS_Store
+.env
+.env.*
+node_modules/
+.preview/
+*.zip
+
+# Protected workspace payloads are deployed only through Sites.
+LumiPilot/*
+!LumiPilot/index.html
+market-console/*
+!market-console/index.html

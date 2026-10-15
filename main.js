@@ -26,7 +26,7 @@
     "engineeringCosts": "工程核价",
     "enterLumi": "进入 LumiPilot",
     "manual": "使用说明",
-    "lumiAccess": "无需安装或登录 · 公开资料与已保存分析",
+    "lumiAccess": "账号密码登录 · 浏览已保存资料与分析",
     "projectCount": "已保存研发项目",
     "marketCount": "市场资料记录",
     "brandCount": "品牌与企业条目",
@@ -76,12 +76,12 @@
     "marketRecommendTag": "AI 推品分析",
     "marketExplore": "了解功能与使用方式",
     "marketEnter": "进入在线演示",
-    "marketAccess": "样例采集 · 真实规格计算 · CSV / Markdown 导出",
+    "marketAccess": "账号密码登录 · 样例采集与浏览器内分析",
     "marketCrawlDescription": "商品爬虫：采集 Amazon、Shopee 与品牌官网商品，支持暂停与恢复，按品牌、市场和品类归档，并导出 Excel / Markdown 报告。",
     "marketAnalysisDescription": "推品分析：以客户产品为基线，对比目标市场同品类友商的规格与资料覆盖；结合产品逻辑选择，通过 DeepSeek 整理推品依据、核心规格、电路概念与外观提示词。",
     "marketRuntime": "以上为完整工作台功能。在线演示可操作样例采集、导入 CSV 并在浏览器内计算规格、对比同市场商品、完成问卷生成规则建议，以及导出 CSV / Markdown；不执行实时采集或调用 DeepSeek。",
-    "guideMarket": "进入在线演示，选择市场和品类运行样例采集，可暂停、继续并查看日志；也可导入自己的 CSV，在当前浏览器计算规格、筛选和对比商品。完成产品逻辑问卷后生成规则建议与外观提示词，并导出 CSV / Markdown。演示不执行实时采集或调用 DeepSeek；这些能力需要本机或服务器上的完整工作台。",
-    "guideMarketLink": "进入在线演示与操作台 ↗",
+    "guideMarket": "使用账号和密码登录，选择市场和品类运行样例采集，可暂停、继续并查看日志；也可导入 CSV，在当前浏览器计算规格、筛选和对比商品，完成问卷后生成规则建议并导出 CSV / Markdown。演示不执行实时采集或调用 DeepSeek。访问域名已调整，原域名保存的导入记录不会自动迁移，可先导出后再导入。",
+    "guideMarketLink": "登录照明市场工作台 ↗",
     "filterShowcase": "产品展示",
     "filterSimulation": "场景仿真",
     "searchLabel": "搜索项目",
@@ -138,8 +138,8 @@
     "guideBrowseStep2": "点击项目按钮进入应用；展开「项目详情」查看完整介绍与访问说明。",
     "guideBrowseStep3": "右上角可以切换中英文和深浅色主题。语言切换会保留当前筛选与关键词。",
     "guideProjectsTitle": "各项目怎样使用",
-    "guideLumi": "查看照明研发项目、市场资料、国家认证、光学与成本记录。公开版本为只读浏览；实时采集、编辑和上传需要完整工作台。",
-    "guideLumiLink": "查看项目内使用指南 ↗",
+    "guideLumi": "使用账号和密码登录后，查看照明研发项目、市场资料、国家认证、光学与成本记录。当前版本保留只读浏览；实时采集、编辑和上传需要完整工作台。",
+    "guideLumiLink": "登录后查看工作台使用指南 ↗",
     "guideTospo": "浏览公司介绍、户外灯具和工程案例。从项目入口打开账号登录页，登录页在新标签页打开；可回到项目入口返回作品集。",
     "guideTospoLink": "前往账号登录入口 ↗",
     "guideLumina": "选择场景与灯具，调整排布和灯光，查看 IES 分析。支持产品文件导入、报告导出和方案打包；在线演示不连接实体设备。",
@@ -150,7 +150,8 @@
     "guideWanchaoLink": "进入游戏与玩法指南 ↗",
     "guideDataTitle": "访问与数据说明",
     "guideLocalData": "LUMINA 的方案与模拟设备记录、越语冒险的学习进度保存在当前浏览器。切换设备或清除浏览器数据后，原记录可能无法继续使用；需要保留方案时，先使用项目内提供的导出功能。",
-    "guideEvidence": "资料日期、来源和计算范围以项目内部记录为准。LumiPilot 的概念模型与待核验标记保留原义；LUMINA 的照度分析仅计算人工直接光。工程应用前，请核对输入与适用条件。"
+    "guideEvidence": "资料日期、来源和计算范围以项目内部记录为准。LumiPilot 的概念模型与待核验标记保留原义；LUMINA 的照度分析仅计算人工直接光。工程应用前，请核对输入与适用条件。",
+    "protectedStats": "登录工作台后查看项目、资料与统计。"
   },
   "en": {
     "pdfCadName": "PDF to CAD · Drawing Workshop",
@@ -177,7 +178,7 @@
     "engineeringCosts": "Engineering costs",
     "enterLumi": "Explore LumiPilot",
     "manual": "User guide",
-    "lumiAccess": "No installation or login · Published data and saved analyses",
+    "lumiAccess": "Account required · Saved records and analyses",
     "projectCount": "Saved R&D projects",
     "marketCount": "Market records",
     "brandCount": "Brand & company entries",
@@ -227,12 +228,12 @@
     "marketRecommendTag": "AI product planning",
     "marketExplore": "Explore features & access",
     "marketEnter": "Enter demo",
-    "marketAccess": "Sample collection · Spec calculations · CSV / Markdown export",
+    "marketAccess": "Account required · Sample collection and browser analysis",
     "marketCrawlDescription": "Product crawler: collect Amazon, Shopee and brand-site listings, pause and resume tasks, organize products by brand, market and category, and export Excel / Markdown reports.",
     "marketAnalysisDescription": "Product planning: use the customer’s products as a baseline and compare specifications and data coverage with same-category peers in the target market. Select product logic, then use DeepSeek to develop recommendation reasons, core specifications, circuit concepts and visual prompts.",
     "marketRuntime": "The features above describe the full workspace. The online demo supports sample collection, CSV import and browser-based specification calculations, same-market comparisons, a questionnaire with rule-based recommendations, and CSV / Markdown export. It does not collect live data or call DeepSeek.",
-    "guideMarket": "Enter the demo, choose a market and category, then run sample collection with pause, resume and logs. You can also import your CSV to calculate specifications, filter products and compare them in your browser. Complete the product questionnaire to generate rule-based recommendations and visual prompts, then export CSV / Markdown. Live collection and DeepSeek calls require the full local or server workspace.",
-    "guideMarketLink": "Enter the interactive demo ↗",
+    "guideMarket": "Sign in with the website account and password. Run sample collection, pause or resume tasks, import CSV files, calculate and compare specifications, complete the questionnaire and export CSV or Markdown. The demo does not run live collection or call DeepSeek. The access domain has changed; previous browser imports remain on the former domain and require export and re-import.",
+    "guideMarketLink": "Sign in to Lighting Market Console ↗",
     "filterShowcase": "Showcases",
     "filterSimulation": "Simulation",
     "searchLabel": "Search projects",
@@ -289,8 +290,8 @@
     "guideBrowseStep2": "Use a project button to open the app. Expand Project details for its full description and access notes.",
     "guideBrowseStep3": "Switch the language or light/dark theme at the top right. Your current category and search stay in place when the language changes.",
     "guideProjectsTitle": "Using each project",
-    "guideLumi": "Browse lighting R&D projects, market research, certification, optical analysis and cost records. The public version is read-only; live collection, editing and uploads require the full workspace.",
-    "guideLumiLink": "Read the in-app user guide ↗",
+    "guideLumi": "Sign in with the website account and password to browse lighting projects, market records, certifications, optics and costs. This version remains read-only; live collection, editing and uploads require the full workbench.",
+    "guideLumiLink": "Sign in to read the workspace guide ↗",
     "guideTospo": "Explore company information, outdoor luminaires and project references. Open the account login in a new tab from the project entry page; return to that entry page to go back to the portfolio.",
     "guideTospoLink": "Open the TOSPO entry page ↗",
     "guideLumina": "Choose a scene and luminaires, adjust layouts and lighting, and inspect IES analysis. Import product files, export reports and bundle schemes. The online demo does not connect to physical devices.",
@@ -301,7 +302,8 @@
     "guideWanchaoLink": "Open the game and its play guide ↗",
     "guideDataTitle": "Access and data",
     "guideLocalData": "LUMINA schemes and simulated device records, and VietQuest learning progress, stay in the current browser. They may not follow you to another device or survive clearing browser data. Use the project’s export features first when you need to keep a scheme.",
-    "guideEvidence": "Check source dates, references and calculation scope within each project. LumiPilot retains concept-model and verification labels. LUMINA illuminance analysis covers direct artificial light only. Verify inputs and applicability before engineering use."
+    "guideEvidence": "Check source dates, references and calculation scope within each project. LumiPilot retains concept-model and verification labels. LUMINA illuminance analysis covers direct artificial light only. Verify inputs and applicability before engineering use.",
+    "protectedStats": "Sign in to the workspace to view projects, records and statistics."
   }
 };
   const siteGuide = document.querySelector('#site-guide');
@@ -369,22 +371,7 @@
   let language = ['zh','en'].includes(query) ? query : saved('dayang-language') === 'en' ? 'en' : 'zh';
   const initialLanguage = language;
   let theme = saved('dayang-theme') === 'dark' ? 'dark' : 'light';
-  let publicationDate = null;
-  let publicationFailed = false;
-  let publicationRequested = false;
-  let publicationLoading = false;
-  function updateDate() {
-    if (publicationDate) {
-      const date = new Intl.DateTimeFormat(language === 'en' ? 'en-GB' : 'zh-CN',{year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false,timeZone:'Asia/Shanghai'}).format(publicationDate);
-      dateNote.textContent = language === 'en' ? `Published ${date} (UTC+8) · Original source dates retained` : `资料发布于 ${date} · 保留原始来源日期`;
-    } else if (publicationLoading) {
-      dateNote.textContent = language === 'en' ? 'Loading published statistics…' : '正在读取发布资料统计…';
-    } else if (publicationFailed) {
-      dateNote.textContent = language === 'en' ? 'Statistics are unavailable. You can still explore the workspace.' : '资料统计暂未载入，可直接进入工作台查看。';
-    } else {
-      dateNote.textContent = language === 'en' ? 'Source dates are recorded within each project.' : '各项资料的日期见原始记录';
-    }
-  }
+  function updateDate() { dateNote.textContent = copy[language].protectedStats; }
   function updateTheme() {
     root.dataset.theme = theme;
     const label = copy[language][theme === 'dark' ? 'themeLight' : 'themeDark'];
@@ -411,6 +398,7 @@
     updateDate();
     document.querySelectorAll('[data-i18n-placeholder]').forEach(node => { node.placeholder = copy[language][node.dataset.i18nPlaceholder]; });
     document.querySelectorAll('[data-game-link]').forEach(link => { link.setAttribute('href', `${link.dataset.gameLink}?lang=${language}`); });
+    document.querySelectorAll('[data-lumi-link]').forEach(link => { const [path, hash] = link.dataset.lumiLink.split('#'); link.setAttribute('href', `${path}?lang=${language}${hash ? '#' + hash : ''}`); });
     document.querySelectorAll('[data-market-link]').forEach(link => { link.setAttribute('href', `${link.dataset.marketLink}?lang=${language}`); });
     document.querySelectorAll('[data-tospo-link]').forEach(link => { link.setAttribute('href', `${link.dataset.tospoLink}?lang=${language}`); });
     document.querySelectorAll('[data-pdf-cad-link]').forEach(link => { link.setAttribute('href', `${link.dataset.pdfCadLink}?lang=${language}`); });
@@ -457,30 +445,4 @@
     remember('dayang-language',language); updateLanguage();
   });
   themeButton.addEventListener('click',() => { theme = theme === 'dark' ? 'light' : 'dark';remember('dayang-theme',theme);updateTheme(); });
-  function loadPublication() {
-    if (publicationRequested) return;
-    publicationRequested = true;
-    publicationLoading = true;
-    updateDate();
-    fetch('./LumiPilot/share-data.json',{cache:'no-cache'}).then(response => {
-      if (!response.ok) throw new Error('Published data unavailable');
-      return response.json();
-    }).then(data => {
-      const api = data.api || {};
-      const projects = api['/api/projects']?.projects;
-      const source = api['/api/market/products'];
-      const market = Array.isArray(source) ? source : source?.products;
-      const brands = api['/api/brands']?.brands;
-      for (const [id,records] of [['project-count',projects],['market-count',market],['brand-count',brands]]) {
-        if (Array.isArray(records)) document.getElementById(id).textContent = records.length.toLocaleString('en-US');
-      }
-      const date = new Date(data.published_at);
-      if (Number.isFinite(date.getTime())) publicationDate = date;
-      publicationLoading = false;
-      updateDate();
-    }).catch(() => { publicationLoading = false;publicationFailed = true;updateDate(); });
-  }
-  // The 4 MB workspace snapshot is only needed when its details are opened.
-  const lumiDetails = document.querySelector('#lumipilot .project-details');
-  lumiDetails.addEventListener('toggle', () => { if (lumiDetails.open) loadPublication(); });
 })();

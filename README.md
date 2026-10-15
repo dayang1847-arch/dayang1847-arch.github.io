@@ -2,20 +2,20 @@
 
 本作品集提供七个项目入口：
 
-- [LumiPilot 照明研发决策工作台](./LumiPilot/)：公开浏览照明研发、工程知识与已保存分析。
+- [LumiPilot 照明研发决策工作台](./LumiPilot/)：账号密码登录后浏览照明研发、工程知识与已保存分析。
 - [LUMINA 照明场景演示与 IES 分析](./LUMINA/)：体验三维场景、排布、IES 配光和模拟控制，仅供在线演示。
 - [TOSPO Outdoor Lighting · 户外照明展示](https://dayang1847-arch.github.io/TP-outdoor-lighting/)：公司介绍、户外产品与工程案例；需使用网站账号和密码登录访问。
 - [越语冒险 · 越南语闯关学习](./vietnamese-learning/)：个人学习项目，包含 14 单元、42 课、420 道互动题与 96 个日常词条；提供发音拆解、音标、词源说明和间隔复习。
 
 - [万朝逐鹿 · 跨朝代实时战略](./wanchao/)：秦、汉、唐、宋、元、明六朝阵营，500 座真实地名城池；单人练兵立即可用，朋友联机需另行部署并配置服务器。
-- [照明市场工作台 · Lighting Market Console](./market-console/)：可在线操作样例采集、CSV 导入、浏览器内规格计算、同市场商品对比、问卷与规则推品建议，并导出 CSV / Markdown。
+- [照明市场工作台 · Lighting Market Console](./market-console/)：账号密码登录后操作样例采集、CSV 导入、浏览器内规格计算、同市场商品对比、问卷与规则推品建议，并导出 CSV / Markdown。
 - [PDF 转 CAD · 图纸工坊](./pdf-to-cad/?lang=zh)：在浏览器内将矢量或扫描 PDF 转成 DWG / DXF，支持 PDF / RAR / ZIP 导入、比例设置与按格式批量下载；图纸不上传，不展示历史记录。
 
-作品集使用 GitHub Pages 静态托管。LumiPilot 公开页保留已有资料与结果，支持浏览和检索；资料更新通过重新发布快照完成。完整服务的登录、编辑、上传和外部来源刷新需要后端。
+作品集首页使用 GitHub Pages 静态托管。LumiPilot 与照明市场工作台通过独立的账号保护站点提供访问；原有 GitHub Pages 项目地址仅保留跳转入口。LumiPilot 仍保留已保存资料的只读浏览，账号登录不会启用后台编辑、上传或实时采集。
 
 TOSPO 在作品集中展示项目简介和登录入口。点击 TOSPO 项目先进入带返回按钮的项目入口，再在新标签页打开独立网站账号登录页；产品资料在登录后查看。
 
-照明市场工作台的公开交互演示位于 `market-console/`，无需安装、账号或接口密钥。演示使用明确标注的样例数据，也支持导入 CSV 并在当前浏览器内计算规格、筛选和对比；问卷生成可解释的规则建议与外观提示词，结果可导出 CSV / Markdown。实时采集和 DeepSeek 调用由本机或服务器上的完整 Python 工作台提供，公开演示不调用这些服务。
+照明市场工作台的入口位于 `market-console/`，需使用账号和密码登录，无需安装或接口密钥。演示使用明确标注的样例数据，也支持导入 CSV 并在当前浏览器内计算规格、筛选和对比；问卷生成可解释的规则建议与外观提示词，结果可导出 CSV / Markdown。实时采集和 DeepSeek 调用由本机或服务器上的完整 Python 工作台提供，公开演示不调用这些服务。
 
 发布内容不包含运行数据库、上传原件或账号与接口凭据。
 
@@ -27,18 +27,18 @@ TOSPO 在作品集中展示项目简介和登录入口。点击 TOSPO 项目先�
 
 ## 首页维护
 
-网站名称与浏览器标题统一为 DC Web，首页以项目作品为主。Dayang.Cao 的身份和英文个人介绍放在页面最底部的“About Dayang”内，点击展开；获奖记录置于其“A few milestones”折叠详情内，默认收起。个人介绍在中文和英文界面中都保持英文。作品入口及发布统计来自现有项目和 LumiPilot 数据快照。
+网站名称与浏览器标题统一为 DC Web，首页以项目作品为主。Dayang.Cao 的身份和英文个人介绍放在页面最底部的“About Dayang”内，点击展开；获奖记录置于其“A few milestones”折叠详情内，默认收起。个人介绍在中文和英文界面中都保持英文。每次更新网站时，结合首页实际展示的项目同步审阅并更新个人介绍，准确概括当前项目范围、名称与能力；避免保留过时的项目列表，或将演示功能描述为在线服务。作品入口来自现有项目；LumiPilot 资料与统计在登录后查看。
 
-- `index.html`：项目卡片与页面结构；`styles.css`：响应式网格和首页样式；`main.js`：中英文字典、分类搜索、主题与语言切换、按需加载的发布统计。
+- `index.html`：项目卡片与页面结构；`styles.css`：响应式网格和首页样式；`main.js`：中英文字典、分类搜索、主题与语言切换、登录入口与资料范围提示。
 - 卡片在电脑端显示三列、平板端两列、手机端一列。分类、关键词搜索和数量由现有卡片自动计算；项目详情默认收起。手机端使用小缩略图、标题、访问状态与操作按钮；搜索通过按钮展开，详细介绍与访问说明在详情内。
 - 增加项目时沿用 `.project-card`，填写唯一 ID、`data-category` 和 `data-keywords`，在两套字典中补齐内容与图片说明。增加分类时同步添加 `data-filter` 按钮。
-- 照明市场工作台卡片使用 `#market-console`，分类为“市场分析 / Market research”，演示入口为 `./market-console/?lang=zh` 或 `./market-console/?lang=en`，随首页语言切换。维护演示时同步更新 `market-console/` 的页面、计算逻辑、样例和测试；Python 后端、业务数据库、采集输出与 API 凭据保留在独立运行环境，不随 GitHub Pages 发布。
+- 照明市场工作台卡片使用 `#market-console`，分类为“市场分析 / Market research”，演示入口为 `./market-console/?lang=zh` 或 `./market-console/?lang=en`，随首页语言切换。维护演示时更新受保护 Sites 私有源码中的页面、计算逻辑、样例和测试；Python 后端、业务数据库、采集输出与 API 凭据保留在独立运行环境，不随 GitHub Pages 发布。
 - 图纸工坊卡片使用 `#pdf-cad`，归入“研发工具 / R&D tools”，入口为 `./pdf-to-cad/?lang=zh` 或 `./pdf-to-cad/?lang=en`，随首页语言切换。`assets/pdf-cad-preview.svg` 是原创合成蓝图，未使用真实业务图纸或转换记录。
 - `assets/lumipilot-preview.webp` 来自实际工作台截图；`assets/lumina-preview.webp` 来自已发布项目预览。TOSPO 使用品牌与内容主题排版。
 - `assets/icons/search.svg` 来自项目已有 Lucide 库，ISC 许可保存在 `assets/icons/lucide-LICENSE`。
 - `assets/icons/sun.svg`、`moon.svg`：官方 Phosphor Light 图标；MIT 许可在 `assets/icons/LICENSE`。
 - 本地预览：`python3 -m http.server 4173 --bind 127.0.0.1`，打开 http://localhost:4173/ 。
-- 只更新首页时发布 `index.html`、`styles.css`、`main.js` 和新增的 `assets` 文件，保持目录结构。现有 LumiPilot、TP-outdoor-lighting、LUMINA 和 vietnamese-learning 项目目录由原仓库保留，游戏运行资源位于 `wanchao/`，照明市场工作台演示位于 `market-console/`，图纸工坊位于 `pdf-to-cad/`。
+- 只更新首页时发布 `index.html`、`styles.css`、`main.js` 和新增的 `assets` 文件，保持目录结构。LumiPilot 与 market-console 目录只发布登录跳转页，其运行资源不再公开发布；TP-outdoor-lighting、LUMINA 和 vietnamese-learning 项目目录由原仓库保留，游戏运行资源位于 `wanchao/`，照明市场工作台演示位于 `market-console/`，图纸工坊位于 `pdf-to-cad/`。
 - `.preview/live-backup` 保留此前本地首页；`.preview/current-live` 是本次修改采用的发布源码快照。预览文件不提交到仓库。
 
 ## PDF 转 CAD · 图纸工坊发布
@@ -49,13 +49,13 @@ TOSPO 在作品集中展示项目简介和登录入口。点击 TOSPO 项目先�
 
 发布时复制完整 `pdf-to-cad/` 目录及根目录首页与合成封面资源，保留 `.nojekyll`。检查中英文入口、PDF / 压缩包导入、矢量与扫描转换、比例设置、逐页及按格式打包下载、刷新清空任务，并确认所有相对资源路径在项目子目录中可用。
 
-## 照明市场工作台发布
+## LumiPilot 与照明市场工作台访问
 
-`market-console/` 是可直接由 GitHub Pages 托管的中英文浏览器应用，使用相对资源路径，无需构建步骤。样例采集仅演示任务配置、进度、暂停与继续；导入 CSV 后的筛选、规格计算、同市场同币种比较和规则建议在浏览器内执行，导入内容不上传。导出文件来自当前数据与选择，不代表实时市场统计或已验证的产品方案。
+两个工作台由账号保护站点托管，入口为 https://dc-workspaces-access.dayang0509.chatgpt.site 。账号凭据仅在 Sites 服务端配置，公开仓库中不保存密码、密码摘要、会话签名密钥或私有运行包。所有页面、脚本、资料快照与下载文件均经过服务端会话检查；退出登录后再次访问需要重新验证。
 
-维护时保留样例标记、未知字段与客户基线缺失提示，避免将样例或缺失值当成真实经营数据。公开版本不设置 API Key 输入，也不携带私有数据库、采集原件、运行日志或完整服务的配置。发布时复制完整 `market-console/` 目录，并保留根目录的 `.nojekyll`。
+GitHub Pages 中的 `LumiPilot/index.html` 和 `market-console/index.html` 仅跳转到受保护入口，并保留语言、查询参数与页面锚点。请勿将 `LumiPilot/static/`、`share-data.json`、`files/` 或市场工作台运行脚本重新复制到公开站点。维护运行页面时应更新 Sites 的私有源代码并发布同一版本。先验证受保护站点，再更新公开入口。
 
-校验首页脚本：`node --check main.js`。运行计算引擎测试：`node --test market-console/tests/engine.test.cjs`。通过根目录静态服务访问 `/market-console/?lang=zh` 和 `/market-console/?lang=en`，检查样例采集与暂停恢复、CSV 导入、空结果、规格与价格口径、问卷和导出，以及手机布局、主题切换与资源 HTTP 200。
+照明市场工作台仍使用样例采集与浏览器内规格计算，不执行实时采集或 DeepSeek 调用。新的访问域名拥有独立的浏览器存储；原域名的导入与进度不会自动迁移。历史上已公开的版本仍可能存在于 Git 仓库历史或访问者保存的副本中，本次访问控制不能撤回这些副本。
 
 ## LUMINA 发布
 
