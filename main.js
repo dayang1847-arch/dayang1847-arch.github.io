@@ -46,12 +46,26 @@
     "luminaSamples": "演示灯具",
     "luminaModes": "体验模式",
     "luminaPreviewAlt": "LUMINA 办公展厅三维灯光演示，包含产品仓库、照明预设和巡游控制",
-    "collectionDescription": "照明工程、研发决策与交互应用。",
+    "collectionDescription": "照明工程、市场分析、研发决策与交互应用。",
     "collectionUnit": "个项目",
     "collectionHint": "选择一个项目，继续探索",
     "filterLabel": "项目分类",
     "filterAll": "全部项目",
     "filterResearch": "研发工具",
+    "filterMarket": "市场分析",
+    "marketName": "照明市场工作台",
+    "marketTitle": "商品爬虫与推品分析",
+    "marketStatus": "本机 / 服务器运行",
+    "marketSummary": "从多来源商品采集到客户与友商规格对比，为目标市场整理推品依据与规格建议。",
+    "marketCrawlTag": "多来源采集",
+    "marketCompareTag": "友商规格对比",
+    "marketRecommendTag": "AI 推品分析",
+    "marketExplore": "了解功能与使用方式",
+    "marketAccess": "功能介绍 · 完整工作台需本机或服务器运行",
+    "marketCrawlDescription": "商品爬虫：采集 Amazon、Shopee 与品牌官网商品，支持暂停与恢复，按品牌、市场和品类归档，并导出 Excel / Markdown 报告。",
+    "marketAnalysisDescription": "推品分析：以客户产品为基线，对比目标市场同品类友商的规格与资料覆盖；结合产品逻辑选择，通过 DeepSeek 整理推品依据、核心规格、电路概念与外观提示词。",
+    "marketRuntime": "当前展示功能介绍，尚无公开在线演示入口；实时采集和 AI 分析需运行完整服务。",
+    "guideMarket": "在完整工作台中选择品牌、市场和品类，创建采集任务并归档商品；进入推品分析，对比客户与友商规格，选择产品逻辑后生成建议并导出报告。实时采集与 DeepSeek 分析需要本机或服务器上的完整服务，当前作品集提供功能介绍。",
     "filterShowcase": "产品展示",
     "filterSimulation": "场景仿真",
     "searchLabel": "搜索项目",
@@ -167,12 +181,26 @@
     "luminaSamples": "Sample luminaires",
     "luminaModes": "Experience modes",
     "luminaPreviewAlt": "LUMINA office showroom with 3D lighting, product library, lighting presets and camera controls",
-    "collectionDescription": "Lighting engineering, R&D decisions and interactive applications.",
+    "collectionDescription": "Lighting engineering, market research, R&D decisions and interactive applications.",
     "collectionUnit": "projects",
     "collectionHint": "Pick a project to explore",
     "filterLabel": "Project categories",
     "filterAll": "All projects",
     "filterResearch": "R&D tools",
+    "filterMarket": "Market research",
+    "marketName": "Lighting Market Console",
+    "marketTitle": "Product crawling & recommendation analysis",
+    "marketStatus": "Local / server app",
+    "marketSummary": "Collect product listings and compare customer and peer specifications to develop recommendations for a target market.",
+    "marketCrawlTag": "Multi-source collection",
+    "marketCompareTag": "Peer spec comparison",
+    "marketRecommendTag": "AI product planning",
+    "marketExplore": "Explore features & access",
+    "marketAccess": "Feature overview · Full workspace runs locally or on a server",
+    "marketCrawlDescription": "Product crawler: collect Amazon, Shopee and brand-site listings, pause and resume tasks, organize products by brand, market and category, and export Excel / Markdown reports.",
+    "marketAnalysisDescription": "Product planning: use the customer’s products as a baseline and compare specifications and data coverage with same-category peers in the target market. Select product logic, then use DeepSeek to develop recommendation reasons, core specifications, circuit concepts and visual prompts.",
+    "marketRuntime": "This portfolio presents the features. No public online demo is available yet; live collection and AI analysis require the full service.",
+    "guideMarket": "In the full workspace, choose a brand, market and category, create collection tasks and archive products. Open product planning, compare customer and peer specifications, select product logic, then generate suggestions and export reports. Live collection and DeepSeek analysis require the full local or server application; this portfolio provides a feature overview.",
     "filterShowcase": "Showcases",
     "filterSimulation": "Simulation",
     "searchLabel": "Search projects",
@@ -248,9 +276,13 @@
   document.querySelectorAll('[data-open-guide]').forEach(link => link.addEventListener('click', event => {
     if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
     siteGuide.open = true;
-    siteGuide.querySelector('summary').focus({preventScroll:true});
+    const target = document.querySelector(link.getAttribute('href'));
+    (target?.matches('.guide-project') ? target : siteGuide.querySelector('summary')).focus({preventScroll:true});
   }));
-  function openLinkedGuide() { if (location.hash === '#scope') siteGuide.open = true; }
+  function openLinkedGuide() {
+    const target = document.getElementById(location.hash.slice(1));
+    if (location.hash === '#scope' || (target && siteGuide.contains(target))) siteGuide.open = true;
+  }
   openLinkedGuide();
   window.addEventListener('hashchange', openLinkedGuide);
   const themeButton = document.querySelector('.theme-toggle');
