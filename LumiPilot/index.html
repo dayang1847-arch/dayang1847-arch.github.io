@@ -51,6 +51,8 @@
   <link rel="stylesheet" href="/LumiPilot/static/auth.css">
   <link rel="stylesheet" href="/LumiPilot/static/product-development.css">
   <link rel="stylesheet" href="/LumiPilot/static/cost-workbench.css">
+  <link rel="stylesheet" href="../assets/project-navigation.css?v=1">
+  <script defer src="../assets/project-navigation.js?v=1"></script>
 </head>
 <body>
   <div class="app-shell">
@@ -73,7 +75,8 @@
       <div class="sidebar-note"><span class="status-dot"></span><strong>本机运行 · 本地保存</strong><p>项目、上传资料与分析记录保存在当前电脑。</p><span class="version">LOCAL DEMO / 1.0</span></div>
     </aside>
     <div class="main-shell">
-      <header class="topbar">
+      <header class="topbar dc-navigation-header">
+        <a class="dc-back-link" data-dc-back href="../?lang=zh#works"><span aria-hidden="true">←</span><span data-dc-back-label>返回上一页</span></a>
         <div class="breadcrumb"><span id="workspace-scope">项目工作</span> <span>/</span> <strong id="page-label">项目工作台</strong></div>
         <div class="topbar-actions"><a id="context-help" class="button button-small" href="#help" aria-label="查看当前页面使用说明"><span data-icon="CircleHelp" aria-hidden="true"></span>页面说明</a><span class="local-pill"><span class="status-dot"></span>本地服务</span><label class="project-picker-label" for="project-picker">当前项目</label><select id="project-picker" aria-label="切换当前研发项目"></select><button class="button button-small" data-action="new-project"><span data-icon="Plus" aria-hidden="true"></span>新建项目</button></div>
       </header>

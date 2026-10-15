@@ -38,7 +38,7 @@
     "productShowcase": "产品展示",
     "projectReferences": "工程案例",
     "enterTospo": "访问 TOSPO",
-    "tospoAccess": "账号密码登录 · 在新窗口打开",
+    "tospoAccess": "账号密码登录 · 登录页在新标签页打开",
     "tospoDecisionDescription": "通过公司、产品和工程案例了解户外照明展示。 进入网站后，使用账号和密码登录查看展示内容。",
     "footerGuide": "整站使用说明",
     "title": "DC Web",
@@ -116,7 +116,7 @@
     "practiceVietquest": "练习发音",
     "vietquestSummary": "通过听音、选择与句子排序学习日常越南语和照明商务沟通，按关卡逐步积累。",
     "vietquestPreviewAlt": "成年男性学习者探索越南街景，沿金色星星闯关路线前进",
-    "tospoVisitLabel": "访问 TOSPO（账号密码登录，在新窗口打开）",
+    "tospoVisitLabel": "访问 TOSPO 登录入口（账号密码登录）",
     "filterStrategy": "策略游戏",
     "wanchaoName": "万朝逐鹿",
     "wanchaoTitle": "跨朝代攻城与实时战略",
@@ -140,7 +140,7 @@
     "guideProjectsTitle": "各项目怎样使用",
     "guideLumi": "查看照明研发项目、市场资料、国家认证、光学与成本记录。公开版本为只读浏览；实时采集、编辑和上传需要完整工作台。",
     "guideLumiLink": "查看项目内使用指南 ↗",
-    "guideTospo": "浏览公司介绍、户外灯具和工程案例。进入后使用网站账号和密码登录；访问权限由独立网站验证。",
+    "guideTospo": "浏览公司介绍、户外灯具和工程案例。从项目入口打开账号登录页，登录页在新标签页打开；可回到项目入口返回作品集。",
     "guideTospoLink": "前往账号登录入口 ↗",
     "guideLumina": "选择场景与灯具，调整排布和灯光，查看 IES 分析。支持产品文件导入、报告导出和方案打包；在线演示不连接实体设备。",
     "guideLuminaLink": "进入在线演示 ↗",
@@ -189,7 +189,7 @@
     "productShowcase": "Product showcase",
     "projectReferences": "Project references",
     "enterTospo": "Visit TOSPO",
-    "tospoAccess": "Account and password required · Opens in a new tab",
+    "tospoAccess": "Account required · Login opens in a new tab",
     "tospoDecisionDescription": "Explore outdoor lighting through company information, products and project references. Sign in with your website account and password to view the showcase.",
     "footerGuide": "Website user guide",
     "title": "DC Web",
@@ -267,7 +267,7 @@
     "practiceVietquest": "Pronunciation",
     "vietquestSummary": "Learn daily Vietnamese and lighting business communication through listening, choices and sentence ordering.",
     "vietquestPreviewAlt": "An adult male learner explores Vietnam along a golden trail of level stars",
-    "tospoVisitLabel": "Visit TOSPO (account and password required, opens in a new tab)",
+    "tospoVisitLabel": "Visit the TOSPO entry page (account and password required)",
     "filterStrategy": "Strategy games",
     "wanchaoName": "Clash of Dynasties",
     "wanchaoTitle": "Cross-dynasty conquest and real-time strategy",
@@ -291,8 +291,8 @@
     "guideProjectsTitle": "Using each project",
     "guideLumi": "Browse lighting R&D projects, market research, certification, optical analysis and cost records. The public version is read-only; live collection, editing and uploads require the full workspace.",
     "guideLumiLink": "Read the in-app user guide ↗",
-    "guideTospo": "Explore company information, outdoor luminaires and project references. Sign in with a website account and password; access is verified by the separate website.",
-    "guideTospoLink": "Open the account sign-in page ↗",
+    "guideTospo": "Explore company information, outdoor luminaires and project references. Open the account login in a new tab from the project entry page; return to that entry page to go back to the portfolio.",
+    "guideTospoLink": "Open the TOSPO entry page ↗",
     "guideLumina": "Choose a scene and luminaires, adjust layouts and lighting, and inspect IES analysis. Import product files, export reports and bundle schemes. The online demo does not connect to physical devices.",
     "guideLuminaLink": "Open the online demo ↗",
     "guideVietquest": "Learn words and phrases, then complete listening, choice and sentence-ordering lessons. Review mistakes and explore phonetic notation and pronunciation rules. Available Vietnamese voices depend on your device.",
@@ -412,6 +412,7 @@
     document.querySelectorAll('[data-i18n-placeholder]').forEach(node => { node.placeholder = copy[language][node.dataset.i18nPlaceholder]; });
     document.querySelectorAll('[data-game-link]').forEach(link => { link.setAttribute('href', `${link.dataset.gameLink}?lang=${language}`); });
     document.querySelectorAll('[data-market-link]').forEach(link => { link.setAttribute('href', `${link.dataset.marketLink}?lang=${language}`); });
+    document.querySelectorAll('[data-tospo-link]').forEach(link => { link.setAttribute('href', `${link.dataset.tospoLink}?lang=${language}`); });
     document.querySelectorAll('[data-pdf-cad-link]').forEach(link => { link.setAttribute('href', `${link.dataset.pdfCadLink}?lang=${language}`); });
     updateProjects();
   }

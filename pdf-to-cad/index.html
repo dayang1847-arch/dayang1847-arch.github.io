@@ -8,6 +8,8 @@
   <title>PDF 转 CAD · 图纸工坊</title>
   <link rel="stylesheet" href="./style.css">
   <script type="module" src="./app.js"></script>
+  <link rel="stylesheet" href="../assets/project-navigation.css?v=1">
+  <script defer src="../assets/project-navigation.js?v=1"></script>
 </head>
 <body>
   <aside class="sidebar">
@@ -17,7 +19,7 @@
     <div class="sidebar-bottom"><span class="local-dot"></span><span data-i18n="browserLocal">浏览器本地处理</span><small data-i18n="notUploaded">图纸文件不会上传</small></div>
   </aside>
   <main class="workspace">
-    <header class="topbar"><div class="breadcrumb"><span data-i18n="workspace">工作空间</span><span>/</span><b data-i18n="drawingConversion">图纸转换</b></div><div class="topbar-right"><a id="language-switch" class="language-switch" href="?lang=en" lang="en">EN</a><div class="engine-status" id="engine-status" role="status"><span class="status-dot"></span><span id="engine-label" data-i18n="engineLoading">正在加载转换引擎</span></div></div></header>
+    <header class="topbar dc-navigation-header"><a class="dc-back-link" data-dc-back href="../?lang=zh#works"><span aria-hidden="true">←</span><span data-dc-back-label>返回上一页</span></a><div class="breadcrumb"><span data-i18n="workspace">工作空间</span><span>/</span><b data-i18n="drawingConversion">图纸转换</b></div><div class="topbar-right"><a id="language-switch" class="language-switch" href="?lang=en" lang="en">EN</a><div class="engine-status" id="engine-status" role="status"><span class="status-dot"></span><span id="engine-label" data-i18n="engineLoading">正在加载转换引擎</span></div></div></header>
     <div class="page-content">
       <section class="page-heading"><div><div class="eyebrow" data-i18n="eyebrow">从图纸，到可编辑的设计</div><h1>PDF 转 CAD<span data-i18n="workbench">工作台</span></h1><p data-i18n="intro">载入图纸，选择转换方式，导出 DWG 与 DXF。</p></div><div class="format-mark"><span>PDF</span><span class="format-arrow">→</span><span>DWG<small>+ DXF</small></span></div></section>
       <div class="privacy-banner"><span class="privacy-icon" aria-hidden="true">◉</span><div><strong data-i18n="privacyTitle">在你的浏览器中转换，文件不上传</strong><p data-i18n="privacyText">仅保留本次页面内的文件与结果；刷新、关闭或清空后即移除。不展示历史记录。</p></div></div>

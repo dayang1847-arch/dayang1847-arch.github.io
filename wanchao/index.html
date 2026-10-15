@@ -9,6 +9,8 @@
   <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="./styles.css">
   <script type="module" src="./main.js"></script>
+  <link rel="stylesheet" href="../assets/project-navigation.css?v=1">
+  <script defer src="../assets/project-navigation.js?v=1"></script>
 </head>
 <body>
   <a class="skip-link" href="#battlefield" data-i18n="skip">跳到战场</a>
@@ -20,6 +22,7 @@
       </a>
       <div class="header-center"><span class="status-dot"></span><span data-i18n="tagline">一张山河图，六种逐鹿之道。</span></div>
       <div class="header-actions">
+        <a class="dc-back-link" data-dc-back href="../?lang=zh#works"><span aria-hidden="true">←</span><span data-dc-back-label>返回上一页</span></a>
         <button class="text-button settings-toggle" id="settings-toggle" type="button" aria-haspopup="dialog" aria-controls="dialog-layer" data-i18n="settings">设置</button>
         <button class="text-button" id="help-toggle" type="button"><span class="circle-icon">?</span><span data-i18n="help">玩法指南</span></button>
         <span class="header-divider"></span>

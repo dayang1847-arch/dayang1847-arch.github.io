@@ -11,6 +11,8 @@
   <script defer src="./demo-data.js?v=1"></script>
   <script defer src="./engine.js?v=1"></script>
   <script defer src="./app.js?v=1"></script>
+  <link rel="stylesheet" href="../assets/project-navigation.css?v=1">
+  <script defer src="../assets/project-navigation.js?v=1"></script>
 </head>
 <body>
   <a class="skip-link" href="#main" data-i18n="skip">跳到工作区</a>
@@ -28,7 +30,7 @@
       <div class="sidebar-bottom"><span class="local-dot" aria-hidden="true"></span><span data-i18n="localMode">浏览器本地演示</span><p data-i18n="localNote">虚构样例，无需账号。导入与分析均在当前浏览器完成。</p><button class="text-button" id="reset-demo" type="button" data-i18n="resetDemo">重置演示数据</button></div>
     </aside>
     <div class="workspace">
-      <header class="app-header"><p><span data-i18n="marketResearch">市场分析</span><span class="breadcrumb-slash" aria-hidden="true">/</span><span data-i18n="interactiveDemo">交互演示</span></p><div class="header-actions"><button id="language-toggle" type="button" lang="en">EN</button><button id="theme-toggle" type="button" aria-label="切换主题" data-i18n-aria="toggleTheme"><span aria-hidden="true">◐</span></button></div></header>
+      <header class="app-header dc-navigation-header"><a class="dc-back-link" data-dc-back href="../?lang=zh#works"><span aria-hidden="true">←</span><span data-dc-back-label>返回上一页</span></a><p class="dc-navigation-breadcrumb"><span data-i18n="marketResearch">市场分析</span><span class="breadcrumb-slash" aria-hidden="true">/</span><span data-i18n="interactiveDemo">交互演示</span></p><div class="header-actions"><button id="language-toggle" type="button" lang="en">EN</button><button id="theme-toggle" type="button" aria-label="切换主题" data-i18n-aria="toggleTheme"><span aria-hidden="true">◐</span></button></div></header>
       <main id="main">
         <div class="page-heading"><div><p class="eyebrow">COLLECT → COMPARE → RECOMMEND</p><h1 data-i18n="title">照明市场工作台</h1><p class="page-description" data-i18n="intro">把商品资料，变成可追溯的推品依据。</p></div><span class="mode-badge" data-i18n="demoMode">可操作演示</span></div>
         <div class="demo-notice"><span class="notice-icon" aria-hidden="true">i</span><p data-i18n="demoNotice">采集使用虚构样例回放；规格计算、CSV 导入与报告导出可实际操作。推品建议由本地规则生成。</p></div>
