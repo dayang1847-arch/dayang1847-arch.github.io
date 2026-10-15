@@ -7,7 +7,7 @@
 <meta content="DC Web — personal projects in lighting engineering, market research, product crawling and recommendation analysis, AI applications, Vietnamese learning and real-time strategy." name="description"/>
 <meta content="#f7f8fa" name="theme-color"/>
 <title>DC Web</title>
-<link rel="icon" href="./assets/favicon-dc.png" type="image/png"/><meta content="light dark" name="color-scheme"/><link href="./styles.css?v=14" rel="stylesheet"/><script defer="" src="./main.js?v=14"></script></head>
+<link rel="icon" href="./assets/favicon-dc.png" type="image/png"/><meta content="light dark" name="color-scheme"/><link href="./styles.css?v=15" rel="stylesheet"/><script defer="" src="./main.js?v=15"></script></head>
 <body><a class="skip-link" data-i18n="skip" href="#main">跳到正文</a>
 <header id="top">
 <a aria-label="DC Web 首页" class="identity" data-i18n-aria="home" href="#top" lang="en">DC Web</a>
@@ -54,12 +54,12 @@
     <article class="project-card" id="market-console" data-category="market" data-keywords="lighting-market-console Amazon Shopee DeepSeek crawler crawling scraping product recommendation planning competitor specifications 爬虫 采集 推品 选品 友商 竞品 规格 品牌 市场分析 Excel Markdown" aria-labelledby="market-title">
       <div class="project-cover cover-market"><div class="market-cover-content" lang="en"><span class="market-cover-sources">AMAZON / SHOPEE / BRAND SITES</span><p>Collect.<br/>Compare.<br/>Recommend.</p></div><span class="cover-label" lang="en">LIGHTING MARKET CONSOLE</span></div>
       <div class="project-content">
-        <div class="project-topline"><span class="project-category" data-i18n="filterMarket">市场分析</span><span class="work-status status-auth" data-i18n="marketStatus">本机 / 服务器运行</span></div>
+        <div class="project-topline"><span class="project-category" data-i18n="filterMarket">市场分析</span><span class="work-status" data-i18n="marketStatus">交互演示</span></div>
         <h2 id="market-title" data-i18n="marketName">照明市场工作台</h2><p class="work-title" data-i18n="marketTitle">商品爬虫与推品分析</p>
         <p class="project-summary" data-i18n="marketSummary">从多来源商品采集到客户与友商规格对比，为目标市场整理推品依据与规格建议。</p>
         <div class="tags" aria-label="项目领域" data-i18n-aria="tagsLabel"><span data-i18n="marketCrawlTag">多来源采集</span><span data-i18n="marketCompareTag">友商规格对比</span><span data-i18n="marketRecommendTag">AI 推品分析</span></div>
-        <div class="project-bottom"><div class="work-actions"><a class="primary" href="#guide-market" data-open-guide><span data-i18n="marketExplore">了解功能与使用方式</span><span class="icon icon-arrow" aria-hidden="true"></span></a></div><p class="view-note" data-i18n="marketAccess">功能介绍 · 完整工作台需本机或服务器运行</p></div>
-        <details class="project-details"><summary data-i18n="projectDetails">项目详情</summary><div class="project-detail-content"><p class="mobile-access-note" data-i18n="marketAccess"></p><p data-i18n="marketCrawlDescription">商品爬虫：采集 Amazon、Shopee 与品牌官网商品，支持暂停与恢复，按品牌、市场和品类归档，并导出 Excel / Markdown 报告。</p><p data-i18n="marketAnalysisDescription">推品分析：以客户产品为基线，对比目标市场同品类友商的规格与资料覆盖；结合产品逻辑选择，通过 DeepSeek 整理推品依据、核心规格、电路概念与外观提示词。</p><p class="detail-note" data-i18n="marketRuntime">当前展示功能介绍，尚无公开在线演示入口；实时采集和 AI 分析需运行完整服务。</p></div></details>
+        <div class="project-bottom"><div class="work-actions"><a class="primary" href="./market-console/?lang=zh" data-market-link="./market-console/"><span data-i18n="marketEnter">进入在线演示</span><span class="icon icon-arrow" aria-hidden="true"></span></a><a class="secondary" href="#guide-market" data-open-guide data-i18n="marketExplore">了解功能与使用方式</a></div><p class="view-note" data-i18n="marketAccess">样例采集 · 真实规格计算 · CSV / Markdown 导出</p></div>
+        <details class="project-details"><summary data-i18n="projectDetails">项目详情</summary><div class="project-detail-content"><p class="mobile-access-note" data-i18n="marketAccess"></p><p data-i18n="marketCrawlDescription">商品爬虫：采集 Amazon、Shopee 与品牌官网商品，支持暂停与恢复，按品牌、市场和品类归档，并导出 Excel / Markdown 报告。</p><p data-i18n="marketAnalysisDescription">推品分析：以客户产品为基线，对比目标市场同品类友商的规格与资料覆盖；结合产品逻辑选择，通过 DeepSeek 整理推品依据、核心规格、电路概念与外观提示词。</p><p class="detail-note" data-i18n="marketRuntime">以上为完整工作台功能。在线演示可操作样例采集、导入 CSV 并在浏览器内计算规格、对比同市场商品、完成问卷生成规则建议，以及导出 CSV / Markdown；不执行实时采集或调用 DeepSeek。</p></div></details>
       </div>
     </article>
     <article class="project-card" id="tospo" data-category="showcase" data-keywords="TOSPO outdoor lighting 户外照明 公司介绍 产品 展示 工程案例" aria-labelledby="tospo-title">
@@ -121,7 +121,7 @@
         <h3 id="guide-projects-title"><span class="guide-number" aria-hidden="true">02</span><span data-i18n="guideProjectsTitle">各项目怎样使用</span></h3>
         <div class="guide-projects">
           <section class="guide-project"><h4>LumiPilot</h4><p data-i18n="guideLumi">查看照明研发项目、市场资料、国家认证、光学与成本记录。公开版本为只读浏览；实时采集、编辑和上传需要完整工作台。</p><a href="./LumiPilot/#help" data-i18n="guideLumiLink">查看项目内使用指南 ↗</a></section>
-          <section class="guide-project" id="guide-market" tabindex="-1"><h4 data-i18n="marketName">照明市场工作台</h4><p data-i18n="guideMarket">在完整工作台中选择品牌、市场和品类，创建采集任务并归档商品；进入推品分析，对比客户与友商规格，选择产品逻辑后生成建议并导出报告。实时采集与 DeepSeek 分析需要本机或服务器上的完整服务，当前作品集提供功能介绍。</p></section>
+          <section class="guide-project" id="guide-market" tabindex="-1"><h4 data-i18n="marketName">照明市场工作台</h4><p data-i18n="guideMarket">进入在线演示，选择市场和品类运行样例采集，可暂停、继续并查看日志；也可导入自己的 CSV，在当前浏览器计算规格、筛选和对比商品。完成产品逻辑问卷后生成规则建议与外观提示词，并导出 CSV / Markdown。演示不执行实时采集或调用 DeepSeek；这些能力需要本机或服务器上的完整工作台。</p><a href="./market-console/?lang=zh" data-market-link="./market-console/" data-i18n="guideMarketLink">进入在线演示与操作台 ↗</a></section>
           <section class="guide-project"><h4>TOSPO</h4><p data-i18n="guideTospo">浏览公司介绍、户外灯具和工程案例。进入后使用网站账号和密码登录；访问权限由独立网站验证。</p><a href="./TP-outdoor-lighting/" target="_blank" rel="noopener noreferrer" data-i18n="guideTospoLink" data-i18n-aria="tospoVisitLabel" aria-label="访问 TOSPO（账号密码登录，在新窗口打开）">前往账号登录入口 ↗</a></section>
           <section class="guide-project"><h4>LUMINA</h4><p data-i18n="guideLumina">选择场景与灯具，调整排布和灯光，查看 IES 分析。支持产品文件导入、报告导出和方案打包；在线演示不连接实体设备。</p><a href="./LUMINA/" data-i18n="guideLuminaLink">进入在线演示 ↗</a></section>
           <section class="guide-project"><h4 data-i18n="vietquestName">越语冒险</h4><p data-i18n="guideVietquest">按课程学习词句，通过听音、选择和句子排序闯关，再用错题复习巩固。发音训练可查阅音标与发音规则，设备提供的越南语声音可能不同。</p><a href="./vietnamese-learning/#home" data-i18n="guideVietquestLink">进入学习首页 ↗</a></section>
