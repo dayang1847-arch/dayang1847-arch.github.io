@@ -3,6 +3,7 @@ import { zipSync } from './vendor/fflate/index.js';
 // All drawings, previews and conversion results live only in this tab's memory.
 const language = new URLSearchParams(location.search).get('lang') === 'en' ? 'en' : 'zh';
 const en = {
+  userGuide:'User guide',
   brand:'Drawing Workshop', workspace:'Workspace', drawingConversion:'Drawing conversion', browserLocal:'Processed in your browser', notUploaded:'Drawing files are never uploaded',
   engineLoading:'Loading conversion engine', engineReady:'Conversion engine ready', engineFailed:'Engine unavailable', eyebrow:'From drawings to editable designs', workbench:'Workbench', intro:'Load drawings, choose a mode, and export DWG and DXF.',
   privacyTitle:'Convert in your browser. Your files stay on your device.', privacyText:'Files and results exist only in this page. Refresh, close, or clear to remove them. No history is displayed.',
@@ -97,6 +98,7 @@ const switchLink = document.querySelector('#language-switch');
 switchLink.textContent = language === 'en' ? '中文' : 'EN';
 switchLink.href = language === 'en' ? '?lang=zh' : '?lang=en';
 switchLink.lang = language === 'en' ? 'zh-CN' : 'en';
+document.querySelectorAll('[data-guide-link]').forEach(link => { link.href = `./guide.html?lang=${language}`; });
 
 const $ = id => document.getElementById(id);
 const state = { documents: [], results: [], urls: new Set(), worker: null, ready: false, busy: '', conversionOutline: false, generation: 0, pending: new Map(), selected: null, selectedPage: 0, previewContext: null, previewRequest: 0, failed: 0, contours: [], activeContour: null, contourDocId: null, contourPage: 0, contourRegions: new Map(), contourPreviewRequest: 0, contourDrag: null };
