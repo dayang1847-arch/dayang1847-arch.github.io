@@ -94,6 +94,9 @@ header nav a:hover { color: var(--blue); }
 .cover-wanchao { background: #292724; }
 .cover-wanchao img { object-position: center; box-shadow: none; }
 .cover-wanchao .cover-label { color: #ecd8af; }
+.cover-pdf-cad { background: #153653; }
+.cover-pdf-cad img { object-position: center; box-shadow: none; }
+.cover-pdf-cad .cover-label { color: #c1d9e9; }
 .cover-market { background: #153b40; color: #eaf5f2; }
 .market-cover-sources { font-size: 8px; letter-spacing: .12em; color: #aed3cc; }
 .market-cover-content>p { font-size: 30px; line-height: 1.06; letter-spacing: -.035em; margin: 12px 0 0; font-weight: 500; }

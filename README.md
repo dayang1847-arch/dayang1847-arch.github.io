@@ -1,6 +1,6 @@
 # DC Web
 
-本作品集提供六个项目入口：
+本作品集提供七个项目入口：
 
 - [LumiPilot 照明研发决策工作台](./LumiPilot/)：公开浏览照明研发、工程知识与已保存分析。
 - [LUMINA 照明场景演示与 IES 分析](./LUMINA/)：体验三维场景、排布、IES 配光和模拟控制，仅供在线演示。
@@ -9,6 +9,7 @@
 
 - [万朝逐鹿 · 跨朝代实时战略](./wanchao/)：秦、汉、唐、宋、元、明六朝阵营，500 座真实地名城池；单人练兵立即可用，朋友联机需另行部署并配置服务器。
 - [照明市场工作台 · Lighting Market Console](./market-console/)：可在线操作样例采集、CSV 导入、浏览器内规格计算、同市场商品对比、问卷与规则推品建议，并导出 CSV / Markdown。
+- [PDF 转 CAD · 图纸工坊](./pdf-to-cad/?lang=zh)：在浏览器内将矢量或扫描 PDF 转成 DWG / DXF，支持 PDF / RAR / ZIP 导入、比例设置与按格式批量下载；图纸不上传，不展示历史记录。
 
 作品集使用 GitHub Pages 静态托管。LumiPilot 公开页保留已有资料与结果，支持浏览和检索；资料更新通过重新发布快照完成。完整服务的登录、编辑、上传和外部来源刷新需要后端。
 
@@ -22,7 +23,7 @@ TOSPO 在作品集中展示项目简介和登录入口。点击 TOSPO 项目后�
 
 ## 首页使用说明
 
-项目列表之后仅保留统一的“DC Web 使用说明书”，默认收起。说明书覆盖整站浏览方法、六个项目的使用与访问方式、浏览器记录和资料范围。页头“使用说明”和页脚“整站使用说明”均定位并展开该说明书；不再设置单一项目的底部快捷入口。
+项目列表之后仅保留统一的“DC Web 使用说明书”，默认收起。说明书覆盖整站浏览方法、七个项目的使用与访问方式、浏览器记录和资料范围。页头“使用说明”和页脚“整站使用说明”均定位并展开该说明书；不再设置单一项目的底部快捷入口。
 
 ## 首页维护
 
@@ -32,12 +33,21 @@ TOSPO 在作品集中展示项目简介和登录入口。点击 TOSPO 项目后�
 - 卡片在电脑端显示三列、平板端两列、手机端一列。分类、关键词搜索和数量由现有卡片自动计算；项目详情默认收起。手机端使用小缩略图、标题、访问状态与操作按钮；搜索通过按钮展开，详细介绍与访问说明在详情内。
 - 增加项目时沿用 `.project-card`，填写唯一 ID、`data-category` 和 `data-keywords`，在两套字典中补齐内容与图片说明。增加分类时同步添加 `data-filter` 按钮。
 - 照明市场工作台卡片使用 `#market-console`，分类为“市场分析 / Market research”，演示入口为 `./market-console/?lang=zh` 或 `./market-console/?lang=en`，随首页语言切换。维护演示时同步更新 `market-console/` 的页面、计算逻辑、样例和测试；Python 后端、业务数据库、采集输出与 API 凭据保留在独立运行环境，不随 GitHub Pages 发布。
+- 图纸工坊卡片使用 `#pdf-cad`，归入“研发工具 / R&D tools”，入口为 `./pdf-to-cad/?lang=zh` 或 `./pdf-to-cad/?lang=en`，随首页语言切换。`assets/pdf-cad-preview.svg` 是原创合成蓝图，未使用真实业务图纸或转换记录。
 - `assets/lumipilot-preview.webp` 来自实际工作台截图；`assets/lumina-preview.webp` 来自已发布项目预览。TOSPO 使用品牌与内容主题排版。
 - `assets/icons/search.svg` 来自项目已有 Lucide 库，ISC 许可保存在 `assets/icons/lucide-LICENSE`。
 - `assets/icons/sun.svg`、`moon.svg`：官方 Phosphor Light 图标；MIT 许可在 `assets/icons/LICENSE`。
 - 本地预览：`python3 -m http.server 4173 --bind 127.0.0.1`，打开 http://localhost:4173/ 。
-- 只更新首页时发布 `index.html`、`styles.css`、`main.js` 和新增的 `assets` 文件，保持目录结构。现有 LumiPilot、TP-outdoor-lighting、LUMINA 和 vietnamese-learning 项目目录由原仓库保留，游戏运行资源位于 `wanchao/`，照明市场工作台演示位于 `market-console/`。
+- 只更新首页时发布 `index.html`、`styles.css`、`main.js` 和新增的 `assets` 文件，保持目录结构。现有 LumiPilot、TP-outdoor-lighting、LUMINA 和 vietnamese-learning 项目目录由原仓库保留，游戏运行资源位于 `wanchao/`，照明市场工作台演示位于 `market-console/`，图纸工坊位于 `pdf-to-cad/`。
 - `.preview/live-backup` 保留此前本地首页；`.preview/current-live` 是本次修改采用的发布源码快照。预览文件不提交到仓库。
+
+## PDF 转 CAD · 图纸工坊发布
+
+`pdf-to-cad/` 是由 GitHub Pages 静态托管的中英文浏览器应用，使用浏览器内的转换引擎，无需转换服务器。支持导入矢量或扫描 PDF，以及包含 PDF 的 RAR / ZIP；选择转换模式、设置比例后输出 DWG / DXF，可逐页或按格式批量打包下载。
+
+图纸与转换结果仅在当前浏览器会话内处理，不上传、不展示历史记录，刷新后清空任务。扫描件转换为可编辑轮廓，文字与工程尺寸需要人工校正；应用前应复核转换比例与几何尺寸。公开发布只包含运行网页、转换引擎和必要许可，不包含个人图纸、旧转换任务、结果文件或本机运行日志。首次使用需加载转换引擎。
+
+发布时复制完整 `pdf-to-cad/` 目录及根目录首页与合成封面资源，保留 `.nojekyll`。检查中英文入口、PDF / 压缩包导入、矢量与扫描转换、比例设置、逐页及按格式打包下载、刷新清空任务，并确认所有相对资源路径在项目子目录中可用。
 
 ## 照明市场工作台发布
 

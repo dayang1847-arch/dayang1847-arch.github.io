@@ -2,6 +2,20 @@
   const root = document.documentElement;
   const copy = {
   "zh": {
+    "pdfCadName": "PDF 转 CAD · 图纸工坊",
+    "pdfCadTitle": "矢量与扫描图纸转换",
+    "pdfCadStatus": "在线转换",
+    "pdfCadSummary": "在浏览器中将 PDF 图纸转换为 DWG / DXF，支持独立线条、一键描轮廓、标注校准与按格式下载。",
+    "pdfCadFormatTag": "DWG / DXF",
+    "pdfCadScanTag": "矢量与扫描件",
+    "pdfCadPrivacyTag": "文件本地处理",
+    "pdfCadEnter": "开始转换",
+    "pdfCadAccess": "无需账号 · 图纸不上传 · 不展示历史记录",
+    "pdfCadDescription": "导入 PDF，或包含 PDF 的 RAR / ZIP 压缩包，选择转换模式、按已知标注选取两点校准，在当前浏览器内生成独立线条组成的 DWG / DXF，并分别批量打包下载。",
+    "pdfCadLimit": "扫描件转换为可编辑轮廓，文字和尺寸仍需人工校正。转换任务仅保留在当前会话，刷新后清空。",
+    "pdfCadPreviewAlt": "原创合成蓝图：PDF 图纸转换为可编辑的 CAD 线条",
+    "guidePdfCad": "导入 PDF 或包含 PDF 的 RAR / ZIP，选择矢量或扫描模式，按一条已知尺寸选取两个端点并校准后开始转换。结果可逐页下载，或按 DWG / DXF 分别打包。扫描件输出轮廓，需复核线条与尺寸。图纸仅在当前浏览器处理，不上传、不展示历史；刷新后清空当前任务，请先下载结果。",
+    "guidePdfCadLink": "进入图纸工坊 ↗",
     "works": "项目作品",
     "scope": "使用说明",
     "publicStatus": "可在线浏览",
@@ -139,6 +153,20 @@
     "guideEvidence": "资料日期、来源和计算范围以项目内部记录为准。LumiPilot 的概念模型与待核验标记保留原义；LUMINA 的照度分析仅计算人工直接光。工程应用前，请核对输入与适用条件。"
   },
   "en": {
+    "pdfCadName": "PDF to CAD · Drawing Workshop",
+    "pdfCadTitle": "Vector and scanned drawing conversion",
+    "pdfCadStatus": "Online conversion",
+    "pdfCadSummary": "Convert PDF drawings to DWG / DXF in your browser, with independent lines, one-click outlining, dimension calibration and batch downloads by format.",
+    "pdfCadFormatTag": "DWG / DXF",
+    "pdfCadScanTag": "Vector & scanned PDFs",
+    "pdfCadPrivacyTag": "Local file processing",
+    "pdfCadEnter": "Start converting",
+    "pdfCadAccess": "No account · Drawings stay local · No conversion history",
+    "pdfCadDescription": "Import a PDF or a RAR / ZIP containing PDFs, choose the mode and calibrate two points against a known dimension, then create DWG / DXF files with independent lines in your browser and download ZIPs by format.",
+    "pdfCadLimit": "Scanned PDFs become editable contours. Text and dimensions need manual correction. Conversion tasks stay in the current session and clear on refresh.",
+    "pdfCadPreviewAlt": "Original synthetic blueprint showing a PDF drawing converted into editable CAD lines",
+    "guidePdfCad": "Import a PDF or a RAR / ZIP containing PDFs. Choose vector or scan mode, calibrate two endpoints against a known dimension and start conversion. Download individual pages or a ZIP for each of DWG and DXF. Scan output contains contours; check its lines and dimensions. Drawings are processed only in your browser, with no upload or history. Download your results before refreshing, which clears the current tasks.",
+    "guidePdfCadLink": "Open Drawing Workshop ↗",
     "works": "Selected work",
     "scope": "User guide",
     "publicStatus": "Public preview",
@@ -384,6 +412,7 @@
     document.querySelectorAll('[data-i18n-placeholder]').forEach(node => { node.placeholder = copy[language][node.dataset.i18nPlaceholder]; });
     document.querySelectorAll('[data-game-link]').forEach(link => { link.setAttribute('href', `${link.dataset.gameLink}?lang=${language}`); });
     document.querySelectorAll('[data-market-link]').forEach(link => { link.setAttribute('href', `${link.dataset.marketLink}?lang=${language}`); });
+    document.querySelectorAll('[data-pdf-cad-link]').forEach(link => { link.setAttribute('href', `${link.dataset.pdfCadLink}?lang=${language}`); });
     updateProjects();
   }
   updateLanguage();
