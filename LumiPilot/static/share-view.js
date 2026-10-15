@@ -1,10 +1,12 @@
 'use strict';
 
 // The published view uses the existing workbench and its saved records. It has
-// no application server: requests must stay within the publication manifest.
+// business writes: records stay within the publication manifest. An optional
+// protected deployment forwards authentication to its authoritative server.
 (() => {
   const originalFetch = window.fetch.bind(window);
   const base = new URL('./', document.baseURI);
+  const authenticatedShare = document.body?.dataset?.authenticatedShare === 'true';
   const readonlyMessage = '当前链接为只读浏览；新增、编辑、上传及实时查询请在完整工作台操作。';
   const unavailableMessage = '本次发布未包含这项已保存资料，请回到项目目录查看已有内容。';
   let snapshot;
@@ -57,19 +59,60 @@
   }
   function filteredMarket(source, params) {
     const rows = Array.isArray(source) ? source : array(source.products), country=params.get('country'), category=params.get('category'), query=fold(params.get('q')).trim(), dataset=params.get('dataset') || 'all';
+    const projectId=params.get('project_id'), project=projectId ? array(catalogue('/api/projects')?.projects).find(row=>row.id===projectId) : null;
     const requested=Number(params.get('limit') || 100), limit=Number.isInteger(requested) && requested>0 ? Math.min(500,requested) : 100;
-    const selected=rows.filter(row => (any(country) || row.country === country) && (any(category) || row.category === category) && (dataset === 'all' || (dataset === 'collected') === Boolean(row.collected_at)) && (!query || fold([row.name,row.brand,row.category_label,row.country,row.market_label].join(' ')).includes(query))).slice(0,limit);
+    const selected=rows.filter(row => (!projectId || project && row.country===project.country && row.category===project.category) && (any(country) || row.country === country) && (any(category) || row.category === category) && (dataset === 'all' || (dataset === 'collected') === Boolean(row.collected_at)) && (!query || fold([row.name,row.brand,row.category_label,row.country,row.market_label].join(' ')).includes(query))).slice(0,limit);
     return Array.isArray(source) ? selected : {...clone(source),products:selected};
+  }
+  function publishedSourcePlan(projectId) {
+    const project=array(catalogue('/api/projects')?.projects).find(row=>row.id===projectId);
+    if(!project)return undefined;
+    const country=project.country, category=project.category, sources=[], byHost=new Map();
+    const notice='仅从原公开资料整理，未重新访问网站；不代表当前可售或完整渠道覆盖。';
+    const host=url=>{try{const value=new URL(url);return value.protocol==='https:'&&!value.username&&!value.password?value.hostname.toLowerCase():'';}catch{return '';}};
+    // A registry headquarters country or a Global catalogue cannot establish
+    // availability in the project's sales country. Use explicit market fields.
+    for(const row of array(catalogue('/api/crawler/sources')?.sources)){
+      if(row.country!==country)continue;
+      const value=clone(row), key=host(value.homepage)||host(value.default_url);
+      if(!key || !value.id || byHost.has(key))continue;
+      value.role=value.role || (value.kind==='marketplace-page'?'marketplace':'brand');
+      value.historical_count=0;
+      value.notice=[value.notice,notice].filter(Boolean).join(' ');
+      value.scope_basis='published-sales-country';
+      sources.push(value);byHost.set(key,value);
+    }
+    const catalogueRows=catalogue('/api/market/products');
+    const products=Array.isArray(catalogueRows)?catalogueRows:array(catalogueRows?.products);
+    const seen=new Set();
+    for(const row of [...products,...array(project.market_references)]){
+      if(row.country!==country || row.category!==category)continue;
+      const key=host(row.url), identity=String(row.id||'')+'|'+String(row.url||'');
+      if(!key || seen.has(identity))continue;
+      seen.add(identity);
+      let source=byHost.get(key);
+      if(!source){
+        source={id:'published-site-'+key,name:key,country,homepage:'https://'+key+'/',default_url:row.url,
+          available:false,modes:[],historical_count:0,scope_basis:'published-product-url',notice};
+        sources.push(source);byHost.set(key,source);
+      }
+      source.historical_count++;
+    }
+    return {country,sources,coverage:{known:sources.length,available:sources.filter(row=>row.available).length,
+      historical:sources.filter(row=>row.historical_count>0).length,notice},source_mode:'published_records_only'};
   }
   function findData(url) {
     const api = manifest(), path=url.pathname;
     // These filters run against the published catalogue, never the public web.
     if(path === '/api/compliance') {const source=catalogue(path);return source === undefined ? undefined : filteredCompliance(source,url.searchParams);}
     if(path === '/api/knowledge') {const source=catalogue(path);return source === undefined ? undefined : filteredKnowledge(source,url.searchParams);}
+    if(path === '/api/crawler/jobs') {const source=catalogue(path), projectId=url.searchParams.get('project_id');return source === undefined ? undefined : {...clone(source),jobs:array(source.jobs).filter(row=>!projectId || row.project_id===projectId)};}
     if(path === '/api/market/products') {const source=catalogue(path);return source === undefined ? undefined : filteredMarket(source,url.searchParams);}
     if(path === '/api/knowledge/documents') {const source=catalogue(path), country=url.searchParams.get('country');return source === undefined ? undefined : {...clone(source),documents:array(source.documents).filter(row => any(country) || [country,'ALL'].includes(row.country || 'ALL'))};}
     const exact=getEntry(path+url.search);
     if(exact !== undefined)return exact;
+    const sourcePlan=path.match(/^\/api\/projects\/([a-f0-9]{12})\/sources$/);
+    if(sourcePlan)return publishedSourcePlan(sourcePlan[1]);
     // Exported history/candles are immutable. A display parameter cannot turn
     // them into a new live fetch; the chart still shows the original source date.
     if(/^\/api\/materials\/[a-z_]+\/(candles|history)$/.test(path))return catalogue(path);
@@ -83,9 +126,13 @@
     return url.origin === base.origin && url.pathname.startsWith(base.pathname) ? url.href : '';
   }
   const ready=originalFetch(new URL('share-data.json',base).href,{cache:'no-cache'}).then(async response => {
-    if(!response.ok)throw new Error('公开资料暂未载入，请刷新页面后重试。');
+    if(!response.ok) {
+      if(authenticatedShare && response.status === 401)throw new Error('登录已失效，请重新登录后查看授权资料。');
+      if(authenticatedShare && response.status === 403)throw new Error('当前账户尚未获准查看授权资料，请在账户页面检查审批状态。');
+      throw new Error(authenticatedShare ? '授权资料暂未载入，请刷新页面后重试。' : '公开资料暂未载入，请刷新页面后重试。');
+    }
     const value=await response.json();
-    if(value?.schema_version !== 1 || !value.api || typeof value.api !== 'object')throw new Error('公开资料清单格式无法读取。');
+    if(value?.schema_version !== 1 || !value.api || typeof value.api !== 'object')throw new Error(authenticatedShare ? '授权资料清单格式无法读取。' : '公开资料清单格式无法读取。');
     snapshot=value;
     applyReadonly();
     return {published_at:value.published_at,readonly:true};
@@ -93,10 +140,13 @@
   // init() consumes the same promise through intercepted auth requests. Keep a
   // handler here so a failed static asset does not become an unhandled rejection.
   ready.catch(() => {});
-  window.LumiShare={ready,readonly:true,get publication(){return snapshot ? {published_at:snapshot.published_at,schema_version:1} : null;},fileUrl};
+  window.LumiShare={ready,readonly:true,authenticated:authenticatedShare,get publication(){return snapshot ? {published_at:snapshot.published_at,schema_version:1} : null;},fileUrl};
   window.fetch=async (input, options={}) => {
     const url=new URL(typeof input === 'string' || input instanceof URL ? input : input.url,base);
     if(url.origin !== base.origin || !url.pathname.startsWith('/api/'))return originalFetch(input,options);
+    // Only the Worker/server can authenticate users. Preserve Request bodies,
+    // cookies, CSRF headers and status responses for every identity endpoint.
+    if(authenticatedShare && url.pathname.startsWith('/api/auth/'))return originalFetch(input,options);
     const method=String(options.method || input?.method || 'GET').toUpperCase();
     if(method !== 'GET')return error('share_readonly',readonlyMessage,405);
     try {await ready;} catch(err) {return error('share_unavailable',err.message,503);}
@@ -104,32 +154,12 @@
     if(url.pathname === '/api/auth/status')return json({mode:'local',readonly:true,mail_ready:false});
     if(url.pathname.startsWith('/api/auth/'))return error('share_readonly',readonlyMessage,403);
     const asset=fileUrl(url.pathname+url.search) || fileUrl(url.pathname);
-    if(asset)return originalFetch(asset,{...options,method:'GET',credentials:'omit'});
+    if(asset)return originalFetch(asset,{...options,method:'GET',credentials:authenticatedShare ? 'same-origin' : 'omit'});
     const value=findData(url);
     return value === undefined ? error('share_record_not_published',unavailableMessage,404) : json(value);
   };
 
-  const blockedActions={
-    action:new Set(['new-project','upload-knowledge','upload-bom','upload-ies','generate','quote','add-market','delete-document','save-optical','concept-ies','download-ies','sample-bom','compliance-documents']),
-    projectDbAction:new Set(['edit','rename','delete','restore','manage-reload','view-trash']),
-    productAction:new Set(['reuse']),
-    crawlAction:new Set(['cancel','knowledge','reference','brand']),
-    materialAction:new Set(['refresh','chart-refresh']),
-    logisticsAction:new Set(['fuel','route','routes']),
-    manufacturingAction:new Set(['save','upload','fill-example']),
-    supplierAction:new Set(['test','assign']),
-    projectValueAction:new Set(['clear-value']),
-  };
-  const costViewActions=new Set(['reload','revision-open','revision-close','quote-close','route-close','actual-close','issue-close','import-close']);
-  const allowedForms=new Set(['market-filter','knowledge-search','manual-search-form','project-db-filters','compliance-filter','cw-compare-form','logistics-cost-form']);
-  const blockedInputs='#knowledge-file,#bom-file,#ies-file,#spectral-file,#cw-import-file,#materials-auto,.candidate-select,.supplier-row-query,#quote-quantity,#quote-scrap,#quote-provider,#jlc-test-query,#concept-beam';
-  const hiddenPanels='.supplier-settings,.supplier-test,.supplier-assign,.plastic-quote-editor,.logistics-new-city,.project-db-menu,.product-version-create,#jlc-search-form';
-  const selector='[data-action],[data-project-db-action],[data-product-action],[data-crawl-action],[data-material-action],[data-logistics-action],[data-manufacturing-action],[data-supplier-action],[data-project-value-action],[data-cost-action],[data-spectral-action]';
-  function isBlocked(control) {
-    if(control?.dataset?.spectralAction === 'choose-file')return true;
-    if(control?.dataset?.costAction)return !costViewActions.has(control.dataset.costAction);
-    return Object.entries(blockedActions).some(([key,values]) => values.has(control?.dataset?.[key]));
-  }
+  const {allowedForms,blockedInputs,hiddenPanels,selector,isBlocked,applyControls}=window.LumiWorkspaceAccess;
   function setText(node,text) {if(node && node.textContent !== text)node.textContent=text;}
   function markDisabled(node,hide=false) {
     if('disabled' in node && !node.disabled)node.disabled=true;
@@ -160,22 +190,16 @@
     const shell=document.querySelector('.main-shell'), topbar=document.querySelector('.topbar');
     if(shell && topbar && !document.querySelector('#share-publication-note')) {
       const note=document.createElement('div');note.id='share-publication-note';note.className='share-publication-note';
-      note.innerHTML='<span>仅供浏览 · 后台采集、保存、上传需服务器</span><a href="/">返回作品集 ↗</a>';
+      note.innerHTML=authenticatedShare ? '<span>授权查看 · 本链接仅提供已保存资料，原始来源时点保持不变</span><a href="#access">账户与访问 ↗</a>' : '<span>仅供浏览 · 界面已更新，业务资料与下载说明保留原公开版本</span><a href="/">返回作品集 ↗</a>'; 
       topbar.insertAdjacentElement('afterend',note);
     }
-    document.querySelectorAll('a[href="#access"],[data-page="access"]').forEach(node => {if(!node.hidden)node.hidden=true;});
-    document.querySelectorAll(selector).forEach(control => {if(isBlocked(control))markDisabled(control,true);});
-    document.querySelectorAll(hiddenPanels).forEach(node => {if(!node.hidden)node.hidden=true;});
-    document.querySelectorAll('form').forEach(form => {
-      if(allowedForms.has(form.id))return;
-      form.querySelectorAll('input,textarea,select,button[type="submit"]').forEach(node => markDisabled(node));
-      if(form.dataset.shareReadonly !== 'true')form.dataset.shareReadonly='true';
-    });
-    document.querySelectorAll(blockedInputs).forEach(node => markDisabled(node));
-    const auto=document.querySelector('#materials-auto')?.closest('label');if(auto && !auto.hidden)auto.hidden=true;
+    if(!authenticatedShare)document.querySelectorAll('a[href="#access"],[data-page="access"]').forEach(node => {if(!node.hidden)node.hidden=true;});
+    // Authentication forms may mutate accounts, while business forms remain read-only.
+    applyControls(document,{snapshot:!authenticatedShare,note:readonlyMessage});
+    document.querySelectorAll('[data-intelligence-action="retry-job"],[data-intelligence-action="select-sources"]').forEach(node=>markDisabled(node,true));
     document.querySelectorAll('a[href]').forEach(link => {
       const href=link.getAttribute('href');
-      if(!href?.startsWith('/api/'))return;
+      if(!href?.startsWith('/api/') || authenticatedShare && href.startsWith('/api/auth/'))return;
       const asset=fileUrl(href);
       if(asset){link.href=asset;link.dataset.shareFile='true';return;}
       link.dataset.shareUnavailable='true';
@@ -188,13 +212,15 @@
     const stamp=time(snapshot?.published_at);
     setText(document.querySelector('.local-pill'),'只读浏览 · 资料更新于 '+stamp);
     const note=document.querySelector('.sidebar-note');
-    if(note && note.dataset.shareNote !== 'true') {note.dataset.shareNote='true';note.innerHTML='<span class="status-dot"></span><strong>公开资料 · 只读浏览</strong><p>查看项目、知识索引与已保存分析。实时采集与资料维护在完整工作台完成。</p><span class="version">LUMIPILOT / SHARED VIEW</span>';}
+    if(note && note.dataset.shareNote !== 'true') {note.dataset.shareNote='true';note.innerHTML=`<span class="status-dot"></span><strong>${authenticatedShare ? '授权资料' : '公开资料'} · 只读浏览</strong><p>查看项目、知识索引与已保存分析。实时采集与资料维护在完整工作台完成。</p><span class="version">LUMIPILOT / SHARED VIEW</span>`;}
     const dbNote=document.querySelector('.project-db-tabs > span');if(dbNote)setText(dbNote,'进入项目查看研发记录，展开档案核对来源。');
     const editable=document.querySelector('#spec-form')?.closest('.panel')?.querySelector('.panel-header .tag');if(editable)setText(editable,'已保存目标');
     document.querySelectorAll('#content .heading-actions [data-action="navigate"][data-page="solution"]').forEach(node => setText(node,'查看产品定义'));
     setText(document.querySelector('#crawl-refresh-state'),'发布时已保存的任务记录');
+    setText(document.querySelector('.project-source-coverage small'),'仅按原公开资料中的明确销售国整理来源；未重新访问网站，不代表完整渠道覆盖。');
+    setText(document.querySelector('.project-source-plan .references-empty'),'原公开资料未保存本销售国来源清单；此页不自动检索或补充网站。');
     const chartNote=document.querySelector('#materials-refresh-status > small');if(chartNote)setText(chartNote,'仅显示已保存行情与原始源时点；本链接不实时获取价格');
-    if(location.hash.split('?')[0] === '#access')location.replace('#projects');
+    if(!authenticatedShare && location.hash.split('?')[0] === '#access')location.replace('#projects');
     if(snapshot)savedOptical();
   }
   function announce() {
@@ -207,7 +233,7 @@
     event.preventDefault();event.stopImmediatePropagation();announce();
   },true);
   document.addEventListener('submit',event => {
-    if(allowedForms.has(event.target?.id))return;
+    if(allowedForms.has(event.target?.id) || authenticatedShare && event.target?.id?.startsWith('auth-'))return;
     event.preventDefault();event.stopImmediatePropagation();announce();
   },true);
   document.addEventListener('drop',event => {event.preventDefault();event.stopImmediatePropagation();announce();},true);

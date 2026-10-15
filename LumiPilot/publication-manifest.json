@@ -24,24 +24,24 @@
       "bytes": 49366
     },
     "index.html": {
-      "sha256": "35e94786cc4da4fcfd96b457d48d4dacb20441d65db40a286a68ac22c88af9ae",
-      "bytes": 8828
+      "sha256": "8fcaaa474f34b766f267354f446dc3cdb0c405fd1b4c93f2a2b70fe1debb2fa1",
+      "bytes": 8707
     },
     "share-data.json": {
       "sha256": "53ca975d59ee7da771f6cdaf7bd2ea8549932fe76684465f2f699fe73d324d44",
       "bytes": 4028954
     },
     "static/app.js": {
-      "sha256": "fc393bd065da96b254ad2789aaf7b7ff0b95d9a96616ef6e635e32c76c666f1c",
-      "bytes": 79783
+      "sha256": "8bb98baabbab28bf728c77ffb63d6b14c090f4157117c329b15c2a26aef89d48",
+      "bytes": 85521
     },
     "static/auth.css": {
-      "sha256": "eebb2d3cf39f90eb5e05176039764a71b50ddd71b607d89df5bc9b5cda97c725",
-      "bytes": 11551
+      "sha256": "51af53740b6b2ab81403a443577ea94ef6d50045d156afc83ce7608172546977",
+      "bytes": 14010
     },
     "static/auth.js": {
-      "sha256": "db066a8c0f3c0f434ed81edf2b9ad03555737dbf143b464bd7877d941ab98f51",
-      "bytes": 27763
+      "sha256": "26faa7fadf57e0a4584f21fb6d6e91b80f6a070fe365fd74abc15bbf17845682",
+      "bytes": 52629
     },
     "static/compliance.css": {
       "sha256": "823f7fa0d79801e1e14953de3736a441d894f7e970bbdd16b761f8d8730b6ca1",
@@ -56,8 +56,8 @@
       "bytes": 12468
     },
     "static/cost-workbench.js": {
-      "sha256": "0f880f96c6b5dbb7de33a9f7c70015a4f81f99eb9256d2837c63c3ee8de5463d",
-      "bytes": 76554
+      "sha256": "661d51a3270c4db9fc70e22dbf5ed273a32e84dc08f6c439e1e21eb9b333ccee",
+      "bytes": 79053
     },
     "static/crawler.css": {
       "sha256": "4cadc75d1ce5fd53455b26be22519e9dbdc51fddd5829ebbd3a3b6d310ff7600",
@@ -115,21 +115,45 @@
       "sha256": "1aad5fa21113882b71baa6a926de9562aa0f34d2345447af1cbaa5b270db57b0",
       "bytes": 14529
     },
+    "static/product-definition.css": {
+      "sha256": "24013a8105969622e2a7946144466e41a15638bad141427ddfd329f53985c2a9",
+      "bytes": 3721
+    },
+    "static/product-definition.js": {
+      "sha256": "51a1df83f8114bed36d832fbe4f7e23a1b27cf6f27ce186ee6ac51037c8f2032",
+      "bytes": 13862
+    },
     "static/product-development.css": {
       "sha256": "861e8602a14359d5dca90066c1ca3eb6bffc1ee4cf1bf716bf1d405e3a0c0f8f",
       "bytes": 3769
     },
     "static/product-development.js": {
-      "sha256": "e9a7eb9154a39e048175a57f30b0348fe9f7b710c18ddea13921ccdaf51261c2",
-      "bytes": 18175
+      "sha256": "afbc97280c37a3a930edc8896c391113d83e8612d428b9b0f2a3d2fff88a110c",
+      "bytes": 18344
     },
     "static/project-database.css": {
       "sha256": "797bc9ec5a49b529e9052ef651af3505e85fcfd557b7f454b8187f829d904bc8",
       "bytes": 12437
     },
     "static/project-database.js": {
-      "sha256": "c8097c53458bef70cc6b777f1d78826751a5e327ae0b1c9fad643be091257b07",
-      "bytes": 37081
+      "sha256": "478943954e9900ceb00cbd99c501e54813080d03f63df0a795b84dcc4d689035",
+      "bytes": 38498
+    },
+    "static/project-initiation.css": {
+      "sha256": "4f5d25cda9957222406e84e0bea1b841e710db17487b07232f3c93051d0e9539",
+      "bytes": 2356
+    },
+    "static/project-initiation.js": {
+      "sha256": "f7a683cb2d3f26c24e79e1f638e0bdab4532f0cf02fac61e4b8fd3a22fc3b726",
+      "bytes": 12363
+    },
+    "static/project-intelligence.css": {
+      "sha256": "0778e25c413440500589c6f1460cc0ddee39c776836c497e24606a82ea533c9a",
+      "bytes": 3740
+    },
+    "static/project-intelligence.js": {
+      "sha256": "a8cb0dee54b83e8fc88fcc48a10d2267ec9c3938c38d482fe66c71a622bf1e8f",
+      "bytes": 28295
     },
     "static/project-value.css": {
       "sha256": "8972d2d5fd332334c09702912a98a068afc1f57897eb6e8dc1e9b4d4515efa21",
@@ -140,12 +164,12 @@
       "bytes": 11060
     },
     "static/share-view.css": {
-      "sha256": "bbbb2ca508ec1f38a398a5ece32a43acd7eb971c168138506ef8007553d6eb0d",
-      "bytes": 2791
+      "sha256": "68053f62ab93465c999d6662e465bc6165b0f16d322c81dcce0719d47142d806",
+      "bytes": 2795
     },
     "static/share-view.js": {
-      "sha256": "07f340c72fb37bc6281f237cc43f36059967538aafb6793668228289cdeae400",
-      "bytes": 19796
+      "sha256": "3dae029eed3f42a74345da8f0a122a69237b9556ef4cfc78b0fb159721eaa8d9",
+      "bytes": 22168
     },
     "static/spectral.css": {
       "sha256": "4503886a8c7dc49effcff7aececad93fa098c5cde2662e97ad7dfc5a8b8c5734",
@@ -191,13 +215,17 @@
       "sha256": "e68693148cd170e5403b29ada02c13ad467e6e085f2287510b2cf436bc46b10c",
       "bytes": 6120
     },
+    "static/workspace-access.js": {
+      "sha256": "4e6473f089134e055d135f0c3fbd47a20ea0d031de992f2c19bd9602f0a27739",
+      "bytes": 6479
+    },
     "static/workspace.css": {
       "sha256": "850386cb0aa68ea6b1ae9f029ff780de2bc3d45a752ce9e7e7fd1a70376699b7",
       "bytes": 9654
     },
     "static/workspace.js": {
-      "sha256": "051cc34a8a2d6224b857449ac7753a279c736df285bdd0b4491047c948647040",
-      "bytes": 10948
+      "sha256": "12353aec282165b7ebd80c978bc9c91595d8fe091c31ee4b0d1cc1e6731ee5fa",
+      "bytes": 12194
     }
   },
   "source_times": {
@@ -257,5 +285,13 @@
     "知识库及项目原件仅保留目录、哈希和已关联摘录；上传原件、数据库、账号、邮箱、SMTP 与供应商凭据均未包含。",
     "光学页面展示已保存分析；不在公开页运行光学实验室或将概念模型写入项目。",
     "空的成本方案、版本、工艺测算和光谱实测记录保持空白，不添加示例记录或虚构成果。"
-  ]
+  ],
+  "interface_update": {
+    "updated_at": "2026-10-15T01:27:22.023122+00:00",
+    "scope": "interface_only",
+    "public_data_base_commit": "aca61bc4ea28d0b961b1baa4440fd568ff95d8e8",
+    "business_snapshot_unchanged": true,
+    "downloads_unchanged": true,
+    "static_assets": 45
+  }
 }

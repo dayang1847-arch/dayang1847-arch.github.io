@@ -36,6 +36,7 @@ window.LumiWorkspace = (() => {
   }
 
   function definitionStage(project) {
+    if(project.sales||project.sales_brief){const spec=project.spec||{},ready=Array.isArray(spec.power_options_w)&&spec.power_options_w.length>0;return stage('definition','销售产品范围','#solution',ready?'saved':'missing',ready?'产品范围已保存':'待填写产品范围','项目可包含多个瓦数、色温与光通量；未知规格及具体对应组合继续补充。',ready);}
     const spec = record(project.spec) ? project.spec : {};
     const saved = number(spec.power_w) && spec.power_w > 0 &&
       number(spec.luminous_flux_lm) && spec.luminous_flux_lm > 0 &&
@@ -57,6 +58,7 @@ window.LumiWorkspace = (() => {
   }
 
   function solutionStage(project) {
+    if(project.sales||project.sales_brief){const brief=project.sales_brief;if(!brief)return stage('solution','项目销售方案','#solution','missing','待整理销售方案','按销售目标、产品范围与当地竞品整理资料，未知信息保留待确认。');const stale=brief.status==='needs_refresh';return stage('solution','项目销售方案','#solution',stale?'stale':'saved',stale?'销售方案需更新':'销售方案已保存',stale?'销售规格、目标或依据有变化，请重新生成。':'已整理项目销售信息；报价与具体产品组合仍需核对。',!stale);}
     const plan = record(project.plan) ? project.plan : null;
     const deleted = Array.isArray(plan?.references) && plan.references.some(ref => record(ref) && ref.deleted);
     if(plan?.status === 'needs_refresh' || deleted)return stage('solution','方案草案','#solution','stale','方案需重新生成',
@@ -124,6 +126,7 @@ window.LumiWorkspace = (() => {
   // ready means saved inputs for progressing through this prototype, never approval.
   function stages(project, options = {}) {
     const p = record(project) ? project : {}, opts = record(options) ? options : {};
+    if(p.sales||p.sales_brief)return [definitionStage(p),marketStage(p),solutionStage(p),stage('review','销售确认','#overview?view=intelligence','review','待业务确认','确认客户需求、价格条件、产品组合与当地竞品依据。')];
     return [definitionStage(p), marketStage(p), solutionStage(p), opticalStage(p), bomStage(p), manufacturingStage(opts),
       stage('review','工程评审','#knowledge','review','待工程评审','补齐实测、可靠性和适用认证资料；草案、预览、报价与估算都不代表工程通过。')];
   }

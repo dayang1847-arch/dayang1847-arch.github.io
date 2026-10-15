@@ -25,11 +25,18 @@
   <script src="/LumiPilot/static/workspace.js" defer></script>
   <script src="/LumiPilot/static/compliance.js" defer></script>
   <script src="/LumiPilot/static/spectral.js" defer></script>
+  <link rel="stylesheet" href="/LumiPilot/static/project-initiation.css">
+  <script src="/LumiPilot/static/project-initiation.js" defer></script>
+  <link rel="stylesheet" href="/LumiPilot/static/project-intelligence.css">
+  <script src="/LumiPilot/static/project-intelligence.js" defer></script>
   <script src="/LumiPilot/static/project-database.js" defer></script>
   <script src="/LumiPilot/static/project-value.js" defer></script>
   <script src="/LumiPilot/static/manual.js" defer></script>
+  <script src="/LumiPilot/static/workspace-access.js" defer></script>
   <script src="/LumiPilot/static/auth.js" defer></script>
   <script src="/LumiPilot/static/product-development.js" defer></script>
+  <link rel="stylesheet" href="/LumiPilot/static/product-definition.css">
+  <script src="/LumiPilot/static/product-definition.js" defer></script>
   <script src="/LumiPilot/static/cost-workbench.js" defer></script>
   <link rel="stylesheet" href="/LumiPilot/static/share-view.css">
   <script src="/LumiPilot/static/share-view.js" defer></script>
@@ -76,14 +83,13 @@
   </div>
   <dialog id="project-dialog" class="dialog">
     <form id="new-project-form">
-      <div class="dialog-header"><div><p class="eyebrow">NEW PROJECT</p><h2>新建照明研发项目</h2></div><button type="button" class="icon-button" data-action="close-dialog" aria-label="关闭">×</button></div>
-      <p class="muted">从目标市场和产品类型开始，后续可以补充规格、竞品、光度文件和 BOM。</p>
+      <div class="dialog-header"><div><p class="eyebrow">NEW PROJECT</p><h2>新建照明项目</h2></div><button type="button" class="icon-button" data-action="close-dialog" aria-label="关闭">×</button></div>
+      <p class="muted">从销售机会出发：明确目标市场、产品系列、预计销量与销售额，再交给研发和成本环节完善。</p>
       <label class="field">项目名称<input name="name" required autofocus maxlength="120" placeholder="例如：美国市场高光效 T8 灯管"></label>
       <label class="field">项目备注<textarea name="description" maxlength="2000" rows="2" placeholder="客户需求、型号版本或项目用途（可选）"></textarea></label>
-      <div class="form-grid"><label class="field">目标市场<select name="country" id="new-country"></select></label><label class="field">产品类型<select name="category"><option value="t8">T8 LED 灯管</option><option value="bulb">A 型 LED 灯泡</option><option value="floodlight">LED 投光灯</option><option value="streetlight">LED 路灯</option></select></label></div>
-      <div class="form-grid"><label class="field">目标功率 W<input name="power_w" type="number" min="0.1" max="5000" step="0.1" value="18" required></label><label class="field">目标光通量 lm<input name="luminous_flux_lm" type="number" min="1" max="1000000" step="1" value="2400" required></label></div>
-      <div class="form-grid"><label class="field">色温 K<input name="cct_k" type="number" min="1800" max="10000" step="100" value="4000" required></label><label class="field">显色指数 Ra<input name="cri" type="number" min="0" max="100" value="80" required></label></div>
-      <div class="form-grid"><label class="field">生产数量 台<input name="quantity" type="number" min="1" max="1000000" step="1" value="1000" required></label><label class="field">测算损耗加成 %<input name="scrap_percent" type="number" min="0" max="100" step="0.1" value="3" required></label></div>
+      <div class="form-grid"><label class="field">目标市场<select name="country" id="new-country"></select></label><label class="field">产品品类<select name="category"><option value="t8">T8 LED 灯管</option><option value="bulb">光源灯泡</option><option value="floodlight">LED 投光灯</option><option value="streetlight">LED 路灯</option></select></label></div>
+      <div data-initiation-slot></div>
+      <p class="project-initiation-note">销售数量与销售额按整个项目、同一周期填写；暂未确认可留空。生产数量、损耗与光学目标在后续研发 / 成本环节补充。</p>
       <div class="dialog-actions"><button type="button" class="button" data-action="close-dialog">取消</button><button class="button button-primary" type="submit">创建项目</button></div>
     </form>
   </dialog>
