@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "build": "node build.mjs",
-    "test": "node tests/geometry-test.mjs"
+    "test": "node tests/geometry-test.mjs && node tests/contour-test.mjs && node tests/contour-session-test.mjs && node tests/contour-pdf-test.mjs && node tests/contour-worker-test.mjs"
   },
   "keywords": [],
   "author": "",

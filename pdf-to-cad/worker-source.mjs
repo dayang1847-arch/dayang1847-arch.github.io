@@ -5,8 +5,12 @@ import { unzipSync } from 'fflate';
 import { createExtractorFromData } from 'node-unrar-js';
 import initCad, { dxf_to_dwg, inspect_dwg } from './vendor/cad/pdf_cad_wasm.js';
 import { vectorPageToDxf, svgToDxf } from './geometry.mjs';
+import { extractContour, exportContoursDxf, contourPreviewSvg } from './contour.mjs';
+import { createContourPdf } from './contour-pdf.mjs';
+import { calibrateContourRecord, rotateContourRecord, selectCalibratedContours } from './contour-session.mjs';
 
 const documents = new Map();
+const contours = new Map();
 const MAX_FILE = 60 * 1024 * 1024;
 const MAX_TOTAL = 200 * 1024 * 1024;
 let storedBytes = 0;
@@ -102,7 +106,7 @@ async function inspect(payload) {
         }
         const id=crypto.randomUUID();
         const item={id,name:file.name,pageCount:count,pages,preview:firstPreview};
-        documents.set(id,{doc,byteLength:file.bytes.length,pages});
+        documents.set(id,{doc,name:file.name,byteLength:file.bytes.length,pages});
         storedBytes+=file.bytes.length;storedPages+=count;registered=true;
         created.push(item);
       }finally{if(!registered)doc.destroy();}
@@ -163,6 +167,82 @@ async function convert({documentId,pageIndex,options}) {
 async function dispatch(type,payload) {
   if(type==='inspect')return inspect(payload);
   if(type==='convert')return convert(payload);
+  if(type==='extractContour') {
+    if(contours.size>=100)throw new Error('每次最多提取 100 个轮廓，请先删除不需要的项目。');
+    const documentId=payload.docId || payload.documentId;
+    const record=documents.get(documentId), pageIndex=payload.pageIndex;
+    if(!record || !Number.isInteger(pageIndex) || pageIndex<0 || pageIndex>=record.pages.length)throw new Error('源图已清空或页码无效。');
+    const dpi=Number(payload.dpi || 300),threshold=Number(payload.threshold ?? 160);
+    if(!Number.isFinite(dpi)||dpi<100||dpi>600||!Number.isFinite(threshold)||threshold<40||threshold>240)throw new Error('描轮廓参数无效。');
+    const page=record.doc.loadPage(pageIndex);
+    try {
+      const pix=render(page,dpi,30000000);
+      let result;
+      try {
+        const width=pix.getWidth(),height=pix.getHeight(),channels=pix.getNumberOfComponents();
+        const source=pix.getPixels(),rgba=new Uint8ClampedArray(width*height*4);
+        for(let i=0,j=0;i<source.length;i+=channels,j+=4){
+          rgba[j]=source[i];rgba[j+1]=source[i+1];rgba[j+2]=source[i+2];rgba[j+3]=255;
+        }
+        const info=record.pages[pageIndex];
+        result=await extractContour({rgba,width,height,region:payload.region,
+          pageWidthMm:info.widthMm,pageHeightMm:info.heightMm,scale:1,threshold});
+      }finally{pix.destroy();}
+      const contourId=crypto.randomUUID();
+      const item={...result,contourId,sourceName:record.name,pageIndex,region:payload.region,
+        documentId,calibrated:false,calibration:null,scale:1};
+      contours.set(contourId,{...item,basePoints:item.pointsMm.map(p=>[...p]),baseWidth:item.widthMm,baseHeight:item.heightMm});
+      return item;
+    }finally{page.destroy();}
+  }
+  if(type==='calibrateContour') {
+    const record=contours.get(payload.contourId);
+    if(!record)throw new Error('轮廓已清空，请重新提取。');
+    const item=calibrateContourRecord(record,payload.point1,payload.point2,Number(payload.valueMm));
+    item.previewSvg=contourPreviewSvg(item.pointsMm,item.widthMm,item.heightMm);
+    contours.set(payload.contourId,item);
+    const {basePoints,baseWidth,baseHeight,...publicItem}=item;
+    return publicItem;
+  }
+  if(type==='rotateContour') {
+    const record=contours.get(payload.contourId);
+    if(!record)throw new Error('轮廓已清空，请重新提取。');
+    const item=rotateContourRecord(record);
+    item.previewSvg=contourPreviewSvg(item.pointsMm,item.widthMm,item.heightMm);
+    contours.set(payload.contourId,item);
+    const {basePoints,baseWidth,baseHeight,...publicItem}=item;
+    return publicItem;
+  }
+  if(type==='resetContourCalibration') {
+    const record=contours.get(payload.contourId);
+    if(!record)throw new Error('轮廓已清空，请重新提取。');
+    const item={...record,pointsMm:record.basePoints.map(p=>[...p]),widthMm:record.baseWidth,heightMm:record.baseHeight,
+      calibrated:false,calibration:null,measurementMm:undefined,errorMm:undefined,scale:1};
+    if(item.quality?.nominalCleanupRangeMm)item.quality={...item.quality,nominalCleanupRangeMm:item.quality.nominalCleanupRangeMm/record.scale};
+    item.previewSvg=contourPreviewSvg(item.pointsMm,item.widthMm,item.heightMm);
+    contours.set(payload.contourId,item);
+    const {basePoints,baseWidth,baseHeight,...publicItem}=item;
+    return publicItem;
+  }
+  if(type==='removeContour'||type==='deleteContour')return {removed:contours.delete(payload.contourId)};
+  if(type==='exportContours') {
+    const items=selectCalibratedContours(contours,payload.items);
+    const format=payload.format;
+    if(!['dwg','dxf','pdf'].includes(format))throw new Error('请选择 DWG、DXF 或 PDF。');
+    let bytes;
+    if(format==='pdf') bytes=createContourPdf(items,{language:payload.language==='en'?'en':'zh'});
+    else {
+      const result=exportContoursDxf(items);
+      bytes=result.dxf;
+      if(format==='dwg') {
+        bytes=dxf_to_dwg(bytes);
+        const manifest=JSON.parse(inspect_dwg(bytes));
+        if(manifest.units!==4 || manifest.entities<=0 || (result.entityCount && manifest.entities!==result.entityCount))throw new Error('汇总 DWG 回读校验失败。');
+      }
+    }
+    return {bytes,filename:`零件轮廓汇总_${items.length}款.${format}`,
+      mime:format==='pdf'?'application/pdf':format==='dxf'?'application/dxf':'application/acad',count:items.length};
+  }
   if(type==='preview'){
     const record=documents.get(payload.documentId);
     if(!record||!Number.isInteger(payload.pageIndex)||payload.pageIndex<0||payload.pageIndex>=record.pages.length)throw new Error('页码无效');
@@ -171,7 +251,7 @@ async function dispatch(type,payload) {
   }
   if(type==='clear'){
     for(const value of documents.values())value.doc.destroy();
-    documents.clear();storedBytes=storedPages=0;
+    documents.clear();contours.clear();storedBytes=storedPages=0;mupdf.emptyStore();
     return {cleared:true};
   }
   throw new Error('未知操作');

@@ -6,8 +6,8 @@
   <meta name="color-scheme" content="light">
   <meta name="description" content="在浏览器本地将矢量或扫描 PDF 转为 DWG 与 DXF，文件不上传，仅保留当前页面的临时结果。">
   <title>PDF 转 CAD · 图纸工坊</title>
-  <link rel="stylesheet" href="./style.css">
-  <script type="module" src="./app.js"></script>
+  <link rel="stylesheet" href="./style.css?v=20261015-parts-1">
+  <script type="module" src="./app.js?v=20261015-parts-1"></script>
   <link rel="stylesheet" href="../assets/project-navigation.css?v=1">
   <script defer src="../assets/project-navigation.js?v=1"></script>
 </head>
@@ -23,6 +23,7 @@
     <div class="page-content">
       <section class="page-heading"><div><div class="eyebrow" data-i18n="eyebrow">从图纸，到可编辑的设计</div><h1>PDF 转 CAD<span data-i18n="workbench">工作台</span></h1><p data-i18n="intro">载入图纸，选择转换方式，导出 DWG 与 DXF。</p></div><div class="format-mark"><span>PDF</span><span class="format-arrow">→</span><span>DWG<small>+ DXF</small></span></div></section>
       <div class="privacy-banner"><span class="privacy-icon" aria-hidden="true">◉</span><div><strong data-i18n="privacyTitle">在你的浏览器中转换，文件不上传</strong><p data-i18n="privacyText">仅保留本次页面内的文件与结果；刷新、关闭或清空后即移除。不展示历史记录。</p></div></div>
+      <a class="contour-jump" href="#contour-workspace"><span data-i18n="contourJump">灯杯外形汇总：框选 → 校准尺寸 → 导出一个 CAD / PDF</span><span aria-hidden="true">↓</span></a>
       <div id="notice" class="notice" role="status" hidden></div>
       <div class="main-grid">
         <div class="workflow-column">
@@ -48,7 +49,7 @@
             <label class="unverified-option"><input type="checkbox" id="allow-unverified"><span data-i18n="allowUnverified">允许未校准页按纸面 / 手动比例导出（尺寸未核实）</span></label>
             <details id="scan-settings"><summary><span data-i18n="scanParameters">扫描处理参数</span><span data-i18n="precision">阈值与精度</span></summary><div class="scan-fields"><label for="threshold"><span data-i18n="threshold">黑白阈值</span><div class="input-suffix"><input id="threshold" type="number" value="160" min="40" max="240" step="1"><span>/ 255</span></div><small data-i18n="thresholdHint">调高可保留较浅的线条</small></label><label for="dpi"><span data-i18n="resolution">扫描分辨率</span><div class="input-suffix"><select id="dpi"><option value="150">150</option><option value="300" selected>300</option><option value="600">600</option></select><span>DPI</span></div><small data-i18n="resolutionHint">更高精度需要更多处理时间</small></label></div></details>
             <div class="convert-action"><div class="output-label"><span class="output-icon">↳</span><span><span data-i18n="outputFiles">输出文件</span><small>DWG + DXF</small></span></div><div class="action-buttons"><button id="cancel-button" class="cancel-button" type="button" hidden data-i18n="cancelClear">取消并清空</button><button class="primary-button" id="convert-button" type="button" disabled><span id="convert-label" data-i18n="startConversion">开始转换</span><span>→</span></button></div></div>
-            <div class="outline-action"><div><strong data-i18n="outlineTitle">只需要图形轮廓？</strong><p data-i18n="outlineHint">矢量文字对象不输出；扫描文字仍为轮廓，需人工清理。沿用当前方式与每页尺寸校准。</p></div><button id="outline-button" class="outline-button" type="button" disabled><span id="outline-label" data-i18n="traceOutlines">一键描轮廓</span><span aria-hidden="true">↗</span></button></div>
+            <div class="outline-action"><div><strong data-i18n="outlineTitle">整页描线</strong><p data-i18n="outlineHint">矢量文字对象不输出；扫描文字仍为轮廓，需人工清理。沿用当前方式与每页尺寸校准。</p></div><button id="outline-button" class="outline-button" type="button" disabled><span id="outline-label" data-i18n="traceOutlines">整页描轮廓</span><span aria-hidden="true">↗</span></button></div>
           </section>
         </div>
         <aside class="preview-column">
@@ -67,6 +68,37 @@
           <div class="quality-note"><span class="note-icon">i</span><div><strong data-i18n="qualityTitle">转换前了解一下</strong><p data-i18n="separateLines">独立线段输出，直线 / 曲线可单独选择。</p><p data-i18n="qualityText">矢量图纸优先保留可编辑几何。扫描件生成图像轮廓，文字与尺寸标注不会自动恢复为 CAD 原生对象。</p><p data-i18n="scanOutline">扫描件生成双边轮廓，不会自动恢复为中心线。</p><p data-i18n="qualityCheck">预览不代表加工精度。请在用于设计、加工前校正比例，核对关键尺寸与曲线。</p></div></div>
         </aside>
       </div>
+      <section class="card contour-workspace" id="contour-workspace" aria-labelledby="contour-title">
+        <div class="section-header"><h2><span class="step">04</span><span id="contour-title" data-i18n="contourWorkspace">零件轮廓汇总</span></h2><span class="contour-tag" data-i18n="contourTag">一个零件 · 一次尺寸校准</span></div>
+        <div class="contour-intro"><p data-i18n="contourIntro">框选灯杯主视图，提取外轮廓后按标注校准尺寸。多个型号汇总为一个 CAD（实际毫米比例），或一个 PDF（按统一比例适配版面）。</p><ol class="contour-steps"><li data-i18n="contourStep1">1. 框选零件</li><li data-i18n="contourStep2">2. 在轮廓上校准尺寸</li><li data-i18n="contourStep3">3. 汇总导出</li></ol></div>
+        <div id="contour-notice" class="contour-notice" role="status" hidden></div>
+        <div class="contour-edit-grid">
+          <div class="contour-source-panel">
+            <h3 data-i18n="contourSelectTitle">框选要提取的零件</h3>
+            <div class="calibration-selectors"><label><span data-i18n="file">文件</span><select id="contour-file" disabled></select></label><label><span data-i18n="page">页码</span><select id="contour-page" disabled></select></label></div>
+            <p class="contour-help" data-i18n="contourSelectHelp">在下方源图中拖出矩形，只圈住一个灯杯的主视图，尽量避开尺寸线、剖面线和图框。手机可用手指拖动。</p>
+            <div class="contour-source-stage" id="contour-source-stage"><p class="contour-empty" data-i18n="contourLoadFirst">先在上方载入 PDF 图纸</p></div>
+            <div class="contour-source-actions"><span id="contour-region-status" class="contour-help" data-i18n="contourRegionEmpty">尚未框选区域</span><button type="button" id="contour-reset-region" class="text-button" disabled data-i18n="contourResetRegion">重新框选</button></div>
+            <button type="button" id="contour-extract" class="outline-button" disabled><span id="contour-extract-label" data-i18n="contourExtract">提取选中外轮廓</span><span aria-hidden="true">→</span></button>
+          </div>
+          <div class="contour-dimension-panel">
+            <h3 data-i18n="contourDimensionTitle">在提取的轮廓上校准尺寸</h3>
+            <p class="contour-help" data-i18n="contourDimensionHelp">依次点击同一尺寸的两个轮廓端点 A、B，再填写图纸标注的实际毫米数。点击会吸附到附近的轮廓。</p>
+            <div class="contour-shape-stage" id="contour-shape-stage"><p class="contour-empty" data-i18n="contourExtractFirst">提取后在这里显示零件外轮廓</p></div>
+            <div class="contour-measurement" id="contour-measurement" data-i18n="contourNoPoints">尚未选择尺寸端点</div>
+            <div class="contour-label-row"><label for="contour-label" data-i18n="contourModel">型号 / 名称</label><input id="contour-label" maxlength="120" type="text" disabled></div>
+            <div class="contour-label-row"><label for="contour-dimension" data-i18n="dimensionValue">标注长度（mm）</label><input id="contour-dimension" type="number" min="0.000001" step="any" inputmode="decimal" placeholder="例如 60" disabled></div>
+            <div class="calibration-actions"><button type="button" id="contour-rotate" class="text-button" disabled data-i18n="contourRotate">旋转 90°</button><button type="button" id="contour-calibrate" class="secondary-button" disabled data-i18n="contourApplyCalibration">校准此零件尺寸</button><button type="button" id="contour-reset-calibration" class="text-button" disabled data-i18n="contourResetCalibration">重置校准</button></div>
+            <p class="calibration-status" id="contour-calibration-status" data-i18n="contourNeedsCalibration">提取的零件必须分别校准后才能导出。</p>
+            <p class="contour-help contour-limitation" data-i18n="contourDimensionLimitation">校准会等比缩放此零件，只核实所选参考长度；其他尺寸、扫描变形和外形细节仍需核对。框选区域中的连线可能影响提取，请先检查轮廓预览。</p>
+          </div>
+        </div>
+        <div class="contour-collection">
+          <div class="contour-collection-heading"><h3 data-i18n="contourCollection">待汇总零件</h3><span id="contour-count" class="muted tiny">0</span></div>
+          <div id="contour-list" class="contour-list"><p class="contour-empty" data-i18n="contourCollectionEmpty">可从不同文件、不同页重复提取，所有零件仅保存在当前页面。</p></div>
+          <div class="contour-export-row"><p id="contour-export-status" class="contour-help" data-i18n="contourExportEmpty">请提取并校准至少一个零件。</p><div class="contour-export-buttons"><button type="button" id="contour-dwg" class="secondary-button" disabled data-i18n="contourExportDwg">汇总为 DWG ↓</button><button type="button" id="contour-dxf" class="secondary-button" disabled data-i18n="contourExportDxf">汇总为 DXF ↓</button><button type="button" id="contour-pdf" class="secondary-button" disabled data-i18n="contourExportPdf">汇总为 PDF ↓</button></div></div>
+        </div>
+      </section>
       <section class="card results-card" id="results-card" hidden><div class="section-header"><h2><span class="step">03</span><span data-i18n="results">转换结果</span><span class="count-badge" id="result-count">0</span></h2><div class="bulk-downloads" id="bulk-downloads" role="group" aria-label="按格式打包下载" hidden><button class="secondary-button" id="dwg-download" type="button" data-i18n="downloadDwg">全部下载 DWG ↓</button><button class="secondary-button" id="dxf-download" type="button" data-i18n="downloadDxf">全部下载 DXF ↓</button><button class="secondary-button" id="zip-download" type="button" data-i18n="downloadBoth">全部下载（两种） ↓</button></div></div><div id="progress-section" class="progress-section" aria-live="polite"><div class="progress-caption"><strong id="progress-message" data-i18n="preparing">准备转换</strong><span id="progress-value">0%</span></div><div class="progress-track"><div id="progress-bar" role="progressbar" aria-label="转换进度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div></div></div><div id="result-list" class="result-list"></div><div class="result-empty" id="result-empty" data-i18n="waitingForResults">正在等待转换引擎返回结果…</div></section>
       <footer class="page-footer"><span>PDF → CAD</span><p data-i18n="credits">MuPDF · Potrace · acadrust</p><a href="https://github.com/dayang1847-arch/dayang1847-arch.github.io/tree/main/pdf-to-cad" target="_blank" rel="noopener" data-i18n="sourceCode">源代码</a></footer>
     </div>

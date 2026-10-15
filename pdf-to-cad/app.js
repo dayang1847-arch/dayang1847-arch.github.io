@@ -43,6 +43,41 @@ Object.assign(zh, {
   separateLines:'独立线段输出，直线 / 曲线可单独选择。', scanOutline:'扫描件生成双边轮廓，不会自动恢复为中心线。',
   traceOutlines:'一键描轮廓', tracingOutlines:'正在描轮廓…', outlineMode:'轮廓模式', outlineProgress:'正在描轮廓 {current} / {total}：{name}', outlineVectorWarning:'轮廓模式：矢量文字对象不输出，请核对保留的图形边界。', outlineScanWarning:'轮廓模式：扫描文字仍为图像轮廓，需人工清理。',
 });
+Object.assign(en, {
+  outlineTitle:'Trace a whole page', traceOutlines:'Trace whole page',
+  contourJump:'Lamp-cup profiles: select a region → calibrate dimensions → export one CAD / PDF',
+  contourRotate:'Rotate 90°', contourWorkspace:'Part contour collection', contourTag:'One part · one calibration',
+  contourIntro:'Select a lamp-cup front view, extract its outer contour, then calibrate against a stated dimension. Collect multiple models in one CAD at actual millimetre scale, or in a PDF with a shared display scale.',
+  contourStep1:'1. Select a part', contourStep2:'2. Calibrate its contour', contourStep3:'3. Export the collection',
+  contourSelectTitle:'Select the part to extract', contourSelectHelp:'Drag a rectangle around a single part in the source below. Avoid dimensions, hatching and drawing borders where possible. Touch dragging is supported.',
+  contourLoadFirst:'Load PDF drawings above first', contourRegionEmpty:'No region selected', contourResetRegion:'Select again', contourExtract:'Extract selected outer contour', contourExtracting:'Extracting contour…',
+  contourDimensionTitle:'Calibrate the extracted contour', contourDimensionHelp:'Click the two contour endpoints A and B of a known dimension, then enter the stated length in millimetres. Clicks snap to nearby contour edges.',
+  contourExtractFirst:'The extracted part contour appears here', contourNoPoints:'No dimension endpoints selected', contourModel:'Model / name', contourApplyCalibration:'Calibrate this part', contourResetCalibration:'Reset calibration',
+  contourNeedsCalibration:'Each extracted part must be calibrated before export.', contourDimensionLimitation:'Calibration scales this part uniformly and verifies only the selected reference. Check other dimensions, scan distortion and shape details separately. Connected lines in the crop can affect extraction; inspect the contour preview first.',
+  contourCollection:'Parts to collect', contourCollectionEmpty:'Extract parts from different files and pages. Everything stays in the current page only.', contourExportEmpty:'Extract and calibrate at least one part.',
+  contourExportDwg:'Collect as DWG ↓', contourExportDxf:'Collect as DXF ↓', contourExportPdf:'Collect as PDF ↓',
+  contourRegionReady:'Region selected · {width}% × {height}% of page', contourRegionSmall:'Drag a larger region around the complete part.',
+  contourExtractSuccess:'Contour extracted. Select two endpoints on the contour and enter a stated dimension to calibrate it.',
+  contourError:'Contour operation failed: {error}', contourPointCount:'{count} / 2 endpoints selected{distance}',
+  contourMeasured:' · current distance {value} mm', contourInvalidCalibration:'Select two distinct contour endpoints and enter a positive stated length.',
+  contourCalibrationDone:'Reference {value} mm · measured {measurement} mm · scale × {scale}', contourUncalibrated:'Needs calibration', contourCalibrated:'Calibrated',
+  contourSize:'Width {width} mm · height {height} mm', contourSelectedCount:'{selected} selected / {total} parts', contourExportMissing:'{count} selected parts still need calibration.',
+  contourExportReady:'{count} calibrated parts. CAD uses 1:1 scale; PDF fits the sheet at one shared display scale.', contourExporting:'Preparing {format} collection…', contourExported:'Downloaded {count} parts as one {format} file.',
+  contourRemove:'Remove', contourEdit:'Edit contour', contourInclude:'Include {name} in collection', contourClickNear:'Click near the contour edge to choose a dimension endpoint.', contourCalibrationReset:'Calibration reset. Select the dimension endpoints again.',
+  contourPreviewLoading:'Loading source preview…', contourLoadingFailed:'Could not load the source preview: {error}', contourSourceName:'{name} · page {page}',
+});
+Object.assign(zh, {
+  traceOutlines:'整页描轮廓', contourExtracting:'正在提取轮廓…',
+  contourRegionReady:'已框选 · 占本页 {width}% × {height}%', contourRegionSmall:'请框选更大的区域，包含完整零件。',
+  contourExtractSuccess:'已提取外轮廓。请在轮廓上选择两个尺寸端点，并输入标注长度完成校准。',
+  contourError:'轮廓操作失败：{error}', contourPointCount:'已选 {count} / 2 个端点{distance}', contourMeasured:' · 当前间距 {value} mm',
+  contourInvalidCalibration:'请选两个不同的轮廓端点，并输入正数标注长度。',
+  contourCalibrationDone:'标注 {value} mm · 复核 {measurement} mm · 比例 × {scale}', contourUncalibrated:'待校准', contourCalibrated:'已校准',
+  contourSize:'宽 {width} mm · 高 {height} mm', contourSelectedCount:'已选 {selected} / {total} 个零件', contourExportMissing:'还有 {count} 个选中零件未校准，完成后可导出。',
+  contourExportReady:'汇总 {count} 个已校准零件：CAD 保留 1:1 实际比例；PDF 按统一比例适配版面。', contourExporting:'正在生成 {format} 汇总文件…', contourExported:'已将 {count} 个零件汇总下载为一个 {format} 文件。',
+  contourRemove:'移除', contourEdit:'编辑轮廓', contourInclude:'将 {name} 加入汇总', contourClickNear:'请点击靠近轮廓边线的位置，选择尺寸端点。', contourCalibrationReset:'已重置校准，请重新选择尺寸端点。',
+  contourPreviewLoading:'正在载入源图…', contourLoadingFailed:'源图预览载入失败：{error}', contourSourceName:'{name} · 第 {page} 页',
+});
 // Keep the authored Chinese text as the source of truth for static labels.
 document.querySelectorAll('[data-i18n]').forEach(node => { zh[node.dataset.i18n] ??= node.textContent; });
 const t = (key, values = {}) => String((language === 'en' ? en[key] : zh[key]) ?? key).replace(/\{(\w+)\}/g, (_, k) => String(values[k] ?? ''));
@@ -52,6 +87,7 @@ if (language === 'en') {
   document.querySelector('h1').firstChild.nodeValue = 'PDF to CAD';
   document.title = 'PDF to CAD · Drawing Workshop';
   document.querySelector('#dimension-value').placeholder = 'e.g. 100';
+  document.querySelector('#contour-dimension').placeholder = 'e.g. 60';
   document.querySelector('meta[name="description"]').content = 'Convert vector or scanned PDF to DWG and DXF locally in your browser. Files are not uploaded and results last only for the current page.';
   document.querySelector('#dropzone').setAttribute('aria-label', 'Select or drop PDF, RAR, or ZIP files');
   document.querySelector('#bulk-downloads').setAttribute('aria-label', 'Download archives by format');
@@ -63,7 +99,7 @@ switchLink.href = language === 'en' ? '?lang=zh' : '?lang=en';
 switchLink.lang = language === 'en' ? 'zh-CN' : 'en';
 
 const $ = id => document.getElementById(id);
-const state = { documents: [], results: [], urls: new Set(), worker: null, ready: false, busy: '', conversionOutline: false, generation: 0, pending: new Map(), selected: null, selectedPage: 0, previewContext: null, previewRequest: 0, failed: 0 };
+const state = { documents: [], results: [], urls: new Set(), worker: null, ready: false, busy: '', conversionOutline: false, generation: 0, pending: new Map(), selected: null, selectedPage: 0, previewContext: null, previewRequest: 0, failed: 0, contours: [], activeContour: null, contourDocId: null, contourPage: 0, contourRegions: new Map(), contourPreviewRequest: 0, contourDrag: null };
 const errorText = error => error instanceof Error ? error.message : String(error);
 function notice(message, isError = false) { $('notice').textContent = message; $('notice').classList.toggle('error', isError); $('notice').hidden = !message; }
 function objectUrl(bytes, type) { const url = URL.createObjectURL(new Blob([bytes], { type })); state.urls.add(url); return url; }
@@ -85,6 +121,7 @@ function updateControls() {
   document.querySelectorAll('.source-file').forEach(node => { node.disabled = Boolean(state.busy); });
   document.querySelectorAll('.preview-link').forEach(node => { node.disabled = Boolean(state.busy); });
   updateCalibrationControls();
+  updateContourControls();
 }
 function setBusy(value) { state.busy = value; updateControls(); }
 function rejectPending(message) { for (const entry of state.pending.values()) entry.reject(new Error(message)); state.pending.clear(); }
@@ -92,7 +129,7 @@ function startWorker() {
   state.ready = false;
   setEngine(t('engineLoading'));
   updateControls();
-  const worker = new Worker(new URL('./worker.js', import.meta.url), { type: 'module' });
+  const worker = new Worker(new URL('./worker.js?v=20261015-parts-1', import.meta.url), { type: 'module' });
   state.worker = worker;
   function fail(message) {
     if (state.worker !== worker) return;
@@ -230,6 +267,7 @@ function renderSources() {
   $('calibration-file').replaceChildren(...state.documents.map(doc => { const option = newNode('option', '', doc.name); option.value = doc.id; return option; }));
   if (state.selected) $('calibration-file').value = state.selected;
   updateCalibrationControls();
+  syncContourSources();
 }
 function clearResults() {
   for (const result of state.results) { revoke(result.dwgUrl); revoke(result.dxfUrl); revoke(result.previewUrl); }
@@ -238,6 +276,7 @@ function clearResults() {
 }
 function resetUi() {
   clearResults();
+  resetContourUi();
   for (const url of state.urls) URL.revokeObjectURL(url);
   state.urls.clear(); state.documents = []; state.selected = null; state.selectedPage = 0; state.previewContext = null; state.previewRequest++; state.conversionOutline = false;
   renderSources(); $('file-input').value = ''; $('preview-area').innerHTML = initialPreview;
@@ -378,6 +417,323 @@ function downloadArchive(format) {
   } catch (error) { notice(t('downloadError', { error: errorText(error) }), true); }
   finally { buttons.forEach(button => { button.disabled = false; }); }
 }
+// Part collection: selections, measurements and geometry are kept in memory only.
+const SVG_NS = 'http://www.w3.org/2000/svg';
+const contourNumber = value => Number.isFinite(Number(value)) ? Number(Number(value).toFixed(4)) : '—';
+function contourNotice(message, error = false) {
+  $('contour-notice').textContent = message;
+  $('contour-notice').hidden = !message;
+  $('contour-notice').classList.toggle('error', error);
+}
+function contourDocument() { return state.documents.find(doc => doc.id === state.contourDocId); }
+function activeContour() { return state.contours.find(item => item.contourId === state.activeContour); }
+function contourRegionKey() { return `${state.contourDocId}:${state.contourPage}`; }
+function contourRegion() { return state.contourRegions.get(contourRegionKey()); }
+function selectedContours() { return state.contours.filter(item => item.included); }
+function updateContourControls() {
+  const disabled = !state.ready || Boolean(state.busy), doc = contourDocument(), item = activeContour();
+  const hasPreview = Boolean($('contour-source-stage').querySelector('img')?.naturalWidth);
+  $('contour-file').disabled = disabled || !state.documents.length;
+  $('contour-page').disabled = disabled || !doc;
+  $('contour-reset-region').disabled = disabled || !contourRegion();
+  $('contour-extract').disabled = disabled || !doc || !hasPreview || !contourRegion();
+  $('contour-extract-label').textContent = t(state.busy === 'contour-extract' ? 'contourExtracting' : 'contourExtract');
+  $('contour-label').disabled = disabled || !item;
+  $('contour-dimension').disabled = disabled || !item;
+  $('contour-calibrate').disabled = disabled || !item || item.dimensionPoints?.length !== 2;
+  $('contour-reset-calibration').disabled = disabled || !item;
+  $('contour-rotate').disabled = disabled || !item;
+  $('contour-source-stage').classList.toggle('disabled', disabled || !doc);
+  $('contour-shape-stage').classList.toggle('disabled', disabled || !item);
+  $('contour-workspace').setAttribute('aria-busy', String(Boolean(state.busy?.startsWith('contour-'))));
+  const selected = selectedContours(), missing = selected.filter(part => !part.calibrated).length;
+  for (const format of ['dwg', 'dxf', 'pdf']) $('contour-' + format).disabled = disabled || !selected.length || missing > 0;
+  $('contour-export-status').textContent = !selected.length ? t('contourExportEmpty') : missing ? t('contourExportMissing', { count: missing }) : t('contourExportReady', { count: selected.length });
+  $('contour-count').textContent = t('contourSelectedCount', { selected: selected.length, total: state.contours.length });
+  $('contour-list').querySelectorAll('button,input').forEach(input => { input.disabled = disabled; });
+  const region = contourRegion();
+  $('contour-region-status').textContent = region ? t('contourRegionReady', { width: Math.round(region.width * 100), height: Math.round(region.height * 100) }) : t('contourRegionEmpty');
+}
+function syncContourSources() {
+  const doc = contourDocument();
+  if (!doc) { state.contourDocId = state.documents[0]?.id || null; state.contourPage = 0; }
+  $('contour-file').replaceChildren(...state.documents.map(item => {
+    const option = newNode('option', '', item.name); option.value = item.id; return option;
+  }));
+  if (state.contourDocId) $('contour-file').value = state.contourDocId;
+  syncContourPages();
+  if (!doc && state.contourDocId) void showContourSource();
+  updateContourControls();
+}
+function syncContourPages() {
+  const doc = contourDocument();
+  $('contour-page').replaceChildren(...Array.from({ length: doc?.pageCount || 0 }, (_, page) => {
+    const option = newNode('option', '', String(page + 1)); option.value = String(page); return option;
+  }));
+  $('contour-page').value = String(state.contourPage);
+}
+async function showContourSource() {
+  const doc = contourDocument(), pageIndex = state.contourPage, generation = state.generation, request = ++state.contourPreviewRequest;
+  state.contourDrag = null;
+  const stage = $('contour-source-stage');
+  stage.replaceChildren(newNode('p', 'contour-empty', t(doc ? 'contourPreviewLoading' : 'contourLoadFirst')));
+  updateContourControls();
+  if (!doc) return;
+  try {
+    doc.previews ??= { 0: doc.previewUrl };
+    let url = doc.previews[pageIndex];
+    if (!url) {
+      const response = await rpc('preview', { documentId: doc.id, pageIndex });
+      if (generation !== state.generation || request !== state.contourPreviewRequest || !state.documents.includes(doc)) return;
+      if (!response.preview?.byteLength) throw new Error(t('noPreview'));
+      url = doc.previews[pageIndex] = objectUrl(response.preview, 'image/png');
+    }
+    if (generation !== state.generation || request !== state.contourPreviewRequest) return;
+    const image = new Image(); image.alt = t('contourSourceName', { name: doc.name, page: pageIndex + 1 }); image.draggable = false;
+    image.addEventListener('load', () => { if (request === state.contourPreviewRequest) { drawContourRegion(); updateContourControls(); } });
+    image.src = url; stage.replaceChildren(image); drawContourRegion();
+  } catch (error) {
+    if (generation === state.generation && request === state.contourPreviewRequest) {
+      stage.replaceChildren(newNode('p', 'contour-empty', t('noPreview')));
+      contourNotice(t('contourLoadingFailed', { error: errorText(error) }), true);
+    }
+  }
+  updateContourControls();
+}
+function drawContourRegion() {
+  const stage = $('contour-source-stage'); stage.querySelector('.contour-region-overlay')?.remove();
+  const image = stage.querySelector('img'), region = state.contourDrag?.region || contourRegion();
+  if (!image?.naturalWidth || !region) return;
+  const rect = image.getBoundingClientRect(), outer = stage.getBoundingClientRect();
+  const overlay = document.createElementNS(SVG_NS, 'svg'); overlay.classList.add('contour-region-overlay'); overlay.setAttribute('aria-hidden', 'true');
+  overlay.setAttribute('viewBox', '0 0 1000 1000'); overlay.setAttribute('preserveAspectRatio', 'none');
+  overlay.style.left = `${rect.left - outer.left}px`; overlay.style.top = `${rect.top - outer.top}px`; overlay.style.width = `${rect.width}px`; overlay.style.height = `${rect.height}px`;
+  const area = document.createElementNS(SVG_NS, 'rect');
+  for (const [key, value] of Object.entries({ x: region.x * 1000, y: region.y * 1000, width: region.width * 1000, height: region.height * 1000, fill: '#208b6430', stroke: '#16885e', 'stroke-width': 2, 'vector-effect': 'non-scaling-stroke' })) area.setAttribute(key, String(value));
+  overlay.append(area); stage.append(overlay);
+}
+function sourcePointer(event, clamp = false) {
+  const image = $('contour-source-stage').querySelector('img'); if (!image?.naturalWidth) return null;
+  const rect = image.getBoundingClientRect(); if (!rect.width || !rect.height) return null;
+  let x = (event.clientX - rect.left) / rect.width, y = (event.clientY - rect.top) / rect.height;
+  if (!clamp && (x < 0 || y < 0 || x > 1 || y > 1)) return null;
+  return [Math.max(0, Math.min(1, x)), Math.max(0, Math.min(1, y))];
+}
+function setContourDrag(event) {
+  const drag = state.contourDrag;
+  if (!drag || drag.pointerId !== event.pointerId) return;
+  const point = sourcePointer(event, true); if (!point) return;
+  drag.region = { x: Math.min(drag.start[0], point[0]), y: Math.min(drag.start[1], point[1]), width: Math.abs(point[0] - drag.start[0]), height: Math.abs(point[1] - drag.start[1]) };
+  drawContourRegion();
+}
+async function extractSelectedContour() {
+  if (state.busy || !state.ready || !contourRegion() || !contourDocument()) return;
+  const threshold = Number($('threshold').value);
+  if (!Number.isInteger(threshold) || threshold < 40 || threshold > 240) { contourNotice(t('invalidThreshold'), true); return; }
+  const generation = state.generation, docId = state.contourDocId, pageIndex = state.contourPage;
+  const region = { ...contourRegion() };
+  setBusy('contour-extract'); contourNotice(t('contourExtracting'));
+  try {
+    const result = await rpc('extractContour', { docId, pageIndex, region, threshold, dpi: Number($('dpi').value) });
+    if (generation !== state.generation) return;
+    if (!result?.contourId || !Array.isArray(result.pointsMm) || result.pointsMm.length < 3) throw new Error(t('engineEmpty'));
+    const item = { ...result, label: safeName(result.sourceName || contourDocument()?.name || 'part'), included: true, dimensionPoints: [], dimensionValue: '', calibrated: false };
+    state.contours.push(item); state.activeContour = item.contourId;
+    renderContourCollection(); renderActiveContour();
+    contourNotice(t('contourExtractSuccess'));
+    $('contour-shape-stage').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  } catch (error) { if (generation === state.generation) contourNotice(t('contourError', { error: errorText(error) }), true); }
+  finally { if (generation === state.generation) setBusy(''); }
+}
+function svgElement(tag, attributes = {}) {
+  const element = document.createElementNS(SVG_NS, tag);
+  for (const [key, value] of Object.entries(attributes)) element.setAttribute(key, String(value));
+  return element;
+}
+function contourSvg(item, miniature = false) {
+  const points = item.pointsMm;
+  let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
+  for (const point of points) { minX = Math.min(minX, point[0]); maxX = Math.max(maxX, point[0]); minY = Math.min(minY, point[1]); maxY = Math.max(maxY, point[1]); }
+  const span = Math.max(maxX - minX, maxY - minY, 0.001), padding = span * 0.13;
+  const svg = svgElement('svg', { viewBox: `${minX - padding} ${-maxY - padding} ${Math.max(maxX - minX, 0.001) + padding * 2} ${Math.max(maxY - minY, 0.001) + padding * 2}`, preserveAspectRatio: 'xMidYMid meet', role: 'img', 'aria-label': item.label });
+  const path = svgElement('path', { d: points.map((point, i) => `${i ? 'L' : 'M'}${point[0]},${-point[1]}`).join(' ') + 'Z', fill: miniature ? 'none' : '#f6faf8', stroke: miniature ? '#457c6a' : '#243c34', 'stroke-width': miniature ? 1.4 : 1.7, 'vector-effect': 'non-scaling-stroke', 'stroke-linejoin': 'round' });
+  svg.append(path);
+  if (!miniature) {
+    svg.id = 'contour-shape-svg';
+    const selected = item.dimensionPoints || [];
+    if (selected.length === 2) svg.append(svgElement('line', { x1: selected[0][0], y1: -selected[0][1], x2: selected[1][0], y2: -selected[1][1], stroke: '#246ae7', 'stroke-width': 1.5, 'stroke-dasharray': '5 3', 'vector-effect': 'non-scaling-stroke' }));
+    selected.forEach((point, index) => {
+      svg.append(svgElement('circle', { cx: point[0], cy: -point[1], r: span * .012, fill: index ? '#16885e' : '#246ae7', stroke: '#fff', 'stroke-width': 1.5, 'vector-effect': 'non-scaling-stroke' }));
+      const label = svgElement('text', { x: point[0] + span * .024, y: -point[1] - span * .018, fill: '#246ae7', 'font-size': span * .05, 'font-family': 'Arial, sans-serif', 'font-weight': 600 }); label.textContent = index ? 'B' : 'A'; svg.append(label);
+    });
+  }
+  return svg;
+}
+function renderActiveContour() {
+  const item = activeContour(), stage = $('contour-shape-stage');
+  stage.replaceChildren(item ? contourSvg(item) : newNode('p', 'contour-empty', t('contourExtractFirst')));
+  $('contour-label').value = item?.label || '';
+  $('contour-dimension').value = item?.dimensionValue ?? '';
+  updateContourMeasurement(); updateContourControls();
+}
+function updateContourMeasurement() {
+  const item = activeContour(), points = item?.dimensionPoints || [];
+  const distance = points.length === 2 ? Math.hypot(points[1][0] - points[0][0], points[1][1] - points[0][1]) : null;
+  $('contour-measurement').textContent = !points.length ? t('contourNoPoints') : t('contourPointCount', { count: points.length, distance: distance === null ? '' : t('contourMeasured', { value: contourNumber(distance) }) });
+  const calibration = item?.calibration;
+  $('contour-calibration-status').textContent = item?.calibrated ? t('contourCalibrationDone', { value: contourNumber(calibration?.valueMm ?? item.dimensionValue), measurement: contourNumber(item.measurementMm ?? calibration?.measurementMm ?? distance), scale: contourNumber(item.scale) }) : t(item ? 'contourUncalibrated' : 'contourNeedsCalibration');
+  $('contour-calibration-status').classList.toggle('verified', Boolean(item?.calibrated));
+}
+function renderContourCollection() {
+  const list = $('contour-list'); list.replaceChildren();
+  if (!state.contours.length) list.append(newNode('p', 'contour-empty', t('contourCollectionEmpty')));
+  for (const item of state.contours) {
+    const row = newNode('div', 'contour-item'); row.classList.toggle('active', item.contourId === state.activeContour);
+    const checkbox = document.createElement('input'); checkbox.type = 'checkbox'; checkbox.checked = item.included; checkbox.setAttribute('aria-label', t('contourInclude', { name: item.label })); checkbox.addEventListener('change', () => { item.included = checkbox.checked; updateContourControls(); });
+    const thumb = newNode('button', 'contour-thumbnail'); thumb.type = 'button'; thumb.setAttribute('aria-label', `${t('contourEdit')}: ${item.label}`); thumb.append(contourSvg(item, true));
+    const copy = newNode('div', 'contour-item-copy'); copy.append(newNode('strong', '', item.label));
+    copy.append(newNode('span', '', t('contourSourceName', { name: item.sourceName || '', page: (item.pageIndex || 0) + 1 })));
+    copy.append(newNode('span', '', t('contourSize', { width: contourNumber(item.widthMm), height: contourNumber(item.heightMm) })));
+    const badge = newNode('span', `contour-item-status${item.calibrated ? ' verified' : ''}`, t(item.calibrated ? 'contourCalibrated' : 'contourUncalibrated'));
+    const actions = newNode('div', 'contour-item-actions');
+    const edit = newNode('button', 'text-button', t('contourEdit')); edit.type = 'button';
+    const selectItem = () => { if (state.busy) return; state.activeContour = item.contourId; renderActiveContour(); renderContourCollection(); contourNotice(''); };
+    thumb.addEventListener('click', selectItem); edit.addEventListener('click', selectItem);
+    const remove = newNode('button', 'text-button contour-remove', t('contourRemove')); remove.type = 'button'; remove.addEventListener('click', () => { void removeContour(item); });
+    actions.append(edit, remove); row.append(checkbox, thumb, copy, badge, actions); list.append(row);
+  }
+  const item = activeContour();
+  if (item?.warnings?.length) {
+    const warnings = newNode('p', 'contour-item-warnings', item.warnings.join(' · ')); list.append(warnings);
+  }
+  updateContourControls();
+}
+function snapContourPoint(event) {
+  const item = activeContour(), svg = $('contour-shape-svg'); if (!item || !svg) return null;
+  const transform = svg.getScreenCTM(); if (!transform) return null;
+  const local = new DOMPoint(event.clientX, event.clientY).matrixTransform(transform.inverse());
+  const point = [local.x, -local.y], points = item.pointsMm;
+  const screenDistance = candidate => { const pixel = new DOMPoint(candidate[0], -candidate[1]).matrixTransform(transform); return Math.hypot(pixel.x - event.clientX, pixel.y - event.clientY); };
+  let nearestVertex = null, vertexDistance = Infinity, nearestEdge = null, edgeDistance = Infinity;
+  for (let index = 0; index < points.length; index++) {
+    const a = points[index], b = points[(index + 1) % points.length], vertex = screenDistance(a);
+    if (vertex < vertexDistance) { nearestVertex = a; vertexDistance = vertex; }
+    const dx = b[0] - a[0], dy = b[1] - a[1], lengthSquared = dx * dx + dy * dy;
+    const amount = lengthSquared ? Math.max(0, Math.min(1, ((point[0] - a[0]) * dx + (point[1] - a[1]) * dy) / lengthSquared)) : 0;
+    const projection = [a[0] + amount * dx, a[1] + amount * dy], distance = screenDistance(projection);
+    if (distance < edgeDistance) { nearestEdge = projection; edgeDistance = distance; }
+  }
+  return vertexDistance <= 8 ? [...nearestVertex] : edgeDistance <= (event.pointerType === 'touch' ? 22 : 14) ? nearestEdge : null;
+}
+async function applyContourCalibration() {
+  const item = activeContour(); if (!item || state.busy || !state.ready) return;
+  const valueMm = Number($('contour-dimension').value), points = item.dimensionPoints || [];
+  const distance = points.length === 2 ? Math.hypot(points[1][0] - points[0][0], points[1][1] - points[0][1]) : 0;
+  if (!Number.isFinite(valueMm) || valueMm <= 0 || distance < 0.001 || valueMm / distance > 1000) { contourNotice(t('contourInvalidCalibration'), true); return; }
+  const generation = state.generation; setBusy('contour-calibrate'); contourNotice('');
+  try {
+    const result = await rpc('calibrateContour', { contourId: item.contourId, point1: points[0], point2: points[1], valueMm });
+    if (generation !== state.generation || !state.contours.includes(item)) return;
+    const factor = valueMm / distance;
+    Object.assign(item, result, { dimensionValue: valueMm, dimensionPoints: points.map(point => point.map(value => value * factor)), calibrated: true });
+    renderActiveContour(); renderContourCollection();
+  } catch (error) { if (generation === state.generation) contourNotice(t('contourError', { error: errorText(error) }), true); }
+  finally { if (generation === state.generation) setBusy(''); }
+}
+async function resetContourCalibration() {
+  const item = activeContour(); if (!item || state.busy || !state.ready) return;
+  const generation = state.generation; setBusy('contour-reset');
+  try {
+    const result = await rpc('resetContourCalibration', { contourId: item.contourId });
+    if (generation !== state.generation || !state.contours.includes(item)) return;
+    Object.assign(item, result, { dimensionPoints: [], dimensionValue: '', calibrated: false });
+    renderActiveContour(); renderContourCollection(); contourNotice(t('contourCalibrationReset'));
+  } catch (error) { if (generation === state.generation) contourNotice(t('contourError', { error: errorText(error) }), true); }
+  finally { if (generation === state.generation) setBusy(''); }
+}
+async function rotateActiveContour() {
+  const item = activeContour(); if (!item || state.busy || !state.ready) return;
+  const generation = state.generation; setBusy('contour-rotate');
+  try {
+    const result = await rpc('rotateContour', { contourId: item.contourId });
+    if (generation !== state.generation || !state.contours.includes(item)) return;
+    // A rotation preserves dimensions; unsaved endpoint edits still require calibration.
+    const calibrated = item.calibrated;
+    Object.assign(item, result, { dimensionPoints: [], calibrated: calibrated && result.calibrated });
+    renderActiveContour(); renderContourCollection(); contourNotice('');
+  } catch (error) { if (generation === state.generation) contourNotice(t('contourError', { error: errorText(error) }), true); }
+  finally { if (generation === state.generation) setBusy(''); }
+}
+async function removeContour(item) {
+  if (state.busy || !state.ready) return;
+  const generation = state.generation; setBusy('contour-remove');
+  try {
+    await rpc('removeContour', { contourId: item.contourId });
+    if (generation !== state.generation) return;
+    state.contours = state.contours.filter(part => part !== item);
+    if (state.activeContour === item.contourId) state.activeContour = state.contours[0]?.contourId || null;
+    renderActiveContour(); renderContourCollection(); contourNotice('');
+  } catch (error) { if (generation === state.generation) contourNotice(t('contourError', { error: errorText(error) }), true); }
+  finally { if (generation === state.generation) setBusy(''); }
+}
+async function exportContourCollection(format) {
+  const selected = selectedContours(); if (state.busy || !state.ready || !selected.length) return;
+  if (selected.some(item => !item.calibrated)) { updateContourControls(); return; }
+  const generation = state.generation; setBusy('contour-export'); contourNotice(t('contourExporting', { format: format.toUpperCase() }));
+  try {
+    const result = await rpc('exportContours', { items: selected.map(item => ({ contourId: item.contourId, label: item.label })), format, language });
+    if (generation !== state.generation) return;
+    if (!result.bytes?.byteLength) throw new Error(t('engineEmpty'));
+    const url = objectUrl(result.bytes, result.mime || (format === 'pdf' ? 'application/pdf' : 'application/octet-stream'));
+    const link = document.createElement('a'); link.href = url; link.download = result.filename || `part-contours.${format}`; document.body.append(link); link.click(); link.remove();
+    setTimeout(() => revoke(url), 30_000);
+    contourNotice(t('contourExported', { count: result.count ?? selected.length, format: format.toUpperCase() }));
+  } catch (error) { if (generation === state.generation) contourNotice(t('contourError', { error: errorText(error) }), true); }
+  finally { if (generation === state.generation) setBusy(''); }
+}
+function resetContourUi() {
+  state.contours = []; state.activeContour = null; state.contourDocId = null; state.contourPage = 0; state.contourRegions.clear(); state.contourPreviewRequest++; state.contourDrag = null;
+  $('contour-source-stage').replaceChildren(newNode('p', 'contour-empty', t('contourLoadFirst')));
+  $('contour-shape-stage').replaceChildren(newNode('p', 'contour-empty', t('contourExtractFirst')));
+  $('contour-label').value = ''; $('contour-dimension').value = ''; contourNotice('');
+  renderContourCollection(); updateContourMeasurement();
+}
+$('contour-file').addEventListener('change', event => { if (state.busy) return; state.contourDocId = event.target.value; state.contourPage = 0; syncContourPages(); void showContourSource(); });
+$('contour-page').addEventListener('change', event => { if (state.busy) return; state.contourPage = Number(event.target.value); void showContourSource(); });
+$('contour-reset-region').addEventListener('click', () => { if (state.busy) return; state.contourRegions.delete(contourRegionKey()); drawContourRegion(); updateContourControls(); });
+$('contour-source-stage').addEventListener('pointerdown', event => {
+  if (state.busy || !state.ready || event.button !== 0) return;
+  const start = sourcePointer(event); if (!start) return;
+  event.preventDefault(); state.contourDrag = { start, pointerId: event.pointerId, key: contourRegionKey(), region: { x: start[0], y: start[1], width: 0, height: 0 } };
+  $('contour-source-stage').setPointerCapture(event.pointerId); drawContourRegion();
+});
+$('contour-source-stage').addEventListener('pointermove', event => { if (state.contourDrag) { event.preventDefault(); setContourDrag(event); } });
+$('contour-source-stage').addEventListener('pointerup', event => {
+  const drag = state.contourDrag; if (!drag || drag.pointerId !== event.pointerId) return;
+  setContourDrag(event); state.contourDrag = null;
+  if ($('contour-source-stage').hasPointerCapture(event.pointerId)) $('contour-source-stage').releasePointerCapture(event.pointerId);
+  if (drag.region.width >= 0.005 && drag.region.height >= 0.005) { state.contourRegions.set(drag.key, drag.region); contourNotice(''); }
+  else contourNotice(t('contourRegionSmall'), true);
+  drawContourRegion(); updateContourControls();
+});
+$('contour-source-stage').addEventListener('pointercancel', () => { state.contourDrag = null; drawContourRegion(); updateContourControls(); });
+$('contour-shape-stage').addEventListener('pointerup', event => {
+  const item = activeContour(); if (!item || state.busy || !state.ready || event.button !== 0) return;
+  const point = snapContourPoint(event);
+  if (!point) { contourNotice(t('contourClickNear'), true); return; }
+  if (item.dimensionPoints.length >= 2) item.dimensionPoints = [];
+  item.dimensionPoints.push(point); item.calibrated = false;
+  renderActiveContour(); renderContourCollection(); contourNotice('');
+});
+$('contour-label').addEventListener('input', event => { const item = activeContour(); if (!item || state.busy) return; item.label = event.target.value.trim() || safeName(item.sourceName || 'part'); $('contour-shape-svg')?.setAttribute('aria-label', item.label); renderContourCollection(); });
+$('contour-dimension').addEventListener('input', event => { const item = activeContour(); if (!item || state.busy) return; item.dimensionValue = event.target.value; item.calibrated = false; updateContourMeasurement(); renderContourCollection(); });
+$('contour-rotate').addEventListener('click', () => { void rotateActiveContour(); });
+$('contour-extract').addEventListener('click', () => { void extractSelectedContour(); });
+$('contour-calibrate').addEventListener('click', () => { void applyContourCalibration(); });
+$('contour-reset-calibration').addEventListener('click', () => { void resetContourCalibration(); });
+for (const format of ['dwg', 'dxf', 'pdf']) $('contour-' + format).addEventListener('click', () => { void exportContourCollection(format); });
+new ResizeObserver(drawContourRegion).observe($('contour-source-stage'));
+
 $('file-input').addEventListener('change', event => { void loadFiles([...event.target.files]); });
 $('dropzone').addEventListener('click', () => { if (state.ready && !state.busy) $('file-input').click(); });
 $('dropzone').addEventListener('keydown', event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); if (state.ready && !state.busy) $('file-input').click(); } });
@@ -388,12 +744,10 @@ $('dropzone').addEventListener('drop', event => { void loadFiles([...event.dataT
 window.addEventListener('dragover', event => event.preventDefault()); window.addEventListener('drop', event => event.preventDefault());
 $('convert-button').addEventListener('click', () => { void convert(); });
 $('outline-button').addEventListener('click', () => { void convert({ outline: true }); });
-$('clear-button').addEventListener('click', async () => {
+$('clear-button').addEventListener('click', () => {
   if (state.busy) return;
-  setBusy('clear'); resetUi(); notice('');
-  try { await rpc('clear', {}); }
-  catch { state.worker?.terminate(); rejectPending('Session cleared'); startWorker(); }
-  finally { setBusy(''); notice(t('clearDone')); }
+  state.generation++; state.worker?.terminate(); rejectPending('Session cleared');
+  resetUi(); setBusy(''); notice(t('clearDone')); startWorker();
 });
 $('cancel-button').addEventListener('click', () => {
   state.generation++; state.worker?.terminate(); rejectPending('Conversion cancelled'); resetUi(); setBusy(''); notice(t('clearDone')); startWorker();
