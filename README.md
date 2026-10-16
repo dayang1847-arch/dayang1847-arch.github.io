@@ -59,7 +59,7 @@ GitHub Pages 中的 `LumiPilot/index.html` 和 `market-console/index.html` 仅�
 
 ## LUMINA 发布
 
-`LUMINA/` 为仅供交互演示的静态网页，使用内置样品与浏览器保存，不连接实体设备、不上传访问者数据。支持产品模型与 IES 导入、浏览器内 CAD 转换、报告导出和含资产的方案打包。不提供应用安装包或完整源码包。
+`LUMINA/` 为仅供交互演示的静态网页，使用内置样品与浏览器保存，不连接实体设备；导入的模型与方案在浏览器内处理。支持产品模型与 IES 导入、浏览器内 CAD 转换、报告导出和含资产的方案打包。不提供应用安装包或完整源码包。
 
 更新演示时，在本机应用目录运行 `npm run check`、`npm test`、`npm run build:public`，将 `dist-public/` 的运行资源复制到 `LUMINA/`，保留预览图、许可和发布说明。删除旧的构建资源以免保留过期功能。所有资源使用相对路径，分析 Worker 可在 GitHub Pages 子目录中运行。仅发布在线演示运行文件，排除完整应用源码、安装包、`data/`、依赖目录和本机调试资料。
 
@@ -76,3 +76,9 @@ GitHub Pages 中的 `LumiPilot/index.html` 和 `market-console/index.html` 仅�
 共享样式和脚本位于 `assets/project-navigation.css`、`assets/project-navigation.js`，各项目使用相对路径引用。越语冒险的离线缓存也包含这两个文件。更新共享文件版本时，同步更新各页引用和 `vietnamese-learning/service-worker.js` 的缓存版本与资源列表。
 
 重新发布 LUMINA 构建产物时，保留其 `index.html` 中位于 React 根节点外的 `.dc-project-navigation`、`body.dc-viewport-project` 及共享文件引用；这些元素为返回按钮留出独立空间，不需要修改构建后的脚本。
+
+## 公开访问次数
+
+首页卡片展示七个作品的本站入口访问次数，页脚展示首页访问次数。数字从统计功能启用后开始累计，没有历史补数；它们是页面打开次数，不是独立访客人数。受保护作品在本站登录跳转或入口页面统计，登录后的内部页面与直接访问独立 Sites 域名不纳入。刷新页面会增加次数，语言、主题、筛选切换与浏览器前进后退缓存恢复不会新增。
+
+`assets/project-views.js` 在七个入口页加载，并在离开跳转页时保留计数请求；首页由 `main.js` 记录。仅正式 GitHub Pages 域名发送计数，本地预览不增加。匿名请求只发送作品标识与本次页面加载随机生成的事件编号，不发送文件、表单内容、账号、Cookie 或持久访客标识。统计接口为现有 Sites 的 `/_metrics/views`，使用 D1 保存累计值与短期去重事件，公开接口仅返回累计数与启用时间；不可用时显示“—”。更新或重新发布作品入口时保留统计脚本与 `data-project` 标识，越语冒险离线缓存同步维护。

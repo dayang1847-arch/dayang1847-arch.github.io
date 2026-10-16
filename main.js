@@ -2,6 +2,15 @@
   const root = document.documentElement;
   const copy = {
   "zh": {
+    "projectViews": "访问",
+    "siteViews": "网站访问",
+    "metricsAbout": "统计说明",
+    "metricsLoading": "访问统计加载中",
+    "metricsUnavailable": "统计暂不可用",
+    "metricsStarted": "自 {date} 起累计",
+    "metricsPending": "等待首次访问记录",
+    "metricsCount": "{count} 次访问",
+    "metricsNote": "从本次启用后累计，不补算历史访问。网站记录首页打开次数；作品记录本站作品入口打开次数（含登录入口）。刷新会累加；切换语言或筛选不会累加。访问次数并非独立访客。",
     "pdfCadName": "PDF 转 CAD · 图纸工坊",
     "pdfCadTitle": "矢量与扫描图纸转换",
     "pdfCadStatus": "在线转换",
@@ -154,6 +163,15 @@
     "protectedStats": "登录工作台后查看项目、资料与统计。"
   },
   "en": {
+    "projectViews": "Views",
+    "siteViews": "Website views",
+    "metricsAbout": "About the counts",
+    "metricsLoading": "Loading view counts",
+    "metricsUnavailable": "View counts temporarily unavailable",
+    "metricsStarted": "Counted since {date}",
+    "metricsPending": "Waiting for the first recorded view",
+    "metricsCount": "{count} page views",
+    "metricsNote": "Counts start when this feature is enabled; historical views are not included. Website views count homepage openings. Project views count openings of this site’s project entry pages, including login entries. Refreshing adds a view; changing language or filters does not. These are page views, not unique visitors.",
     "pdfCadName": "PDF to CAD · Drawing Workshop",
     "pdfCadTitle": "Vector and scanned drawing conversion",
     "pdfCadStatus": "Online conversion",
@@ -329,11 +347,17 @@
   const results = document.querySelector('#project-results');
   const projectTools = document.querySelector('.project-tools');
   const searchToggle = document.querySelector('.mobile-search-toggle');
+  const viewCounters = [...document.querySelectorAll('[data-view-project]')];
+  const metricsStatus = document.querySelector('#metrics-status');
+  const metricsEndpoint = 'https://dc-workspaces-access.dayang0509.chatgpt.site/_metrics/views';
+  let viewState = 'loading';
+  let viewData = null;
+  let viewRequest = 0;
   let activeFilter = 'all';
   const normalize = value => value.normalize('NFKC').toLocaleLowerCase().trim();
   // Search both dictionaries so a query survives language changes.
   const searchIndex = new Map(projectCards.map(card => {
-    const keys = [...card.querySelectorAll('[data-i18n]')].map(node => node.dataset.i18n);
+    const keys = [...card.querySelectorAll('[data-i18n]')].filter(node => !node.closest('[data-view-project]')).map(node => node.dataset.i18n);
     const text = [card.querySelector('h2').textContent, card.dataset.keywords || '',
       ...Object.values(copy).flatMap(dictionary => keys.map(key => dictionary[key] || ''))].join(' ');
     return [card, normalize(text)];
@@ -403,6 +427,7 @@
     document.querySelectorAll('[data-tospo-link]').forEach(link => { link.setAttribute('href', `${link.dataset.tospoLink}?lang=${language}`); });
     document.querySelectorAll('[data-pdf-cad-link]').forEach(link => { link.setAttribute('href', `${link.dataset.pdfCadLink}?lang=${language}`); });
     updateProjects();
+    renderViewCounts();
   }
   updateLanguage();
   projectTools.hidden = false;
@@ -445,4 +470,66 @@
     remember('dayang-language',language); updateLanguage();
   });
   themeButton.addEventListener('click',() => { theme = theme === 'dark' ? 'light' : 'dark';remember('dayang-theme',theme);updateTheme(); });
+
+  function renderViewCounts() {
+    const dictionary = copy[language];
+    const locale = language === 'zh' ? 'zh-CN' : 'en';
+    const fullFormat = new Intl.NumberFormat(locale);
+    const compactFormat = new Intl.NumberFormat(locale, { notation: 'compact', maximumFractionDigits: 1 });
+    const stateLabel = dictionary[viewState === 'error' ? 'metricsUnavailable' : 'metricsLoading'];
+    let period = '';
+    if (viewState === 'ready') {
+      const date = viewData.startedAt && new Intl.DateTimeFormat(locale, { dateStyle: 'medium' }).format(new Date(viewData.startedAt));
+      period = date ? dictionary.metricsStarted.replace('{date}', date) : dictionary.metricsPending;
+    }
+    metricsStatus.textContent = period || stateLabel;
+    viewCounters.forEach(counter => {
+      const count = viewState === 'ready' ? viewData.counts[counter.dataset.viewProject] : null;
+      const label = count === null ? stateLabel : dictionary.metricsCount.replace('{count}', fullFormat.format(count));
+      counter.querySelector('[data-view-count]').textContent = count === null ? '—' : (count < 10000 ? fullFormat : compactFormat).format(count);
+      counter.querySelector('[data-view-accessible]').textContent = label;
+      counter.setAttribute('aria-label', label);
+      counter.setAttribute('aria-busy', String(viewState === 'loading'));
+      counter.title = period ? `${label} · ${period}` : label;
+      counter.dataset.viewState = viewState;
+    });
+  }
+
+  async function loadViewCounts(recordView = false) {
+    const request = ++viewRequest;
+    viewState = 'loading';
+    renderViewCounts();
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 8000);
+    try {
+      const options = { credentials: 'omit', mode: 'cors', cache: 'no-store', signal: controller.signal };
+      if (recordView && globalThis.crypto?.randomUUID) {
+        options.method = 'POST';
+        options.keepalive = true;
+        options.referrerPolicy = 'no-referrer';
+        options.headers = { 'Content-Type': 'text/plain' };
+        options.body = JSON.stringify({ project: 'home', eventId: crypto.randomUUID() });
+      }
+      const response = await fetch(metricsEndpoint, options);
+      if (!response.ok) throw new Error('View counts unavailable');
+      const data = await response.json();
+      if (!data || (data.startedAt !== null && (typeof data.startedAt !== 'string' || !Number.isFinite(Date.parse(data.startedAt))))
+        || !data.counts || !viewCounters.every(counter => Number.isSafeInteger(data.counts[counter.dataset.viewProject]) && data.counts[counter.dataset.viewProject] >= 0)) {
+        throw new Error('Invalid view counts');
+      }
+      if (request !== viewRequest) return;
+      viewData = data;
+      viewState = 'ready';
+    } catch {
+      if (request !== viewRequest) return;
+      viewState = 'error';
+    } finally {
+      clearTimeout(timeout);
+      if (request === viewRequest) renderViewCounts();
+    }
+  }
+
+  // Only document loads on the public homepage add a view; UI controls do not.
+  loadViewCounts(location.origin === 'https://dayang1847-arch.github.io');
+  window.addEventListener('pageshow', event => { if (event.persisted) loadViewCounts(); });
 })();
