@@ -1,18 +1,19 @@
 {
-  "version": "1.0.1",
-  "publishedDate": "2026-10-14",
+  "version": "1.1.0",
+  "publishedDate": "2026-10-20",
   "hosting": "GitHub Pages static",
   "data": "built-in demonstration samples only",
   "persistence": "visitor browser",
   "gateway": "simulation only",
-  "sampleProducts": 8,
+  "sampleProducts": 17,
   "scenes": 2,
-  "modes": 3,
+  "generatedScenes": "local rules, dimensions and IES-based quantity",
+  "modes": 4,
+  "liveDeepSeek": "local private server only; no API key on public site",
+  "costModel": "site requirements -> IES layout -> quantities -> costs",
   "access": "online demonstration only",
   "fileImports": true,
   "fileExports": true,
   "appDownloads": false,
-  "sourcePackages": false,
-  "modelStorage": "visitor browser IndexedDB",
-  "cadConversion": "browser worker, OpenCascade"
+  "sourcePackages": false
 }
