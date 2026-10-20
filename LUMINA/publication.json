@@ -1,5 +1,5 @@
 {
-  "version": "1.2.0",
+  "version": "1.2.1",
   "publishedDate": "2026-10-20",
   "hosting": "GitHub Pages static",
   "data": "built-in demonstration samples only",
@@ -40,5 +40,6 @@
     "convenience store"
   ],
   "efficacy": "dynamic global or fixed-product-version overrides at constant IES flux",
-  "rendering": "static primitive and sample luminaire instancing; fast 12 / balanced 24 / high all preview lights; IES analysis always full"
+  "rendering": "static primitive and sample luminaire instancing; fast 12 / balanced 24 / high all preview lights; IES analysis always full",
+  "generationLogs": "timestamped actual task and IES iteration events, waiting heartbeat, retained terminal state, up to 400 rows; live DeepSeek logs only in private local server"
 }

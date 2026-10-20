@@ -59,7 +59,7 @@
     "themeLight": "切换到浅色主题",
     "switchLanguage": "Switch to English",
     "luminaTitle": "场地布灯、成本与 IES 分析系统",
-    "luminaDescription": "内置21款演示灯具，支持办公展厅、园区及工厂、仓库、车间、商城、高尔夫球道、篮球场、便利店选型。公开版按本地规则与IES生成布灯数量，比较普通、高光效、感应与DALI全周期成本；光效可统一或按产品动态调整，同步重算电费并导出可视化A4报告。批量绘制与分档投光提升复杂场景演示效率。真实DeepSeek仅在本机私有服务调用；公开版不收集密钥、不接实体设备。产品导入与方案打包保留。",
+    "luminaDescription": "内置21款演示灯具，支持办公展厅、园区及工厂、仓库、车间、商城、高尔夫球道、篮球场、便利店选型。公开版按本地规则与IES生成布灯数量，比较普通、高光效、感应与DALI全周期成本；光效可统一或按产品动态调整，同步重算电费并导出可视化A4报告。批量绘制与分档投光提升复杂场景演示效率。真实DeepSeek仅在本机私有服务调用；公开版不收集密钥、不接实体设备。产品导入与方案打包保留。 生成过程可查看带时间戳的实际操作日志，显示布灯迭代、照度和成本核算，保留本次完成、失败或取消记录。",
     "sceneDemo": "三维场景",
     "iesAnalysis": "IES 照度分析",
     "intelligentControl": "智能控制",
@@ -220,7 +220,7 @@
     "themeLight": "Switch to light theme",
     "switchLanguage": "切换到中文版",
     "luminaTitle": "Site-based lighting, costs and IES analysis",
-    "luminaDescription": "Includes 21 sample luminaires and showroom, park, factory, warehouse, workshop, mall, golf fairway, basketball court and convenience-store scene options. The public demo uses local rules and IES to size layouts and compare ordinary, efficient, sensor and DALI lifecycle costs. Adjust efficacy globally or per product and export visual A4 energy reports. Instancing and tiered preview lighting improve complex-scene rendering. Live DeepSeek stays in the private local service; this demo collects no keys or physical-device data. Product imports and scheme exports remain available.",
+    "luminaDescription": "Includes 21 sample luminaires and showroom, park, factory, warehouse, workshop, mall, golf fairway, basketball court and convenience-store scene options. The public demo uses local rules and IES to size layouts and compare ordinary, efficient, sensor and DALI lifecycle costs. Adjust efficacy globally or per product and export visual A4 energy reports. Instancing and tiered preview lighting improve complex-scene rendering. Live DeepSeek stays in the private local service; this demo collects no keys or physical-device data. Product imports and scheme exports remain available. Generation includes timestamped operation logs for layout iterations, illuminance and cost calculations; completed, failed or cancelled records remain in the current window.",
     "sceneDemo": "3D scenes",
     "iesAnalysis": "IES analysis",
     "intelligentControl": "Lighting control",
@@ -533,4 +533,5 @@
   loadViewCounts(location.origin === 'https://dayang1847-arch.github.io');
   window.addEventListener('pageshow', event => { if (event.persisted) loadViewCounts(); });
 })();
+
 
