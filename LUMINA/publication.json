@@ -1,11 +1,11 @@
 {
-  "version": "1.1.1",
+  "version": "1.2.0",
   "publishedDate": "2026-10-20",
   "hosting": "GitHub Pages static",
   "data": "built-in demonstration samples only",
   "persistence": "visitor browser",
   "gateway": "simulation only",
-  "sampleProducts": 17,
+  "sampleProducts": 21,
   "scenes": 2,
   "generatedScenes": "local rules, dimensions and IES-based quantity",
   "modes": 4,
@@ -26,5 +26,19 @@
     "current waveform",
     "harmonic RMS",
     "lifecycle cost snapshot"
-  ]
+  ],
+  "generatedScenePresets": 7,
+  "sceneOptions": [
+    "showroom",
+    "park",
+    "factory",
+    "warehouse",
+    "workshop",
+    "mall",
+    "golf fairway",
+    "basketball",
+    "convenience store"
+  ],
+  "efficacy": "dynamic global or fixed-product-version overrides at constant IES flux",
+  "rendering": "static primitive and sample luminaire instancing; fast 12 / balanced 24 / high all preview lights; IES analysis always full"
 }
