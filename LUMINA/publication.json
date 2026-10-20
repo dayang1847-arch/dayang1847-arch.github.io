@@ -1,5 +1,5 @@
 {
-  "version": "1.1.0",
+  "version": "1.1.1",
   "publishedDate": "2026-10-20",
   "hosting": "GitHub Pages static",
   "data": "built-in demonstration samples only",
@@ -15,5 +15,16 @@
   "fileImports": true,
   "fileExports": true,
   "appDownloads": false,
-  "sourcePackages": false
+  "sourcePackages": false,
+  "energyReports": "self-contained SVG charts, A4 pagination, HTML export and print-to-PDF",
+  "reportCharts": [
+    "cost composition",
+    "zone energy cost",
+    "tariff sensitivity",
+    "phase loading",
+    "THDi",
+    "current waveform",
+    "harmonic RMS",
+    "lifecycle cost snapshot"
+  ]
 }
