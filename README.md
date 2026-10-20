@@ -59,9 +59,9 @@ GitHub Pages 中的 `LumiPilot/index.html` 和 `market-console/index.html` 仅�
 
 ## LUMINA 发布
 
-`LUMINA/` 为仅供交互演示的静态网页，使用内置样品与浏览器保存，不连接实体设备；导入的模型与方案在浏览器内处理。支持产品模型与 IES 导入、浏览器内 CAD 转换、报告导出和含资产的方案打包。不提供应用安装包或完整源码包。
+`LUMINA/` 为仅供交互演示的静态网页，使用内置样品与浏览器保存，不连接实体设备；导入的模型与方案在浏览器内处理。线上DeepSeek通过独立Cloudflare服务调用，浏览器输入访问码，API密钥不发布。文字约束、产品摘要或压缩图片仅在用户点击AI操作时发送到DeepSeek。支持产品模型与 IES 导入、浏览器内 CAD 转换、报告导出和含资产的方案打包。不提供应用安装包或完整源码包。
 
-更新演示时，在本机应用目录运行 `npm run check`、`npm test`、`npm run build:public`，将 `dist-public/` 的运行资源复制到 `LUMINA/`，保留预览图、许可和发布说明。删除旧的构建资源以免保留过期功能。所有资源使用相对路径，分析 Worker 可在 GitHub Pages 子目录中运行。仅发布在线演示运行文件，排除完整应用源码、安装包、`data/`、依赖目录和本机调试资料。
+更新演示时，在本机应用目录运行 `npm run check`、`npm test`、`npm run build:public`，将 `dist-public/` 的运行资源复制到 `LUMINA/`，保留预览图、许可和发布说明。保留已有哈希资源以兼容尚未刷新的页面；新入口引用最新资源。所有资源使用相对路径，分析 Worker 可在 GitHub Pages 子目录中运行。仅发布在线演示运行文件，排除完整应用源码、安装包、`data/`、依赖目录和本机调试资料。
 
 ## 万朝逐鹿发布
 
