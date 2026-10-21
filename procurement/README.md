@@ -7,3 +7,10 @@
 没有连接邮箱、OA、ERP、企业微信、实时行情、工商接口或大模型。报价导入支持 `sample-quotes.csv` 所示的标准 CSV；关键词匹配不等于完整语义理解。模拟研发确认不代表真实技术批准，目标收益不等于已实现降本。
 
 页面为原生 HTML、CSS、JavaScript，无依赖、构建步骤、账号、API 密钥或后台服务。根站点由 GitHub Pages 发布，页面内可返回 DC Web 作品集。
+
+## 访问入口
+
+- [采购工作台演示](https://dayang1847-arch.github.io/procurement/)
+- [DC Web 作品集](https://dayang1847-arch.github.io/#procurement)
+
+GitHub Pages 直接发布仓库 main 分支根目录。此目录不包含真实采购资料、原始需求文档、接口凭据或账号数据。
