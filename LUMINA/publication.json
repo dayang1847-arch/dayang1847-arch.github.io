@@ -13,7 +13,14 @@
     "IES",
     "energy-and-lifecycle-costs",
     "product-import",
-    "scheme-bundles"
+    "scheme-bundles",
+    "independent-procurement-page",
+    "demo-moq-tier-pricing",
+    "high-efficacy-payback"
   ],
-  "applicationDownloads": false
+  "applicationDownloads": false,
+  "procurementVersion": "1.2.39",
+  "procurementPage": "purchase.html",
+  "procurementMode": "browser-only-demo-pricing",
+  "procurementPrivateDataIncluded": false
 }

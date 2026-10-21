@@ -18,7 +18,6 @@
     "procurementPreviewAlt": "采衡材料行情工作台：铜、铝、PC、PMMA 公开参考价，标明来源日期及采集状态",
     "guideProcurement": "入口直接打开“成本与行情”：现货参考与期货日线分别展示，支持查看来源、历史记录和 CSV 导出；核对口径后可将铜现货价带入成本情景。在线页为发布快照；通过“连接设置”下载本机后台后可更新公开行情，并自行配置只读邮箱和 DeepSeek。供应商、需求和业务报价仍为模拟，密钥不保存到公开网站。",
     "guideProcurementLink": "打开成本与行情 ↗",
-
     "projectViews": "访问",
     "siteViews": "网站访问",
     "metricsAbout": "统计说明",
@@ -76,7 +75,7 @@
     "themeLight": "切换到浅色主题",
     "switchLanguage": "Switch to English",
     "luminaTitle": "场地布灯、成本与 IES 分析系统",
-    "luminaDescription": "内置23款演示灯具，支持办公、园区、工厂、商城、运动场、楼宇及市政道路规划。可本机提取街区地图路网，核对尺寸后布灯；通过访问码调用云端DeepSeek进行文字规划、草图识别和参数补充，密钥仅保存在云端。IES核算布灯、照度、电费与采购，对比高光效、感应及DALI全周期成本，保留实际操作日志、产品导入、报告和方案打包。尺寸及隐藏布局需确认；设备与D4i反馈为模拟。",
+    "luminaDescription": "内置23款演示灯具，支持办公、园区、工厂、商城、运动场、楼宇及市政道路规划。可本机提取街区地图路网，核对尺寸后布灯；通过访问码调用云端DeepSeek进行文字规划、草图识别和参数补充，密钥仅保存在云端。IES核算布灯、照度、电费与采购，对比高光效、感应及DALI全周期成本，保留实际操作日志、产品导入、报告和方案打包。尺寸及隐藏布局需确认；设备与D4i反馈为模拟。 新增独立采购方案页：根据当前演示方案的灯具数量生成四种配置，比较初购预算、年电费、长期合计与简单回本期，支持 CSV 和完整对比导出。阶梯价由演示规则生成，光效、溢价和工程费为可调整假设，数据保存在浏览器中。",
     "sceneDemo": "三维场景",
     "iesAnalysis": "IES 照度分析",
     "intelligentControl": "智能控制",
@@ -122,7 +121,7 @@
     "resultsFiltered": "找到 {count} / {total} 个项目",
     "lumiSummary": "连接市场资料、国家认证、光学验证与工程成本，让研发决策有据可查。",
     "tospoSummary": "从企业背景到户外灯具与工程案例，浏览产品系列及不同应用场景。",
-    "luminaSummary": "从文字、草图和街区地图规划照明，在线调用DeepSeek，核算IES、电费与长期成本。",
+    "luminaSummary": "从文字、草图和街区地图规划照明，核算 IES；独立采购页对比 MOQ 阶梯价、高光效升级、电费与回本期。",
     "lumiPreviewAlt": "LumiPilot 项目数据库，包含研发方案、资料统计与筛选工作区",
     "personalStatus": "个人学习项目",
     "vietquestName": "越语冒险",
@@ -177,7 +176,8 @@
     "guideDataTitle": "访问与数据说明",
     "guideLocalData": "LUMINA 的方案与模拟设备记录、越语冒险的学习进度保存在当前浏览器。切换设备或清除浏览器数据后，原记录可能无法继续使用；需要保留方案时，先使用项目内提供的导出功能。",
     "guideEvidence": "资料日期、来源和计算范围以项目内部记录为准。LumiPilot 的概念模型与待核验标记保留原义；LUMINA 的照度分析仅计算人工直接光。工程应用前，请核对输入与适用条件。",
-    "protectedStats": "登录工作台后查看项目、资料与统计。"
+    "protectedStats": "登录工作台后查看项目、资料与统计。",
+    "openLuminaPurchase": "采购与节能对比"
   },
   "en": {
     "filterProcurement": "Procurement",
@@ -196,7 +196,6 @@
     "procurementPreviewAlt": "Chaiheng market workbench: public copper, aluminum, PC and PMMA references with source dates and collection status",
     "guideProcurement": "The entry opens Cost & Markets, with spot references separated from futures daily bars. Inspect sources and history, export CSV, and confirm quote conditions before applying a copper reference to a cost scenario. The online page is a published snapshot. Download the local service from Connection Settings for on-demand market updates and optional read-only email/DeepSeek. Supplier, demand and quotation records remain fictional; credentials stay off the public website.",
     "guideProcurementLink": "Open Cost & Markets ↗",
-
     "projectViews": "Views",
     "siteViews": "Website views",
     "metricsAbout": "About the counts",
@@ -254,7 +253,7 @@
     "themeLight": "Switch to light theme",
     "switchLanguage": "切换到中文版",
     "luminaTitle": "Site-based lighting, costs and IES analysis",
-    "luminaDescription": "Includes 23 sample luminaires for indoor, outdoor, commercial, sports, building and municipal lighting. Extract street-map road networks in the browser and verify dimensions before layout. An access code enables live DeepSeek planning, image analysis and parameter suggestions through a protected cloud service; the API key stays on the server. IES calculations cover layouts, direct illuminance, energy and purchasing, with efficient, sensor and DALI lifecycle comparisons. Operation logs, product imports, reports and scheme bundles remain available. Dimensions and hidden layouts require review; devices and D4i feedback are simulated.",
+    "luminaDescription": "Includes 23 sample luminaires for indoor, outdoor, commercial, sports, building and municipal lighting. Extract street-map road networks in the browser and verify dimensions before layout. An access code enables live DeepSeek planning, image analysis and parameter suggestions through a protected cloud service; the API key stays on the server. IES calculations cover layouts, direct illuminance, energy and purchasing, with efficient, sensor and DALI lifecycle comparisons. Operation logs, product imports, reports and scheme bundles remain available. Dimensions and hidden layouts require review; devices and D4i feedback are simulated. A separate procurement page compares four configurations using the current demo plan quantities, with MOQ price tiers, upfront budgets, annual energy bills, lifecycle totals, simple payback and CSV/report exports. Price tiers are generated demo estimates; efficacy, premiums and engineering costs are editable assumptions. Comparison data stays in the browser.",
     "sceneDemo": "3D scenes",
     "iesAnalysis": "IES analysis",
     "intelligentControl": "Lighting control",
@@ -300,7 +299,7 @@
     "resultsFiltered": "{count} of {total} projects found",
     "lumiSummary": "Connect market research, certification, optical analysis and engineering costs for traceable R&D decisions.",
     "tospoSummary": "Explore company information, outdoor luminaires and project references across lighting applications.",
-    "luminaSummary": "Plan from text, sketches and street maps, call DeepSeek online, and compare IES lighting, energy bills and lifecycle costs.",
+    "luminaSummary": "Plan lighting from text, sketches and street maps; compare MOQ price tiers, high-efficacy upgrades, energy bills and payback on a separate procurement page.",
     "lumiPreviewAlt": "LumiPilot project database with R&D records, statistics and project filters",
     "personalStatus": "Personal learning project",
     "vietquestName": "VietQuest",
@@ -355,7 +354,8 @@
     "guideDataTitle": "Access and data",
     "guideLocalData": "LUMINA schemes and simulated device records, and VietQuest learning progress, stay in the current browser. They may not follow you to another device or survive clearing browser data. Use the project’s export features first when you need to keep a scheme.",
     "guideEvidence": "Check source dates, references and calculation scope within each project. LumiPilot retains concept-model and verification labels. LUMINA illuminance analysis covers direct artificial light only. Verify inputs and applicability before engineering use.",
-    "protectedStats": "Sign in to the workspace to view projects, records and statistics."
+    "protectedStats": "Sign in to the workspace to view projects, records and statistics.",
+    "openLuminaPurchase": "Procurement & energy comparison"
   }
 };
   const siteGuide = document.querySelector('#site-guide');
@@ -567,6 +567,7 @@
   loadViewCounts(location.origin === 'https://dayang1847-arch.github.io');
   window.addEventListener('pageshow', event => { if (event.persisted) loadViewCounts(); });
 })();
+
 
 
 
