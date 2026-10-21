@@ -7,11 +7,11 @@ window.LumiManual = (() => {
   const sections = () => Array.isArray(data?.sections) ? data.sections : [];
   const sectionLink = (id, q = '') => '#help?' + new URLSearchParams({section:id, ...(q ? {q} : {})});
   function href(value) {
-    return typeof value === 'string' && /^#[a-z][a-z0-9-]*(?:\?[a-zA-Z0-9=&%_.-]*)?$/.test(value) ? value : '';
+    return typeof value === 'string' && (value === '/api/manual/export' || /^#[a-z][a-z0-9-]*(?:\?[a-zA-Z0-9=&%_.-]*)?$/.test(value)) ? value : '';
   }
   function searchText(section) {
     return [section.title,section.summary,...(section.keywords || []),
-      ...(section.steps || []).flatMap(step => [step.title,step.body]),
+      ...(section.steps || []).flatMap(step => [step.title,step.body,...(Array.isArray(step.links)?step.links:[]).flatMap(link=>[link.label,link.note])]),
       ...(section.outputs || []),...(section.notes || [])].join(' ').toLocaleLowerCase();
   }
   function matches(section, search) {
@@ -21,12 +21,14 @@ window.LumiManual = (() => {
   }
   function filtered() { return sections().filter(section => matches(section, query)); }
   function contextHref(hash) {
-    const [page,rawQuery = ''] = String(hash || '#projects').replace(/^#/, '').split('?');
+    const parsed=window.LumiWorkspace?.route(hash);const [rawPage,rawQuery = ''] = String(hash || '#workbench').replace(/^#/, '').split('?');const page=parsed?.page||rawPage.split('/')[0];
     const view = new URLSearchParams(rawQuery).get('view');
-    const id = ({projects:'projects',overview:'overview',solution:'solution',bom:'bom',market:'market',crawler:'crawler',
+    const customerTab=parsed?.query?.tab||rawPage.split('/')[2]||new URLSearchParams(rawQuery).get('tab');
+    if(page==='customers'&&customerTab==='products')return sectionLink('product-market-research');
+    const id = ({projects:'projects',overview:view === 'intelligence' ? 'project-intelligence' : 'overview',solution:'solution',bom:'bom',market:'market',crawler:'crawler',
       materials:view === 'logistics' ? 'logistics' : view === 'plastics' ? 'plastics' : 'materials',
       optical:view === 'spectral' ? 'spectral' : 'optical',knowledge:view === 'documents' ? 'knowledge' : 'compliance',
-      manufacturing:'manufacturing',cost:'whole-lamp-cost',access:'online-access'})[page] || 'getting-started';
+      workbench:'workbench',products:'products',jobs:'jobs','customer-directory':'customer-directory','sales-management':'sales-management','research-management':'research-management','procurement-management':'procurement-management',collaboration:'collaboration',customers:'customers',leadership:'leadership','material-selection':'material-selection',procurement:'procurement',decisions:'decisions',manufacturing:'manufacturing',cost:'whole-lamp-cost',access:'online-access'})[page] || 'getting-started';
     return sectionLink(id);
   }
   function timestamp(value) {
@@ -65,7 +67,11 @@ window.LumiManual = (() => {
     if (!section) return `<div class="manual-empty"><h2>未找到相关说明</h2><p>请调整关键词，或清除搜索后从左侧目录阅读。</p><button class="button" type="button" data-manual-action="clear">清除搜索</button></div>`;
     const route = href(section.route);
     const pending = data?.review_required_sections?.includes(section.id);
-    return `<article class="manual-article" aria-labelledby="manual-article-title"><header><div><p class="eyebrow">${e(section.scope || '使用指南')}</p><h2 id="manual-article-title">${e(section.title)}</h2><p class="manual-summary">${e(section.summary)}</p></div>${route && !route.startsWith('#help') ? `<a class="button button-primary" href="${e(route)}">打开相关功能 ${ctx.icon('ArrowUpRight')}</a>` : ''}</header>${pending ? '<div class="manual-review-note">此功能近期有调整，本章节的操作说明待同步核对。</div>' : ''}<section class="manual-steps" aria-label="操作步骤"><h3>操作步骤</h3><ol>${(section.steps || []).map((step,index) => `<li><span class="manual-step-number">${index + 1}</span><div><h4>${e(step.title)}</h4><p>${e(step.body)}</p></div></li>`).join('')}</ol></section>${section.outputs?.length ? `<section class="manual-outcomes"><h3>完成后可以获得</h3><ul>${section.outputs.map(output => `<li>${ctx.icon('Check')}<span>${e(output)}</span></li>`).join('')}</ul></section>` : ''}${section.notes?.length ? `<section class="manual-notes"><h3>使用口径与注意事项</h3><ul>${section.notes.map(note => `<li>${e(note)}</li>`).join('')}</ul></section>` : ''}</article>`;
+    return `<article class="manual-article" aria-labelledby="manual-article-title"><header><div><p class="eyebrow">${e(section.scope || '使用指南')}</p><h2 id="manual-article-title">${e(section.title)}</h2><p class="manual-summary">${e(section.summary)}</p></div>${route && !route.startsWith('#help') ? `<a class="button button-primary" href="${e(route)}">打开相关功能 ${ctx.icon('ArrowUpRight')}</a>` : ''}</header>${pending ? '<div class="manual-review-note">此功能近期有调整，本章节的操作说明待同步核对。</div>' : ''}<section class="manual-steps" aria-label="操作步骤"><h3>操作步骤</h3><ol>${(section.steps || []).map((step,index) => `<li><span class="manual-step-number">${index + 1}</span><div><h4>${e(step.title)}</h4><p>${e(step.body)}</p>${(step.equations || []).map(eq=>`<div class="manual-equation"><strong>${e(eq.label)}</strong><p class="manual-equation-expression">${e(eq.expression)}</p><p>${e(eq.explanation)}</p></div>`).join('')}${stepLinks(step)}</div></li>`).join('')}</ol></section>${section.outputs?.length ? `<section class="manual-outcomes"><h3>完成后可以获得</h3><ul>${section.outputs.map(output => `<li>${ctx.icon('Check')}<span>${e(output)}</span></li>`).join('')}</ul></section>` : ''}${section.notes?.length ? `<section class="manual-notes"><h3>使用口径与注意事项</h3><ul>${section.notes.map(note => `<li>${e(note)}</li>`).join('')}</ul></section>` : ''}</article>`;
+  }
+  function stepLinks(step) {
+    const links=(Array.isArray(step.links)?step.links:[]).filter(link=>link&&typeof link.label==='string'&&link.label.trim()&&href(link.href)).slice(0,6);
+    return links.length?`<div class="manual-step-links" aria-label="${e(step.title)}的页面入口">${links.map(link=>`<div><a class="manual-page-link" href="${e(href(link.href))}" ${link.href==='/api/manual/export'?'download':''}>${e(link.label)} ${ctx.icon('ArrowUpRight')}</a>${link.note?`<small>${e(link.note)}</small>`:''}</div>`).join('')}</div>`:'';
   }
   function reading() {
     const list = filtered();
@@ -74,7 +80,7 @@ window.LumiManual = (() => {
     return article(section) + history();
   }
   function view() {
-    const head = `<div class="page-heading manual-heading"><div><p class="eyebrow">产品使用指南</p><h1>使用说明</h1><p>按工作任务查阅操作步骤、保存方式和结果口径。</p></div>${data ? `<a class="button" href="/api/manual/export" download>${ctx.icon('Download')}下载完整说明</a>` : ''}</div>`;
+    const head = `<div class="page-heading manual-heading"><div><p class="eyebrow">产品使用指南</p><h1>使用说明</h1><p>按工作任务查阅操作步骤、保存方式和结果口径。</p></div>${data ? `<a class="button" href="/api/manual/export" download>${ctx.icon('Download')}下载完整说明（PDF）</a>` : ''}</div>`;
     if (error) return head + `<div class="screen-error" role="alert"><h2>说明书暂时未能载入</h2><p>${e(error)}</p><button class="button" data-manual-action="reload">重新读取</button></div>`;
     if (!data) return head + '<div class="initial-loading" role="status">正在读取使用说明…</div>';
     const readingHtml = reading(), contentsHtml = contents();

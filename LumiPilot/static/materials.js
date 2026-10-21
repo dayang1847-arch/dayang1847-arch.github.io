@@ -60,7 +60,7 @@ window.LumiMaterials = (() => {
     if(data.active)paint(true);
     return data.pending;
   }
-  async function load(){const requested=new URLSearchParams(location.hash.split('?')[1]||'').get('view');if(['quotes','plastics','logistics'].includes(requested))data.workspace=requested;const [result]=await Promise.all([request(false),window.LumiPlastic?.load(),window.LumiLogistics?.load()]);await requestCandles(false).catch(()=>{});return result;}
+  async function load(){const routeParams=window.LumiWorkspace?.params(location.hash)||new URLSearchParams(location.hash.split('?')[1]||'');const requested=routeParams.get('tool_view')||routeParams.get('view');if(['quotes','plastics','logistics'].includes(requested))data.workspace=requested;const [result]=await Promise.all([request(false),window.LumiPlastic?.load(),window.LumiLogistics?.load()]);await requestCandles(false).catch(()=>{});return result;}
   function entry(){return `<section class="materials-entry"><span class="materials-entry-icon">${icon('Layers')}</span><div><strong>金属与塑料材料行情</strong><p>查看公开基准、来源时点和单灯重量成本敏感性</p></div><button class="button button-small" data-action="navigate" data-page="materials">材料行情 ${icon('ArrowRight')}</button></section>`;}
   function metrics(){
     const list=data.snapshot.materials,priced=list.filter(hasPrice);

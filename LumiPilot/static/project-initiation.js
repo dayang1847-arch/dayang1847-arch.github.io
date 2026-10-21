@@ -3,7 +3,7 @@ window.LumiProjectInitiation = (() => {
   const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const defaults={customer:'',period:'',quantity:null,revenue:null,currency:'CNY',competitors:[],delivery_type:'finished',delivery_scope:'',factory_management_mode:'unknown',factory_management_reason:''};
   const presets={bulb:[3,5,6,7,9,10,12,15,18,20,24,30,40,50],t8:[9,12,16,18,20,22,24,30,36],floodlight:[10,20,30,50,100,150,200,300,500],streetlight:[30,50,60,80,100,120,150,200,250]};
-  const powers=p=>p?.spec?.power_options_w?.length?p.spec.power_options_w:[p?.spec?.power_w||18];
+  const powers=p=>Array.isArray(p?.spec?.power_options_w)?p.spec.power_options_w.filter(v=>Number.isFinite(v)&&v>0):p?.spec?.power_w>0?[p.spec.power_w]:p?.spec?[]:[18];
   const categoryLabel=p=>p?.category==='bulb'?'光源灯泡 · '+({a:'A 灯',t:'T 灯'}[p.bulb_type]||'灯型未记录'):null;
   const options=(rows,value)=>rows.map(([k,v])=>`<option value="${esc(k)}" ${k===value?'selected':''}>${esc(v)}</option>`).join('');
   const input=(key,label,value,attrs='')=>`<label class="field">${label}<input name="${key}" value="${esc(value)}" ${attrs}></label>`;

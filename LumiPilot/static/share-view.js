@@ -1,7 +1,7 @@
 'use strict';
 
 // The published view uses the existing workbench and its saved records. It has
-// business writes: records stay within the publication manifest. An optional
+// no business writes: records stay within the publication manifest. An optional
 // protected deployment forwards authentication to its authoritative server.
 (() => {
   const originalFetch = window.fetch.bind(window);
@@ -103,6 +103,20 @@
   }
   function findData(url) {
     const api = manifest(), path=url.pathname;
+    // A newer interface must also open against an older, approved publication.
+    // Missing collections are explicitly unpublished, never imported from the
+    // operator's live database or presented as a completed collection.
+    if (path.startsWith('/api/business/') && catalogue(path) === undefined) {
+      const absent = {readonly:true,published:false,notice:'原公开快照未包含此类业务记录；本机资料未自动公开。'};
+      const resource=path.slice('/api/business/'.length);
+      if(resource==='customers')return {...absent,customers:[]};
+      if(['products','jobs','actions','opportunities','decisions','suppliers','materials','standards','material-relations','procurement-records','settlement-rules'].includes(resource))return {...absent,items:[],jobs:[]};
+      if(resource==='imports/templates')return {...absent,templates:[]};
+      if(resource==='news')return {...absent,events:[],jobs:[],pending_actions:[],human_actions:[]};
+      if(resource==='workbench')return {...absent,actions:[],opportunities:[],decisions:[],jobs:[]};
+      if(resource==='production-focus')return {...absent,materials:[],suppliers:[],alerts:[]};
+      if(/^projects\/[a-f0-9]{12}\/product-links$/.test(resource))return {...absent,items:[]};
+    }
     // These filters run against the published catalogue, never the public web.
     if(path === '/api/compliance') {const source=catalogue(path);return source === undefined ? undefined : filteredCompliance(source,url.searchParams);}
     if(path === '/api/knowledge') {const source=catalogue(path);return source === undefined ? undefined : filteredKnowledge(source,url.searchParams);}
@@ -134,6 +148,16 @@
     const value=await response.json();
     if(value?.schema_version !== 1 || !value.api || typeof value.api !== 'object')throw new Error(authenticatedShare ? '授权资料清单格式无法读取。' : '公开资料清单格式无法读取。');
     snapshot=value;
+    if(document.body?.dataset.interfaceUpdate === 'true') {
+      const response=await originalFetch(new URL('interface-data.json',base).href,{cache:'no-cache'});
+      if(!response.ok)throw new Error('最新版界面说明未载入，请刷新后重试。');
+      const current=await response.json();
+      if(current.schema_version!==1 || !Array.isArray(current.manual?.sections))throw new Error('界面发布资料格式无效。');
+      // Documentation is program content. The public business snapshot and
+      // its original timestamps/files remain byte-for-byte unchanged on disk.
+      snapshot.api['/api/manual']=current.manual;
+      snapshot.file_map={...snapshot.file_map,'/api/manual/export':'./files/LumiPilot-current-manual.pdf'};
+    }
     applyReadonly();
     return {published_at:value.published_at,readonly:true};
   });
@@ -190,12 +214,18 @@
     const shell=document.querySelector('.main-shell'), topbar=document.querySelector('.topbar');
     if(shell && topbar && !document.querySelector('#share-publication-note')) {
       const note=document.createElement('div');note.id='share-publication-note';note.className='share-publication-note';
-      note.innerHTML=authenticatedShare ? '<span>授权查看 · 本链接仅提供已保存资料，原始来源时点保持不变</span><a href="#access">账户与访问 ↗</a>' : '<span>仅供浏览 · 界面已更新，业务资料与下载说明保留原公开版本</span><a href="/">返回作品集 ↗</a>'; 
+      note.innerHTML=authenticatedShare ? '<span>授权查看 · 本链接仅提供已保存资料，原始来源时点保持不变</span><a href="#access">账户与访问 ↗</a>' : '<span>最新版界面 · 公开资料只读浏览，实时采集需完整后台</span><a href="http://127.0.0.1:8790/#workbench?view=intelligence" target="_blank" rel="noopener">打开本机完整工作台 ↗</a>';
       topbar.insertAdjacentElement('afterend',note);
     }
     if(!authenticatedShare)document.querySelectorAll('a[href="#access"],[data-page="access"]').forEach(node => {if(!node.hidden)node.hidden=true;});
     // Authentication forms may mutate accounts, while business forms remain read-only.
     applyControls(document,{snapshot:!authenticatedShare,note:readonlyMessage});
+    const consoleRoot=document.querySelector('#intelligence-console-root');
+    if(consoleRoot && !consoleRoot.querySelector('.share-console-scope')) {
+      const scope=document.createElement('div');scope.className='notice share-console-scope';scope.setAttribute('role','note');
+      scope.textContent='此页使用本机最新版情报操作台。原公开资料未包含客户人物与产品研究库，因此不会展示本机私有客户或虚构采集成果。请打开本机完整工作台执行 LinkedIn、Amazon 采集和 DeepSeek 分析。';
+      consoleRoot.querySelector('.ic-heading')?.insertAdjacentElement('afterend',scope);
+    }
     document.querySelectorAll('[data-intelligence-action="retry-job"],[data-intelligence-action="select-sources"]').forEach(node=>markDisabled(node,true));
     document.querySelectorAll('a[href]').forEach(link => {
       const href=link.getAttribute('href');

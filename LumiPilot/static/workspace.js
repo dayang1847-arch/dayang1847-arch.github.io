@@ -4,7 +4,8 @@
 window.LumiWorkspace = (() => {
   const titles = Object.freeze({
     overview:'项目工作台', projects:'项目数据库', solution:'产品方案', optical:'光学验证', bom:'成本核算',
-    market:'市场与来源', materials:'材料与物流', knowledge:'照明知识库', help:'使用说明', access:'访问设置'
+    market:'市场与来源', materials:'材料与物流', knowledge:'照明知识库', help:'使用说明', access:'访问设置',
+    'customer-directory':'客户管理','sales-management':'销售管理','research-management':'研发管理','procurement-management':'采购管理',collaboration:'协作中心',customers:'客户工作台', leadership:'客户情报早报', 'material-selection':'研发物料选型', procurement:'采购与供应商', decisions:'跨部门会审'
   });
   const pages = new Set([...Object.keys(titles), 'crawler', 'manufacturing', 'cost']);
   const projectSections = new Set(['overview', 'solution', 'optical', 'bom']);
@@ -13,23 +14,82 @@ window.LumiWorkspace = (() => {
   const number = value => typeof value === 'number' && Number.isFinite(value);
   const text = value => typeof value === 'string' && value.trim().length > 0;
 
-  function route(hash) {
-    const raw = typeof hash === 'string' ? hash.replace(/^#/, '') : '';
-    const split = raw.indexOf('?');
-    const requested = split < 0 ? raw : raw.slice(0, split);
-    const query = new URLSearchParams(split < 0 ? '' : raw.slice(split + 1));
-    const page = requested ? (pages.has(requested) ? requested : 'overview') : 'projects';
-    let section = page, workspace = '';
-    if(page === 'projects')section = 'overview';
-    if(page === 'crawler')section = 'market';
-    if(page === 'cost'){section='bom';workspace=['overview','procurement','route','compare'].includes(query.get('view'))?query.get('view'):'overview';}
-    if(page === 'manufacturing') {
-      workspace = query.get('view') === 'knowledge' ? 'knowledge' : 'cost';
-      section = workspace === 'knowledge' ? 'knowledge' : 'bom';
-    }
-    const scope = page === 'help' ? 'help' : page === 'access' ? 'settings' : page === 'projects' ? 'catalog' : projectSections.has(section) ? 'project' : 'shared';
-    return {page, section, scope, title:page === 'projects' ? titles.projects : titles[section], group:scope, workspace};
+  const projectTabs = Object.freeze({overview:'总览',requirements:'需求与方案',validation:'工程验证',cost:'BOM 与成本',reviews:'会审'});
+  const projectTools = Object.freeze({overview:'overview',solution:'requirements',optical:'validation',bom:'cost',cost:'cost',manufacturing:'cost',market:'requirements',crawler:'requirements',knowledge:'validation'});
+  const customerTabs = new Set(['overview','people','products','opportunities','strategy','ask','crawl']);
+  const safeId = value => typeof value === 'string' && /^[a-zA-Z0-9_-]{1,100}$/.test(value);
+  const encodedQuery = query => query.toString() ? '?' + query.toString() : '';
+  function projectHref(id, target='overview', extra={}) {
+    if(!safeId(id))return '#projects';
+    const [raw, qs='']=String(target).replace(/^#/,'').split('?'), query=new URLSearchParams(qs);
+    const tab=Object.hasOwn(projectTabs,raw)?raw:projectTools[raw]||'overview';
+    if(Object.hasOwn(projectTools,raw)&&!['overview','solution','optical','cost'].includes(raw))query.set('tool',raw);
+    if(raw==='overview'&&query.get('view')==='intelligence'){query.set('tool','intelligence');}
+    for(const [key,value] of Object.entries(extra))if(value!==undefined&&value!==null&&value!=='')query.set(key,String(value));
+    query.delete('project');query.delete('project_id');
+    return '#projects/'+encodeURIComponent(id)+'/'+tab+encodedQuery(query);
   }
+  function customerHref(id, tab='overview', extra={}) {
+    if(!safeId(id))return '#customer-directory';
+    const query=new URLSearchParams(extra);
+    return '#customers/'+encodeURIComponent(id)+'/'+(customerTabs.has(tab)?tab:'overview')+encodedQuery(query);
+  }
+  function route(hash) {
+    const raw=typeof hash==='string'?hash.replace(/^#/,''):'';
+    const [path,rawQuery='']=raw.split('?'), parts=path.split('/'), query=new URLSearchParams(rawQuery);
+    let requested=parts[0]||'workbench',page=requested,section=page,scope='shared',workspace='',projectId='',projectTab='',objectId='',primary='workbench',redirect='';
+    const aliases={'sales-management':'#workbench?view=tasks','research-management':'#workbench?view=tasks','procurement-management':'#supply','collaboration':'#workbench?view=decisions',leadership:'#workbench?view=brief'};
+    if(aliases[requested]){
+      const next=new URLSearchParams(aliases[requested].split('?')[1]||'');
+      for(const [key,value] of query)if(key!=='view')next.set(key,value);
+      redirect=aliases[requested].split('?')[0]+encodedQuery(next);
+    }
+    if(requested==='workbench'){
+      const view=['intelligence','tasks','brief','decisions'].includes(query.get('view'))?query.get('view'):'intelligence';query.set('view',view);page=view==='brief'?'leadership':'workbench';primary='workbench';
+    }else if(requested==='projects'&&parts.length>1){
+      projectId=safeId(parts[1])?parts[1]:'';projectTab=Object.hasOwn(projectTabs,parts[2])?parts[2]:'overview';
+      if(!projectId){page='projects';scope='catalog';}else{
+        const allowed={overview:['overview','intelligence'],requirements:['solution','intelligence','market','crawler','knowledge'],validation:['optical','knowledge'],cost:['cost','bom','manufacturing','materials'],reviews:['decisions']};
+        const fallback={overview:'overview',requirements:'solution',validation:'optical',cost:'cost',reviews:'decisions'};
+        const tool=allowed[projectTab].includes(query.get('tool'))?query.get('tool'):fallback[projectTab];
+        page=tool==='intelligence'?'overview':tool;if(tool==='intelligence')query.set('view','intelligence');
+        scope='project';query.set('project_id',projectId);
+      }primary='projects';
+    }else if(requested==='projects'){scope='catalog';primary='projects';}
+    else if(requested==='jobs'){page='jobs';primary='workbench';}
+    else if(requested==='products'){page='products';objectId=safeId(parts[1])?parts[1]:'';primary='projects';}
+    else if(requested==='customers'){
+      objectId=safeId(parts[1])?parts[1]:safeId(query.get('customer'))?query.get('customer'):'';
+      if(objectId){query.set('customer',objectId);query.set('tab',customerTabs.has(parts[2])?parts[2]:customerTabs.has(query.get('tab'))?query.get('tab'):'overview');
+        if(parts.length===1){const q=new URLSearchParams(query);q.delete('customer');q.delete('tab');redirect=customerHref(objectId,query.get('tab'),Object.fromEntries(q));}}
+      else if(!query.has('new')&&query.get('settings')!=='ai')redirect='#customer-directory';primary=query.get('settings')==='ai'?'access':'customer-directory';if(query.get('settings')==='ai')scope='settings';
+    }else if(requested==='customer-directory'||requested==='opportunities'){primary='customer-directory';if(safeId(parts[1]))objectId=parts[1];}
+    else if(requested==='supply'){
+      const view=['materials','suppliers','records','analysis'].includes(query.get('view'))?query.get('view'):'materials';query.set('view',view);
+      page=view==='materials'?'material-selection':view==='analysis'&&query.get('tool')==='market'?'materials':'procurement';primary='supply';
+      query.set('focus',view==='suppliers'?'supplier':view);
+    }else if(['material-selection','procurement','materials'].includes(requested)){
+      primary='supply';const q=new URLSearchParams(query);q.set('view',requested==='material-selection'?'materials':requested==='procurement'&&['supplier','suppliers'].includes(query.get('focus'))?'suppliers':requested==='procurement'&&query.get('focus')==='records'?'records':'analysis');
+      if(['reuse','merge','scenario','settlement'].includes(query.get('focus')))q.set('tool_focus',query.get('focus'));
+      if(requested==='materials'){q.set('tool','market');if(query.has('view'))q.set('tool_view',query.get('view'));}
+      redirect='#supply'+encodedQuery(q);
+    }else if(requested==='decisions'){primary='workbench';}
+    else if(requested==='help'){scope='help';primary='help';}
+    else if(requested==='access'){scope='settings';primary='access';}
+    else if(Object.hasOwn(projectTools,requested)){
+      projectId=safeId(query.get('project_id'))?query.get('project_id'):safeId(query.get('project'))?query.get('project'):'';
+      projectTab=projectTools[requested];primary='projects';scope=requested==='knowledge'||requested==='manufacturing'&&query.get('view')==='knowledge'?'shared':'project';if(scope==='shared')primary='knowledge';
+      if(projectId){scope='project';redirect=projectHref(projectId,requested,Object.fromEntries(query));}
+    }else if(!pages.has(requested)){page='workbench';query.set('view','intelligence');redirect='#workbench?view=intelligence';}
+    section=page;if(page==='projects')section='overview';if(page==='crawler')section='market';
+    if(page==='cost'){section='bom';workspace=['overview','procurement','route','compare'].includes(query.get('view'))?query.get('view'):'overview';}
+    if(page==='manufacturing'){workspace=query.get('view')==='knowledge'?'knowledge':'cost';section=workspace==='knowledge'?'knowledge':'bom';}
+    const requiresProject=scope==='project';
+    if(page==='materials'&&query.get('tool_view'))workspace=query.get('tool_view');
+    const title=page==='workbench'?(query.get('view')==='intelligence'?'情报操作台':'工作台'):page==='supply'?'物料与供应商':page==='jobs'?'后台任务':page==='products'?'企业产品':page==='opportunities'?'客户机会':page==='projects'?titles.projects:titles[section]||'工作台';
+    return {page,section,scope,title,group:scope,workspace,primary,projectId,projectTab,objectId,requiresProject,needsProject:requiresProject&&!projectId,query:Object.fromEntries(query),view:query.get('view')||'',canonical:redirect||'#'+path+encodedQuery(new URLSearchParams(rawQuery)),redirect,legacyHash:'#'+page+encodedQuery(query)};
+  }
+  function params(hash){return new URLSearchParams(route(hash).query);}
 
   function stage(id, label, href, status, labelStatus, note, ready = false) {
     return {id, label, href, status, labelStatus, note, tone:ready ? 'blue' : 'amber', ready};
@@ -140,5 +200,5 @@ window.LumiWorkspace = (() => {
     return {label:next.labelStatus, tone:next.tone, note:next.note};
   }
 
-  return Object.freeze({route, stages, nextStep, projectStatus});
+  return Object.freeze({route, params, projectHref, customerHref, projectTabs, stages, nextStep, projectStatus});
 })();
