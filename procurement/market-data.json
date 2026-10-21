@@ -1,0 +1,844 @@
+{
+  "schema_version": 1,
+  "records": [
+    {
+      "id": "copper",
+      "material": "铜",
+      "source_id": "sunsirs_metals",
+      "source_name": "生意社 · 有色日榜",
+      "source_url": "https://top.100ppi.com/zdb/detail-day---12.html",
+      "date": "2026-10-21",
+      "price": 110673.33,
+      "previous_price": 109920.0,
+      "change_pct": 0.6853,
+      "kind": "spot_reference",
+      "currency": "CNY",
+      "unit": "元/吨",
+      "grade": null,
+      "tax_included": null,
+      "freight_included": null,
+      "region": null,
+      "scope": "公开市场参考，非供应商报价；品牌牌号、税费、运费及交付条件需另行核定。",
+      "history": [
+        {
+          "date": "2026-10-20",
+          "price": 109920.0
+        },
+        {
+          "date": "2026-10-21",
+          "price": 110673.33
+        }
+      ],
+      "reported_change_pct": 0.69,
+      "fetched_at": "2026-10-21T22:06:30+08:00"
+    },
+    {
+      "id": "aluminum",
+      "material": "铝",
+      "source_id": "sunsirs_metals",
+      "source_name": "生意社 · 有色日榜",
+      "source_url": "https://top.100ppi.com/zdb/detail-day---12.html",
+      "date": "2026-10-21",
+      "price": 23620.0,
+      "previous_price": 23543.33,
+      "change_pct": 0.3257,
+      "kind": "spot_reference",
+      "currency": "CNY",
+      "unit": "元/吨",
+      "grade": null,
+      "tax_included": null,
+      "freight_included": null,
+      "region": null,
+      "scope": "公开市场参考，非供应商报价；品牌牌号、税费、运费及交付条件需另行核定。",
+      "history": [
+        {
+          "date": "2026-10-20",
+          "price": 23543.33
+        },
+        {
+          "date": "2026-10-21",
+          "price": 23620.0
+        }
+      ],
+      "reported_change_pct": 0.33,
+      "fetched_at": "2026-10-21T22:06:30+08:00"
+    },
+    {
+      "id": "abs",
+      "material": "ABS",
+      "source_id": "sunsirs_plastics",
+      "source_name": "生意社 · 橡塑日榜",
+      "source_url": "https://top.100ppi.com/zdb/detail-day---15.html",
+      "date": "2026-10-21",
+      "price": 12240.0,
+      "previous_price": 12156.67,
+      "change_pct": 0.6855,
+      "kind": "spot_reference",
+      "currency": "CNY",
+      "unit": "元/吨",
+      "grade": null,
+      "tax_included": null,
+      "freight_included": null,
+      "region": null,
+      "scope": "公开市场参考，非供应商报价；品牌牌号、税费、运费及交付条件需另行核定。",
+      "history": [
+        {
+          "date": "2026-10-20",
+          "price": 12156.67
+        },
+        {
+          "date": "2026-10-21",
+          "price": 12240.0
+        }
+      ],
+      "reported_change_pct": 0.69,
+      "fetched_at": "2026-10-21T22:06:30+08:00"
+    },
+    {
+      "id": "pp",
+      "material": "PP(拉丝)",
+      "source_id": "sunsirs_plastics",
+      "source_name": "生意社 · 橡塑日榜",
+      "source_url": "https://top.100ppi.com/zdb/detail-day---15.html",
+      "date": "2026-10-21",
+      "price": 10766.67,
+      "previous_price": 10733.33,
+      "change_pct": 0.3106,
+      "kind": "spot_reference",
+      "currency": "CNY",
+      "unit": "元/吨",
+      "grade": null,
+      "tax_included": null,
+      "freight_included": null,
+      "region": null,
+      "scope": "公开市场参考，非供应商报价；品牌牌号、税费、运费及交付条件需另行核定。",
+      "history": [
+        {
+          "date": "2026-10-20",
+          "price": 10733.33
+        },
+        {
+          "date": "2026-10-21",
+          "price": 10766.67
+        }
+      ],
+      "reported_change_pct": 0.31,
+      "fetched_at": "2026-10-21T22:06:30+08:00"
+    },
+    {
+      "id": "ps",
+      "material": "PS",
+      "source_id": "sunsirs_plastics",
+      "source_name": "生意社 · 橡塑日榜",
+      "source_url": "https://top.100ppi.com/zdb/detail-day---15.html",
+      "date": "2026-10-21",
+      "price": 12000.0,
+      "previous_price": 12000.0,
+      "change_pct": 0.0,
+      "kind": "spot_reference",
+      "currency": "CNY",
+      "unit": "元/吨",
+      "grade": null,
+      "tax_included": null,
+      "freight_included": null,
+      "region": null,
+      "scope": "公开市场参考，非供应商报价；品牌牌号、税费、运费及交付条件需另行核定。",
+      "history": [
+        {
+          "date": "2026-10-20",
+          "price": 12000.0
+        },
+        {
+          "date": "2026-10-21",
+          "price": 12000.0
+        }
+      ],
+      "reported_change_pct": 0.0,
+      "fetched_at": "2026-10-21T22:06:30+08:00"
+    },
+    {
+      "id": "pc",
+      "material": "PC",
+      "source_id": "sunsirs_plastics",
+      "source_name": "生意社 · 橡塑日榜",
+      "source_url": "https://top.100ppi.com/zdb/detail-day---15.html",
+      "date": "2026-10-21",
+      "price": 14800.0,
+      "previous_price": 14800.0,
+      "change_pct": 0.0,
+      "kind": "spot_reference",
+      "currency": "CNY",
+      "unit": "元/吨",
+      "grade": null,
+      "tax_included": null,
+      "freight_included": null,
+      "region": null,
+      "scope": "公开市场参考，非供应商报价；品牌牌号、税费、运费及交付条件需另行核定。",
+      "history": [
+        {
+          "date": "2026-10-20",
+          "price": 14800.0
+        },
+        {
+          "date": "2026-10-21",
+          "price": 14800.0
+        }
+      ],
+      "reported_change_pct": 0.0,
+      "fetched_at": "2026-10-21T22:06:30+08:00"
+    },
+    {
+      "id": "pmma",
+      "material": "PMMA",
+      "source_id": "sunsirs_plastics",
+      "source_name": "生意社 · 橡塑日榜",
+      "source_url": "https://top.100ppi.com/zdb/detail-day---15.html",
+      "date": "2026-10-21",
+      "price": 14266.67,
+      "previous_price": 14266.67,
+      "change_pct": 0.0,
+      "kind": "spot_reference",
+      "currency": "CNY",
+      "unit": "元/吨",
+      "grade": null,
+      "tax_included": null,
+      "freight_included": null,
+      "region": null,
+      "scope": "公开市场参考，非供应商报价；品牌牌号、税费、运费及交付条件需另行核定。",
+      "history": [
+        {
+          "date": "2026-10-20",
+          "price": 14266.67
+        },
+        {
+          "date": "2026-10-21",
+          "price": 14266.67
+        }
+      ],
+      "reported_change_pct": 0.0,
+      "fetched_at": "2026-10-21T22:06:30+08:00"
+    },
+    {
+      "id": "pvc",
+      "material": "PVC",
+      "source_id": "sunsirs_plastics",
+      "source_name": "生意社 · 橡塑日榜",
+      "source_url": "https://top.100ppi.com/zdb/detail-day---15.html",
+      "date": "2026-10-21",
+      "price": 4954.0,
+      "previous_price": 4955.0,
+      "change_pct": -0.0202,
+      "kind": "spot_reference",
+      "currency": "CNY",
+      "unit": "元/吨",
+      "grade": null,
+      "tax_included": null,
+      "freight_included": null,
+      "region": null,
+      "scope": "公开市场参考，非供应商报价；品牌牌号、税费、运费及交付条件需另行核定。",
+      "history": [
+        {
+          "date": "2026-10-20",
+          "price": 4955.0
+        },
+        {
+          "date": "2026-10-21",
+          "price": 4954.0
+        }
+      ],
+      "reported_change_pct": -0.02,
+      "fetched_at": "2026-10-21T22:06:30+08:00"
+    },
+    {
+      "id": "lldpe",
+      "material": "LLDPE",
+      "source_id": "sunsirs_plastics",
+      "source_name": "生意社 · 橡塑日榜",
+      "source_url": "https://top.100ppi.com/zdb/detail-day---15.html",
+      "date": "2026-10-21",
+      "price": 9791.67,
+      "previous_price": 9795.0,
+      "change_pct": -0.034,
+      "kind": "spot_reference",
+      "currency": "CNY",
+      "unit": "元/吨",
+      "grade": null,
+      "tax_included": null,
+      "freight_included": null,
+      "region": null,
+      "scope": "公开市场参考，非供应商报价；品牌牌号、税费、运费及交付条件需另行核定。",
+      "history": [
+        {
+          "date": "2026-10-20",
+          "price": 9795.0
+        },
+        {
+          "date": "2026-10-21",
+          "price": 9791.67
+        }
+      ],
+      "reported_change_pct": -0.03,
+      "fetched_at": "2026-10-21T22:06:30+08:00"
+    },
+    {
+      "id": "copper-futures",
+      "material": "铜（期货连续）",
+      "source_id": "sina_copper",
+      "source_name": "新浪财经 · 沪铜连续日线",
+      "source_url": "https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_data=/InnerFuturesNewService.getDailyKLine?symbol=CU0",
+      "date": "2026-10-21",
+      "price": 108780.0,
+      "previous_price": 109550.0,
+      "change_pct": -0.7029,
+      "kind": "futures_close",
+      "currency": "CNY",
+      "unit": "元/吨",
+      "grade": null,
+      "tax_included": null,
+      "freight_included": null,
+      "region": null,
+      "scope": "连续合约日线收盘，可能含换月影响，非现货或采购结算价；当天日线在收市前可能变化。",
+      "history": [
+        {
+          "date": "2026-07-22",
+          "price": 105820.0
+        },
+        {
+          "date": "2026-07-23",
+          "price": 105890.0
+        },
+        {
+          "date": "2026-07-24",
+          "price": 104750.0
+        },
+        {
+          "date": "2026-07-27",
+          "price": 105050.0
+        },
+        {
+          "date": "2026-07-28",
+          "price": 104810.0
+        },
+        {
+          "date": "2026-07-29",
+          "price": 104890.0
+        },
+        {
+          "date": "2026-07-30",
+          "price": 104690.0
+        },
+        {
+          "date": "2026-07-31",
+          "price": 105460.0
+        },
+        {
+          "date": "2026-08-03",
+          "price": 106120.0
+        },
+        {
+          "date": "2026-08-04",
+          "price": 106650.0
+        },
+        {
+          "date": "2026-08-05",
+          "price": 107340.0
+        },
+        {
+          "date": "2026-08-06",
+          "price": 107330.0
+        },
+        {
+          "date": "2026-08-07",
+          "price": 108400.0
+        },
+        {
+          "date": "2026-08-10",
+          "price": 107850.0
+        },
+        {
+          "date": "2026-08-11",
+          "price": 107950.0
+        },
+        {
+          "date": "2026-08-12",
+          "price": 108390.0
+        },
+        {
+          "date": "2026-08-13",
+          "price": 107410.0
+        },
+        {
+          "date": "2026-08-14",
+          "price": 107690.0
+        },
+        {
+          "date": "2026-08-17",
+          "price": 109540.0
+        },
+        {
+          "date": "2026-08-18",
+          "price": 107930.0
+        },
+        {
+          "date": "2026-08-19",
+          "price": 106850.0
+        },
+        {
+          "date": "2026-08-20",
+          "price": 107200.0
+        },
+        {
+          "date": "2026-08-21",
+          "price": 107520.0
+        },
+        {
+          "date": "2026-08-24",
+          "price": 107910.0
+        },
+        {
+          "date": "2026-08-25",
+          "price": 107980.0
+        },
+        {
+          "date": "2026-08-26",
+          "price": 108750.0
+        },
+        {
+          "date": "2026-08-27",
+          "price": 108300.0
+        },
+        {
+          "date": "2026-08-28",
+          "price": 108900.0
+        },
+        {
+          "date": "2026-08-31",
+          "price": 109100.0
+        },
+        {
+          "date": "2026-09-01",
+          "price": 109220.0
+        },
+        {
+          "date": "2026-09-02",
+          "price": 108040.0
+        },
+        {
+          "date": "2026-09-03",
+          "price": 108410.0
+        },
+        {
+          "date": "2026-09-04",
+          "price": 108780.0
+        },
+        {
+          "date": "2026-09-07",
+          "price": 109410.0
+        },
+        {
+          "date": "2026-09-08",
+          "price": 110620.0
+        },
+        {
+          "date": "2026-09-09",
+          "price": 111080.0
+        },
+        {
+          "date": "2026-09-10",
+          "price": 112200.0
+        },
+        {
+          "date": "2026-09-11",
+          "price": 108990.0
+        },
+        {
+          "date": "2026-09-14",
+          "price": 107840.0
+        },
+        {
+          "date": "2026-09-15",
+          "price": 107030.0
+        },
+        {
+          "date": "2026-09-16",
+          "price": 107740.0
+        },
+        {
+          "date": "2026-09-17",
+          "price": 108500.0
+        },
+        {
+          "date": "2026-09-18",
+          "price": 109620.0
+        },
+        {
+          "date": "2026-09-21",
+          "price": 110180.0
+        },
+        {
+          "date": "2026-09-22",
+          "price": 111320.0
+        },
+        {
+          "date": "2026-09-23",
+          "price": 110330.0
+        },
+        {
+          "date": "2026-09-24",
+          "price": 110130.0
+        },
+        {
+          "date": "2026-09-28",
+          "price": 109440.0
+        },
+        {
+          "date": "2026-09-29",
+          "price": 109570.0
+        },
+        {
+          "date": "2026-09-30",
+          "price": 109680.0
+        },
+        {
+          "date": "2026-10-08",
+          "price": 110260.0
+        },
+        {
+          "date": "2026-10-09",
+          "price": 110110.0
+        },
+        {
+          "date": "2026-10-12",
+          "price": 110630.0
+        },
+        {
+          "date": "2026-10-13",
+          "price": 110990.0
+        },
+        {
+          "date": "2026-10-14",
+          "price": 111080.0
+        },
+        {
+          "date": "2026-10-15",
+          "price": 108940.0
+        },
+        {
+          "date": "2026-10-16",
+          "price": 109860.0
+        },
+        {
+          "date": "2026-10-19",
+          "price": 109770.0
+        },
+        {
+          "date": "2026-10-20",
+          "price": 109550.0
+        },
+        {
+          "date": "2026-10-21",
+          "price": 108780.0
+        }
+      ],
+      "fetched_at": "2026-10-21T22:06:30+08:00"
+    },
+    {
+      "id": "aluminum-futures",
+      "material": "铝（期货连续）",
+      "source_id": "sina_aluminum",
+      "source_name": "新浪财经 · 沪铝连续日线",
+      "source_url": "https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_data=/InnerFuturesNewService.getDailyKLine?symbol=AL0",
+      "date": "2026-10-21",
+      "price": 23050.0,
+      "previous_price": 23045.0,
+      "change_pct": 0.0217,
+      "kind": "futures_close",
+      "currency": "CNY",
+      "unit": "元/吨",
+      "grade": null,
+      "tax_included": null,
+      "freight_included": null,
+      "region": null,
+      "scope": "连续合约日线收盘，可能含换月影响，非现货或采购结算价；当天日线在收市前可能变化。",
+      "history": [
+        {
+          "date": "2026-07-22",
+          "price": 23190.0
+        },
+        {
+          "date": "2026-07-23",
+          "price": 23345.0
+        },
+        {
+          "date": "2026-07-24",
+          "price": 23225.0
+        },
+        {
+          "date": "2026-07-27",
+          "price": 23195.0
+        },
+        {
+          "date": "2026-07-28",
+          "price": 23220.0
+        },
+        {
+          "date": "2026-07-29",
+          "price": 23455.0
+        },
+        {
+          "date": "2026-07-30",
+          "price": 23625.0
+        },
+        {
+          "date": "2026-07-31",
+          "price": 23630.0
+        },
+        {
+          "date": "2026-08-03",
+          "price": 23640.0
+        },
+        {
+          "date": "2026-08-04",
+          "price": 23810.0
+        },
+        {
+          "date": "2026-08-05",
+          "price": 23785.0
+        },
+        {
+          "date": "2026-08-06",
+          "price": 23810.0
+        },
+        {
+          "date": "2026-08-07",
+          "price": 24040.0
+        },
+        {
+          "date": "2026-08-10",
+          "price": 24165.0
+        },
+        {
+          "date": "2026-08-11",
+          "price": 24250.0
+        },
+        {
+          "date": "2026-08-12",
+          "price": 24285.0
+        },
+        {
+          "date": "2026-08-13",
+          "price": 24090.0
+        },
+        {
+          "date": "2026-08-14",
+          "price": 23885.0
+        },
+        {
+          "date": "2026-08-17",
+          "price": 24035.0
+        },
+        {
+          "date": "2026-08-18",
+          "price": 23955.0
+        },
+        {
+          "date": "2026-08-19",
+          "price": 23675.0
+        },
+        {
+          "date": "2026-08-20",
+          "price": 23595.0
+        },
+        {
+          "date": "2026-08-21",
+          "price": 23710.0
+        },
+        {
+          "date": "2026-08-24",
+          "price": 23765.0
+        },
+        {
+          "date": "2026-08-25",
+          "price": 23755.0
+        },
+        {
+          "date": "2026-08-26",
+          "price": 23760.0
+        },
+        {
+          "date": "2026-08-27",
+          "price": 23820.0
+        },
+        {
+          "date": "2026-08-28",
+          "price": 23920.0
+        },
+        {
+          "date": "2026-08-31",
+          "price": 24075.0
+        },
+        {
+          "date": "2026-09-01",
+          "price": 24110.0
+        },
+        {
+          "date": "2026-09-02",
+          "price": 24100.0
+        },
+        {
+          "date": "2026-09-03",
+          "price": 24370.0
+        },
+        {
+          "date": "2026-09-04",
+          "price": 24290.0
+        },
+        {
+          "date": "2026-09-07",
+          "price": 24420.0
+        },
+        {
+          "date": "2026-09-08",
+          "price": 24460.0
+        },
+        {
+          "date": "2026-09-09",
+          "price": 24560.0
+        },
+        {
+          "date": "2026-09-10",
+          "price": 24490.0
+        },
+        {
+          "date": "2026-09-11",
+          "price": 24235.0
+        },
+        {
+          "date": "2026-09-14",
+          "price": 24035.0
+        },
+        {
+          "date": "2026-09-15",
+          "price": 24105.0
+        },
+        {
+          "date": "2026-09-16",
+          "price": 24185.0
+        },
+        {
+          "date": "2026-09-17",
+          "price": 24225.0
+        },
+        {
+          "date": "2026-09-18",
+          "price": 24400.0
+        },
+        {
+          "date": "2026-09-21",
+          "price": 24220.0
+        },
+        {
+          "date": "2026-09-22",
+          "price": 24240.0
+        },
+        {
+          "date": "2026-09-23",
+          "price": 24205.0
+        },
+        {
+          "date": "2026-09-24",
+          "price": 24200.0
+        },
+        {
+          "date": "2026-09-28",
+          "price": 23950.0
+        },
+        {
+          "date": "2026-09-29",
+          "price": 24020.0
+        },
+        {
+          "date": "2026-09-30",
+          "price": 23830.0
+        },
+        {
+          "date": "2026-10-08",
+          "price": 23385.0
+        },
+        {
+          "date": "2026-10-09",
+          "price": 23470.0
+        },
+        {
+          "date": "2026-10-12",
+          "price": 23465.0
+        },
+        {
+          "date": "2026-10-13",
+          "price": 23320.0
+        },
+        {
+          "date": "2026-10-14",
+          "price": 23285.0
+        },
+        {
+          "date": "2026-10-15",
+          "price": 23040.0
+        },
+        {
+          "date": "2026-10-16",
+          "price": 23270.0
+        },
+        {
+          "date": "2026-10-19",
+          "price": 22970.0
+        },
+        {
+          "date": "2026-10-20",
+          "price": 23045.0
+        },
+        {
+          "date": "2026-10-21",
+          "price": 23050.0
+        }
+      ],
+      "fetched_at": "2026-10-21T22:06:30+08:00"
+    }
+  ],
+  "sources": {
+    "sunsirs_metals": {
+      "name": "生意社 · 有色日榜",
+      "url": "https://top.100ppi.com/zdb/detail-day---12.html",
+      "last_attempt_at": "2026-10-21T22:06:30+08:00",
+      "ok": true,
+      "error": null,
+      "last_success_at": "2026-10-21T22:06:30+08:00"
+    },
+    "sunsirs_plastics": {
+      "name": "生意社 · 橡塑日榜",
+      "url": "https://top.100ppi.com/zdb/detail-day---15.html",
+      "last_attempt_at": "2026-10-21T22:06:30+08:00",
+      "ok": true,
+      "error": null,
+      "last_success_at": "2026-10-21T22:06:30+08:00"
+    },
+    "sina_copper": {
+      "name": "新浪财经 · 沪铜连续日线",
+      "url": "https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_data=/InnerFuturesNewService.getDailyKLine?symbol=CU0",
+      "last_attempt_at": "2026-10-21T22:06:30+08:00",
+      "ok": true,
+      "error": null,
+      "last_success_at": "2026-10-21T22:06:30+08:00"
+    },
+    "sina_aluminum": {
+      "name": "新浪财经 · 沪铝连续日线",
+      "url": "https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_data=/InnerFuturesNewService.getDailyKLine?symbol=AL0",
+      "last_attempt_at": "2026-10-21T22:06:30+08:00",
+      "ok": true,
+      "error": null,
+      "last_success_at": "2026-10-21T22:06:30+08:00"
+    }
+  },
+  "updated_at": "2026-10-21T22:06:30+08:00",
+  "usage_note": "参考价与期货日线分别展示；不提供牌号成交价或付费研究报告。采集按需运行，未配置无人值守定时更新。"
+}

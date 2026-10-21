@@ -18,6 +18,7 @@ from html.parser import HTMLParser
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import urlsplit
+from market import Market
 
 API_BASE = 'https://api.deepseek.com'
 DEFAULT = {'mail': {'host': '', 'port': 993, 'username': '', 'password': ''},
@@ -325,6 +326,7 @@ class Server(ThreadingHTTPServer):
     def __init__(self, address, store, web_root):
         self.store, self.web_root = store, Path(web_root).resolve()
         self.connections = Connections(store)
+        self.market = Market(store.directory / 'market-cache.json', self.web_root / 'market-data.json')
         self.token = secrets.token_urlsafe(32)
         super().__init__(address, Handler)
 
@@ -365,15 +367,18 @@ class Handler(BaseHTTPRequestHandler):
                     return self.json(403, {'error': '请重新打开本机后台，建立连接会话。'})
                 if path == '/api/status':
                     return self.json(200, self.server.store.public())
+                if path == '/api/market':
+                    return self.json(200, self.server.market.snapshot())
                 return self.json(404, {'error': '接口不存在。'})
             public = {'/': 'index.html', '/index.html': 'index.html', '/app.js': 'app.js',
                       '/style.css': 'style.css', '/connections.js': 'connections.js',
                       '/connections.css': 'connections.css', '/favicon.svg': 'favicon.svg', '/sample-quotes.csv': 'sample-quotes.csv'}
+            public.update({'/market.js': 'market.js', '/market.css': 'market.css', '/market-data.json': 'market-data.json'})
             target = public.get(path)
             if not target:
                 return self.json(404, {'error': '资源不存在。'})
             content = (self.server.web_root / target).read_bytes()
-            kind = 'text/html' if target.endswith('.html') else 'text/css' if target.endswith('.css') else 'text/javascript' if target.endswith('.js') else 'image/svg+xml' if target.endswith('.svg') else 'text/csv'
+            kind = 'application/json' if target.endswith('.json') else 'text/html' if target.endswith('.html') else 'text/css' if target.endswith('.css') else 'text/javascript' if target.endswith('.js') else 'image/svg+xml' if target.endswith('.svg') else 'text/csv'
             self.send_response(200)
             self.send_header('Content-Type', kind + '; charset=utf-8')
             self.send_header('Content-Length', str(len(content)))
@@ -403,6 +408,8 @@ class Handler(BaseHTTPRequestHandler):
             if not isinstance(data, dict):
                 raise SafeError('请求格式无效。')
             store, c = self.server.store, self.server.connections
+            if path == '/api/market/refresh':
+                return self.json(200, self.server.market.refresh())
             if path in ('/api/mail/config', '/api/deepseek/config'):
                 store.configure(kind, data)
                 return self.json(200, store.public())
