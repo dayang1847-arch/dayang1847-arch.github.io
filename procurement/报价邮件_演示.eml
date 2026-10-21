@@ -1,0 +1,14 @@
+From: supplier@example.invalid
+To: buyer@example.invalid
+Subject: =?utf-8?b?5qih5ouf5oql5Lu377yaMjJBV0cgVUwxMDE1IOe6oue6vw==?=
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
+
+以下全部为虚构演示数据。
+供应商：青禾线缆（模拟）
+料号：WL-2201
+规格：22AWG UL1015 红线
+含税单价：0.46 元/米
+税率：13%
+含运费，交期7天。
