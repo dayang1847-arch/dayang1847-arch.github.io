@@ -2,6 +2,22 @@
   const root = document.documentElement;
   const copy = {
   "zh": {
+    "filterProcurement": "采购协同",
+    "procurementStatus": "交互演示",
+    "procurementName": "采衡",
+    "procurementTitle": "采购协同工作台",
+    "procurementSummary": "从物料选型、供应商比价到跨项目需求聚合，将成本分析转成可跟进的议价任务。",
+    "procurementSourcingTag": "选型与比价",
+    "procurementDemandTag": "需求聚合",
+    "procurementCostTag": "成本情景",
+    "procurementEnter": "体验采购 Demo",
+    "procurementAccess": "模拟数据 · 无需账号 · 记录保存在当前浏览器",
+    "procurementDescription": "七个页面展示选型筛选、CSV 报价核对、加权评分、研发归并确认、铜价成本测算与议价结果回填。",
+    "procurementLimit": "当前为中文界面，全部业务数据为虚构示例；未连接邮箱、OA、ERP、实时行情或大模型，人工确认仅为演示操作。",
+    "procurementPreviewAlt": "采购协同演示：三个项目的物料需求经研发确认后聚合为议价任务",
+    "guideProcurement": "点击演示指南，按物料选型、报价比较、需求归并、成本测算、议价回填五步体验。可调整权重和成本参数、导出 CSV，并重置演示。全部数据为模拟，记录仅保存在当前浏览器，没有接入真实业务系统。",
+    "guideProcurementLink": "进入采购协同演示 ↗",
+
     "projectViews": "访问",
     "siteViews": "网站访问",
     "metricsAbout": "统计说明",
@@ -69,7 +85,7 @@
     "luminaSamples": "演示灯具",
     "luminaModes": "体验模式",
     "luminaPreviewAlt": "LUMINA 办公展厅三维灯光演示，包含产品仓库、照明预设和巡游控制",
-    "collectionDescription": "照明工程、市场分析、研发决策与交互应用。",
+    "collectionDescription": "照明工程、市场分析、研发决策、采购协同与交互应用。",
     "collectionUnit": "个项目",
     "collectionHint": "选择一个项目，继续探索",
     "filterLabel": "项目分类",
@@ -163,6 +179,22 @@
     "protectedStats": "登录工作台后查看项目、资料与统计。"
   },
   "en": {
+    "filterProcurement": "Procurement",
+    "procurementStatus": "Interactive demo",
+    "procurementName": "Chaiheng",
+    "procurementTitle": "Procurement collaboration workspace",
+    "procurementSummary": "Connect material sourcing and supplier comparisons with cross-project demand consolidation, cost scenarios and negotiation follow-up.",
+    "procurementSourcingTag": "Sourcing & quotations",
+    "procurementDemandTag": "Demand consolidation",
+    "procurementCostTag": "Cost scenarios",
+    "procurementEnter": "Open Chinese demo",
+    "procurementAccess": "Fictional data · No account · Browser-local records",
+    "procurementDescription": "Seven screens demonstrate material filtering, CSV quotation review, weighted scoring, engineering confirmation, copper-cost scenarios and negotiation results.",
+    "procurementLimit": "The demo interface is in Chinese. All business records are fictional. Email, OA, ERP, live market feeds and LLMs are not connected; approvals are simulated.",
+    "procurementPreviewAlt": "Procurement concept: demand from three projects is consolidated into a negotiation task after engineering confirmation",
+    "guideProcurement": "Use the five-step demo guide to review materials, compare quotations, confirm demand consolidation, calculate cost scenarios and record negotiation results. Adjust weights and parameters, export CSV or reset. All data is fictional and stored in the current browser; no live business systems are connected.",
+    "guideProcurementLink": "Open procurement collaboration demo ↗",
+
     "projectViews": "Views",
     "siteViews": "Website views",
     "metricsAbout": "About the counts",
@@ -230,7 +262,7 @@
     "luminaSamples": "Sample luminaires",
     "luminaModes": "Experience modes",
     "luminaPreviewAlt": "LUMINA office showroom with 3D lighting, product library, lighting presets and camera controls",
-    "collectionDescription": "Lighting engineering, market research, R&D decisions and interactive applications.",
+    "collectionDescription": "Lighting engineering, market research, R&D decisions, procurement demos and interactive applications.",
     "collectionUnit": "projects",
     "collectionHint": "Pick a project to explore",
     "filterLabel": "Project categories",
@@ -533,5 +565,6 @@
   loadViewCounts(location.origin === 'https://dayang1847-arch.github.io');
   window.addEventListener('pageshow', event => { if (event.persisted) loadViewCounts(); });
 })();
+
 
 
