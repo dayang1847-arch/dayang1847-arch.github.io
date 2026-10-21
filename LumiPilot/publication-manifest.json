@@ -1,0 +1,304 @@
+{
+  "schema_version": 1,
+  "published_at": "2026-10-13T05:51:33.102371+00:00",
+  "source_mode": "existing_public_workspace_snapshot",
+  "files": {
+    ".nojekyll": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "README.md": {
+      "sha256": "e07f3841ea4f380e25ff055f28db196c8c6e98fbe998a9cba4664bad1f657127",
+      "bytes": 405
+    },
+    "files/LumiPilot-crawl-36c6f98d1d55.json": {
+      "sha256": "5dfe06a447fbe030f8d75bc4bdd1f427297dbb403ecd6e9e4331fa4ef3b64652",
+      "bytes": 17016
+    },
+    "files/LumiPilot-crawl-8048a33d63b2.json": {
+      "sha256": "87e70b9d1718ae86e128b0aa3e668e11e7b3769a31a5d859bad58bd1e75776ca",
+      "bytes": 6806
+    },
+    "files/LumiPilot-user-manual.md": {
+      "sha256": "ed8b67b8fefe11a43097f9e40ad9a54b84b4374eeb10952be8cc2077ca2b3447",
+      "bytes": 49366
+    },
+    "index.html": {
+      "sha256": "f32fd07c08c7e8e0cfc5961fbe2653d151d5876283c6e4348a14a00f00974d53",
+      "bytes": 9105
+    },
+    "share-data.json": {
+      "sha256": "53ca975d59ee7da771f6cdaf7bd2ea8549932fe76684465f2f699fe73d324d44",
+      "bytes": 4028954
+    },
+    "static/app.js": {
+      "sha256": "8bb98baabbab28bf728c77ffb63d6b14c090f4157117c329b15c2a26aef89d48",
+      "bytes": 85521
+    },
+    "static/auth.css": {
+      "sha256": "51af53740b6b2ab81403a443577ea94ef6d50045d156afc83ce7608172546977",
+      "bytes": 14010
+    },
+    "static/auth.js": {
+      "sha256": "26faa7fadf57e0a4584f21fb6d6e91b80f6a070fe365fd74abc15bbf17845682",
+      "bytes": 52629
+    },
+    "static/compliance.css": {
+      "sha256": "823f7fa0d79801e1e14953de3736a441d894f7e970bbdd16b761f8d8730b6ca1",
+      "bytes": 8613
+    },
+    "static/compliance.js": {
+      "sha256": "543f155d77378eddc694b207399f7c9e6b26765c5925468e178e05886e259bce",
+      "bytes": 12279
+    },
+    "static/cost-workbench.css": {
+      "sha256": "8e69e534f6ff80cf1cfeea28ba0f8bcd6c3b6da3ea37c9f005b96a96e4f5bb96",
+      "bytes": 12468
+    },
+    "static/cost-workbench.js": {
+      "sha256": "661d51a3270c4db9fc70e22dbf5ed273a32e84dc08f6c439e1e21eb9b333ccee",
+      "bytes": 79053
+    },
+    "static/crawler.css": {
+      "sha256": "4cadc75d1ce5fd53455b26be22519e9dbdc51fddd5829ebbd3a3b6d310ff7600",
+      "bytes": 11633
+    },
+    "static/crawler.js": {
+      "sha256": "1e5c5f0e2d1aa37139c4ae1267a212fcb31e19aaa30553578dd25658bdbcb510",
+      "bytes": 33074
+    },
+    "static/desktop.css": {
+      "sha256": "c4e6d81c258317e7d752364ca4d7fe58049e67fb52af0f37fd4a06f9fdf227bc",
+      "bytes": 29068
+    },
+    "static/integration.css": {
+      "sha256": "25ead28d7bd7638aebd0a92be4a36693f9f3577e9b3b625a8571e4bc382f0c4f",
+      "bytes": 2681
+    },
+    "static/logistics.css": {
+      "sha256": "2063564d0474f10f2e71948e1d239d421609de9afd9221086c6f25e2273cc31c",
+      "bytes": 5831
+    },
+    "static/logistics.js": {
+      "sha256": "1a46eace6b2ab67e5ebbf669e052a31b853f337fb381c7f4b973034673594eee",
+      "bytes": 16353
+    },
+    "static/manual.css": {
+      "sha256": "905724c9065325fbeb1732b41d367f393dd11e517e7e0f4b66f30432845e6e4a",
+      "bytes": 5981
+    },
+    "static/manual.js": {
+      "sha256": "7f2679aa2e0912172533d2562755c0767c822370b4b835976ff50cb59874b4b0",
+      "bytes": 9496
+    },
+    "static/manufacturing.css": {
+      "sha256": "b0d89106318596642d19a828548e45010276717b43b21a12cfb853a2e6deda19",
+      "bytes": 20384
+    },
+    "static/manufacturing.js": {
+      "sha256": "98d6cbdd427432ab4af3a6d9343858f71adab138608b788f614e6b1fbe8f0ed4",
+      "bytes": 37294
+    },
+    "static/materials.css": {
+      "sha256": "50abe684439a816ede5e7a44fa31e77e56bd20da15b339e6f41e39c1e2d844c9",
+      "bytes": 11705
+    },
+    "static/materials.js": {
+      "sha256": "c7e45b2213225d62e755343d67b7b765b82ac48fca12e81266f049055f178969",
+      "bytes": 41703
+    },
+    "static/plastics.css": {
+      "sha256": "f544827a0bc86619a75a900ad907d1009c16ebf519d3962ced0a193a95da7c28",
+      "bytes": 6666
+    },
+    "static/plastics.js": {
+      "sha256": "1aad5fa21113882b71baa6a926de9562aa0f34d2345447af1cbaa5b270db57b0",
+      "bytes": 14529
+    },
+    "static/product-definition.css": {
+      "sha256": "24013a8105969622e2a7946144466e41a15638bad141427ddfd329f53985c2a9",
+      "bytes": 3721
+    },
+    "static/product-definition.js": {
+      "sha256": "51a1df83f8114bed36d832fbe4f7e23a1b27cf6f27ce186ee6ac51037c8f2032",
+      "bytes": 13862
+    },
+    "static/product-development.css": {
+      "sha256": "861e8602a14359d5dca90066c1ca3eb6bffc1ee4cf1bf716bf1d405e3a0c0f8f",
+      "bytes": 3769
+    },
+    "static/product-development.js": {
+      "sha256": "afbc97280c37a3a930edc8896c391113d83e8612d428b9b0f2a3d2fff88a110c",
+      "bytes": 18344
+    },
+    "static/project-database.css": {
+      "sha256": "797bc9ec5a49b529e9052ef651af3505e85fcfd557b7f454b8187f829d904bc8",
+      "bytes": 12437
+    },
+    "static/project-database.js": {
+      "sha256": "478943954e9900ceb00cbd99c501e54813080d03f63df0a795b84dcc4d689035",
+      "bytes": 38498
+    },
+    "static/project-initiation.css": {
+      "sha256": "4f5d25cda9957222406e84e0bea1b841e710db17487b07232f3c93051d0e9539",
+      "bytes": 2356
+    },
+    "static/project-initiation.js": {
+      "sha256": "f7a683cb2d3f26c24e79e1f638e0bdab4532f0cf02fac61e4b8fd3a22fc3b726",
+      "bytes": 12363
+    },
+    "static/project-intelligence.css": {
+      "sha256": "0778e25c413440500589c6f1460cc0ddee39c776836c497e24606a82ea533c9a",
+      "bytes": 3740
+    },
+    "static/project-intelligence.js": {
+      "sha256": "a8cb0dee54b83e8fc88fcc48a10d2267ec9c3938c38d482fe66c71a622bf1e8f",
+      "bytes": 28295
+    },
+    "static/project-value.css": {
+      "sha256": "8972d2d5fd332334c09702912a98a068afc1f57897eb6e8dc1e9b4d4515efa21",
+      "bytes": 3696
+    },
+    "static/project-value.js": {
+      "sha256": "67a654aa0af9c93440a26e550317752097ac44d3a662cd478c60fa7703137683",
+      "bytes": 11060
+    },
+    "static/share-view.css": {
+      "sha256": "68053f62ab93465c999d6662e465bc6165b0f16d322c81dcce0719d47142d806",
+      "bytes": 2795
+    },
+    "static/share-view.js": {
+      "sha256": "3dae029eed3f42a74345da8f0a122a69237b9556ef4cfc78b0fb159721eaa8d9",
+      "bytes": 22168
+    },
+    "static/spectral.css": {
+      "sha256": "4503886a8c7dc49effcff7aececad93fa098c5cde2662e97ad7dfc5a8b8c5734",
+      "bytes": 4422
+    },
+    "static/spectral.js": {
+      "sha256": "b2f39b5547c7557a1f33255500381071ad292a1af938b91495789e81fa271c00",
+      "bytes": 13922
+    },
+    "static/styles.css": {
+      "sha256": "4e9265844651048d8899d98cc037b8ee9b8485511e6d6a627d24e9a573b025ca",
+      "bytes": 23958
+    },
+    "static/supplier.css": {
+      "sha256": "495a5cddbf98342df6cd31a476dd15caf7951111b59da80b90c90338e7e8927f",
+      "bytes": 5838
+    },
+    "static/supplier.js": {
+      "sha256": "b920c3bb209e715e75f666e061744bc23d0ab1c939f10137717f04a72910fc18",
+      "bytes": 11475
+    },
+    "static/vendor/lightweight-charts-5.2.1.standalone.production.js": {
+      "sha256": "e21cc5caa0226ef30bd8549c50b9ef926615f2a4ee6b4e486353477a55f598cf",
+      "bytes": 197922
+    },
+    "static/vendor/lightweight-charts.LICENSE.txt": {
+      "sha256": "70c9d5382506dd184465425c08a99ad9bd6d9ac1313c252968ba0b585e5ef823",
+      "bytes": 11347
+    },
+    "static/vendor/lightweight-charts.NOTICE.txt": {
+      "sha256": "f76c6afab94884448f0426e30d6e9d555ca7247894cd3484e477d2f87513036e",
+      "bytes": 101
+    },
+    "static/vendor/lightweight-charts.manifest.json": {
+      "sha256": "7ac0df20e4fd00d5a48cf0d932dd9bba9b3f9e3e490de195813dd6dd7b30f7dc",
+      "bytes": 923
+    },
+    "static/vendor/lucide-LICENSE": {
+      "sha256": "b495047bd93a9b06913511076f504daba17d5bbeb3e0650f3bb53a4220329c57",
+      "bytes": 3208
+    },
+    "static/vendor/lucide-icons.js": {
+      "sha256": "e68693148cd170e5403b29ada02c13ad467e6e085f2287510b2cf436bc46b10c",
+      "bytes": 6120
+    },
+    "static/workspace-access.js": {
+      "sha256": "4e6473f089134e055d135f0c3fbd47a20ea0d031de992f2c19bd9602f0a27739",
+      "bytes": 6479
+    },
+    "static/workspace.css": {
+      "sha256": "850386cb0aa68ea6b1ae9f029ff780de2bc3d45a752ce9e7e7fd1a70376699b7",
+      "bytes": 9654
+    },
+    "static/workspace.js": {
+      "sha256": "12353aec282165b7ebd80c978bc9c91595d8fe091c31ee4b0d1cc1e6731ee5fa",
+      "bytes": 12194
+    }
+  },
+  "source_times": {
+    "projects": [
+      {
+        "id": "5d2d21e48b80",
+        "updated_at": "2026-10-12T05:58:53.548946+00:00"
+      },
+      {
+        "id": "a76cd588451e",
+        "updated_at": "2026-10-11T18:39:06.099557+00:00"
+      },
+      {
+        "id": "8aef4e7c3c6e",
+        "updated_at": "2026-10-11T15:19:41.778841+00:00"
+      }
+    ],
+    "market_last_collected_at": "2026-10-11T16:22:17+00:00",
+    "materials_last_success": "2026-10-12T10:37:55.629944+08:00",
+    "compliance_as_of": "2026-10-12",
+    "manual_updated_at": "2026-10-13T05:51:32+00:00"
+  },
+  "source_integrity": {
+    "checked_file_count": 104,
+    "business_files_unchanged": true
+  },
+  "http_get_allowlist": [
+    "/api/brands",
+    "/api/countries",
+    "/api/crawler/jobs",
+    "/api/crawler/sources",
+    "/api/market",
+    "/api/market/products?limit=500",
+    "/api/overview",
+    "/api/project-archive",
+    "/api/projects"
+  ],
+  "http_dynamic_allowlist": "/api/crawler/jobs/[a-f0-9]{12}(?:/results)?\\Z",
+  "private_config_read": false,
+  "database_files_copied": false,
+  "uploaded_originals_copied": false,
+  "external_business_requests": false,
+  "counts": {
+    "projects": 3,
+    "historical_and_lead_records": 0,
+    "market_products": 370,
+    "brands": 339,
+    "knowledge_entries": 154,
+    "documents_metadata_only": 2,
+    "api_routes": 94,
+    "static_assets": 38
+  },
+  "omitted": [
+    "公开只读浏览：查看已有项目与公开资料，不新增、修改或删除业务数据。",
+    "本次发布是已有数据的快照；行情、K线和采集记录保留来源日期，页面不自动抓取或更新。",
+    "邮箱验证码、管理员审批、微信登录、供应商接口、资料上传和方案生成需完整后端，未在 GitHub Pages 运行。",
+    "知识库及项目原件仅保留目录、哈希和已关联摘录；上传原件、数据库、账号、邮箱、SMTP 与供应商凭据均未包含。",
+    "光学页面展示已保存分析；不在公开页运行光学实验室或将概念模型写入项目。",
+    "空的成本方案、版本、工艺测算和光谱实测记录保持空白，不添加示例记录或虚构成果。"
+  ],
+  "interface_update": {
+    "updated_at": "2026-10-15T01:27:22.023122+00:00",
+    "scope": "interface_only",
+    "public_data_base_commit": "aca61bc4ea28d0b961b1baa4440fd568ff95d8e8",
+    "business_snapshot_unchanged": true,
+    "downloads_unchanged": true,
+    "static_assets": 45
+  },
+  "access_restore": {
+    "date": "2026-10-21",
+    "source_commit": "41fb9329698ee9edd42b5f61847a01f09b4ff617",
+    "requires_login": false,
+    "mode": "public_readonly",
+    "new_local_business_data_published": false
+  }
+}

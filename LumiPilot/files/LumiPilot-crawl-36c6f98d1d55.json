@@ -1,0 +1,190 @@
+{
+  "job": {
+    "id": "36c6f98d1d55",
+    "source_id": "rangdong",
+    "source_name": "Rạng Đông 越南官网",
+    "mode": "discover",
+    "url": "https://rangdong.com.vn/category/bong-den-led-bulb",
+    "category": "all",
+    "limit": 3,
+    "status": "completed",
+    "created_at": "2026-10-11T16:22:04+00:00",
+    "started_at": "2026-10-11T16:22:04+00:00",
+    "finished_at": "2026-10-11T16:22:17+00:00",
+    "updated_at": "2026-10-11T16:22:17+00:00",
+    "progress": {
+      "processed": 3,
+      "planned": 3
+    },
+    "stats": {
+      "new_count": 1,
+      "updated_count": 1,
+      "parsed_count": 2,
+      "matched_count": 2,
+      "filtered_count": 0,
+      "discovered_count": 11,
+      "failed_count": 0
+    },
+    "discoveries": [
+      {
+        "url": "https://rangdong.com.vn/bong-den-led-bulb-trang-tri-tron-a45-do-1w-pr1612.html",
+        "discovered_from": "https://rangdong.com.vn/category/bong-den-led-bulb",
+        "evidence_status": "url_clue"
+      },
+      {
+        "url": "https://rangdong.com.vn/bong-den-led-bulb-tron-a55n4-5w-pr1069.html",
+        "discovered_from": "https://rangdong.com.vn/category/bong-den-led-bulb",
+        "evidence_status": "url_clue"
+      },
+      {
+        "url": "https://rangdong.com.vn/bong-den-led-bulb-tron-kep-dc-a60n1-9w-pr2099.html",
+        "discovered_from": "https://rangdong.com.vn/category/bong-den-led-bulb",
+        "evidence_status": "url_clue"
+      },
+      {
+        "url": "https://rangdong.com.vn/bong-den-led-bulb-tron-cam-bien-hong-ngoai-a60-9w-pr2109.html",
+        "discovered_from": "https://rangdong.com.vn/category/bong-den-led-bulb",
+        "evidence_status": "url_clue"
+      },
+      {
+        "url": "https://rangdong.com.vn/bong-den-led-bulb-tron-dc-a60n1-7w-pr2057.html",
+        "discovered_from": "https://rangdong.com.vn/category/bong-den-led-bulb",
+        "evidence_status": "url_clue"
+      },
+      {
+        "url": "https://rangdong.com.vn/bong-den-led-bulb-tru-kep-dc-tr70n1-12w-pr2100.html",
+        "discovered_from": "https://rangdong.com.vn/category/bong-den-led-bulb",
+        "evidence_status": "url_clue"
+      },
+      {
+        "url": "https://rangdong.com.vn/bong-den-led-bulb-tru-cam-bien-radar-tr70-15w-pr1748.html",
+        "discovered_from": "https://rangdong.com.vn/category/bong-den-led-bulb",
+        "evidence_status": "url_clue"
+      },
+      {
+        "url": "https://rangdong.com.vn/bong-den-led-bulb-tru-nhom-duc-tr80nd2-20w-pr181.html",
+        "discovered_from": "https://rangdong.com.vn/category/bong-den-led-bulb",
+        "evidence_status": "url_clue"
+      },
+      {
+        "url": "https://rangdong.com.vn/bong-den-led-bulb-tron-luu-dien-a80-9w-pr2089.html",
+        "discovered_from": "https://rangdong.com.vn/category/bong-den-led-bulb",
+        "evidence_status": "url_clue"
+      },
+      {
+        "url": "https://rangdong.com.vn/bong-den-led-bulb-tru-nhom-nhua-tr140n1-50w-pr830.html",
+        "discovered_from": "https://rangdong.com.vn/category/bong-den-led-bulb",
+        "evidence_status": "url_clue"
+      },
+      {
+        "url": "https://rangdong.com.vn/bong-den-led-bulb-tru-dc-tr70n1-12w-pr2553.html",
+        "discovered_from": "https://rangdong.com.vn/category/bong-den-led-bulb",
+        "evidence_status": "url_clue"
+      }
+    ],
+    "errors": [],
+    "evidence_count": 4,
+    "cancel_requested": false,
+    "parser_version": "lumipilot-public-html/1.1",
+    "notice": "仅采集公开页面；页数含发现目录 / sitemap，robots.txt 不计页。链接线索不算成功产品。",
+    "message": "公开详情解析完成，仍需人工核验"
+  },
+  "products": [
+    {
+      "id": "crawl-4600105e1c913d4c",
+      "brand": "Rạng Đông",
+      "name": "Bóng đèn LED bulb trang trí tròn A45 đỏ 1W",
+      "country": "VN",
+      "market_label": "VN",
+      "category": "bulb",
+      "category_label": "球泡 / A 灯",
+      "power_w": 1.0,
+      "power_range": null,
+      "lumens": 30.0,
+      "cct": null,
+      "cri": null,
+      "cri_min": null,
+      "cri_raw": null,
+      "price": null,
+      "currency": null,
+      "url": "https://rangdong.com.vn/bong-den-led-bulb-trang-tri-tron-a45-do-1w-pr1612.html",
+      "source_id": "rangdong",
+      "source_type": "official-catalog",
+      "source_label": "Rạng Đông 越南官网 · 本机公开页采集",
+      "evidence_type": "public-page-parse",
+      "evidence_status": "parsed_detail_unverified",
+      "review_note": "公开网页解析，未经实测或人工核验；网页价格保留原币种和包装口径，不是供应商报价。 来源网站市场标记不代替实际销售与合规核验。",
+      "description": "Bóng Đèn LED Bulb Tròn 5W tiết kiệm 87% điện năng, tuổi thọ gấp 15 lần đèn sợi đốt. Đèn LED Bulb 5W cho ánh sáng trung thực, không ánh sáng xanh, bảo vệ mắt, tiện nghi khi sử dụng",
+      "source_product_id": null,
+      "parser_version": "lumipilot-public-html/1.1",
+      "archive_database": "crawler.sqlite3",
+      "sample_population": "用户触发的有限公开页面采集，非市场总体",
+      "source_evidence": {
+        "field_text": {
+          "power_w": "Công suất: 1W",
+          "lumens": "30 lm"
+        },
+        "primary_spec_text": "Công suất:: 1W ; Điện áp hoạt động:: (170÷250)V ; Quang thông:: 30 lm ; Hiệu suất sáng:: 30 lm/W ; Tuổi thọ:: 15000 giờ ; Màu sắc bộ Cover:: đỏ ; Kích thước (ØxH):: (45 x 69) mm ; Đầu đèn: E27 ; Nguồn điện danh định: 220V/50Hz ; Góc chùm tia: 200 độ ; Vật liệu: Nhựa ; Công suất: 1W ; Điện áp có thể hoạt động: (170÷ 250) V ; Dòng điện (Max): 20 mA ; Hệ số công suất: 0,5 ; Quang thông: 30 lm ; Màu Cover: Đỏ ; Tuổi thọ đèn: 15000 giờ ; Chu kỳ tắt/bật: 50.000 lần ; Mức tiêu thụ điện 1000 giờ: 1kWh ; Mức hiệu suất năng lượng: A++ ; Đường kính: 45 mm ; Chiều cao: 69 mm ; Tiêu chuẩn áp dụng: TCCS 23:2019/RĐ TCVN 8782/ IEC 62560 TCVN 8783/ IEC 62612 Đầu đèn E27 Nguồn điện danh định 220V/50Hz Góc chùm tia 200 độ Vật liệu Nhựa Công suất 1W Điện áp có thể hoạt động (170÷ 250) V Dòng điện (Max) 20 mA Hệ số công suất 0,5 Quang thông 30 lm Màu Cover Đỏ Tuổi thọ đèn 15000 giờ Chu kỳ tắt/bật 50.000 lần Mức tiêu thụ điện 1000 giờ 1kWh Mức hiệu suất năng lượng A++ Đường kính 45 mm Chiều cao 69 mm Tiêu chuẩn áp dụng TCCS 23:2019/RĐ TCVN 8782/ IEC 62560 TCVN 8783/ IEC 62612 Hướng dẫn sử dụng",
+        "visible_excerpt": "Bóng đèn LED bulb trang trí tròn A45 đỏ 1W Model: A45R/1W Công suất: 1W Điện áp hoạt động: (170÷250)V Quang thông: 30 lm Hiệu suất sáng: 30 lm/W Tuổi thọ: 15000 giờ Màu sắc bộ Cover: đỏ Kích thước (ØxH): (45 x 69) mm Dải điện áp rộng 170 – 250V đáp ứng dải điện áp lưới tại Việt Nam. Vật liệu nhựa PC có tính chất cơ lý tốt có khả năng chịu nhiệt, tản nhiệt nhanh, chịu áp suất... Sử dụng vật tư linh kiện, chip LED có độ tin cậy cao, tuổi thọ dài. Công suất 1W - Đỏ 1W - Xanh lam 1W - Trắng 1W - Vàng 1W - Xanh lá Giá bán lẻ đề xuất: 33.000 VNĐ 1900 2098 MUA HÀNG ONLINE MUA HÀNG Ở ĐÂU XEM TẤT CẢ SẢN PHẨM Đèn LED Bulb Rạng Đông tuổi thọ cao Tuổi thọ 15000 giờ, độ tin cậy cao, không hạn chế số lần bật tắt Cao gấp 10 lần so với bóng đèn sợi đốt Cao gấp 2 lần so với đèn copmact Tương thích điện từ trường EMC/EMI Tương thích điện từ trường không gây ra hiện tượng nhiễu cho sản phẩm điện tử và không bị ảnh hưởng nhiễu của các thiết bị điện tử khác Đáp ứng Tiêu chuẩn Việt Nam (TCVN), Quốc tế (IEC) TCVN 7722-1/IEC60598-1: về đèn điện Thân thiện môi trường Không chứa thủy ngân và hóa chất độc hại,không phát ra tia tử ngoại, an toàn cho người sử dụng Ứng dụng Chiếu sáng trang trí nhà hàng, khách sạn, khu vui chơi, giải trí, khu vực công cộng Đầu đèn E27 Nguồn điện danh định 220V/50Hz Góc chùm tia 200 độ Vật liệu Nhựa Công suất 1W Điện áp có thể hoạt động (170÷ 250) V Dòng điện (Max) 20 mA Hệ số công suất 0,5 Quang thông 30 lm Màu Cover Đỏ Tuổi thọ đèn 15000 giờ Chu kỳ tắt/bật 50.000 lần Mức tiêu thụ điện 1000 giờ 1kWh Mức hiệu suất năng lượng A++ Đường kính 45 mm Chiều cao 69 mm Tiêu chuẩn áp dụng TCCS 23:2019/RĐ TCVN 8782/ IEC 62560 TCVN 8783/ IEC 62612 Hướng dẫn sử dụng Dây chuyền sản xuất bóng đèn LED Bulb Sản phẩm tương tự Bóng đèn LED bulb trang trí tròn A45 xanh lam 1W Model: A45B/1W Bóng đèn LED bulb trang trí tròn A45 trắng 1W Model: A45W/1W Bóng đèn LED bulb trang trí tròn A45 vàng 1W Model: A45Y/1W Bóng đèn LED bulb trang trí tròn A45 xanh lá 1W Model: A45G/1W",
+        "jsonld_product": {},
+        "evidence_id": "24dd31b9b5a14131",
+        "raw_page_sha256": "dfcddfa1e9b0b8f5289784263e0241cc0a8f7d13dd1f1655e92e34e8b92ea845",
+        "observed_at": "2026-10-11T16:22:12+00:00",
+        "source_url": "https://rangdong.com.vn/bong-den-led-bulb-trang-tri-tron-a45-do-1w-pr1612.html",
+        "http_status": 200
+      },
+      "job_id": "36c6f98d1d55",
+      "collected_at": "2026-10-11T16:22:12+00:00",
+      "updated_at": "2026-10-11T16:22:12+00:00"
+    },
+    {
+      "id": "crawl-f1265f9102c0f3f6",
+      "brand": "Rạng Đông",
+      "name": "Bóng đèn LED bulb tròn A55N4 5W",
+      "country": "VN",
+      "market_label": "VN",
+      "category": "bulb",
+      "category_label": "球泡 / A 灯",
+      "power_w": 5.0,
+      "power_range": null,
+      "lumens": null,
+      "cct": null,
+      "cri": 83.0,
+      "cri_min": null,
+      "cri_raw": null,
+      "price": null,
+      "currency": null,
+      "url": "https://rangdong.com.vn/bong-den-led-bulb-tron-a55n4-5w-pr1069.html",
+      "source_id": "rangdong",
+      "source_type": "official-catalog",
+      "source_label": "Rạng Đông 越南官网 · 本机公开页采集",
+      "evidence_type": "public-page-parse",
+      "evidence_status": "parsed_detail_unverified",
+      "review_note": "公开网页解析，未经实测或人工核验；网页价格保留原币种和包装口径，不是供应商报价。 来源网站市场标记不代替实际销售与合规核验。",
+      "description": "Bóng Đèn LED Bulb Tròn 5W tiết kiệm 87% điện năng, tuổi thọ gấp 15 lần đèn sợi đốt. Đèn LED Bulb 5W cho ánh sáng trung thực, không ánh sáng xanh, bảo vệ mắt, tiện nghi khi sử dụng",
+      "source_product_id": null,
+      "parser_version": "lumipilot-public-html/1.1",
+      "archive_database": "crawler.sqlite3",
+      "sample_population": "用户触发的有限公开页面采集，非市场总体",
+      "source_evidence": {
+        "field_text": {
+          "power_w": "Công suất: 5W",
+          "cri": "CRI): 83"
+        },
+        "primary_spec_text": "Công suất:: 5 W ; Điện áp:: 220V/50 Hz ; Nhiệt độ màu:: 6500K/3000K ; Quang thông:: 475/450 lm ; Hiệu suất sáng:: 95/90 lm/W ; Tuổi thọ:: 20.000 giờ ; Kích thước (ØxH):: (55x100) mm ; Đầu đèn: E27 ; Nguồn điện danh định: 220V/50Hz ; Góc chùm tia: 180 độ ; Vật liệu: Nhôm Nhựa ; Công suất: 5W ; Điện áp có thể hoạt động: (150÷250) V ; Dòng điện (Max): 0.06 A ; Hệ số công suất: 0,5 ; Quang thông: 475/450 lm ; Hiệu suất sáng: 95/90 lm/W ; Nhiệt độ màu: 6500K/3000K ; Hệ số trả màu (CRI): 83 ; Tuổi thọ đèn: 20.000 giờ ; Chu kỳ tắt/bật: 50.000 lần ; Mức tiêu thụ điện 1000 giờ: 5kWh ; Mức hiệu suất năng lượng: A++ ; Đường kính: 55 mm ; Chiều cao: 100 mm ; Tiêu chuẩn áp dụng: TCCS 23:2019/RĐ TCVN 8782/ IEC 62560 TCVN 8783/ IEC 62612 Đầu đèn E27 Nguồn điện danh định 220V/50Hz Góc chùm tia 180 độ Vật liệu Nhôm Nhựa Công suất 5W Điện áp có thể hoạt động (150÷250) V Dòng điện (Max) 0.06 A Hệ số công suất 0,5 Quang thông 475/450 lm Hiệu suất sáng 95/90 lm/W Nhiệt độ màu 6500K/3000K Hệ số trả màu (CRI) 83 Tuổi thọ đèn 20.000 giờ Chu kỳ tắt/bật 50.000 lần Mức tiêu thụ điện 1000 giờ 5kWh Mức hiệu suất năng lượng A++ Đường kính 55 mm Chiều cao 100 mm Tiêu chuẩn áp dụng TCCS 23:2019/RĐ TCVN 8782/ IEC 62560 TCVN 8783/ IEC 62612 Hướng dẫn sử dụng",
+        "visible_excerpt": "Bóng đèn LED bulb tròn A55N4 5W Model: A55N4/5W.H Công suất: 5 W Điện áp: 220V/50 Hz Nhiệt độ màu: 6500K/3000K Quang thông: 475/450 lm Hiệu suất sáng: 95/90 lm/W Tuổi thọ: 20.000 giờ Kích thước (ØxH): (55x100) mm Sử dụng Chip LED Hàn quốc có độ tin cậy cao Chất lượng ánh sáng cao (CRI> 80) tăng khả năng nhận diện màu sắc của vật. Dải điện áp rộng (150 ÷ 250)V đáp ứng dải điện áp lưới tại Việt Nam. Vật liệu nhôm nhựa có tính chất cơ lý tốt có khả năng chịu nhiệt, tản nhiệt nhanh, chịu áp suất... Sản phẩm được chứng nhận Hợp quy. Chứng nhận Nhãn hiệu suất năng lượng. Công suất 5W 3W 7W 9W 12W 15W 20W 30W Giá bán lẻ đề xuất: 53.000 VNĐ 1900 2098 MUA HÀNG ONLINE MUA HÀNG Ở ĐÂU XEM TẤT CẢ SẢN PHẨM Dây chuyền sản xuất tự động có độ chính xác cao Đèn LED Bulb Rạng Đông được sản xuất trên dây chuyền hoàn toàn tự động cho độ chính xác cao, sản phẩm có tính đồng nhất cao, ít sai sót và giảm thiểu các sai lỗi. Sử dụng Chip LED chất lượng cao - an toàn sức khỏe Đèn LED Bulb Rạng Đông sử dụng Chip LED samsung: Đạt tiêu chuẩn châu âu Siêu sáng, hiệu suất sáng cao > 150lm/W Siêu bền (tuổi thọ chip LED >54.000 giờ Bảo vệ mắt (IEC 62471 Không bị lão hóa theo thời gian Cover của đèn được sử dụng bằng vật liệu nhựa có độ tin cậy cao Sử dụng nhựa chống cháy Không bị lão hóa Không biến đổi màu sắc ánh sáng Phân bố quang đều Hạn chế chói lóa Tương thích điện từ trường EMC Đèn LED Bulb Rạng Đông có khả năng hoạt động được bình thường trong môi trường điện từ (môi trường hiện tại mà con người đang sống và làm việc) và không gây nhiễu điện từ cho bất kỳ thiết bị điện, hệ thống thiết bị nào khác Đáp ứng Tiêu chuẩn Việt Nam (TCVN), Quốc tế (IEC) Đèn LED Bulb Rạng Đông đáp ứng các tiêu chuẩn: TCVN 8782:2011/IEC 62560: quy định về an toàn TCVN 8783: 2011/IEC 62612: yêu cầu về tính năng Đầu đèn E27 Nguồn điện danh định 220V/50Hz Góc chùm tia 180 độ Vật liệu Nhôm Nhựa Công suất 5W Điện áp có thể hoạt động (150÷250) V Dòng điện (Max) 0.06 A Hệ số công suất 0,5 Quang thông 475/450 lm Hiệu suất sáng 95/90 lm/W Nhiệt độ màu 6500K/3000K Hệ số trả màu (CRI) 83 Tuổi thọ đèn 20.000 giờ Chu kỳ tắt/bật 50.000 lần Mức tiêu thụ điện 1000 giờ 5kWh Mức hiệu suất năng lượng A++ Đường kính 55 mm Chiều cao 100 mm Tiêu chuẩn áp dụng TCCS 23:2019/RĐ TCVN 8782/ IEC 62560 TCVN 8783/ IEC 62612 Hướng dẫn sử dụng Dây chuyền sản xuất bóng đèn LED Bulb Sản phẩm tương tự Bóng đèn LED bulb trụ nhôm nhựa TR160N1 60W Model: TR160N1/60W Bóng đèn LED bulb trụ nhôm đúc TR135NĐ 60W Model: LED TR135NĐ1/60W Bóng đèn LED bulb tròn A60N3 7W Model: A60N3/7W.H Bóng đèn LED bulb tròn A120N1 30W Model: A120N1/30W.H Bóng đèn LED bulb tròn A95N1 20W Model: A95N1/20W.H Bóng đèn LED bulb tròn A80N1 15W Model: A80N1/15W.H Bóng đèn LED bulb tròn A70N1 12W Model: A70N1/12W.H Bóng đèn LED Bulb trụ Model: nhôm đúc Bóng đèn LED BULB trụ Model: TR100N1",
+        "jsonld_product": {},
+        "evidence_id": "9fb54a6a25da4ed7",
+        "raw_page_sha256": "cfc11aca66dec9f3c67d46e7702be40220a38cadeca95d2a484a8da30d3e8ab9",
+        "observed_at": "2026-10-11T16:22:17+00:00",
+        "source_url": "https://rangdong.com.vn/bong-den-led-bulb-tron-a55n4-5w-pr1069.html",
+        "http_status": 200
+      },
+      "job_id": "36c6f98d1d55",
+      "collected_at": "2026-10-11T16:22:17+00:00",
+      "updated_at": "2026-10-11T16:22:17+00:00"
+    }
+  ],
+  "exported_at": "2026-10-13T05:51:33.102371+00:00",
+  "notice": "已保存任务与解析产品；原始网页响应未包含，来源与采集日期保留。"
+}

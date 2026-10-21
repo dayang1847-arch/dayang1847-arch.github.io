@@ -1,0 +1,120 @@
+.manufacturing-notice,.manufacturing-error{display:flex;align-items:flex-start;gap:10px;padding:11px 14px;margin-bottom:16px;border:1px solid #dfe7f1;border-radius:7px;background:#f8fafc;color:#66758b;font-size:12px;line-height:1.8}.manufacturing-notice>.ui-icon{width:17px;height:17px;flex-shrink:0;margin-top:3px}.manufacturing-error{background:#fff9ec;border-color:#f0dfb8;color:#8b6a2a;align-items:center}.manufacturing-toolbar{display:flex;align-items:center;justify-content:space-between;gap:15px;margin:0 0 18px}.manufacturing-toolbar>span{font-size:12px;color:#66758b;line-height:1.7}.manufacturing-tabs{display:flex;gap:4px;padding:4px;border:1px solid #dce4ef;border-radius:7px;background:#edf2f8;flex-shrink:0}.manufacturing-tab{display:flex;align-items:center;gap:7px;padding:8px 14px;border:0;border-radius:5px;font-size:13px;background:transparent;color:#66758b;cursor:pointer}.manufacturing-tab.selected{color:#25466d;background:#fff;font-weight:600;box-shadow:0 1px 4px #172b4d14}.manufacturing-tab .ui-icon{width:16px;height:16px}.manufacturing-shell{display:grid;grid-template-columns:205px minmax(0,1fr);gap:18px;align-items:start}.manufacturing-sidebar{position:sticky;top:78px;background:#fff;border:1px solid #e1e7ef;border-radius:8px;max-height:calc(100vh - 100px);overflow:auto;padding:10px}.manufacturing-search{display:flex;gap:6px;align-items:center;padding:7px 4px 11px;border-bottom:1px solid #e8edf4}.manufacturing-search .ui-icon{width:15px;height:15px;color:#8899ad;flex-shrink:0}.manufacturing-search input{border:0;background:transparent;width:100%;font-size:12px;height:28px;min-height:28px;padding:4px;outline:none}.manufacturing-group{margin:15px 8px 7px;color:#8b99ab;font-size:11px;font-weight:500}.manufacturing-process{width:100%;display:flex;flex-direction:column;gap:3px;text-align:left;padding:9px 10px;border:0;border-radius:5px;background:transparent;color:#50647d;cursor:pointer;margin-bottom:3px}.manufacturing-process:hover{background:#f4f7fc}.manufacturing-process.selected{background:#eaf1fc;color:#285da5}.manufacturing-process strong{font-size:13px;font-weight:600}.manufacturing-process small{font-size:11px;color:#7e8ea3;line-height:1.6;white-space:normal}.manufacturing-main{min-width:0}.manufacturing-knowledge .panel-header{padding:18px 20px;align-items:flex-start}.manufacturing-knowledge .panel-header h2{font-size:21px;color:#172b4d;margin:3px 0 7px}.manufacturing-knowledge .panel-header p:not(.eyebrow){font-size:12px;line-height:1.9;max-width:740px}.manufacturing-knowledge .eyebrow{margin:0;color:#8a99ad;font-size:10px}.manufacturing-knowledge-body{padding:20px}.manufacturing-knowledge h3{font-size:13px;font-weight:600;color:#304e70;margin:0 0 11px}.manufacturing-principle{padding:0 0 19px;margin-bottom:20px;border-bottom:1px solid #e7edf4}.manufacturing-principle p{font-size:13px;line-height:1.9;color:#50647d;margin:0 0 14px}.manufacturing-tags{display:flex;gap:6px;flex-wrap:wrap}.manufacturing-tags .tag{font-size:11px}.manufacturing-knowledge-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px 32px}.manufacturing-knowledge ul,.manufacturing-result-context ul{padding-left:18px;margin:0;display:grid;gap:7px;color:#66758b;font-size:12px;line-height:1.85}.manufacturing-formula-card{background:#f5f8fc;border:1px solid #e2eaf5;border-radius:6px;padding:14px}.manufacturing-formula-card li{font-variant-numeric:tabular-nums}.manufacturing-sources{margin-top:24px;padding-top:19px;border-top:1px solid #e7edf4}.manufacturing-source{padding:9px 0;display:grid;grid-template-columns:1fr auto;gap:5px 16px;border-bottom:1px solid #eef2f7}.manufacturing-source strong{font-size:12px;font-weight:500;color:#405873}.manufacturing-source small{font-size:11px;color:#8796aa;grid-column:1}.manufacturing-source a,.manufacturing-source>span{font-size:11px;grid-column:2;grid-row:1/3;align-self:center;display:flex;gap:4px;align-items:center}.manufacturing-source .ui-icon{width:13px;height:13px}.manufacturing-detail-actions{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap}.manufacturing-cost-layout{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:16px;align-items:start}.manufacturing-input .panel-header,.manufacturing-result-panel .panel-header,.manufacturing-history .panel-header{padding:14px 16px}.manufacturing-input .panel-header p,.manufacturing-history .panel-header p{font-size:12px}.manufacturing-input form{padding:2px 16px 16px}.manufacturing-fieldset{margin:16px 0 0;padding:14px 0 0;border:0;border-top:1px solid #e9edf4;min-width:0}.manufacturing-fieldset legend{padding:0 7px 0 0;font-size:12px;font-weight:600;color:#304e70}.manufacturing-fields{display:grid;grid-template-columns:1fr 1fr;gap:13px 12px}.manufacturing-fields .field{gap:5px;font-size:11px;color:#66758b;min-width:0}.manufacturing-fields input,.manufacturing-fields select{height:33px;min-height:33px;padding:5px 8px;font-size:12px;min-width:0;width:100%;font-variant-numeric:tabular-nums}.manufacturing-fields small{color:#8b99ab;line-height:1.7;font-size:11px;font-weight:400}.manufacturing-form-note{font-size:11px;color:#8796aa;line-height:1.85;margin:0 0 12px}.manufacturing-check{font-size:12px;color:#50647d;display:flex;align-items:flex-start;gap:7px;margin:0 0 13px;line-height:1.8}.manufacturing-check input{width:14px;height:14px;min-height:14px;margin-top:4px;flex-shrink:0}.manufacturing-form-actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:20px}.manufacturing-form-actions .button{font-size:12px;padding:8px 11px}.manufacturing-form-actions>span{font-size:11px;color:#8796aa}.manufacturing-result-panel{position:sticky;top:78px}.manufacturing-result-empty{min-height:230px;padding:32px 23px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:13px;text-align:center;color:#8a99ad}.manufacturing-result-empty>.ui-icon{width:29px;height:29px;color:#9db1cc}.manufacturing-result-empty strong{font-weight:500;color:#627b98;font-size:13px}.manufacturing-result-empty p{font-size:12px;line-height:1.9;margin:0}.manufacturing-result-heading{padding:20px 16px 16px;background:#f8faff;border-bottom:1px solid #e4ebf6}.manufacturing-result-heading>span{font-size:11px;color:#66758b}.manufacturing-result-heading>strong{display:block;font-size:24px;font-weight:600;font-variant-numeric:tabular-nums;letter-spacing:-.02em;color:#234e83;margin-top:8px;line-height:1.5;overflow-wrap:anywhere}.manufacturing-result-heading strong small{font-size:11px;font-weight:400;color:#7c8ea7;letter-spacing:0}.manufacturing-result-heading p{font-size:11px;line-height:1.9;color:#8293aa;margin:8px 0 0}.manufacturing-capacity{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:16px;margin:0;border-bottom:1px solid #e7edf4}.manufacturing-capacity dt{font-size:10px;color:#8b99ab;margin:0 0 4px}.manufacturing-capacity dd{font-size:12px;color:#405c7b;font-variant-numeric:tabular-nums;margin:0;overflow-wrap:anywhere}.manufacturing-cost-table{width:100%;table-layout:fixed;border-collapse:collapse}.manufacturing-cost-table th,.manufacturing-cost-table td{padding:9px 13px;border-bottom:1px solid #edf1f6;font-size:11px;line-height:1.8;color:#66758b;overflow-wrap:anywhere}.manufacturing-cost-table th{background:#f7f9fc;text-align:left;font-weight:500;color:#8897aa}.manufacturing-cost-table th:last-child,.manufacturing-cost-table td:last-child{text-align:right;font-variant-numeric:tabular-nums}.manufacturing-cost-total td{background:#f2f6fc;color:#304e70;font-weight:600}.manufacturing-result-context{padding:13px 16px;font-size:11px;line-height:1.85;color:#8796aa;overflow-wrap:anywhere}.manufacturing-result-context p{margin:0 0 9px}.manufacturing-result-context ul{font-size:11px;margin:10px 0}.manufacturing-warning{color:#996f23}.manufacturing-stale{padding:10px 14px;background:#fff5df;border-bottom:1px solid #f0dfb8;color:#926a25;font-size:12px;line-height:1.8}.manufacturing-history{margin-top:18px}.manufacturing-history table{width:100%;border-collapse:collapse;min-width:550px}.manufacturing-history th,.manufacturing-history td{padding:11px 14px;border-bottom:1px solid #edf1f6;font-size:12px;line-height:1.8;text-align:left;color:#66758b;overflow-wrap:anywhere}.manufacturing-history th{background:#f7f9fc;font-size:11px;font-weight:500;color:#8897aa}.manufacturing-history strong{font-size:12px;color:#304e70;font-weight:500}.manufacturing-history small{display:block;font-size:11px;color:#8b99ab}.manufacturing-history td.number{font-variant-numeric:tabular-nums}.manufacturing-history .button-link{font-size:12px;padding:0}.manufacturing-route-note{padding:13px 16px;margin-top:17px;border:1px solid #e1e7ef;border-radius:7px;background:#f9fbfe;color:#7a8da6;font-size:12px;line-height:1.85}.manufacturing-route-note strong{font-weight:600;color:#506b8b}.manufacturing-route-note p{margin:6px 0 0}.manufacturing-empty{padding:24px 16px;color:#8796aa;font-size:12px;line-height:1.9}.manufacturing-muted{color:#8796aa;font-size:12px;line-height:1.9;margin:0}
+@media(max-width:1400px){.manufacturing-shell{grid-template-columns:180px minmax(0,1fr);gap:14px}.manufacturing-cost-layout{grid-template-columns:minmax(0,1fr) 290px;gap:12px}.manufacturing-sidebar{padding:8px}.manufacturing-toolbar{align-items:flex-start}.manufacturing-toolbar>span{max-width:360px;text-align:right}.manufacturing-result-heading>strong{font-size:22px}.manufacturing-knowledge-grid{gap:20px}}
+@media(max-width:1180px){.manufacturing-cost-layout{grid-template-columns:1fr}.manufacturing-result-panel{position:static}.manufacturing-capacity{grid-template-columns:repeat(4,1fr)}.manufacturing-cost-table th,.manufacturing-cost-table td{padding:8px 15px}.manufacturing-result-heading{padding:15px}.manufacturing-shell{grid-template-columns:160px minmax(0,1fr)}.manufacturing-fields{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:850px){.manufacturing-toolbar{flex-direction:column;align-items:flex-start}.manufacturing-toolbar>span{max-width:none;text-align:left}.manufacturing-shell{grid-template-columns:1fr}.manufacturing-sidebar{position:static;max-height:250px}.manufacturing-knowledge-grid{grid-template-columns:1fr}.manufacturing-knowledge .panel-header{gap:12px;flex-wrap:wrap}.manufacturing-capacity{grid-template-columns:repeat(2,1fr)}.manufacturing-source{grid-template-columns:1fr}.manufacturing-source a,.manufacturing-source>span{grid-column:1;grid-row:auto}}
+@media(max-width:540px){.manufacturing-fields{grid-template-columns:1fr}.manufacturing-tabs{width:100%}.manufacturing-tab{flex:1;justify-content:center;padding:8px}.manufacturing-knowledge-body{padding:16px}.manufacturing-form-actions .button{width:100%;justify-content:center}}
+.manufacturing-definitions{margin:0 0 16px;padding:11px 14px;border:1px solid #e1e7ef;border-radius:7px;background:#fafcff;font-size:12px;color:#66758b}.manufacturing-definitions summary{cursor:pointer;color:#405c7b;font-weight:500}.manufacturing-definitions>div{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:15px}.manufacturing-definitions section{padding:11px;background:#fff;border:1px solid #e8edf4;border-radius:5px}.manufacturing-definitions strong{font-size:12px;color:#304e70;font-weight:600}.manufacturing-definitions p{font-size:12px;line-height:1.9;margin:7px 0;color:#66758b}.manufacturing-definitions small{display:block;font-size:11px;line-height:1.85;color:#8b99ab}@media(max-width:850px){.manufacturing-definitions>div{grid-template-columns:1fr}}
+.manufacturing-result-boundaries{margin-top:12px;border-top:1px solid #e8edf4;padding-top:10px}.manufacturing-result-boundaries summary{cursor:pointer;font-size:11px;color:#506b8b}.manufacturing-result-boundaries p{padding-top:10px;color:#8b99ab}
+
+/* Desktop workspace: primary tasks remain visible, evidence expands on demand. */
+.manufacturing-toolbar { margin-bottom: 12px; }
+.manufacturing-toolbar.hosted { margin-bottom: 8px; }
+.manufacturing-toolbar.hosted > span { max-width: none; text-align: left; }
+.manufacturing-notice { padding: 9px 12px; margin-bottom: 14px; line-height: 1.7; }
+.manufacturing-shell { grid-template-columns: 184px minmax(0, 1fr); gap: 16px; }
+.manufacturing-sidebar { padding: 9px; }
+.manufacturing-group { font-size: 12px; color: #66758b; margin-top: 14px; }
+.manufacturing-process { padding: 9px 10px; }
+.manufacturing-process small { font-size: 12px; color: #66758b; line-height: 1.55; }
+.manufacturing-process small { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.manufacturing-search { padding: 4px 2px 9px; }
+.manufacturing-search:focus-within { border-radius: 5px; box-shadow: 0 0 0 2px #2563eb45; }
+.manufacturing-search input { font-size: 12px; }
+.manufacturing-knowledge .panel-header { padding: 15px 18px; gap: 16px; }
+.manufacturing-knowledge .panel-header h2 { font-size: 20px; margin: 3px 0 5px; }
+.manufacturing-knowledge .panel-header p:not(.eyebrow) { line-height: 1.65; margin: 0; }
+.manufacturing-knowledge .eyebrow { font-size: 12px; color: #66758b; }
+.manufacturing-header-actions { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; justify-content: flex-end; flex-shrink: 0; }
+.manufacturing-header-actions .button { min-height: 36px; font-size: 12px; padding: 7px 11px; }
+.manufacturing-knowledge-body { padding: 16px 18px; }
+.manufacturing-knowledge h3 { font-size: 13px; margin-bottom: 8px; }
+.manufacturing-principle { padding-bottom: 13px; margin-bottom: 15px; }
+.manufacturing-principle p { line-height: 1.75; margin-bottom: 10px; }
+.manufacturing-tags .tag { font-size: 12px; }
+.manufacturing-knowledge-grid { gap: 18px 24px; }
+.manufacturing-knowledge ul { gap: 4px; line-height: 1.7; }
+.manufacturing-formula-card { grid-column: 1 / -1; padding: 12px 14px; }
+.manufacturing-detail-stack { margin-top: 16px; border: 1px solid #e1e7ef; border-radius: 7px; }
+.manufacturing-detail { margin: 0; padding: 0; border: 0; }
+.manufacturing-detail + .manufacturing-detail { border-top: 1px solid #e7edf4; }
+.manufacturing-detail summary { position: relative; padding: 12px 14px; font-size: 12px; color: #405c7b; cursor: pointer; }
+.manufacturing-detail summary span { float: right; color: #66758b; font-variant-numeric: tabular-nums; font-weight: 400; }
+.manufacturing-detail > div { padding: 0 14px 14px; }
+.manufacturing-source strong, .manufacturing-source small, .manufacturing-source a, .manufacturing-source > span { font-size: 12px; }
+.manufacturing-source small { color: #66758b; }
+.manufacturing-cost-layout { grid-template-columns: minmax(0, 1fr) 308px; gap: 16px; }
+.manufacturing-input { overflow: visible; }
+.manufacturing-input .panel-header, .manufacturing-result-panel .panel-header { padding: 13px 15px; }
+.manufacturing-input form { padding: 0 16px; }
+.manufacturing-fieldset { margin-top: 16px; padding-top: 12px; }
+.manufacturing-fieldset legend, .manufacturing-fields .field { font-size: 12px; }
+.manufacturing-fields { gap: 12px; }
+.manufacturing-fields input, .manufacturing-fields select { height: 36px; min-height: 36px; font-size: 13px; }
+.manufacturing-fields small, .manufacturing-form-note { font-size: 12px; color: #66758b; line-height: 1.6; }
+.manufacturing-field-help { margin: -3px 0 12px; font-size: 12px; color: #66758b; }
+.manufacturing-field-help summary { cursor: pointer; color: #405c7b; }
+.manufacturing-field-help p { background: #f7f9fc; border-left: 2px solid #dbe5f2; padding: 9px 11px; line-height: 1.7; margin: 8px 0 0; }
+.manufacturing-form-actions { position: sticky; bottom: 12px; z-index: 3; display: flex; flex-direction: column; align-items: flex-start; gap: 6px; margin: 20px -16px 0; padding: 12px 16px; background: #fffffffa; border-top: 1px solid #e1e7ef; border-radius: 0 0 8px 8px; box-shadow: 0 -4px 15px #172b4d06; }
+.manufacturing-action-buttons { display: flex; gap: 8px; flex-wrap: wrap; }
+.manufacturing-form-actions .button { min-height: 36px; padding: 7px 11px; }
+.manufacturing-form-actions > span { font-size: 12px; color: #66758b; }
+.manufacturing-result-panel { max-height: calc(100vh - 96px); overflow: auto; overscroll-behavior: contain; }
+.manufacturing-result-heading { padding: 16px; }
+.manufacturing-result-heading > span { font-size: 12px; }
+.manufacturing-unit-values { display: grid; gap: 14px; margin-top: 14px; }
+.manufacturing-unit-values > div { min-width: 0; }
+.manufacturing-unit-values small { font-size: 12px; color: #66758b; display: block; }
+.manufacturing-unit-values strong { display: block; font-size: 25px; line-height: 1.3; color: #234e83; font-weight: 650; font-variant-numeric: tabular-nums; margin-top: 4px; overflow-wrap: anywhere; }
+.manufacturing-unit-values > div + div { padding-top: 11px; border-top: 1px solid #e1e7ef; }
+.manufacturing-unit-values > div + div strong { font-size: 19px; }
+.manufacturing-result-heading p { font-size: 12px; line-height: 1.6; color: #66758b; margin-top: 12px; }
+.manufacturing-cost-table th, .manufacturing-cost-table td { font-size: 12px; padding: 9px 12px; line-height: 1.6; }
+.manufacturing-summary-table td:first-child { width: 64%; }
+.manufacturing-result-context { font-size: 12px; color: #66758b; padding: 12px 14px; line-height: 1.65; }
+.manufacturing-result-context ul { font-size: 12px; gap: 5px; line-height: 1.65; }
+.manufacturing-warning { background: #fff8e8; border-left: 2px solid #e1bb66; padding: 8px 10px; color: #8a672c; }
+.manufacturing-result-details, .manufacturing-result-boundaries { border-top: 1px solid #e7edf4; margin-top: 12px; padding-top: 11px; }
+.manufacturing-result-details summary, .manufacturing-result-boundaries summary { font-size: 12px; cursor: pointer; color: #405c7b; }
+.manufacturing-result-details .manufacturing-cost-table { margin-top: 10px; }
+.manufacturing-capacity { padding: 12px 0 0; border-bottom: 0; gap: 12px; }
+.manufacturing-capacity dt { font-size: 12px; color: #66758b; }
+.manufacturing-capacity dd { font-size: 12px; }
+.manufacturing-result-boundaries p { color: #66758b; padding-top: 8px; }
+.manufacturing-stale { line-height: 1.65; }
+.manufacturing-route-note { margin: 14px 0; padding: 11px 14px; }
+.manufacturing-route-note summary { cursor: pointer; color: #405c7b; font-weight: 500; }
+.manufacturing-definitions { margin: 14px 0 0; background: #f8fafc; }
+.manufacturing-definitions small, .manufacturing-history small { font-size: 12px; color: #66758b; }
+.manufacturing-history th { font-size: 12px; }
+.manufacturing-shell button:focus-visible, .manufacturing-header-actions button:focus-visible, .manufacturing-toolbar button:focus-visible, .manufacturing-main summary:focus-visible { outline: 2px solid #2563eb; outline-offset: 2px; }
+@media (max-width: 1400px) {
+  .manufacturing-shell { grid-template-columns: 174px minmax(0, 1fr); gap: 14px; }
+  .manufacturing-cost-layout { grid-template-columns: minmax(0, 1fr) 290px; gap: 12px; }
+  .manufacturing-header-actions { flex-direction: column; align-items: stretch; }
+  .manufacturing-header-actions .button { justify-content: center; }
+}
+@media (max-width: 1180px) {
+  .manufacturing-shell { grid-template-columns: 156px minmax(0, 1fr); }
+  .manufacturing-cost-layout { grid-template-columns: minmax(0, 1fr); }
+  .manufacturing-result-panel { position: static; max-height: none; overflow: visible; }
+  .manufacturing-unit-values { grid-template-columns: 1fr 1fr; gap: 20px; }
+  .manufacturing-unit-values > div + div { padding-top: 0; border-top: 0; }
+  .manufacturing-unit-values > div + div strong { font-size: 25px; }
+  .manufacturing-capacity { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 850px) {
+  .manufacturing-shell { grid-template-columns: 1fr; }
+  .manufacturing-sidebar { position: static; max-height: 250px; }
+  .manufacturing-knowledge-grid { grid-template-columns: 1fr; }
+  .manufacturing-header-actions { flex-direction: row; }
+  .manufacturing-knowledge .panel-header { flex-wrap: wrap; }
+  .manufacturing-capacity { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .manufacturing-source { grid-template-columns: 1fr; }
+  .manufacturing-source a, .manufacturing-source > span { grid-column: 1; grid-row: auto; }
+}
+@media (max-width: 540px) {
+  .manufacturing-fields, .manufacturing-unit-values { grid-template-columns: 1fr; }
+  .manufacturing-action-buttons { width: 100%; }
+  .manufacturing-form-actions .button { width: 100%; justify-content: center; }
+  .manufacturing-form-actions { bottom: 0; }
+}
