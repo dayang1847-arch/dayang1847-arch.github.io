@@ -3,21 +3,21 @@
   const copy = {
   "zh": {
     "filterProcurement": "采购协同",
-    "procurementStatus": "供应商目录 · DeepSeek结构化",
-    "procurementUpdate": "更新：2026-10-22 · 供应商关联入库与底部业务使用说明",
+    "procurementStatus": "供应商结构化 · 注塑成本模型",
+    "procurementUpdate": "更新：2026-10-22 · 注塑费率库与单件加工成本 V1",
     "procurementName": "采衡",
     "procurementTitle": "采购协同工作台",
-    "procurementSummary": "从供应商档案上传PDF目录，用自己的DeepSeek逐页提炼型号与参数，核对后关联到该供应商的选型产品。共用164类标准字段，保留原页、缺失值与本浏览器候选数量；行情一键刷新继续可用。",
+    "procurementSummary": "结构化供应商目录、共享标准参数检索与DeepSeek行情刷新；新增注塑费率库、计费口径核对和单件加工费测算，支持本地JSON导入与结果导出。",
     "procurementSourcingTag": "实际供应商 / 选型目录",
     "procurementDemandTag": "上传目录 / 关联入库",
-    "procurementCostTag": "DeepSeek 行情刷新",
+    "procurementCostTag": "注塑成本 / 行情刷新",
     "procurementEnter": "进入供应商工作台",
     "procurementAccess": "自带 Key · 自采候选仅存当前浏览器 · 中文界面",
-    "procurementDescription": "六个工作区管理物料、实际供应商、数据导入、采购协同与行情。每家供应商卡片和档案均可直接上传PDF目录，自动带入所选企业；复用现有DeepSeek逐页解析、原页核对、统一标准字段与选型入库。入库后在该供应商下统计和查看本浏览器候选，原有公开目录统计与个人记录分开。保留AI原识别名称；主体名称不一致须额外核对，重复上传不自动改归属。已有6家企业档案、1,023条公开目录记录和164类参数，PDF/网页/行情共用自己的页面内存Key。需求、报价和任务为业务模拟。",
+    "procurementDescription": "六个工作区管理物料、实际供应商、数据导入、采购协同与行情。每家供应商卡片和档案均可直接上传PDF目录，自动带入所选企业；复用现有DeepSeek逐页解析、原页核对、统一标准字段与选型入库。入库后在该供应商下统计和查看本浏览器候选，原有公开目录统计与个人记录分开。保留AI原识别名称；主体名称不一致须额外核对，重复上传不自动改归属。已有6家企业档案、1,023条公开目录记录和164类参数，PDF/网页/行情共用自己的页面内存Key。需求、报价和任务为业务模拟。 新增注塑加工成本V1：导入本地标准JSON费率库，核对报价周期与整周期/按比例结算，按穴数、周期、良率和效率比较最多4档加工费；未知费用保留未确认，原料与独立模具摊销尚未纳入。公开版不预置真实商务报价，可载入虚构示例。",
     "procurementLimit": "发布标准对所有供应商通用；用户自定义标准与个人候选保存在当前浏览器，通过导出/导入共享，不自动同步。原始规格及出处保留，单位不明或格式冲突不参与数值筛选，未知批准与商务条件不推定。Key仅在页面内存；实际付费AI调用需自己的账号验证。",
-    "procurementPreviewAlt": "采衡供应商目录上传与DeepSeek结构化，核对后关联选型产品，保留164类参数与个人候选统计",
-    "guideProcurement": "进入“物料与供应商 → 供应商档案”，点击目标企业的“上传目录 · DeepSeek结构化”。页面带入供应商，上传PDF，展开DeepSeek连接并读取自己的模型；选择页码与解析方式，确认所选页发送后开始。逐条对照原页核对，识别名称与关联企业不一致时须额外确认或取消该产品。勾选入库后，可从供应商档案查看新增候选及数量；已有入库任务锁定归属，避免批量改错。原PDF与个人候选只存本浏览器，备份不含Key；不覆盖公开目录或企业准入记录。统一参数检索、网页导入、行情一键刷新和本机可选连接继续保留。每页底部说明结构化、检索匹配、推荐及SKU归并与集中议价的业务目标；完整自然语言语义推荐仍待扩展。",
-    "guideProcurementLink": "打开供应商目录结构化 ↗",
+    "procurementPreviewAlt": "采衡注塑成本模型：本地费率导入、计费周期核对、工艺参数与加工费区间",
+    "guideProcurement": "进入“物料与供应商 → 供应商档案”，点击目标企业的“上传目录 · DeepSeek结构化”。页面带入供应商，上传PDF，展开DeepSeek连接并读取自己的模型；选择页码与解析方式，确认所选页发送后开始。逐条对照原页核对，识别名称与关联企业不一致时须额外确认或取消该产品。勾选入库后，可从供应商档案查看新增候选及数量；已有入库任务锁定归属，避免批量改错。原PDF与个人候选只存本浏览器，备份不含Key；不覆盖公开目录或企业准入记录。统一参数检索、网页导入、行情一键刷新和本机可选连接继续保留。每页底部说明结构化、检索匹配、推荐及SKU归并与集中议价的业务目标；完整自然语言语义推荐仍待扩展。 注塑模型位于“成本与行情 → 注塑成本”。导入已整理的本地费率JSON（不直接读取XLSX），选择最多4档报价，填写周期、结算方式及核对依据；输入订单与工艺参数、确认费用包含关系，再计算及导出。导入数据只存当前浏览器，请导出备份。尚未确认的费用不计为零，不进行税额换算。",
+    "guideProcurementLink": "打开采购工作台 ↗",
     "projectViews": "访问",
     "siteViews": "网站访问",
     "metricsAbout": "统计说明",
@@ -181,21 +181,21 @@
   },
   "en": {
     "filterProcurement": "Procurement",
-    "procurementStatus": "Supplier catalogs · DeepSeek extraction",
-    "procurementUpdate": "Updated 2026-10-22 · Supplier-linked imports and workflow guidance",
+    "procurementStatus": "Structured suppliers · Injection costs",
+    "procurementUpdate": "Updated 2026-10-22 · Injection rates and conversion-cost V1",
     "procurementName": "Chaiheng",
     "procurementTitle": "Procurement collaboration workspace",
-    "procurementSummary": "Upload a PDF from a supplier profile, extract models and parameters with your own DeepSeek, then review and link products to that supplier. Retains 164 shared fields, source pages, missing values and browser-local candidate counts. One-click market refresh remains available.",
+    "procurementSummary": "Structure supplier catalogs, search shared specifications and refresh markets with your DeepSeek. The new injection-cost workspace imports local rate JSON, reviews billing terms and compares conversion-cost ranges.",
     "procurementSourcingTag": "Actual suppliers / material catalog",
     "procurementDemandTag": "Catalog upload / Supplier linkage",
-    "procurementCostTag": "DeepSeek market refresh",
+    "procurementCostTag": "Injection costs / Markets",
     "procurementEnter": "Open supplier workspace",
     "procurementAccess": "Your key · Candidates saved in this browser · Chinese UI",
-    "procurementDescription": "Six workspaces cover materials, actual suppliers, imports, procurement collaboration and markets. Every supplier card and profile opens the shared PDF workflow with that company preselected. Reuses page extraction, original-page review, standard fields and selection-library import. Reviewed uploads appear under the selected supplier, with private counts separate from the published catalog. Preserves the original AI-extracted company name; conflicting identities require additional review and repeat uploads cannot silently change ownership. Includes six company profiles, 1,023 public records and 164 standard fields. PDF, web and market tools share a memory-only personal key. Demand, quotations and tasks are simulations.",
+    "procurementDescription": "Six workspaces cover materials, actual suppliers, imports, procurement collaboration and markets. Every supplier card and profile opens the shared PDF workflow with that company preselected. Reuses page extraction, original-page review, standard fields and selection-library import. Reviewed uploads appear under the selected supplier, with private counts separate from the published catalog. Preserves the original AI-extracted company name; conflicting identities require additional review and repeat uploads cannot silently change ownership. Includes six company profiles, 1,023 public records and 164 standard fields. PDF, web and market tools share a memory-only personal key. Demand, quotations and tasks are simulations. Injection conversion-cost V1 adds local JSON rate imports, explicit billing periods and prorated or whole-period settlement. Compare up to four rates using common cycle, cavities, yield and efficiency assumptions. Unknown expenses remain unresolved; resin and independent tooling amortization are outside V1. Public releases contain synthetic examples only.",
     "procurementLimit": "Published defaults apply across suppliers. Custom standards and personal candidates stay in this browser; JSON export/import enables sharing without automatic sync. Original evidence remains available. Ambiguous units and formats are excluded from numeric filters. Approval and commercial terms are not inferred. Keys stay in page memory; paid AI calls require testing with your own account.",
-    "procurementPreviewAlt": "Chaiheng supplier PDF upload and DeepSeek extraction with reviewed product linkage, 164 standard fields and browser-local counts",
-    "guideProcurement": "Open Materials & Suppliers > Supplier Profiles and click Upload Catalog / DeepSeek Extraction on a company card. The PDF workflow preselects that supplier. Upload a PDF, expand the shared DeepSeek connection and load your own account model. Choose pages and extraction mode, then confirm sending the selected pages. Review products against their original pages; mismatched company names require an extra identity check or deselection. Import reviewed candidates, then view the supplier-linked products and browser-local count. Imported tasks lock their association. Original PDFs and personal candidates stay in this browser; backups exclude keys. Public records and supplier approval status remain unchanged. Shared-field search, web import, market refresh and optional local connections remain available. Each page ends with the business path from structured data to matching, recommendations, SKU consolidation and pooled purchasing. Full natural-language semantic recommendations remain a future goal.",
-    "guideProcurementLink": "Open supplier catalog extraction ↗",
+    "procurementPreviewAlt": "Chaiheng injection-cost model with local rate imports, billing review, process inputs and cost ranges",
+    "guideProcurement": "Open Materials & Suppliers > Supplier Profiles and click Upload Catalog / DeepSeek Extraction on a company card. The PDF workflow preselects that supplier. Upload a PDF, expand the shared DeepSeek connection and load your own account model. Choose pages and extraction mode, then confirm sending the selected pages. Review products against their original pages; mismatched company names require an extra identity check or deselection. Import reviewed candidates, then view the supplier-linked products and browser-local count. Imported tasks lock their association. Original PDFs and personal candidates stay in this browser; backups exclude keys. Public records and supplier approval status remain unchanged. Shared-field search, web import, market refresh and optional local connections remain available. Each page ends with the business path from structured data to matching, recommendations, SKU consolidation and pooled purchasing. Full natural-language semantic recommendations remain a future goal. For injection costs, open Cost & Markets > Injection Costs. Import a prepared rate JSON (XLSX is not read directly), choose up to four rates and review periods, settlement and evidence. Enter order/process assumptions and expense coverage, calculate and export. Data stays in this browser; export backups. Unknown expenses are not treated as zero and taxes are not converted.",
+    "guideProcurementLink": "Open procurement workspace ↗",
     "projectViews": "Views",
     "siteViews": "Website views",
     "metricsAbout": "About the counts",
@@ -567,6 +567,7 @@
   loadViewCounts(location.origin === 'https://dayang1847-arch.github.io');
   window.addEventListener('pageshow', event => { if (event.persisted) loadViewCounts(); });
 })();
+
 
 
 

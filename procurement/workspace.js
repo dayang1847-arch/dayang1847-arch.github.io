@@ -6,7 +6,7 @@ window.WUI=(()=>{
   {id:'library',title:'物料与供应商',en:'MATERIALS & SUPPLIERS',icon:'box',description:'查找标准参数、核对供应商，并在同一工作区管理选型字段。',views:[['selection','物料选型','selection'],['suppliers','供应商档案','suppliers'],['parameters','参数管理','parameters']]},
   {id:'ingest',title:'数据导入',en:'DATA IMPORT',icon:'file',description:'上传图册或采集网页，共用自己的 DeepSeek 连接，核对后加入选型库。',views:[['upload','PDF 图册','pdf'],['research','网页采集','web']]},
   {id:'collaboration',title:'采购协同',en:'PROCUREMENT COLLABORATION',icon:'layers',description:'从需求聚合、统一询报价到任务跟进，按流程推进。',views:[['demand','需求聚合','demand'],['quotes','询报价','quotes'],['tasks','任务跟进','tasks']]},
-  {id:'cost',title:'成本与行情',en:'COST INTELLIGENCE',icon:'trend',description:'保留公开行情出处，用自己的DeepSeek一键刷新，查看材料变化与成本影响。',views:[['cost','成本与行情','cost']]},
+  {id:'cost',title:'成本与行情',en:'COST INTELLIGENCE',icon:'trend',description:'公开行情与加工成本统一查看；注塑费率支持本地导入、口径核对和单件测算。',views:[['cost','行情与线材情景','cost'],['injection','注塑成本','injection']]},
   {id:'settings',title:'系统设置',en:'LOCAL SERVICE SETTINGS',icon:'link',description:'可选本机邮箱与报价分析服务；在线采集连接统一在“数据导入”配置。',views:[['settings','本机服务','settings']]}
  ];
  const last=Object.fromEntries(groups.map(g=>[g.id,g.views[0][0]]));let part='standard';
