@@ -373,6 +373,7 @@ class Handler(BaseHTTPRequestHandler):
             public = {'/': 'index.html', '/index.html': 'index.html', '/app.js': 'app.js',
                       '/style.css': 'style.css', '/connections.js': 'connections.js',
                       '/connections.css': 'connections.css', '/favicon.svg': 'favicon.svg', '/sample-quotes.csv': 'sample-quotes.csv'}
+            public.update({'/online-ai-core.js':'online-ai-core.js','/online-ai.js':'online-ai.js','/online-ai.css':'online-ai.css'})
             public.update({'/catalog.js':'catalog.js','/catalog.css':'catalog.css','/supplier-catalog.json':'supplier-catalog.json'})
             public.update({'/market.js': 'market.js', '/market.css': 'market.css', '/market-data.json': 'market-data.json'})
             target = public.get(path)
@@ -385,7 +386,7 @@ class Handler(BaseHTTPRequestHandler):
             self.send_header('Content-Length', str(len(content)))
             self.send_header('Cache-Control', 'no-store')
             self.send_header('X-Content-Type-Options', 'nosniff')
-            self.send_header('Content-Security-Policy', "default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'self'; img-src 'self' data:; frame-ancestors 'none'; base-uri 'none'")
+            self.send_header('Content-Security-Policy', "default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'self' https://api.deepseek.com; img-src 'self' data:; frame-ancestors 'none'; base-uri 'none'")
             self.end_headers()
             self.wfile.write(content)
         except SafeError as e:
