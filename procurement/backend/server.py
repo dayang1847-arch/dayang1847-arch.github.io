@@ -381,11 +381,15 @@ class Handler(BaseHTTPRequestHandler):
                 allowed_images={v['asset'] for v in image_manifest['images'].values() if re.fullmatch(r'catalog-images/sheet-[0-9]{2}\.webp',v.get('asset',''))}
                 if path[1:] in allowed_images:public[path]=path[1:]
             public.update({('/'+v):v for v in ['pdf-catalog.js','pdf-catalog.css','pdf-catalog-core.js']})
+            if path.startswith('/vendor/occt/'):
+                manifest=json.loads((self.server.web_root/'vendor/occt/manifest.json').read_text())
+                vendor_file=path.removeprefix('/vendor/occt/')
+                if vendor_file in manifest['files'] or vendor_file=='manifest.json':public[path]='vendor/occt/'+vendor_file
             if path.startswith('/vendor/pdfjs/'):
                 manifest=json.loads((self.server.web_root/'vendor/pdfjs/manifest.json').read_text())
                 vendor_file=path.removeprefix('/vendor/pdfjs/')
                 if vendor_file in manifest['files'] or vendor_file=='manifest.json':public[path]='vendor/pdfjs/'+vendor_file
-            public.update({('/'+v):v for v in ['injection-quick-core.js','injection-documents.js','injection-quick.js','injection-quick.css','vendor/fflate/fflate.min.js','vendor/fflate/LICENSE','vendor/fflate/manifest.json','injection-core.js','injection-cost.js','injection-cost.css','standard-core.js','standard-parameters.js','standard-parameters.css','standard-parameters.json','workspace.js','workspace.css']})
+            public.update({('/'+v):v for v in ['injection-suppliers.js','injection-smart-core.js','injection-smart.js','injection-smart.css','injection-cad-core.js','injection-cad.js','injection-cad-worker.js','injection-quick-core.js','injection-documents.js','injection-quick.js','injection-quick.css','vendor/fflate/fflate.min.js','vendor/fflate/LICENSE','vendor/fflate/manifest.json','injection-core.js','injection-cost.js','injection-cost.css','standard-core.js','standard-parameters.js','standard-parameters.css','standard-parameters.json','workspace.js','workspace.css']})
             public.update({'/parameter-settings.js':'parameter-settings.js','/parameter-settings.css':'parameter-settings.css'})
             public.update({'/catalog.js':'catalog.js','/catalog.css':'catalog.css','/supplier-catalog.json':'supplier-catalog.json'})
             public.update({'/market-refresh-core.js':'market-refresh-core.js', '/market.js': 'market.js', '/market.css': 'market.css', '/market-data.json': 'market-data.json'})

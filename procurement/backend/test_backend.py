@@ -88,6 +88,10 @@ class BackendTests(unittest.TestCase):
                 h = {'Content-Type': 'application/json', **(headers or {})}
                 req = urllib.request.Request(base + path, data=json.dumps(payload).encode() if payload is not None else None, headers=h)
                 with urllib.request.urlopen(req) as res: return res.status, json.load(res)
+            for path, mime in [('/injection-suppliers.js','javascript'),('/injection-smart.js','javascript'),('/injection-cad-worker.js','javascript'),('/injection-cad-core.js','javascript'),('/vendor/occt/dist/occt-import-js.wasm','application/wasm')]:
+                with urllib.request.urlopen(base+path) as res:
+                    self.assertEqual(res.status,200);self.assertIn(mime,res.headers['Content-Type']);self.assertGreater(len(res.read()),100)
+            with self.assertRaises(urllib.error.HTTPError):urllib.request.urlopen(base+'/vendor/occt/../../backend/server.py')
             token = request('/api/session')[1]['token']
             with self.assertRaises(urllib.error.HTTPError) as err: request('/api/status')
             self.assertEqual(err.exception.code, 403)
