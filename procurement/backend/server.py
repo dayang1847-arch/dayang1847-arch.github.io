@@ -380,6 +380,11 @@ class Handler(BaseHTTPRequestHandler):
                 image_manifest=json.loads((self.server.web_root / 'catalog-images.json').read_text())
                 allowed_images={v['asset'] for v in image_manifest['images'].values() if re.fullmatch(r'catalog-images/sheet-[0-9]{2}\.webp',v.get('asset',''))}
                 if path[1:] in allowed_images:public[path]=path[1:]
+            public.update({('/'+v):v for v in ['pdf-catalog.js','pdf-catalog.css','pdf-catalog-core.js']})
+            if path.startswith('/vendor/pdfjs/'):
+                manifest=json.loads((self.server.web_root/'vendor/pdfjs/manifest.json').read_text())
+                vendor_file=path.removeprefix('/vendor/pdfjs/')
+                if vendor_file in manifest['files'] or vendor_file=='manifest.json':public[path]='vendor/pdfjs/'+vendor_file
             public.update({'/parameter-settings.js':'parameter-settings.js','/parameter-settings.css':'parameter-settings.css'})
             public.update({'/catalog.js':'catalog.js','/catalog.css':'catalog.css','/supplier-catalog.json':'supplier-catalog.json'})
             public.update({'/market.js': 'market.js', '/market.css': 'market.css', '/market-data.json': 'market-data.json'})
@@ -387,13 +392,13 @@ class Handler(BaseHTTPRequestHandler):
             if not target:
                 return self.json(404, {'error': '资源不存在。'})
             content = (self.server.web_root / target).read_bytes()
-            kind = 'application/json' if target.endswith('.json') else 'text/html' if target.endswith('.html') else 'text/css' if target.endswith('.css') else 'text/javascript' if target.endswith('.js') else 'image/webp' if target.endswith('.webp') else 'image/svg+xml' if target.endswith('.svg') else 'text/csv'
+            kind = 'application/json' if target.endswith('.json') else 'text/html' if target.endswith('.html') else 'text/css' if target.endswith('.css') else 'text/javascript' if target.endswith(('.js','.mjs')) else 'application/wasm' if target.endswith('.wasm') else 'application/octet-stream' if target.endswith(('.bcmap','.pfb','.ttf','.icc')) else 'image/webp' if target.endswith('.webp') else 'image/svg+xml' if target.endswith('.svg') else 'text/csv'
             self.send_response(200)
             self.send_header('Content-Type', kind + '; charset=utf-8')
             self.send_header('Content-Length', str(len(content)))
             self.send_header('Cache-Control', 'no-store')
             self.send_header('X-Content-Type-Options', 'nosniff')
-            self.send_header('Content-Security-Policy', "default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'self' https://api.deepseek.com; img-src 'self' data:; frame-ancestors 'none'; base-uri 'none'")
+            self.send_header('Content-Security-Policy', "default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'wasm-unsafe-eval'; worker-src 'self'; font-src 'self' blob:; connect-src 'self' https://api.deepseek.com; img-src 'self' data:; frame-ancestors 'none'; base-uri 'none'")
             self.end_headers()
             self.wfile.write(content)
         except SafeError as e:
