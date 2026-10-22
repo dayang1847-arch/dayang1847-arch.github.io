@@ -380,6 +380,7 @@ class Handler(BaseHTTPRequestHandler):
                 image_manifest=json.loads((self.server.web_root / 'catalog-images.json').read_text())
                 allowed_images={v['asset'] for v in image_manifest['images'].values() if re.fullmatch(r'catalog-images/sheet-[0-9]{2}\.webp',v.get('asset',''))}
                 if path[1:] in allowed_images:public[path]=path[1:]
+            public.update({'/parameter-settings.js':'parameter-settings.js','/parameter-settings.css':'parameter-settings.css'})
             public.update({'/catalog.js':'catalog.js','/catalog.css':'catalog.css','/supplier-catalog.json':'supplier-catalog.json'})
             public.update({'/market.js': 'market.js', '/market.css': 'market.css', '/market-data.json': 'market-data.json'})
             target = public.get(path)
