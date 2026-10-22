@@ -375,6 +375,7 @@ class Handler(BaseHTTPRequestHandler):
                       '/connections.css': 'connections.css', '/favicon.svg': 'favicon.svg', '/sample-quotes.csv': 'sample-quotes.csv'}
             public.update({'/online-ai-core.js':'online-ai-core.js','/online-ai.js':'online-ai.js','/online-ai.css':'online-ai.css'})
             public['/catalog-images.json']='catalog-images.json'
+            public.update({'/supplier-directory.js':'supplier-directory.js','/supplier-directory.css':'supplier-directory.css','/supplier-directory.json':'supplier-directory.json'})
             if path.startswith('/catalog-images/'):
                 image_manifest=json.loads((self.server.web_root / 'catalog-images.json').read_text())
                 allowed_images={v['asset'] for v in image_manifest['images'].values() if re.fullmatch(r'catalog-images/sheet-[0-9]{2}\.webp',v.get('asset',''))}

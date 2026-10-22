@@ -38,7 +38,7 @@ class CatalogTests(unittest.TestCase):
             worker=threading.Thread(target=server.serve_forever,daemon=True);worker.start()
             base='http://127.0.0.1:'+str(server.server_address[1])
             try:
-                for path in ['/catalog.js','/catalog.css','/supplier-catalog.json','/online-ai-core.js','/online-ai.js','/online-ai.css','/catalog-images.json','/catalog-images/sheet-01.webp']:
+                for path in ['/catalog.js','/catalog.css','/supplier-catalog.json','/online-ai-core.js','/online-ai.js','/online-ai.css','/catalog-images.json','/catalog-images/sheet-01.webp','/supplier-directory.js','/supplier-directory.css','/supplier-directory.json']:
                     with urllib.request.urlopen(base+path) as r:
                         self.assertEqual(r.status,200);r.read()
                         self.assertIn("connect-src 'self' https://api.deepseek.com;",r.headers['Content-Security-Policy'])
