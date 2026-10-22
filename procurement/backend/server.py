@@ -373,6 +373,7 @@ class Handler(BaseHTTPRequestHandler):
             public = {'/': 'index.html', '/index.html': 'index.html', '/app.js': 'app.js',
                       '/style.css': 'style.css', '/connections.js': 'connections.js',
                       '/connections.css': 'connections.css', '/favicon.svg': 'favicon.svg', '/sample-quotes.csv': 'sample-quotes.csv'}
+            public.update({'/catalog.js':'catalog.js','/catalog.css':'catalog.css','/supplier-catalog.json':'supplier-catalog.json'})
             public.update({'/market.js': 'market.js', '/market.css': 'market.css', '/market-data.json': 'market-data.json'})
             target = public.get(path)
             if not target:
