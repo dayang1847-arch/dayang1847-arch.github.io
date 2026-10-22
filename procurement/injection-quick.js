@@ -4,10 +4,10 @@ const supplierNames=['中盛','唐盛','嘉创','实盟','浩凯','熠明','辰�
 const C=InjectionQuickCore,KEY='procurement-injection-quick-v1'+(window.INJECTION_PRIVATE_SEED?'-private':'');
 let docSupplier='',db=C.empty(),tab='quick',code='',qty='10000',batch='',supplier='',result=null,notice='',undo=null,editor=null,draft=null,source=null,pasted='',pdfPages='1-3',consent=false,busy='',epoch=0,controller=null;
 const escQ=v=>esc(String(v??'')),n=v=>Number(v).toLocaleString('zh-CN',{maximumFractionDigits:4}),band=a=>a?'¥'+(a[0]===a[1]?n(a[0]):a.map(n).join(' ～ ')):'未提供';
-try{const raw=localStorage.getItem(KEY);if(raw)db=C.validate(JSON.parse(raw));}catch{notice='本地档案未通过校验，请导入有效备份。';}
+try{const raw=localStorage.getItem(KEY);if(raw){const migrated=C.migrate(JSON.parse(raw));db=migrated.data;if(migrated.removed){notice='已移除历史演示费率及关联零件档案，真实档案保留。';try{localStorage.setItem(KEY,JSON.stringify(db));}catch{notice+=' 本地写入失败，本次已排除演示记录；请导出真实档案备份。';}}}}catch{notice='本地档案未通过校验，请导入有效备份。';}
 const template=id=>db.templates.find(t=>t.id===id),sourceInfo=s=>s?`${s.file||'人工录入'}${s.sha256?' · 指纹 '+s.sha256.slice(0,12):''}`:'人工录入';
 function draw(){if(state.page==='injection')render();}
-function save(next){const clean=C.validate(next);localStorage.setItem(KEY,JSON.stringify(clean));undo=db;db=clean;result=null;}
+function save(next){const clean=C.migrate(next).data;localStorage.setItem(KEY,JSON.stringify(clean));undo=db;db=clean;result=null;}
 function cancelReading(){if(!busy)return;++epoch;controller?.abort();controller=null;busy='';notice='已取消读取，未采用迟到的结果。';}
 function capture(root=document){for(const[k,id]of Object.entries({code:'qic-code',qty:'qic-qty',supplier:'qic-supplier',batch:'qic-batch',pasted:'qic-pasted',pdfPages:'qic-pages',docSupplier:'qic-doc-supplier'})){const el=root.querySelector('#'+id);if(el){if(k==='code')code=el.value;if(k==='qty')qty=el.value;if(k==='supplier')supplier=el.value;if(k==='batch')batch=el.value;if(k==='pasted')pasted=el.value;if(k==='pdfPages')pdfPages=el.value;if(k==='docSupplier')docSupplier=el.value;}}if(editor){root.querySelectorAll('[data-qic-edit]').forEach(el=>editor.values[el.dataset.qicEdit]=el.value);}const c=root.querySelector('#qic-consent');if(c)consent=c.checked;}
 function dl(name,value){const a=document.createElement('a'),u=URL.createObjectURL(new Blob([JSON.stringify(value,null,2)],{type:'application/json'}));a.href=u;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(u),1000);}
