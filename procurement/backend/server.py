@@ -388,7 +388,7 @@ class Handler(BaseHTTPRequestHandler):
             public.update({('/'+v):v for v in ['standard-core.js','standard-parameters.js','standard-parameters.css','standard-parameters.json','workspace.js','workspace.css']})
             public.update({'/parameter-settings.js':'parameter-settings.js','/parameter-settings.css':'parameter-settings.css'})
             public.update({'/catalog.js':'catalog.js','/catalog.css':'catalog.css','/supplier-catalog.json':'supplier-catalog.json'})
-            public.update({'/market.js': 'market.js', '/market.css': 'market.css', '/market-data.json': 'market-data.json'})
+            public.update({'/market-refresh-core.js':'market-refresh-core.js', '/market.js': 'market.js', '/market.css': 'market.css', '/market-data.json': 'market-data.json'})
             target = public.get(path)
             if not target:
                 return self.json(404, {'error': '资源不存在。'})
