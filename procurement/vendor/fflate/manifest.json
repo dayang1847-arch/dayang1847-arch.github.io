@@ -1,0 +1,11 @@
+{
+  "name": "fflate",
+  "version": "0.8.3",
+  "source": "https://github.com/101arrowz/fflate",
+  "download": "https://cdn.jsdelivr.net/npm/fflate@0.8.3/umd/index.js",
+  "license": "MIT",
+  "files": {
+    "LICENSE": "0a1df3a083d0c010560aa342e87959c8c1070e6fd54545741f083f22d0c8b551",
+    "fflate.min.js": "462ef8041fc970e3615a20a9dd2b2e3047a073b2da729ef4f02b634bba8b7b83"
+  }
+}
