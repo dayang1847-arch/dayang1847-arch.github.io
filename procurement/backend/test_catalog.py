@@ -38,12 +38,29 @@ class CatalogTests(unittest.TestCase):
             worker=threading.Thread(target=server.serve_forever,daemon=True);worker.start()
             base='http://127.0.0.1:'+str(server.server_address[1])
             try:
-                for path in ['/catalog.js','/catalog.css','/supplier-catalog.json','/online-ai-core.js','/online-ai.js','/online-ai.css']:
+                for path in ['/catalog.js','/catalog.css','/supplier-catalog.json','/online-ai-core.js','/online-ai.js','/online-ai.css','/catalog-images.json','/catalog-images/sheet-01.webp']:
                     with urllib.request.urlopen(base+path) as r:
                         self.assertEqual(r.status,200);r.read()
                         self.assertIn("connect-src 'self' https://api.deepseek.com;",r.headers['Content-Security-Policy'])
-                for path in ['/backend/server.py','/connections.json','/supplier-catalog.sqlite','/../供应商数据库/']:
+                        if path.endswith('.webp'):self.assertTrue(r.headers['Content-Type'].startswith('image/webp'))
+                for path in ['/backend/server.py','/connections.json','/supplier-catalog.sqlite','/../供应商数据库/','/catalog-images/../backend/server.py','/catalog-images/sheet-99.webp','/catalog-images/source.pdf','/catalog-images/%2e%2e/connections.json']:
                     with self.assertRaises((urllib.error.HTTPError,UnicodeEncodeError)):
                         urllib.request.urlopen(base+path)
             finally:server.shutdown();server.server_close();worker.join()
+    def test_image_provenance_and_explicit_coverage(self):
+        images=json.loads((ROOT/'catalog-images.json').read_text());products={p['id']:p for p in self.data['products']};docs={d['id']:d for d in self.data['documents']}
+        self.assertEqual(set(images['products']) | set(images['missing']),set(products))
+        self.assertFalse(set(images['products']) & set(images['missing']))
+        for pid,key in images['products'].items():
+            v=images['images'][key]
+            self.assertEqual(v['document_id'],products[pid]['source']['document_id'])
+            self.assertTrue(1<=v['pdf_page']<=docs[v['document_id']]['page_count'])
+            self.assertTrue((ROOT/v['asset']).is_file())
+            self.assertIn(v['kind'],['model','page_group','assembly_group','family_group'])
+            self.assertIn(v['column'],range(4));self.assertIn(v['row'],range(4))
+            for x0,y0,x1,y1 in v['source_crops']:self.assertTrue(0<=x0<x1<=1 and 0<=y0<y1<=1)
+        # Variants without a distinct photo keep an explicitly shared group.
+        caps=[p for p in products.values() if p['supplier_id']=='gaochao' and p['model']=='M8']
+        self.assertTrue(caps)
+        for p in caps:self.assertNotEqual(images['images'][images['products'][p['id']]]['kind'],'model')
 if __name__=='__main__':unittest.main()

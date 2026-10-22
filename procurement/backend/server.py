@@ -374,13 +374,18 @@ class Handler(BaseHTTPRequestHandler):
                       '/style.css': 'style.css', '/connections.js': 'connections.js',
                       '/connections.css': 'connections.css', '/favicon.svg': 'favicon.svg', '/sample-quotes.csv': 'sample-quotes.csv'}
             public.update({'/online-ai-core.js':'online-ai-core.js','/online-ai.js':'online-ai.js','/online-ai.css':'online-ai.css'})
+            public['/catalog-images.json']='catalog-images.json'
+            if path.startswith('/catalog-images/'):
+                image_manifest=json.loads((self.server.web_root / 'catalog-images.json').read_text())
+                allowed_images={v['asset'] for v in image_manifest['images'].values() if re.fullmatch(r'catalog-images/sheet-[0-9]{2}\.webp',v.get('asset',''))}
+                if path[1:] in allowed_images:public[path]=path[1:]
             public.update({'/catalog.js':'catalog.js','/catalog.css':'catalog.css','/supplier-catalog.json':'supplier-catalog.json'})
             public.update({'/market.js': 'market.js', '/market.css': 'market.css', '/market-data.json': 'market-data.json'})
             target = public.get(path)
             if not target:
                 return self.json(404, {'error': '资源不存在。'})
             content = (self.server.web_root / target).read_bytes()
-            kind = 'application/json' if target.endswith('.json') else 'text/html' if target.endswith('.html') else 'text/css' if target.endswith('.css') else 'text/javascript' if target.endswith('.js') else 'image/svg+xml' if target.endswith('.svg') else 'text/csv'
+            kind = 'application/json' if target.endswith('.json') else 'text/html' if target.endswith('.html') else 'text/css' if target.endswith('.css') else 'text/javascript' if target.endswith('.js') else 'image/webp' if target.endswith('.webp') else 'image/svg+xml' if target.endswith('.svg') else 'text/csv'
             self.send_response(200)
             self.send_header('Content-Type', kind + '; charset=utf-8')
             self.send_header('Content-Length', str(len(content)))
