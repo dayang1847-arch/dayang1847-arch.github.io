@@ -7,7 +7,7 @@
 <meta content="DC Web — personal projects in lighting engineering, market research, product crawling and recommendation analysis, PDF-to-CAD conversion, procurement collaboration demos, AI applications, Vietnamese learning and real-time strategy." name="description"/>
 <meta content="#f7f8fa" name="theme-color"/>
 <title>DC Web</title>
-<link rel="icon" href="./assets/favicon-dc.png" type="image/png"/><meta content="light dark" name="color-scheme"/><link href="./styles.css?v=20261021-procurement" rel="stylesheet"/><script defer="" src="./main.js?v=20261022-supplier-upload"></script></head>
+<link rel="icon" href="./assets/favicon-dc.png" type="image/png"/><meta content="light dark" name="color-scheme"/><link href="./styles.css?v=20261021-procurement" rel="stylesheet"/><script defer="" src="./main.js?v=20261022-supplier-guide"></script></head>
 <body><a class="skip-link" data-i18n="skip" href="#main">跳到正文</a>
 <header id="top">
 <a aria-label="DC Web 首页" class="identity" data-i18n-aria="home" href="#top" lang="en">DC Web</a>
@@ -119,13 +119,13 @@
       </div>
     </article>
     <article class="project-card" id="procurement" data-category="procurement" data-keywords="采衡 采购 协同 选型 料号 归并 需求 聚合 比价 报价 供应商 成本 行情 议价 任务 Chaiheng procurement sourcing supplier quotation consolidation cost demo CSV" aria-labelledby="procurement-title">
-      <div class="project-cover cover-procurement"><img src="./assets/procurement-preview.svg?v=20261022-supplier-upload" alt="采衡供应商目录上传与DeepSeek结构化，核对后关联选型产品，保留164类参数与个人候选统计" data-i18n-alt="procurementPreviewAlt" width="960" height="540" loading="lazy"/><span class="cover-label" lang="en">SUPPLIER / CATALOG / STRUCTURED DATA</span></div>
+      <div class="project-cover cover-procurement"><img src="./assets/procurement-preview.svg?v=20261022-supplier-guide" alt="采衡供应商目录上传与DeepSeek结构化，核对后关联选型产品，保留164类参数与个人候选统计" data-i18n-alt="procurementPreviewAlt" width="960" height="540" loading="lazy"/><span class="cover-label" lang="en">SUPPLIER / CATALOG / STRUCTURED DATA</span></div>
       <div class="project-content">
         <div class="project-topline"><span class="project-category" data-i18n="filterProcurement">采购协同</span><span class="work-status" data-i18n="procurementStatus">供应商目录 · DeepSeek结构化</span></div>
         <h2 id="procurement-title" data-i18n="procurementName">采衡</h2><p class="work-title" data-i18n="procurementTitle">采购协同工作台</p>
         <p class="project-summary" data-i18n="procurementSummary">从供应商档案上传PDF目录，用自己的DeepSeek逐页提炼型号与参数，核对后关联到该供应商的选型产品。共用164类标准字段，保留原页、缺失值与本浏览器候选数量；行情一键刷新继续可用。</p>
         <div class="tags" aria-label="项目领域" data-i18n-aria="tagsLabel"><span data-i18n="procurementSourcingTag">实际供应商 / 选型目录</span><span data-i18n="procurementDemandTag">上传目录 / 关联入库</span><span data-i18n="procurementCostTag">DeepSeek 行情刷新</span></div>
-        <div class="project-bottom"><p class="detail-note" data-i18n="procurementUpdate">更新：2026-10-22 · 供应商上传目录，核对后关联选型产品</p><div class="work-actions"><a class="primary" href="./procurement/?view=library&amp;tab=suppliers"><span data-i18n="procurementEnter">进入供应商工作台</span><span class="icon icon-arrow" aria-hidden="true"></span></a><a class="secondary" href="#guide-procurement" data-open-guide data-i18n="manual">使用说明</a></div><p class="view-note" data-i18n="procurementAccess">自带 Key · 自采候选仅存当前浏览器 · 中文界面</p></div>
+        <div class="project-bottom"><p class="detail-note" data-i18n="procurementUpdate">更新：2026-10-22 · 供应商关联入库与底部业务使用说明</p><div class="work-actions"><a class="primary" href="./procurement/?view=library&amp;tab=suppliers"><span data-i18n="procurementEnter">进入供应商工作台</span><span class="icon icon-arrow" aria-hidden="true"></span></a><a class="secondary" href="#guide-procurement" data-open-guide data-i18n="manual">使用说明</a></div><p class="view-note" data-i18n="procurementAccess">自带 Key · 自采候选仅存当前浏览器 · 中文界面</p></div>
         <details class="project-details"><summary><span data-i18n="projectDetails">项目详情</span></summary><div class="project-detail-content"><p data-i18n="procurementDescription">六个工作区管理物料、实际供应商、数据导入、采购协同与行情。每家供应商卡片和档案均可直接上传PDF目录，自动带入所选企业；复用现有DeepSeek逐页解析、原页核对、统一标准字段与选型入库。入库后在该供应商下统计和查看本浏览器候选，原有公开目录统计与个人记录分开。保留AI原识别名称；主体名称不一致须额外核对，重复上传不自动改归属。已有6家企业档案、1,023条公开目录记录和164类参数，PDF/网页/行情共用自己的页面内存Key。需求、报价和任务为业务模拟。</p><p class="detail-note" data-i18n="procurementLimit">发布标准对所有供应商通用；用户自定义标准与个人候选保存在当前浏览器，通过导出/导入共享，不自动同步。原始规格及出处保留，单位不明或格式冲突不参与数值筛选，未知批准与商务条件不推定。Key仅在页面内存；实际付费AI调用需自己的账号验证。</p></div></details>
       </div>
     </article>
@@ -150,7 +150,7 @@
           <section class="guide-project"><h4 data-i18n="vietquestName">越语冒险</h4><p data-i18n="guideVietquest">按课程学习词句，通过听音、选择和句子排序闯关，再用错题复习巩固。发音训练可查阅音标与发音规则，设备提供的越南语声音可能不同。</p><a href="./vietnamese-learning/#home" data-i18n="guideVietquestLink">进入学习首页 ↗</a></section>
           <section class="guide-project"><h4 data-i18n="wanchaoName">万朝逐鹿</h4><p data-i18n="guideWanchao">选择朝代后进入单人练兵，学习建设、征兵与攻城操作。单人模式直接在浏览器运行；与朋友联机需要另行部署并配置服务器。</p><a href="./wanchao/?lang=zh" data-game-link="./wanchao/" data-i18n="guideWanchaoLink">进入游戏与玩法指南 ↗</a></section>
           <section class="guide-project" id="guide-pdf-cad" tabindex="-1"><h4 data-i18n="pdfCadName">PDF 转 CAD · 图纸工坊</h4><p data-i18n="guidePdfCad">导入 PDF 或包含 PDF 的 RAR / ZIP，选择矢量或扫描模式并设置比例后开始转换。结果可逐页下载，或按 DWG / DXF 分别打包。扫描件输出轮廓，需复核线条与尺寸。图纸仅在当前浏览器处理，不上传、不展示历史；刷新后清空当前任务，请先下载结果。</p><a href="./pdf-to-cad/?lang=zh" data-pdf-cad-link="./pdf-to-cad/" data-i18n="guidePdfCadLink">进入图纸工坊 ↗</a></section>
-          <section class="guide-project" id="guide-procurement" tabindex="-1"><h4 data-i18n="procurementName">采衡</h4><p data-i18n="guideProcurement">进入“物料与供应商 → 供应商档案”，点击目标企业的“上传目录 · DeepSeek结构化”。页面带入供应商，上传PDF，展开DeepSeek连接并读取自己的模型；选择页码与解析方式，确认所选页发送后开始。逐条对照原页核对，识别名称与关联企业不一致时须额外确认或取消该产品。勾选入库后，可从供应商档案查看新增候选及数量；已有入库任务锁定归属，避免批量改错。原PDF与个人候选只存本浏览器，备份不含Key；不覆盖公开目录或企业准入记录。统一参数检索、网页导入、行情一键刷新和本机可选连接继续保留。</p><a href="./procurement/?view=library&amp;tab=suppliers" data-i18n="guideProcurementLink">打开供应商目录结构化 ↗</a></section>
+          <section class="guide-project" id="guide-procurement" tabindex="-1"><h4 data-i18n="procurementName">采衡</h4><p data-i18n="guideProcurement">进入“物料与供应商 → 供应商档案”，点击目标企业的“上传目录 · DeepSeek结构化”。页面带入供应商，上传PDF，展开DeepSeek连接并读取自己的模型；选择页码与解析方式，确认所选页发送后开始。逐条对照原页核对，识别名称与关联企业不一致时须额外确认或取消该产品。勾选入库后，可从供应商档案查看新增候选及数量；已有入库任务锁定归属，避免批量改错。原PDF与个人候选只存本浏览器，备份不含Key；不覆盖公开目录或企业准入记录。统一参数检索、网页导入、行情一键刷新和本机可选连接继续保留。每页底部说明结构化、检索匹配、推荐及SKU归并与集中议价的业务目标；完整自然语言语义推荐仍待扩展。</p><a href="./procurement/?view=library&amp;tab=suppliers" data-i18n="guideProcurementLink">打开供应商目录结构化 ↗</a></section>
         </div>
       </section>
       <section class="guide-chapter guide-notes" aria-labelledby="guide-data-title">
