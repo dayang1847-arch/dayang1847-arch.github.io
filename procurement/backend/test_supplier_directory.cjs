@@ -2,11 +2,11 @@ const {test}=require('node:test'),assert=require('node:assert/strict'),fs=requir
 const directory=JSON.parse(fs.readFileSync(require.resolve('../supplier-directory.json'),'utf8'));
 const catalog=JSON.parse(fs.readFileSync(require.resolve('../supplier-catalog.json'),'utf8'));
 async function app(fail=false){
- let bad=fail,html='',opened=null;const routes=[],inputs={};
- const box={console,URL,URLSearchParams,queueMicrotask,setTimeout,structuredClone,location:{search:''},state:{page:'research'},pageInfo:{},suppliersPage:()=>'',selection:()=>'',overview:()=>'',esc:v=>String(v??''),icon:()=>'',render:()=>html=box.SM.renderPage(),go:p=>{box.state.page=p;routes.push(p);},toast:()=>{},closeModal:()=>{},modal:(title,body)=>opened={title,body},document:{querySelector:()=>({classList:{add:()=>{}}})},localStorage:{getItem:()=>null},fetch:async url=>bad?{ok:false,status:503}:{ok:true,json:async()=>structuredClone(url.includes('supplier-directory')?directory:catalog)}};
+ let bad=fail,html='',opened=null,exported=null;const routes=[],inputs={};
+ const box={console,URL,URLSearchParams,queueMicrotask,setTimeout,structuredClone,location:{search:''},state:{page:'research'},pageInfo:{},suppliersPage:()=>'',selection:()=>'',overview:()=>'',esc:v=>String(v??''),icon:()=>'',render:()=>html=box.SM.renderPage(),go:p=>{box.state.page=p;routes.push(p);},toast:()=>{},closeModal:()=>{},exportCSV:(...args)=>exported=args,modal:(title,body)=>opened={title,body},document:{querySelector:()=>({classList:{add:()=>{}}})},localStorage:{getItem:()=>null},fetch:async url=>bad?{ok:false,status:503}:{ok:true,json:async()=>structuredClone(url.includes('supplier-directory')?directory:catalog)}};
  box.window=box;vm.createContext(box);vm.runInContext(fs.readFileSync(require.resolve('../catalog.js'),'utf8'),box);vm.runInContext(fs.readFileSync(require.resolve('../supplier-directory.js'),'utf8'),box);box.SM.renderPage();await new Promise(setImmediate);
  const button=(selector,dataset={})=>{const b={dataset};box.SM.bind({querySelectorAll:s=>s===selector?[b]:[],querySelector:sel=>inputs[sel]||null});return b;};
- return{box,button,routes,inputs,html:()=>html,opened:()=>opened,recover:()=>bad=false};
+ return{box,button,routes,inputs,html:()=>html,opened:()=>opened,exported:()=>exported,recover:()=>bad=false};
 }
 test('Every public supplier has evidence; groups stay separate and business qualifications remain unknown',()=>{
  assert.equal(directory.suppliers.length,6);assert.equal(new Set(directory.suppliers.map(s=>s.id)).size,6);
@@ -43,3 +43,5 @@ test('Province and coverage filters include the pending Heda profile and support
 test('Failed directory load never falls back to fictional companies and can be retried',async()=>{
  const a=await app(true);assert.ok(a.box.SM.renderPage().includes('加载失败'));assert.ok(!a.box.SM.renderPage().includes('青禾线缆'));a.recover();await a.button('[data-sm-retry]').onclick();assert.equal(a.box.SM.getData().suppliers.length,6);
 });
+
+test('Export contains actual supplier rows and an explicit sourced-data message',async()=>{const a=await app();a.button('[data-sm-csv]').onclick();const result=a.exported();assert.equal(result[2].length,6);assert.ok(result[2].some(r=>r.includes('乐清市合达电子有限公司')));assert.ok(result[3].includes('实际供应商'));assert.ok(!result[3].includes('演示记录'));});
