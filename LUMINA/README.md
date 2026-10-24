@@ -1,15 +1,9 @@
-# LUMINA 在线演示与 AI 规划
+# LUMINA 1.2.60 public demo
 
-个人网站中的交互演示，内置23款演示灯具。支持场景排布、IES直接光照度、动态光效电费、生命周期成本、模拟DALI/D4i，以及图片/地图辅助规划。
+13 showcase plans and 470 catalogue/demo product identities. Mobile controls provide Cases, Products, Lighting and Tools. The interface offers Simplified Chinese, English, Japanese and Traditional Chinese; locale preference is saved in the browser. Product model identifiers, customer-entered descriptions and original source data remain unchanged.
 
-DeepSeek通过独立云端服务调用。打开“DeepSeek连接”输入演示访问码；访问码仅保留在本次页面内存中，刷新后重新连接。API密钥仅存Cloudflare私密配置，页面不含密钥。AI调用发送场景约束、产品摘要或用户主动选择的压缩图片；不发送独立客户名称字段或模型原件。
+Built from the verified local 1.2.60 frontend with a static browser adapter. Plans, imports and price edits stay in browser storage. Built-in prices are generated demo estimates; local customer plans, supplier prices and server configuration are excluded. DeepSeek uses the existing protected gateway and requires a session access code. Its live response was not part of this release verification. Local-service-only endpoints are not hosted by GitHub Pages.
 
-AI识别的尺寸、隐藏布局、楼层与道路等级须确认；地图像素提取不是测绘，当前道路估算不自动给出规范合格结论。IES为人工直接光，未计反射、遮挡、日光或UGR；设备与D4i反馈为模拟。
+Detailed GLB assemblies are gzip compressed and loaded only when requested. Source models, internal assemblies, synthetic IES and proposed lens distributions retain their provenance labels and require engineering review.
 
-保留产品文件导入、报告导出、打印和方案ZIP；不提供应用安装包或完整源码包。访问者的产品及方案保存于其浏览器，可通过方案包备份。
-
-
-
-## 独立采购与节能页 · 1.2.39
-
-采购页为 `purchase.html`，主页 LUMINA 卡片和应用导航均有入口。按当前浏览器照明方案数量计算四种组合、MOQ 阶梯演示价、电费、长期预算和回本期，可导出 CSV/HTML。只使用演示规则价格与可调整假设，不能作为真实供应商报价；不发布本机方案、报价库、产品目录或密钥。比较设置与公开照明方案分开保存，保持旧版方案兼容。
+Validation: 13 plan schemas, fixture/version references, GLB headers/lengths, scoped TypeScript checks and mobile browser rendering.

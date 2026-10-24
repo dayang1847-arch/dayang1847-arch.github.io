@@ -1,0 +1,32 @@
+/* LumiPilot tool chrome: shared typography and controls, preserving scene/data colours. */
+:root{--ink:#1d1d1f;--muted:#6e6e73;--line:#e5e5ea;--paper:#f5f5f7;--blue:#007aff;--green:#007aff;--lime:#eef5ff;--shadow:none;color-scheme:light}
+body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","PingFang SC","Microsoft YaHei",sans-serif;color:#1d1d1f;background:#f5f5f7;-webkit-font-smoothing:antialiased}
+button,input,select,textarea{font-family:inherit}
+button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid #007aff55;outline-offset:3px}
+input[type=checkbox],input[type=radio]{accent-color:#007aff}
+body .primary,body .save-button,body .app .primary{color:#fff;background:#007aff;border-color:#007aff;border-radius:10px;box-shadow:none}
+body .primary:hover,body .save-button:hover{background:#0069de}
+body input:not([type=checkbox]):not([type=radio]):not([type=range]):not([type=color]),body select,body textarea{border-color:#dcdce5;border-radius:9px;box-shadow:none}
+body .panel,body .metrics article{border:1px solid #e5e5ea;border-radius:13px;box-shadow:none;background:#fff}
+body .shell>.sidebar{background:#f8f8fb;border-right:1px solid #e5e5ea;box-shadow:none;color:#6e6e73}
+body .shell>.sidebar .brand,body .shell>.sidebar .brand strong{color:#1d1d1f}
+body .shell>.sidebar .brand small,body .shell>.sidebar .sidebar-note{color:#6e6e73}
+body .shell>.sidebar .brand-mark{background:#007aff;color:#fff}
+body .shell>.sidebar .nav-item{color:#6e6e73;background:transparent;border-radius:9px}
+body .shell>.sidebar .nav-item.active,body .shell>.sidebar .nav-item:hover{color:#007aff;background:#eaf2ff;box-shadow:none}
+body .shell>.sidebar .launchpad-link{color:#6e6e73}
+body .shell>main>header{background:transparent;color:#1d1d1f}
+body .unified-workflow{border-top:1px solid #e5e5ea}
+body .workflow-steps span.active,body .channel-pills span{color:#007aff;background:#edf5ff}
+body .workspace-tab.active{color:#007aff}
+body .metrics article:after{display:none}
+body .metrics article:hover{transform:none;box-shadow:none}
+body .analysis-hero{background:#fff;color:#1d1d1f;border:1px solid #e5e5ea;box-shadow:none}
+body .analysis-hero .eyebrow,body .analysis-hero .hint{color:#6e6e73}
+body .ghost,body .text-button{color:#007aff}
+body .app>header{background:rgba(251,251,253,.97);color:#1d1d1f;border-color:#e5e5ea;box-shadow:none}
+body .library-panel,body .right-panel,body .panel-scroll{border-color:#e5e5ea}
+body .device-tabs,body .wiring-tabs,body .proposal-tabs{background:#eeeeF2;border-radius:10px;box-shadow:none}
+body .device-tabs button,body .wiring-tabs button,body .proposal-tabs button{border-radius:8px;color:#6e6e73}
+body .device-tabs button.active,body .wiring-tabs button.active,body .proposal-tabs button.active{background:#fff;color:#007aff;box-shadow:0 1px 4px #0000000a}
+@media(prefers-reduced-motion:reduce){button,a{transition:none!important;animation:none!important}}

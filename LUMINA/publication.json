@@ -1,29 +1,30 @@
 {
   "application": "LUMINA",
-  "sourceVersion": "1.2.12",
-  "release": "2026-10-20-online-ai",
+  "sourceVersion": "1.2.60",
+  "release": "2026-10-24-mobile-catalogue",
   "mode": "interactive-demo-with-protected-cloud-ai",
-  "sampleProducts": 23,
+  "catalogueProducts": 470,
+  "cases": 13,
   "gateway": "https://lumina-planning-api.umi-ilot.workers.dev",
-  "credentials": "server-only; browser uses session-only access code",
-  "features": [
-    "text-planning",
-    "sketch-recognition",
-    "road-pixel-extraction",
-    "IES",
-    "energy-and-lifecycle-costs",
-    "product-import",
-    "scheme-bundles",
-    "independent-procurement-page",
-    "demo-moq-tier-pricing",
-    "high-efficacy-payback",
-    "luminaire-quantity-schedule",
-    "versioned-product-parameters",
-    "csv-and-html-parameter-annex"
+  "privateDataIncluded": false,
+  "pricing": "generated-demo-only",
+  "languages": [
+    "zh-CN",
+    "en",
+    "ja",
+    "zh-TW"
   ],
-  "applicationDownloads": false,
-  "procurementVersion": "1.2.40",
-  "procurementPage": "purchase.html",
-  "procurementMode": "browser-only-demo-pricing",
-  "procurementPrivateDataIncluded": false
+  "features": [
+    "four-language-switch",
+    "mobile-stage-first",
+    "six-large-case-studies",
+    "museum-lighting-applications",
+    "catalogue-models",
+    "outdoor-exploded-view",
+    "lens-comparison",
+    "compact-product-library",
+    "4k-export",
+    "browser-local-plan-storage"
+  ],
+  "applicationDownloads": false
 }
