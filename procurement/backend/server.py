@@ -392,7 +392,7 @@ class Handler(BaseHTTPRequestHandler):
             public.update({('/'+v):v for v in ['injection-suppliers.js','injection-quote-references.js','injection-smart-core.js','injection-smart.js','injection-smart.css','injection-cad-core.js','injection-cad.js','injection-cad-worker.js','injection-quick-core.js','injection-documents.js','injection-quick.js','injection-quick.css','vendor/fflate/fflate.min.js','vendor/fflate/LICENSE','vendor/fflate/manifest.json','injection-core.js','injection-cost.js','injection-cost.css','standard-core.js','standard-parameters.js','standard-parameters.css','standard-parameters.json','workspace.js','workspace.css']})
             public.update({'/parameter-settings.js':'parameter-settings.js','/parameter-settings.css':'parameter-settings.css'})
             public.update({'/catalog.js':'catalog.js','/catalog.css':'catalog.css','/supplier-catalog.json':'supplier-catalog.json'})
-            public.update({'/market-refresh-core.js':'market-refresh-core.js', '/market.js': 'market.js', '/market.css': 'market.css', '/market-data.json': 'market-data.json'})
+            public.update({'/market-trends-core.js':'market-trends-core.js','/market-trends.js':'market-trends.js','/market-refresh-core.js':'market-refresh-core.js', '/market.js': 'market.js', '/market.css': 'market.css', '/market-data.json': 'market-data.json'})
             target = public.get(path)
             if not target:
                 return self.json(404, {'error': '资源不存在。'})

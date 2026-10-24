@@ -19,11 +19,14 @@ SOURCES = {
     'sina_copper': ('新浪财经 · 沪铜连续日线', 'https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_data=/InnerFuturesNewService.getDailyKLine?symbol=CU0'),
     'sina_aluminum': ('新浪财经 · 沪铝连续日线', 'https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_data=/InnerFuturesNewService.getDailyKLine?symbol=AL0'),
 }
+SOURCES.update({
+ 'sina_tin': ('新浪财经 · 沪锡连续日线', SOURCES['sina_copper'][1].replace('CU0','SN0')),
+ 'sina_steel': ('新浪财经 · 热轧卷板连续日线', SOURCES['sina_copper'][1].replace('CU0','HC0'))})
 MATERIALS = {'铜': 'copper', '铝': 'aluminum', 'PC': 'pc', 'PMMA': 'pmma',
              'ABS': 'abs', 'PS': 'ps', 'PP(拉丝)': 'pp', 'LLDPE': 'lldpe', 'PVC': 'pvc'}
 EXPECTED = {'sunsirs_metals': ['copper', 'aluminum'],
             'sunsirs_plastics': ['pc', 'pmma', 'abs', 'ps', 'pp', 'lldpe', 'pvc'],
-            'sina_copper': ['copper-futures'], 'sina_aluminum': ['aluminum-futures']}
+            'sina_copper': ['copper-futures'], 'sina_aluminum': ['aluminum-futures'], 'sina_tin':['tin-futures'], 'sina_steel':['steel-futures']}
 
 
 def now():
@@ -106,14 +109,15 @@ def parse_sina(sid, raw):
     points = []
     for r in rows:
         day = dt.date.fromisoformat(r['d'])
+        if day > now().date(): raise ValueError('期货日期在未来')
         price = number(r['c'])
         if price <= 0: raise ValueError('期货收盘价无效')
         points.append({'date': day.isoformat(), 'price': price})
     if any(points[i]['date'] >= points[i+1]['date'] for i in range(len(points)-1)):
         raise ValueError('期货日期重复或乱序')
-    points = points[-60:]
+    points = points[-400:]
     if len(points) < 2: raise ValueError('期货数据不足两期')
-    material = '铜' if sid == 'sina_copper' else '铝'
+    material = {'sina_copper':'铜','sina_aluminum':'铝','sina_tin':'锡','sina_steel':'热轧卷板'}[sid]
     record = base_record(sid, EXPECTED[sid][0], material + '（期货连续）', points[-1]['date'], points[-1]['price'], points[-2]['price'], 'futures_close')
     record['history'] = points
     record['scope'] = '连续合约日线收盘，可能含换月影响，非现货或采购结算价；当天日线在收市前可能变化。'
@@ -162,7 +166,7 @@ class Market:
                     return sid, records, None
                 except Exception:
                     return sid, None, '采集失败：网络、来源校验或字段结构变化；保留上次成功值。'
-            with ThreadPoolExecutor(max_workers=4) as pool: results = list(pool.map(collect, SOURCES))
+            with ThreadPoolExecutor(max_workers=6) as pool: results = list(pool.map(collect, SOURCES))
             timestamp = now().isoformat(timespec='seconds')
             existing = {r['id']: r for r in self.data.get('records', [])}
             sources = self.data.setdefault('sources', {})

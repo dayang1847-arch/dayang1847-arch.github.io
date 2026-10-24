@@ -50,4 +50,16 @@ class MarketTests(unittest.TestCase):
             old={'records':parse_sunsirs('sunsirs_metals',fixture(now().date()-dt.timedelta(days=5)))}
             self.assertEqual(annotate(old)['records'][0]['freshness'],'stale');self.assertIsNone(old['records'][0].get('freshness'))
 
+
+
+class FourFutureTests(unittest.TestCase):
+    def test_four_symbols_keep_bounded_real_history_and_reject_future_closes(self):
+        rows=[{'d':(now().date()-dt.timedelta(days=449-i)).isoformat(),'c':str(100+i)} for i in range(450)]
+        raw='var _data=('+json.dumps(rows)+');'
+        for sid,name in [('sina_copper','铜'),('sina_aluminum','铝'),('sina_tin','锡'),('sina_steel','热轧卷板')]:
+            r=parse_sina(sid,raw)[0]
+            self.assertIn(name,r['material']);self.assertEqual(len(r['history']),400);self.assertEqual(r['price'],549)
+        rows[-1]['d']=(now().date()+dt.timedelta(days=1)).isoformat()
+        with self.assertRaises(ValueError):parse_sina('sina_tin','var _data=('+json.dumps(rows)+');')
+
 if __name__=='__main__':unittest.main()
