@@ -11,7 +11,7 @@ window.WUI=(()=>{
  ];
  const last=Object.fromEntries(groups.map(g=>[g.id,g.views[0][0]]));let part='standard';
  const group=page=>groups.find(g=>g.views.some(v=>v[0]===page))||groups.find(g=>g.id===page)||groups[0];
- function resolve(page){if(groups.some(g=>g.id===page))return last[page];return groups.some(g=>g.views.some(v=>v[0]===page))?page:'overview';}
+ function resolve(page,{exact=false}={}){const leaf=groups.some(g=>g.views.some(v=>v[0]===page));if(exact&&leaf)return page;if(groups.some(g=>g.id===page))return last[page];return leaf?page:'overview';}
  function readURL(){const q=new URLSearchParams(location.search),view=q.get('view')||'overview',g=groups.find(g=>g.id===view);if(q.get('part')==='display')part='display';else part='standard';return g?(g.views.find(v=>v[2]===q.get('tab'))?.[0]||last[g.id]):resolve(view);}
  function syncURL(page,replace=false){const g=group(page),v=g.views.find(v=>v[0]===page);last[g.id]=page;try{const u=new URL(location.href);u.searchParams.set('view',g.id);u.searchParams.delete('tab');u.searchParams.delete('part');if(g.views.length>1)u.searchParams.set('tab',v[2]);if(page==='parameters'&&part==='display')u.searchParams.set('part','display');if(u.href!==location.href)history[replace?'replaceState':'pushState']({},'',u.href);}catch{/* file:// previews retain functional navigation without URL history. */}}
  const tabs=g=>g.views.length>1?`<nav class="wui-tabs" aria-label="${esc(g.title)}功能切换">${g.views.map(([id,label])=>`<button type="button" data-wui-page="${id}" aria-pressed="${state.page===id}" class="${state.page===id?'active':''}">${label}${id==='tasks'?` <span class="count">${taskCount()}</span>`:''}</button>`).join('')}</nav>`:'';
