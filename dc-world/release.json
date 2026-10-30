@@ -1,47 +1,23 @@
 {
-  "version": "2.4.0",
+  "version": "2.4.1",
   "date": "2026-10-30",
-  "sourceCommit": "b82dacd2cdf0ff07f6763144ceaa3b6d7d6796fa",
-  "sourceTree": "210cc9dfe9b828370b4ea128a0ea5753048625fe",
-  "sourceDirectory": "source",
-  "fileCount": 422,
-  "bytes": 14786105,
-  "scope": "Local edition source; existing Cloudflare entry preserved; no online redeployment",
+  "onlineUrl": "https://dc-world-game.umi-ilot.workers.dev/",
+  "scope": "Public demo entry and release metadata; full source and history remain private",
+  "features": [
+    "持续自动发展、失败退避重试与刷新恢复",
+    "简体中文界面与议事说明",
+    "自主城市计划、企业经营与居民财务",
+    "高层新区、江湖地形与连续水面",
+    "分块云端存档与账本校验"
+  ],
   "verification": {
-    "data": {
-      "errors": 0,
-      "warnings": 0
-    },
-    "fullRegression": {
-      "tests": 222,
-      "passed": 221,
-      "failed": 1,
-      "knownFailure": "Existing traffic CPU 17.3ms > 6ms"
-    },
-    "finalFocusedChecks": {
-      "passed": 76,
-      "includesNewPlanHistoryRetentionTest": true
-    },
-    "finalWaterChecks": {
-      "passed": 3
-    },
-    "browserViewports": [
-      "1280x720",
-      "390x844"
-    ],
-    "browserViews": [
-      "day curved confluence",
-      "night curved confluence",
-      "autonomous plan console"
-    ],
-    "realPhonesTested": false,
-    "paidModelsCalled": false
+    "onlineVersion": "2.4.1",
+    "focusedChecksPassed": 81,
+    "largeSnapshotSaveAndRestore": true,
+    "revisionConflictProtection": true,
+    "outdatedClientProtection": true,
+    "knownLimit": "Traffic CPU performance threshold still unmet; keep a game page open for automatic deliberation"
   },
-  "excluded": [
-    "city saves",
-    "runtime financial journals",
-    "credentials",
-    "backups",
-    "Hangzhou GIS data"
-  ]
+  "sourceRepository": "https://github.com/dayang1847-arch/dc-web-source",
+  "sourceVisibility": "private"
 }
