@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#112e35">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="description" content="通过闯关学习越南语日常交流与照明行业商务用语。">
+  <title>越语冒险 · 每天闯过一小关</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="styles.css?v=12">
+  <link rel="stylesheet" href="../assets/project-navigation.css?v=1">
+  <script defer src="../assets/project-navigation.js?v=1"></script>
+  
+  
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <a class="brand" href="#home" aria-label="越语冒险首页"><span class="brand-icon">越</span><span><strong>越语冒险</strong><small>VIETNAMESE QUEST</small></span></a>
+      <div class="sidebar-label">学习导航</div>
+      <nav aria-label="主导航">
+        <button class="nav-link active" data-page="home"><span>⌂</span>今日首页</button>
+        <button class="nav-link" data-page="map"><span>◈</span>闯关地图</button>
+        <button class="nav-link" data-page="logic"><span>◇</span>语言逻辑</button>
+        <button class="nav-link" data-page="vocab"><span>▤</span>常用词汇</button>
+        <button class="nav-link" data-page="pronunciation"><span>♫</span>发音训练</button>
+        <button class="nav-link" data-page="review"><span>↻</span>错题复习</button>
+        <button class="nav-link" data-page="records"><span>▥</span>学习记录</button>
+      </nav>
+      <div class="sidebar-bottom"><span class="online-dot"></span> 每一天，前进一步</div>
+    </aside>
+    <main class="main">
+      <header class="topbar dc-navigation-header"><a class="dc-back-link" data-dc-back href="../?lang=zh#works"><span aria-hidden="true">←</span><span data-dc-back-label>返回上一页</span></a><span class="topbar-label dc-navigation-breadcrumb">越南语 · 日常与照明商务</span><span id="top-xp" class="xp-pill">✦ 0 XP</span></header>
+      <div id="audio-status" class="audio-status" role="status" aria-live="polite" hidden></div>
+      <div id="storage-warning" class="storage-warning" role="status" hidden>当前浏览器无法保存进度。本次学习仍可继续，关闭页面后记录可能丢失。</div>
+      <div id="app" class="content"></div>
+    </main>
+  </div>
+  <div id="announcer" class="sr-only" role="status" aria-live="polite"></div>
+  <script type="module" src="app.js?v=12"></script>
+  <script>
+    if (!window.AndroidVoice && 'serviceWorker' in navigator) window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./service-worker.js').catch(() => {});
+    });
+  </script>
+</body>
+</html>

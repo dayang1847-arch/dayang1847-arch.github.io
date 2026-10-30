@@ -1,0 +1,514 @@
+{
+  "version": "2026-10-15",
+  "zh": {
+    "title": "PDF 转 CAD 软件使用说明书",
+    "subtitle": "从整页图纸转换，到零件外轮廓校准与汇总",
+    "sections": [
+      {
+        "id": "start",
+        "title": "01 · 先选择你的工作方式",
+        "paragraphs": [
+          "图纸工坊在浏览器中读取 PDF，生成可以在 CAD 软件中继续编辑的 DWG 与 DXF。载入多个文件后，既可以逐页转换，也可以从不同页面提取零件外形，汇总到一份 CAD 或 PDF。",
+          "图纸文件在当前页面的内存中处理。打开说明书会进入新标签页，原工作台中的文件和校准结果可以继续保留。"
+        ],
+        "table": {
+          "headers": [
+            "你想得到什么",
+            "使用哪个功能",
+            "结果"
+          ],
+          "rows": [
+            [
+              "保留整页图纸的线条与可解码文字",
+              "开始转换",
+              "每页一组 DWG / DXF"
+            ],
+            [
+              "描出整页图形边界",
+              "整页描轮廓",
+              "每页一组 DWG / DXF"
+            ],
+            [
+              "只保留灯杯等单个零件的外形",
+              "零件轮廓汇总",
+              "多个外形合为一个 DWG、DXF 或 PDF"
+            ]
+          ]
+        },
+        "note": "提取灯杯外形时，使用“零件轮廓汇总”：框选单个视图 → 提取 → 两点校准 → 汇总导出。"
+      },
+      {
+        "id": "files",
+        "title": "02 · 载入图纸与选择模式",
+        "paragraphs": [
+          "在工作台等待“转换引擎已就绪”，再点击“选择文件”或拖入文件。支持 PDF，以及包含 PDF 的 ZIP / RAR 压缩包；压缩包中其他格式不会作为图纸载入。扫描照片需要先保存为 PDF。",
+          "点击文件名称查看源图，在文件和页码下拉框中切换到需要处理的页面。受密码保护的 PDF 需先解除保护后再载入。"
+        ],
+        "table": {
+          "headers": [
+            "模式",
+            "适用情况"
+          ],
+          "rows": [
+            [
+              "自动识别",
+              "通常先选此项；按每页内容决定使用矢量提取或扫描描线。"
+            ],
+            [
+              "矢量图纸",
+              "由 CAD 等软件直接导出的 PDF，优先保留原有线条和可解码文字。"
+            ],
+            [
+              "扫描图纸",
+              "以图片为主体的 PDF；按图像明暗边界生成可编辑轮廓。"
+            ]
+          ]
+        },
+        "note": "扫描参数默认 300 DPI、阈值 160。较浅的线条可尝试调高阈值；处理过慢或内存不足时先降低 DPI。调整后应重新转换或重新提取。 阈值调高也可能带入更多噪声。"
+      },
+      {
+        "id": "page-calibration",
+        "title": "03 · 整页转换前，按标注校准",
+        "paragraphs": [
+          "PDF 的纸面尺寸通常不是零件的实际尺寸。整页转换使用“按标注校准尺寸”，每一页单独设置。",
+          "校准会按同一比例缩放整页。若同一页包含比例不同的视图，一条参考尺寸无法同时校准所有视图；需要单个外形时，分别框选并按零件校准。"
+        ],
+        "steps": [
+          "在“图纸预览”中选择文件和页码，确保显示源图。",
+          "找到清晰且已知的标注，依次点击对应的两个尺寸界线端点，确认两点代表同一条标注的实际长度。",
+          "填写标注的实际长度，单位为毫米，点击“应用本页校准”。",
+          "检查参考长度与本页比例；逐页完成后，点击“开始转换”。"
+        ],
+        "note": "默认要求先校准。确实只需纸面比例时，可勾选“允许未校准页按纸面 / 手动比例导出”；这些页面会标记“尺寸未核实”。手动输入比例不会替代两点校准。"
+      },
+      {
+        "id": "part-extraction",
+        "title": "04 · 框选并提取单个外轮廓",
+        "paragraphs": [
+          "载入文件后，进入绿色的“零件轮廓汇总”工作区。从不同文件或页面中提取的外形，可以一起排列导出。",
+          "该功能提取框选区域中主体的单一闭合外边界，内部线、内孔和剖面结构不会进入最终外形。它适用于外形比较和轮廓整理。 提取时统一将页面转为图像进行识别，曲边输出为分段直线，不会保留原生圆弧。"
+        ],
+        "steps": [
+          "选择文件和页码，找到需要的灯杯主视图或其他零件视图。",
+          "在源图上拖动矩形，完整包住一个零件，并留少量空白边距；尽量避开尺寸线、文字、图框和其他视图。",
+          "点击“提取选中外轮廓”，检查右侧轮廓预览，确认开口、凹位、台阶和整体形状符合原图。",
+          "若轮廓带有尺寸辅助线、缺边或选错主体，重新框选后提取；移除不需要的旧轮廓。"
+        ],
+        "note": "边界模糊、断线或辅助线与零件相连，都可能改变提取结果。不要仅凭“提取成功”判断形状正确；先核对预览，再进行尺寸校准。 网页中的“编辑轮廓”用于重新选择项目进行命名、校准或旋转；如需修改线段，应导出后在 CAD 中完成。"
+      },
+      {
+        "id": "part-calibration",
+        "title": "05 · 选中以后，再校准零件尺寸",
+        "paragraphs": [
+          "零件校准与整页校准分别保存。即使源图页面已经校准，每个提取的零件仍需在轮廓上独立完成校准。",
+          "优先选择原图中清晰、跨度较大的已知尺寸，例如最大外径或总高。示意图中的 60 mm 仅用于说明操作，不代表任何真实产品规格。 型号名称不能代替实际标注尺寸。"
+        ],
+        "steps": [
+          "在提取后的轮廓上，依次点击对应已知尺寸的两个轮廓端点 A、B；鼠标或触控点击会吸附附近边线。",
+          "输入标注的实际长度，例如 60 mm，点击“校准此零件尺寸”。",
+          "检查“标注 / 复核”长度以及轮廓宽、高；再对照原图检查另一条尺寸。",
+          "填写型号或名称。横向视图可点击“旋转 90°”；旋转会保留已校准的参考长度。",
+          "需修正时点击“重置校准”，重新选点和输入尺寸。未完成的新校准不能直接用于汇总。"
+        ],
+        "note": "两点校准只验证所选参考距离，并对外形整体等比例缩放。它不会自动纠正扫描拉伸、透视变形或其他尺寸误差，也不会把所有标注同时调整为准确值。"
+      },
+      {
+        "id": "collection",
+        "title": "06 · 将多个轮廓汇总到一份文件",
+        "paragraphs": [
+          "重复框选、提取和校准，可将多个型号加入“待汇总零件”。勾选要导出的项目，取消勾选不需要的项目，或直接移除。",
+          "所有勾选项目都完成校准后，“汇总为 DWG / DXF / PDF”按钮才会启用。每次点击导出一种格式，文件保存到浏览器设置的下载位置。"
+        ],
+        "table": {
+          "headers": [
+            "格式",
+            "汇总方式与比例",
+            "后续用途"
+          ],
+          "rows": [
+            [
+              "DWG",
+              "一个 AutoCAD 2013 格式文件；毫米单位，保留校准后的 1:1 实际尺寸。",
+              "在兼容 CAD 软件中编辑、测量。"
+            ],
+            [
+              "DXF",
+              "一个可编辑交换文件；毫米单位，保留校准后的 1:1 实际尺寸。",
+              "导入 CAD 软件继续处理。"
+            ],
+            [
+              "PDF",
+              "横向 A4，每页最多 6 款，可自动分页；整批使用相同显示比例，保留型号间相对大小。",
+              "查看、比较与打印轮廓汇总。"
+            ]
+          ]
+        },
+        "note": "PDF 为适配页面会缩放，并标明显示比例与包络尺寸。打印或测量时应核对比例；实际尺寸以页面显示的参考尺寸、原图标注及 CAD 测量为准。"
+      },
+      {
+        "id": "page-output",
+        "title": "07 · 整页结果与批量下载",
+        "paragraphs": [
+          "整页“开始转换”会处理全部已载入文件的所有页面，逐页生成 DWG 和 DXF；当前预览页不会限定转换范围。直线、曲线可单独选择与编辑；矢量 PDF 中可解码的文字会尽量保留为文字对象。扫描文字仍是轮廓，尺寸标注不会自动恢复为可关联的 CAD 尺寸对象。",
+          "“整页描轮廓”同样处理全部已载入文件的所有页面，并沿用当前模式和每页校准。它会跳过矢量 PDF 中的原生文字，但已转为路径的文字、扫描文字和尺寸数字仍可能保留。扫描粗线还可能出现双边轮廓。"
+        ],
+        "steps": [
+          "转换完成后，先查看成功与失败数量；有提示的页面需单独检查。",
+          "逐页点击 DWG 或 DXF，下载单个结果。",
+          "需要整批文件时，选择“全部下载 DWG”“全部下载 DXF”或“全部下载（两种）”，得到对应 ZIP 压缩包。",
+          "解压后在 CAD 软件中打开文件，检查比例、线条、文字及参考尺寸。结果区域的预览是源图参考，不是 CAD 文件的重新渲染。"
+        ],
+        "note": "批量下载只包含已成功生成的结果。整页批量下载是多个文件的压缩包；若需要多个外形出现在同一个 CAD 中，请使用“零件轮廓汇总”。"
+      },
+      {
+        "id": "privacy-limits",
+        "title": "08 · 文件保存、隐私与处理范围",
+        "paragraphs": [
+          "本软件不上传图纸到转换服务器，也不保存或显示转换历史。文件、预览、校准和临时结果只存在于当前工作台标签页。刷新、关闭、切换工作台语言、清空本次文件或取消并清空，会结束当前会话；需要重新载入源文件。",
+          "下载到本地的文件由你自行保存，清空工作台不会删除它们。完成工作后，先下载结果，再清空或关闭工作台。说明书可以独立查看，无需加载转换引擎。"
+        ],
+        "table": {
+          "headers": [
+            "项目",
+            "当前范围"
+          ],
+          "rows": [
+            [
+              "输入",
+              "每份 PDF 最大 60 MiB；每批最多 50 份 PDF、100 页、总计 200 MiB。"
+            ],
+            [
+              "扫描处理",
+              "每页渲染最多 3000 万像素；默认每页最多 25 万个独立图元。"
+            ],
+            [
+              "零件汇总",
+              "每次最多 100 个轮廓；选区最多 400 万像素。过大或过于复杂时需缩小范围或降低 DPI。"
+            ],
+            [
+              "运行环境",
+              "使用支持 WebAssembly、Web Worker 和 OffscreenCanvas 的现代浏览器；通过网页地址访问。"
+            ]
+          ]
+        },
+        "note": "首次打开需要下载程序资源，较复杂图纸会占用更多内存。超限或运行缓慢时，减少批量文件、降低 DPI，或先将 PDF 拆分为较小文件。"
+      },
+      {
+        "id": "troubleshooting",
+        "title": "09 · 常见问题处理",
+        "paragraphs": [],
+        "table": {
+          "headers": [
+            "现象",
+            "处理方式"
+          ],
+          "rows": [
+            [
+              "引擎一直未就绪",
+              "检查网络和浏览器支持。刷新重试前，先保存当前可下载结果；刷新会清空会话。"
+            ],
+            [
+              "载入失败或压缩包为空",
+              "确认文件为有效 PDF，或 ZIP / RAR 内含 PDF；解除 PDF 密码保护，并检查文件与页数上限。"
+            ],
+            [
+              "扫描图选择矢量模式失败",
+              "改为自动识别或扫描模式，重新转换。"
+            ],
+            [
+              "外形混入文字、尺寸线或选错主体",
+              "框选单个完整零件，避开干扰线；检查原图边界是否断开，调整阈值后重新提取。"
+            ],
+            [
+              "导出轮廓按钮不可用",
+              "至少勾选一个零件，并完成每个勾选零件的两点校准。"
+            ],
+            [
+              "下载后尺寸仍有偏差",
+              "检查选点、输入单位和参考长度；复核另一方向尺寸。扫描变形需在 CAD 中继续修正。"
+            ],
+            [
+              "没有看到下载文件",
+              "查看浏览器下载列表与下载位置；确认下载已允许。不要刷新工作台后再寻找临时结果。"
+            ],
+            [
+              "DWG 在目标软件中打开异常",
+              "尝试同批次 DXF，检查目标软件对 AutoCAD 2013 DWG 的支持，并核对实体和文字。"
+            ]
+          ]
+        }
+      },
+      {
+        "id": "checklist",
+        "title": "10 · 交付前的快速检查",
+        "paragraphs": [
+          "按下列顺序完成复核，可减少漏页、错误比例和轮廓选择错误。软件帮助提取与整理图形，最终工程尺寸仍需结合原图检查。"
+        ],
+        "steps": [
+          "文件与页码正确，目标零件完整，型号名称清晰。",
+          "每个选中的外形已校准，参考长度与原图标注一致。",
+          "再核对总高、外径等其他尺寸；确认凹位、台阶和边界细节。",
+          "CAD 中单位为毫米，线条可分别编辑；PDF 的显示比例符合查看或打印需求。",
+          "确认所有需要的文件已下载到本地，再清空或关闭工作台。"
+        ],
+        "note": "说明书版本：2026-10-15。内容对应当前在线版本；说明中的图形与尺寸示例均为合成演示。"
+      }
+    ]
+  },
+  "en": {
+    "title": "PDF to CAD User Guide",
+    "subtitle": "Convert complete drawings, or extract, calibrate and collect part contours",
+    "sections": [
+      {
+        "id": "start",
+        "title": "01 · Choose your workflow",
+        "paragraphs": [
+          "Drawing Workshop reads PDFs in your browser and creates editable DWG and DXF files. Convert complete pages, or extract part contours from different pages and arrange them in one CAD or PDF file.",
+          "Drawings are processed in the current page’s memory. The user guide opens in a new tab so the original workbench can retain your files and calibrations."
+        ],
+        "table": {
+          "headers": [
+            "Goal",
+            "Feature",
+            "Result"
+          ],
+          "rows": [
+            [
+              "Keep full-page geometry and decodable text",
+              "Start conversion",
+              "One DWG / DXF pair per page"
+            ],
+            [
+              "Trace the boundaries across a complete page",
+              "Trace whole page",
+              "One DWG / DXF pair per page"
+            ],
+            [
+              "Keep only a lamp cup or other part’s outer shape",
+              "Part contour collection",
+              "Several contours in one DWG, DXF or PDF"
+            ]
+          ]
+        },
+        "note": "For isolated lamp-cup profiles, use Part contour collection: select a region → extract → calibrate two points → export the collection."
+      },
+      {
+        "id": "files",
+        "title": "02 · Load drawings and choose a mode",
+        "paragraphs": [
+          "Wait for “Conversion engine ready”, then choose or drop files. Accepted inputs are PDF and ZIP / RAR archives containing PDFs. Other archive entries are ignored. Save scanned photos as PDF first.",
+          "Select a file to preview it, then choose the required file and page in the selectors. Remove password protection from a PDF before loading it."
+        ],
+        "table": {
+          "headers": [
+            "Mode",
+            "When to use it"
+          ],
+          "rows": [
+            [
+              "Automatic",
+              "Start here. The app chooses vector extraction or scan tracing for each page."
+            ],
+            [
+              "Vector PDF",
+              "For PDFs exported from CAD and similar software; preserves existing paths and decodable text where possible."
+            ],
+            [
+              "Scanned PDF",
+              "For image-based drawings; turns image boundaries into editable contours."
+            ]
+          ]
+        },
+        "note": "Scan defaults are 300 DPI and threshold 160. Increase the threshold to include lighter lines. Reduce DPI if processing is slow or memory runs short. Convert or extract again after changing these settings. A higher threshold can also include more noise."
+      },
+      {
+        "id": "page-calibration",
+        "title": "03 · Calibrate each complete page",
+        "paragraphs": [
+          "PDF paper dimensions usually differ from actual part dimensions. Use “Calibrate against a dimension” before full-page conversion. Each page has its own calibration.",
+          "Calibration scales the whole page uniformly. A page containing views at different scales cannot be fully calibrated from one reference. For individual outer shapes, extract and calibrate each part separately."
+        ],
+        "steps": [
+          "Choose a file and page in Drawing preview and show the source image.",
+          "Find a clear stated dimension. Click its two extension-line endpoints, carefully matching the intended measurement.",
+          "Enter the stated length in millimetres and select “Apply to this page”.",
+          "Check the reference length and page scale. Repeat for each page, then select “Start conversion”."
+        ],
+        "note": "Calibration is required by default. If paper scale is sufficient, explicitly allow uncalibrated pages at paper / manual scale. These results are marked as dimensions unverified. A manually entered scale does not replace two-point calibration."
+      },
+      {
+        "id": "part-extraction",
+        "title": "04 · Select and extract one outer contour",
+        "paragraphs": [
+          "After loading files, open the green Part contour collection workspace. Contours from different files and pages can be arranged in the same export.",
+          "This feature extracts one closed outer boundary of the main shape inside the selection. Internal lines, holes and section details are excluded. Use it to compare and organize outer profiles. Extraction rasterizes the source page and represents curved boundaries as line segments; native arcs are not preserved."
+        ],
+        "steps": [
+          "Select a file and page, then locate the required front view or other part view.",
+          "Drag a rectangle around one complete part, leaving a small blank margin. Avoid dimensions, text, drawing borders and other views.",
+          "Select “Extract selected outer contour”. Inspect the contour preview and compare recesses, steps and the overall shape with the source.",
+          "If the result includes dimension lines, misses an edge or selects the wrong object, select a new region and extract again. Remove unwanted older contours."
+        ],
+        "note": "Faint edges, gaps and connected annotation lines can affect extraction. A successful extraction does not prove that the shape is correct. Inspect the preview before calibrating. “Edit contour” selects a part for naming, calibration or rotation; edit individual geometry later in CAD software."
+      },
+      {
+        "id": "part-calibration",
+        "title": "05 · Calibrate the extracted part",
+        "paragraphs": [
+          "Part calibration and page calibration are separate. Every extracted part needs its own two-point calibration, even if its source page was already calibrated.",
+          "Choose a clear, longer stated dimension, such as maximum diameter or total height. The 60 mm illustration is a synthetic example, not a real product specification. A model name is not a dimension; enter the actual stated measurement."
+        ],
+        "steps": [
+          "On the extracted contour, click endpoints A and B corresponding to a known dimension. Pointer and touch clicks snap to nearby contour edges.",
+          "Enter its stated length, for example 60 mm, and select “Calibrate this part”.",
+          "Check the stated and measured reference lengths and the displayed width and height. Compare another dimension with the source.",
+          "Enter a model or name. Use “Rotate 90°” for sideways views; rotation preserves the calibrated reference length.",
+          "To correct the measurement, select “Reset calibration” and choose the points again. An unfinished new calibration cannot be exported."
+        ],
+        "note": "Two-point calibration verifies only the selected reference distance and scales the complete shape uniformly. It does not automatically correct scan stretch, perspective distortion or other dimensional errors."
+      },
+      {
+        "id": "collection",
+        "title": "06 · Export several contours together",
+        "paragraphs": [
+          "Repeat selection, extraction and calibration to build your collection. Check the parts to include, uncheck those to omit, or remove unwanted entries.",
+          "All selected parts must be calibrated before the DWG / DXF / PDF export buttons become available. Export one format at a time. Files go to your browser’s configured download location."
+        ],
+        "table": {
+          "headers": [
+            "Format",
+            "Layout and scale",
+            "Use"
+          ],
+          "rows": [
+            [
+              "DWG",
+              "One AutoCAD 2013 file; millimetre units and calibrated actual-size geometry at 1:1.",
+              "Edit and measure in compatible CAD software."
+            ],
+            [
+              "DXF",
+              "One editable exchange file; millimetre units and calibrated actual-size geometry at 1:1.",
+              "Import into CAD software for further work."
+            ],
+            [
+              "PDF",
+              "Landscape A4 with up to six parts per page and automatic page breaks; one shared display scale across the whole collection.",
+              "View, compare and print contour collections."
+            ]
+          ]
+        },
+        "note": "PDF contours are scaled to fit the sheet, with display scale and bounding dimensions shown. Check the scale when printing or measuring. Use the reference dimensions shown in the page, the original drawing and CAD measurements to verify actual dimensions."
+      },
+      {
+        "id": "page-output",
+        "title": "07 · Download full-page results",
+        "paragraphs": [
+          "Start conversion processes every page of every loaded file, generating DWG and DXF per page. The preview page does not limit this scope. Lines and curves can be selected separately. Decodable vector text is preserved where possible; scanned text remains an outline. Dimension labels are not restored as associative CAD dimensions.",
+          "Trace whole page also processes every page of every loaded file, using the current mode and page calibration. It omits native vector text, but text already converted to paths, scanned text and dimension numbers may remain. Thick scanned lines may produce outlines on both sides."
+        ],
+        "steps": [
+          "Check the success and failure counts. Review pages with warnings individually.",
+          "Select DWG or DXF on a page’s result to download that file.",
+          "Choose “Download all DWG”, “Download all DXF” or “Download both formats” to download the corresponding ZIP archive.",
+          "Extract the archive and inspect the files in CAD software. Check scale, lines, text and reference dimensions. The result preview is the source reference, not a rendered view of the exported CAD."
+        ],
+        "note": "Bulk archives contain successfully generated results only. Bulk full-page download packages separate files. To place multiple outer shapes in one CAD drawing, use Part contour collection."
+      },
+      {
+        "id": "privacy-limits",
+        "title": "08 · Save your work and understand the limits",
+        "paragraphs": [
+          "Drawings are not uploaded to a conversion server. No conversion history is stored or displayed. Files, previews, calibrations and temporary results exist only in the current workbench tab. Refreshing, closing, changing the workbench language, clearing the session or using Cancel and clear removes them; reload source files to start again.",
+          "Downloaded files remain on your device; clearing the workbench does not delete them. Download everything you need before clearing or closing the page. This guide can be read independently without loading the conversion engine."
+        ],
+        "table": {
+          "headers": [
+            "Item",
+            "Current limit"
+          ],
+          "rows": [
+            [
+              "Input",
+              "60 MiB per PDF; 50 PDFs, 100 pages and 200 MiB total per batch."
+            ],
+            [
+              "Scanning",
+              "30 million rendered pixels per page; 250,000 independent entities per page by default."
+            ],
+            [
+              "Part collection",
+              "Up to 100 contours per session and 4 million pixels per crop. Reduce the selected region or DPI if extraction is too complex."
+            ],
+            [
+              "Browser",
+              "A modern browser with WebAssembly, Web Worker and OffscreenCanvas support, accessed through a web address."
+            ]
+          ]
+        },
+        "note": "The first visit downloads program resources. Complex drawings require more memory. For large or slow jobs, process fewer files, reduce DPI or split the PDF first."
+      },
+      {
+        "id": "troubleshooting",
+        "title": "09 · Troubleshooting",
+        "paragraphs": [],
+        "table": {
+          "headers": [
+            "Issue",
+            "What to do"
+          ],
+          "rows": [
+            [
+              "Engine never becomes ready",
+              "Check your connection and browser support. Save any available results before refreshing; a refresh clears the session."
+            ],
+            [
+              "File fails to load or archive is empty",
+              "Check that it is a valid PDF, or a ZIP / RAR containing PDFs. Remove PDF password protection and check size and page limits."
+            ],
+            [
+              "Vector mode fails on a scan",
+              "Choose Automatic or Scanned PDF and convert again."
+            ],
+            [
+              "Contour contains annotations or the wrong shape",
+              "Select one complete part, avoid connected annotations and inspect gaps in the source. Adjust the threshold and extract again."
+            ],
+            [
+              "Contour export buttons are disabled",
+              "Select at least one part and complete two-point calibration for every selected part."
+            ],
+            [
+              "Downloaded dimensions still differ",
+              "Check endpoints, millimetre units and reference length. Verify a second dimension. Correct remaining scan distortion in CAD."
+            ],
+            [
+              "Download cannot be found",
+              "Check the browser’s download list, destination and download permission. Keep the workbench open while retrieving temporary results."
+            ],
+            [
+              "DWG opens incorrectly",
+              "Try the DXF from the same result. Check support for AutoCAD 2013 DWG and verify geometry and text."
+            ]
+          ]
+        },
+        "note": "If a page fails, the remaining successful results can still be downloaded."
+      },
+      {
+        "id": "checklist",
+        "title": "10 · Check before delivery",
+        "paragraphs": [
+          "Use this sequence to catch missing pages, incorrect scale and selection mistakes. The software extracts and organizes geometry; verify final engineering dimensions against the source drawing."
+        ],
+        "steps": [
+          "Confirm the file, page, complete part boundary and model label.",
+          "Confirm every selected part is calibrated and its reference matches the original dimension.",
+          "Check another diameter or height, plus recesses, steps and edge details.",
+          "Confirm millimetre CAD units, individually editable lines and an appropriate PDF display scale.",
+          "Confirm all required files are saved locally before clearing or closing the workbench."
+        ],
+        "note": "Guide version: 2026-10-15. This guide describes the current online release. All diagram and dimension examples are synthetic."
+      }
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+/* Mesh-derived estimates, not a replacement for B-rep mass properties or mold flow. */
+(function(root,factory){const api=factory();if(typeof module==='object')module.exports=api;else root.InjectionCADCore=api;})(globalThis,()=>{
+'use strict';
+function meshInfo(mesh){const p=mesh?.attributes?.position?.array,ix=mesh?.index?.array;if(!Array.isArray(p)||!Array.isArray(ix)||p.length%3||ix.length%3||!ix.length||ix.length>600000||p.some(v=>!Number.isFinite(v))||ix.some(v=>!Number.isInteger(v)||v<0||v>=p.length/3))throw Error('STEP网格无效或超过20万三角形，请简化模型后重试。');
+ const min=[Infinity,Infinity,Infinity],max=[-Infinity,-Infinity,-Infinity],edges=new Map(),directions=new Map(),weld=new Map();let volume=0,area=0,degenerate=0;const ids=[];
+ for(let i=0;i<p.length;i+=3){const key=p.slice(i,i+3).map(v=>Math.round(v*1e5)).join(',');if(!weld.has(key))weld.set(key,weld.size);ids.push(weld.get(key));for(let j=0;j<3;j++){min[j]=Math.min(min[j],p[i+j]);max[j]=Math.max(max[j],p[i+j]);}}
+ const ref=min;for(let i=0;i<ix.length;i+=3){const [ai,bi,ci]=ix.slice(i,i+3),a=p.slice(ai*3,ai*3+3).map((v,j)=>v-ref[j]),b=p.slice(bi*3,bi*3+3).map((v,j)=>v-ref[j]),c=p.slice(ci*3,ci*3+3).map((v,j)=>v-ref[j]);const cross=[b[1]*c[2]-b[2]*c[1],b[2]*c[0]-b[0]*c[2],b[0]*c[1]-b[1]*c[0]];volume+=(a[0]*cross[0]+a[1]*cross[1]+a[2]*cross[2])/6;const u=b.map((v,j)=>v-a[j]),v=c.map((v,j)=>v-a[j]),ar=Math.hypot(u[1]*v[2]-u[2]*v[1],u[2]*v[0]-u[0]*v[2],u[0]*v[1]-u[1]*v[0])/2;if(ar<1e-10){degenerate++;continue;}area+=ar;for(const [x,y]of [[ids[ai],ids[bi]],[ids[bi],ids[ci]],[ids[ci],ids[ai]]]){const key=x<y?x+','+y:y+','+x;edges.set(key,(edges.get(key)||0)+1);directions.set(key,(directions.get(key)||0)+(x<y?1:-1));}}
+ const closed=[...edges.values()].every(n=>n===2)&&edges.size>0&&!degenerate&&[...directions.values()].every(n=>n===0)&&Math.abs(volume)>1e-8,dimensionsMm=max.map((v,i)=>v-min[i]);if(dimensionsMm.some(v=>v<=0||v>1e6))throw Error('零件尺寸无效，请核对STEP单位与实体。');const preview=[];const step=Math.max(1,Math.ceil(ix.length/3/1500));for(let i=0;i<ix.length;i+=step*3)preview.push(ix.slice(i,i+3).flatMap(k=>p.slice(k*3,k*3+3)));
+ return{name:String(mesh.name||'未命名实体').slice(0,200),min,max,dimensionsMm,triangles:ix.length/3,closed,volumeCm3:closed?Math.abs(volume)/1000:null,surfaceCm2:area/100,envelopeAreasCm2:{X:dimensionsMm[1]*dimensionsMm[2]/100,Y:dimensionsMm[0]*dimensionsMm[2]/100,Z:dimensionsMm[0]*dimensionsMm[1]/100},preview,notice:'统一输出mm。体积为闭合三角网格估算，非精确B-rep质量属性；未自动测量壁厚、倒扣或分型面。'};
+}
+return{meshInfo};
+});

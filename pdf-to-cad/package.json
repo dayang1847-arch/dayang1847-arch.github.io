@@ -1,0 +1,24 @@
+{
+  "name": "dc-web-pdf-to-cad",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "node build.mjs",
+    "test": "node tests/geometry-test.mjs && node tests/contour-test.mjs && node tests/contour-session-test.mjs && node tests/contour-pdf-test.mjs && node tests/contour-worker-test.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "AGPL-3.0-or-later",
+  "type": "module",
+  "dependencies": {
+    "mupdf": "1.28.1",
+    "esm-potrace-wasm": "0.5.1",
+    "fflate": "0.8.3",
+    "@tarikjabiri/dxf": "2.9.0",
+    "paper": "0.12.18",
+    "node-unrar-js": "2.0.2"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2"
+  }
+}

@@ -1,0 +1,1660 @@
+{
+  "schema_version": "supplier-directory-1",
+  "updated_at": "2026-10-22",
+  "source_policy": "provided_catalogs_only",
+  "suppliers": [
+    {
+      "id": "changhe",
+      "name": "江苏长河电子有限公司",
+      "brand": "江苏长河",
+      "name_source": {
+        "document_id": "doc-changhe-2026",
+        "pdf_page": 82,
+        "excerpt": "江苏长河电子有限公司",
+        "verification": "native_text"
+      },
+      "english_name": {
+        "value": "JIANGSU CHANGHE ELECTRONICS CO.,LTD.",
+        "source": {
+          "document_id": "doc-changhe-2026",
+          "pdf_page": 82,
+          "excerpt": "JIANGSU CHANGHE ELECTRONICS CO.,LTD.",
+          "verification": "native_text"
+        }
+      },
+      "region": {
+        "province": "江苏",
+        "city": "常州",
+        "source": {
+          "document_id": "doc-changhe-2026",
+          "pdf_page": 82,
+          "excerpt": "生产基地：江苏省常州市金坛区直溪镇工业集中区直溪大道18号",
+          "verification": "native_text"
+        }
+      },
+      "founded_year": {
+        "value": 2010,
+        "source": {
+          "document_id": "doc-changhe-2026",
+          "pdf_page": 2,
+          "excerpt": "创建于2010年",
+          "verification": "native_text"
+        }
+      },
+      "document_ids": [
+        "doc-changhe-2026"
+      ],
+      "locations": [
+        {
+          "label": "生产基地",
+          "address": "江苏省常州市金坛区直溪镇工业集中区直溪大道18号",
+          "primary": true,
+          "entity_scope": "江苏长河电子有限公司",
+          "source": {
+            "document_id": "doc-changhe-2026",
+            "pdf_page": 82,
+            "excerpt": "生产基地：江苏省常州市金坛区直溪镇工业集中区直溪大道18号",
+            "verification": "native_text"
+          }
+        },
+        {
+          "label": "研发中心",
+          "address": "江苏省苏州市相城区嘉元路2号鑫鑫国际西栋1110室",
+          "primary": false,
+          "entity_scope": "江苏长河电子有限公司",
+          "source": {
+            "document_id": "doc-changhe-2026",
+            "pdf_page": 82,
+            "excerpt": "研发中心：江苏省苏州市相城区嘉元路2号鑫鑫国际西栋1110室",
+            "verification": "native_text"
+          }
+        }
+      ],
+      "contacts": [
+        {
+          "kind": "phone",
+          "label": "生产基地电话",
+          "value": "+86-519-82636888",
+          "entity_scope": "江苏长河电子有限公司",
+          "source": {
+            "document_id": "doc-changhe-2026",
+            "pdf_page": 82,
+            "excerpt": "生产基地电话：+86-519-82636888",
+            "verification": "native_text"
+          }
+        },
+        {
+          "kind": "phone",
+          "label": "研发中心电话",
+          "value": "+86-512-80660010",
+          "entity_scope": "江苏长河电子有限公司",
+          "source": {
+            "document_id": "doc-changhe-2026",
+            "pdf_page": 82,
+            "excerpt": "研发中心电话：+86-512-80660010",
+            "verification": "native_text"
+          }
+        },
+        {
+          "kind": "email",
+          "label": "目录商务邮箱",
+          "value": "chen@szchanghe.com.cn",
+          "entity_scope": "江苏长河电子有限公司",
+          "source": {
+            "document_id": "doc-changhe-2026",
+            "pdf_page": 82,
+            "excerpt": "目录商务邮箱：chen@szchanghe.com.cn",
+            "verification": "native_text"
+          }
+        },
+        {
+          "kind": "website",
+          "label": "目录官网",
+          "value": "http://www.szchanghe.com.cn",
+          "entity_scope": "江苏长河电子有限公司",
+          "source": {
+            "document_id": "doc-changhe-2026",
+            "pdf_page": 82,
+            "excerpt": "目录官网：http://www.szchanghe.com.cn",
+            "verification": "native_text"
+          }
+        }
+      ],
+      "product_scope": [
+        {
+          "value": "照明/安防接线端子",
+          "source": {
+            "document_id": "doc-changhe-2026",
+            "pdf_page": 1,
+            "excerpt": "照明、安防等用途接线端子及连接器",
+            "verification": "native_text"
+          }
+        },
+        {
+          "value": "工业电气连接器",
+          "source": {
+            "document_id": "doc-changhe-2026",
+            "pdf_page": 1,
+            "excerpt": "照明、安防等用途接线端子及连接器",
+            "verification": "native_text"
+          }
+        }
+      ],
+      "certification_claims": [
+        {
+          "label": "ISO 9001:2015",
+          "scope": "factory_catalog_statement",
+          "source": {
+            "document_id": "doc-changhe-2026",
+            "pdf_page": 2,
+            "excerpt": "工厂通过了ISO9001：2015和ISO14001：2015管理体系认证。",
+            "verification": "native_text"
+          },
+          "verification": "catalog_claim_unverified",
+          "expiry": null
+        },
+        {
+          "label": "ISO 14001:2015",
+          "scope": "factory_catalog_statement",
+          "source": {
+            "document_id": "doc-changhe-2026",
+            "pdf_page": 2,
+            "excerpt": "工厂通过了ISO9001：2015和ISO14001：2015管理体系认证。",
+            "verification": "native_text"
+          },
+          "verification": "catalog_claim_unverified",
+          "expiry": null
+        }
+      ],
+      "related_entities": [],
+      "notes": [
+        "目录声明仅作为宣传和参考，不作为合同附件。",
+        "陈先生邮箱为画册公开商务联系方式；可用性及当前负责人未确认。"
+      ],
+      "procurement": {
+        "credit_code": null,
+        "registered_capital": null,
+        "legal_representative": null,
+        "registered_address": null,
+        "admission_status": null,
+        "cooperation_status": null,
+        "supplier_tier": null,
+        "quality_score": null,
+        "delivery_score": null,
+        "service_score": null,
+        "certificate_expiry": null,
+        "payment_terms": null,
+        "lead_time": null,
+        "annual_spend": null
+      },
+      "statistics": {
+        "products": 202,
+        "specifications": 4428,
+        "variants": 749,
+        "categories": {
+          "免螺丝接线端子": 69,
+          "螺钉式接线端子": 30,
+          "贯通式接线端子": 20,
+          "连接器及接线附件": 25,
+          "贴片/焊脚接线端子": 11,
+          "排针排母": 30,
+          "接线附件": 17
+        }
+      },
+      "catalog_status": "linked",
+      "status": "catalog_profile_unverified"
+    },
+    {
+      "id": "oujun",
+      "name": "广东欧骏科技股份有限公司",
+      "brand": "欧骏科技 / OJUN",
+      "name_source": {
+        "document_id": "doc-oujun-2025",
+        "pdf_page": 1,
+        "excerpt": "广东欧骏科技股份有限公司",
+        "verification": "ocr_reviewed"
+      },
+      "english_name": {
+        "value": "Guangdong Ojun Technology Co., Ltd.",
+        "source": {
+          "document_id": "doc-oujun-2025",
+          "pdf_page": 1,
+          "excerpt": "Guangdong Ojun Technology Co., Ltd.",
+          "verification": "ocr_reviewed"
+        }
+      },
+      "region": {
+        "province": "广东",
+        "city": "佛山",
+        "source": {
+          "document_id": "doc-oujun-2025",
+          "pdf_page": 1,
+          "excerpt": "目录地址：广东省佛山市顺德区杏坛镇昌教南便公路7号",
+          "verification": "ocr_reviewed"
+        }
+      },
+      "founded_year": {
+        "value": 2006,
+        "source": {
+          "document_id": "doc-oujun-2025",
+          "pdf_page": 2,
+          "excerpt": "founded in 2006",
+          "verification": "ocr_reviewed"
+        }
+      },
+      "document_ids": [
+        "doc-oujun-2025"
+      ],
+      "locations": [
+        {
+          "label": "目录地址",
+          "address": "广东省佛山市顺德区杏坛镇昌教南便公路7号",
+          "primary": true,
+          "entity_scope": "广东欧骏科技股份有限公司",
+          "source": {
+            "document_id": "doc-oujun-2025",
+            "pdf_page": 1,
+            "excerpt": "目录地址：广东省佛山市顺德区杏坛镇昌教南便公路7号",
+            "verification": "ocr_reviewed"
+          }
+        }
+      ],
+      "contacts": [
+        {
+          "kind": "phone",
+          "label": "电话",
+          "value": "+86-757-26360166",
+          "entity_scope": "广东欧骏科技股份有限公司",
+          "source": {
+            "document_id": "doc-oujun-2025",
+            "pdf_page": 1,
+            "excerpt": "电话：+86-757-26360166",
+            "verification": "ocr_reviewed"
+          }
+        },
+        {
+          "kind": "fax",
+          "label": "传真",
+          "value": "+86-757-26360938",
+          "entity_scope": "广东欧骏科技股份有限公司",
+          "source": {
+            "document_id": "doc-oujun-2025",
+            "pdf_page": 1,
+            "excerpt": "传真：+86-757-26360938",
+            "verification": "ocr_reviewed"
+          }
+        },
+        {
+          "kind": "email",
+          "label": "商务邮箱",
+          "value": "export@ojun.com.cn",
+          "entity_scope": "广东欧骏科技股份有限公司",
+          "source": {
+            "document_id": "doc-oujun-2025",
+            "pdf_page": 1,
+            "excerpt": "商务邮箱：export@ojun.com.cn",
+            "verification": "ocr_reviewed"
+          }
+        },
+        {
+          "kind": "website",
+          "label": "目录官网",
+          "value": "http://www.ojun.com.cn",
+          "entity_scope": "广东欧骏科技股份有限公司",
+          "source": {
+            "document_id": "doc-oujun-2025",
+            "pdf_page": 1,
+            "excerpt": "目录官网：http://www.ojun.com.cn",
+            "verification": "ocr_reviewed"
+          }
+        }
+      ],
+      "product_scope": [
+        {
+          "value": "灯具连接器",
+          "source": {
+            "document_id": "doc-oujun-2025",
+            "pdf_page": 2,
+            "excerpt": "目录：灯具连接系列、线上开关系列、调光开关系列",
+            "verification": "ocr_reviewed"
+          }
+        },
+        {
+          "value": "线上开关",
+          "source": {
+            "document_id": "doc-oujun-2025",
+            "pdf_page": 2,
+            "excerpt": "目录：灯具连接系列、线上开关系列、调光开关系列",
+            "verification": "ocr_reviewed"
+          }
+        },
+        {
+          "value": "调光开关",
+          "source": {
+            "document_id": "doc-oujun-2025",
+            "pdf_page": 2,
+            "excerpt": "目录：灯具连接系列、线上开关系列、调光开关系列",
+            "verification": "ocr_reviewed"
+          }
+        }
+      ],
+      "certification_claims": [
+        {
+          "label": "VDE",
+          "scope": "product_range_catalog_statement",
+          "source": {
+            "document_id": "doc-oujun-2025",
+            "pdf_page": 2,
+            "excerpt": "我们的产品已获得VDE、UL、ENEC、SAA、KC、PSE、TUV、ASTA、SASO、CQC、UKCA等国际安全认证。",
+            "verification": "ocr_reviewed"
+          },
+          "verification": "catalog_claim_unverified",
+          "expiry": null
+        },
+        {
+          "label": "UL",
+          "scope": "product_range_catalog_statement",
+          "source": {
+            "document_id": "doc-oujun-2025",
+            "pdf_page": 2,
+            "excerpt": "我们的产品已获得VDE、UL、ENEC、SAA、KC、PSE、TUV、ASTA、SASO、CQC、UKCA等国际安全认证。",
+            "verification": "ocr_reviewed"
+          },
+          "verification": "catalog_claim_unverified",
+          "expiry": null
+        },
+        {
+          "label": "ENEC",
+          "scope": "product_range_catalog_statement",
+          "source": {
+            "document_id": "doc-oujun-2025",
+            "pdf_page": 2,
+            "excerpt": "我们的产品已获得VDE、UL、ENEC、SAA、KC、PSE、TUV、ASTA、SASO、CQC、UKCA等国际安全认证。",
+            "verification": "ocr_reviewed"
+          },
+          "verification": "catalog_claim_unverified",
+          "expiry": null
+        },
+        {
+          "label": "SAA",
+          "scope": "product_range_catalog_statement",
+          "source": {
+            "document_id": "doc-oujun-2025",
+            "pdf_page": 2,
+            "excerpt": "我们的产品已获得VDE、UL、ENEC、SAA、KC、PSE、TUV、ASTA、SASO、CQC、UKCA等国际安全认证。",
+            "verification": "ocr_reviewed"
+          },
+          "verification": "catalog_claim_unverified",
+          "expiry": null
+        },
+        {
+          "label": "KC",
+          "scope": "product_range_catalog_statement",
+          "source": {
+            "document_id": "doc-oujun-2025",
+            "pdf_page": 2,
+            "excerpt": "我们的产品已获得VDE、UL、ENEC、SAA、KC、PSE、TUV、ASTA、SASO、CQC、UKCA等国际安全认证。",
+            "verification": "ocr_reviewed"
+          },
+          "verification": "catalog_claim_unverified",
+          "expiry": null
+        },
+        {
+          "label": "PSE",
+          "scope": "product_range_catalog_statement",
+          "source": {
+            "document_id": "doc-oujun-2025",
+            "pdf_page": 2,
+            "excerpt": "我们的产品已获得VDE、UL、ENEC、SAA、KC、PSE、TUV、ASTA、SASO、CQC、UKCA等国际安全认证。",
+            "verification": "ocr_reviewed"
+          },
+          "verification": "catalog_claim_unverified",
+          "expiry": null
+        },
+        {
+          "label": "TUV",
+          "scope": "product_range_catalog_statement",
+          "source": {
+            "document_id": "doc-oujun-2025",
+            "pdf_page": 2,
+            "excerpt": "我们的产品已获得VDE、UL、ENEC、SAA、KC、PSE、TUV、ASTA、SASO、CQC、UKCA等国际安全认证。",
+            "verification": "ocr_reviewed"
+          },
+          "verification": "catalog_claim_unverified",
+          "expiry": null
+        },
+        {
+          "label": "ASTA",
+          "scope": "product_range_catalog_statement",
+          "source": {
+            "document_id": "doc-oujun-2025",
+            "pdf_page": 2,
+            "excerpt": "我们的产品已获得VDE、UL、ENEC、SAA、KC、PSE、TUV、ASTA、SASO、CQC、UKCA等国际安全认证。",
+            "verification": "ocr_reviewed"
+          },
+          "verification": "catalog_claim_unverified",
+          "expiry": null
+        },
+        {
+          "label": "SASO",
+          "scope": "product_range_catalog_statement",
+          "source": {
+            "document_id": "doc-oujun-2025",
+            "pdf_page": 2,
+            "excerpt": "我们的产品已获得VDE、UL、ENEC、SAA、KC、PSE、TUV、ASTA、SASO、CQC、UKCA等国际安全认证。",
+            "verification": "ocr_reviewed"
+          },
+          "verification": "catalog_claim_unverified",
+          "expiry": null
+        },
+        {
+          "label": "CQC",
+          "scope": "product_range_catalog_statement",
+          "source": {
+            "document_id": "doc-oujun-2025",
+            "pdf_page": 2,
+            "excerpt": "我们的产品已获得VDE、UL、ENEC、SAA、KC、PSE、TUV、ASTA、SASO、CQC、UKCA等国际安全认证。",
+            "verification": "ocr_reviewed"
+          },
+          "verification": "catalog_claim_unverified",
+          "expiry": null
+        },
+        {
+          "label": "UKCA",
+          "scope": "product_range_catalog_statement",
+          "source": {
+            "document_id": "doc-oujun-2025",
+            "pdf_page": 2,
+            "excerpt": "我们的产品已获得VDE、UL、ENEC、SAA、KC、PSE、TUV、ASTA、SASO、CQC、UKCA等国际安全认证。",
+            "verification": "ocr_reviewed"
+          },
+          "verification": "catalog_claim_unverified",
+          "expiry": null
+        }
+      ],
+      "related_entities": [],
+      "notes": [
+        "2006年为目录英文 founded in 2006 的企业自述；不是工商注册核验结论。",
+        "文件名标示2025，画册内未确认独立版本日期。"
+      ],
+      "procurement": {
+        "credit_code": null,
+        "registered_capital": null,
+        "legal_representative": null,
+        "registered_address": null,
+        "admission_status": null,
+        "cooperation_status": null,
+        "supplier_tier": null,
+        "quality_score": null,
+        "delivery_score": null,
+        "service_score": null,
+        "certificate_expiry": null,
+        "payment_terms": null,
+        "lead_time": null,
+        "annual_spend": null
+      },
+      "statistics": {
+        "products": 160,
+        "specifications": 1389,
+        "variants": 0,
+        "categories": {
+          "连接器与端子": 58,
+          "光控与路灯连接器": 29,
+          "接线盒": 20,
+          "防水连接器": 21,
+          "开关与调光器": 32
+        }
+      },
+      "catalog_status": "linked",
+      "status": "catalog_profile_unverified"
+    },
+    {
+      "id": "fulang",
+      "name": "厦门市福朗电子有限公司",
+      "brand": "FUCON 福朗",
+      "name_source": {
+        "document_id": "doc-fulang-2026",
+        "pdf_page": 1,
+        "excerpt": "厦门市福朗电子有限公司",
+        "verification": "ocr_reviewed"
+      },
+      "english_name": {
+        "value": "Xiamen Fulang Electronics Co., Ltd.",
+        "source": {
+          "document_id": "doc-fulang-2026",
+          "pdf_page": 1,
+          "excerpt": "Xiamen Fulang Electronics Co., Ltd.",
+          "verification": "ocr_reviewed"
+        }
+      },
+      "region": {
+        "province": "福建",
+        "city": "厦门",
+        "source": {
+          "document_id": "doc-fulang-2026",
+          "pdf_page": 1,
+          "excerpt": "目录地址：福建省厦门市集美区集美北大道519-16号",
+          "verification": "ocr_reviewed"
+        }
+      },
+      "founded_year": {
+        "value": 2013,
+        "source": {
+          "document_id": "doc-fulang-2026",
+          "pdf_page": 2,
+          "excerpt": "创建于2013年",
+          "verification": "ocr_reviewed"
+        }
+      },
+      "document_ids": [
+        "doc-fulang-2026"
+      ],
+      "locations": [
+        {
+          "label": "目录地址",
+          "address": "福建省厦门市集美区集美北大道519-16号",
+          "primary": true,
+          "entity_scope": "厦门市福朗电子有限公司",
+          "source": {
+            "document_id": "doc-fulang-2026",
+            "pdf_page": 1,
+            "excerpt": "目录地址：福建省厦门市集美区集美北大道519-16号",
+            "verification": "ocr_reviewed"
+          }
+        }
+      ],
+      "contacts": [
+        {
+          "kind": "phone",
+          "label": "电话",
+          "value": "+86-592-7791830",
+          "entity_scope": "厦门市福朗电子有限公司",
+          "source": {
+            "document_id": "doc-fulang-2026",
+            "pdf_page": 1,
+            "excerpt": "电话：+86-592-7791830",
+            "verification": "ocr_reviewed"
+          }
+        },
+        {
+          "kind": "fax",
+          "label": "传真",
+          "value": "+86-592-7791831",
+          "entity_scope": "厦门市福朗电子有限公司",
+          "source": {
+            "document_id": "doc-fulang-2026",
+            "pdf_page": 1,
+            "excerpt": "传真：+86-592-7791831",
+            "verification": "ocr_reviewed"
+          }
+        },
+        {
+          "kind": "email",
+          "label": "商务邮箱",
+          "value": "xsq@fuconxm.com",
+          "entity_scope": "厦门市福朗电子有限公司",
+          "source": {
+            "document_id": "doc-fulang-2026",
+            "pdf_page": 1,
+            "excerpt": "商务邮箱：xsq@fuconxm.com",
+            "verification": "ocr_reviewed"
+          }
+        },
+        {
+          "kind": "website",
+          "label": "目录官网",
+          "value": "http://www.fucon.com.cn",
+          "entity_scope": "厦门市福朗电子有限公司",
+          "source": {
+            "document_id": "doc-fulang-2026",
+            "pdf_page": 1,
+            "excerpt": "目录官网：http://www.fucon.com.cn",
+            "verification": "ocr_reviewed"
+          }
+        }
+      ],
+      "product_scope": [
+        {
+          "value": "导轨端子",
+          "source": {
+            "document_id": "doc-fulang-2026",
+            "pdf_page": 2,
+            "excerpt": "拥有导轨端子、插拔式端子，PCB端子、栅栏式端子、建筑端子、防水连接器；OEM代工及ODM研发设计。",
+            "verification": "ocr_reviewed"
+          }
+        },
+        {
+          "value": "插拔式端子",
+          "source": {
+            "document_id": "doc-fulang-2026",
+            "pdf_page": 2,
+            "excerpt": "拥有导轨端子、插拔式端子，PCB端子、栅栏式端子、建筑端子、防水连接器；OEM代工及ODM研发设计。",
+            "verification": "ocr_reviewed"
+          }
+        },
+        {
+          "value": "PCB端子",
+          "source": {
+            "document_id": "doc-fulang-2026",
+            "pdf_page": 2,
+            "excerpt": "拥有导轨端子、插拔式端子，PCB端子、栅栏式端子、建筑端子、防水连接器；OEM代工及ODM研发设计。",
+            "verification": "ocr_reviewed"
+          }
+        },
+        {
+          "value": "栅栏式端子",
+          "source": {
+            "document_id": "doc-fulang-2026",
+            "pdf_page": 2,
+            "excerpt": "拥有导轨端子、插拔式端子，PCB端子、栅栏式端子、建筑端子、防水连接器；OEM代工及ODM研发设计。",
+            "verification": "ocr_reviewed"
+          }
+        },
+        {
+          "value": "建筑端子",
+          "source": {
+            "document_id": "doc-fulang-2026",
+            "pdf_page": 2,
+            "excerpt": "拥有导轨端子、插拔式端子，PCB端子、栅栏式端子、建筑端子、防水连接器；OEM代工及ODM研发设计。",
+            "verification": "ocr_reviewed"
+          }
+        },
+        {
+          "value": "防水连接器",
+          "source": {
+            "document_id": "doc-fulang-2026",
+            "pdf_page": 2,
+            "excerpt": "拥有导轨端子、插拔式端子，PCB端子、栅栏式端子、建筑端子、防水连接器；OEM代工及ODM研发设计。",
+            "verification": "ocr_reviewed"
+          }
+        },
+        {
+          "value": "OEM / ODM（目录自述）",
+          "source": {
+            "document_id": "doc-fulang-2026",
+            "pdf_page": 2,
+            "excerpt": "拥有导轨端子、插拔式端子，PCB端子、栅栏式端子、建筑端子、防水连接器；OEM代工及ODM研发设计。",
+            "verification": "ocr_reviewed"
+          }
+        }
+      ],
+      "certification_claims": [
+        {
+          "label": "ISO 9001",
+          "scope": "company_catalog_statement",
+          "source": {
+            "document_id": "doc-fulang-2026",
+            "pdf_page": 2,
+            "excerpt": "先后通过ISO9001、ISO14001、ISO45001、IATF16949体系认证。",
+            "verification": "ocr_reviewed"
+          },
+          "verification": "catalog_claim_unverified",
+          "expiry": null
+        },
+        {
+          "label": "ISO 14001",
+          "scope": "company_catalog_statement",
+          "source": {
+            "document_id": "doc-fulang-2026",
+            "pdf_page": 2,
+            "excerpt": "先后通过ISO9001、ISO14001、ISO45001、IATF16949体系认证。",
+            "verification": "ocr_reviewed"
+          },
+          "verification": "catalog_claim_unverified",
+          "expiry": null
+        },
+        {
+          "label": "ISO 45001",
+          "scope": "company_catalog_statement",
+          "source": {
+            "document_id": "doc-fulang-2026",
+            "pdf_page": 2,
+            "excerpt": "先后通过ISO9001、ISO14001、ISO45001、IATF16949体系认证。",
+            "verification": "ocr_reviewed"
+          },
+          "verification": "catalog_claim_unverified",
+          "expiry": null
+        },
+        {
+          "label": "IATF 16949",
+          "scope": "company_catalog_statement",
+          "source": {
+            "document_id": "doc-fulang-2026",
+            "pdf_page": 2,
+            "excerpt": "先后通过ISO9001、ISO14001、ISO45001、IATF16949体系认证。",
+            "verification": "ocr_reviewed"
+          },
+          "verification": "catalog_claim_unverified",
+          "expiry": null
+        }
+      ],
+      "related_entities": [],
+      "notes": [
+        "地址按中文原文519-16号保存；英文写Building 1, No.519，不强行合并成已核验统一地址。",
+        "封面/封底印刷标记20260529不等于报价有效期。"
+      ],
+      "procurement": {
+        "credit_code": null,
+        "registered_capital": null,
+        "legal_representative": null,
+        "registered_address": null,
+        "admission_status": null,
+        "cooperation_status": null,
+        "supplier_tier": null,
+        "quality_score": null,
+        "delivery_score": null,
+        "service_score": null,
+        "certificate_expiry": null,
+        "payment_terms": null,
+        "lead_time": null,
+        "annual_spend": null
+      },
+      "statistics": {
+        "products": 94,
+        "specifications": 427,
+        "variants": 0,
+        "categories": {
+          "连接器与接线端子": 94
+        }
+      },
+      "catalog_status": "linked",
+      "status": "catalog_profile_unverified"
+    },
+    {
+      "id": "gaochao",
+      "name": "江西高超实业有限公司",
+      "brand": "高超集团 / KIMBETTER / KIMBE",
+      "name_source": {
+        "document_id": "doc-gaochao-current",
+        "pdf_page": 1,
+        "excerpt": "江西高超实业有限公司",
+        "verification": "ocr_reviewed"
+      },
+      "english_name": {
+        "value": "JIANGXI GAOCHAO INDUSTRIAL CO., LTD.",
+        "source": {
+          "document_id": "doc-gaochao-current",
+          "pdf_page": 1,
+          "excerpt": "JIANGXI GAOCHAO INDUSTRIAL CO., LTD.",
+          "verification": "ocr_reviewed"
+        }
+      },
+      "region": {
+        "province": "江西",
+        "city": "抚州",
+        "source": {
+          "document_id": "doc-gaochao-current",
+          "pdf_page": 1,
+          "excerpt": "江西抚州生产基地：江西省抚州市高新技术产业开发区王安石大道199号",
+          "verification": "ocr_reviewed"
+        }
+      },
+      "founded_year": null,
+      "document_ids": [
+        "doc-gaochao-current"
+      ],
+      "locations": [
+        {
+          "label": "江西抚州生产基地",
+          "address": "江西省抚州市高新技术产业开发区王安石大道199号",
+          "primary": true,
+          "entity_scope": "江西高超实业有限公司",
+          "source": {
+            "document_id": "doc-gaochao-current",
+            "pdf_page": 1,
+            "excerpt": "江西抚州生产基地：江西省抚州市高新技术产业开发区王安石大道199号",
+            "verification": "ocr_reviewed"
+          }
+        },
+        {
+          "label": "目录宁波服务点",
+          "address": "浙江省慈溪市周巷镇万洋众创城B区2栋",
+          "primary": false,
+          "entity_scope": "目录列示宁波高超公司，法律主体待核",
+          "source": {
+            "document_id": "doc-gaochao-current",
+            "pdf_page": 1,
+            "excerpt": "目录宁波服务点：浙江省慈溪市周巷镇万洋众创城B区2栋",
+            "verification": "ocr_reviewed"
+          }
+        },
+        {
+          "label": "目录广东服务点",
+          "address": "广东省佛山市顺德区北滘镇集成科创园13栋5楼",
+          "primary": false,
+          "entity_scope": "目录列示广东高超公司，法律主体待核",
+          "source": {
+            "document_id": "doc-gaochao-current",
+            "pdf_page": 1,
+            "excerpt": "目录广东服务点：广东省佛山市顺德区北滘镇集成科创园13栋5楼",
+            "verification": "ocr_reviewed"
+          }
+        }
+      ],
+      "contacts": [
+        {
+          "kind": "phone",
+          "label": "宁波服务电话",
+          "value": "0574-63602639 / 0574-63602629",
+          "entity_scope": "宁波服务点（目录列示）",
+          "source": {
+            "document_id": "doc-gaochao-current",
+            "pdf_page": 1,
+            "excerpt": "宁波服务电话：0574-63602639 / 0574-63602629",
+            "verification": "ocr_reviewed"
+          }
+        },
+        {
+          "kind": "phone",
+          "label": "广东服务电话",
+          "value": "0757-22393393",
+          "entity_scope": "广东服务点（目录列示）",
+          "source": {
+            "document_id": "doc-gaochao-current",
+            "pdf_page": 1,
+            "excerpt": "广东服务电话：0757-22393393",
+            "verification": "ocr_reviewed"
+          }
+        },
+        {
+          "kind": "phone",
+          "label": "国际销售公开电话",
+          "value": "+86-19870225379",
+          "entity_scope": "目录国际销售服务公司，法律主体待核",
+          "source": {
+            "document_id": "doc-gaochao-current",
+            "pdf_page": 1,
+            "excerpt": "国际销售公开电话：+86-19870225379",
+            "verification": "ocr_reviewed"
+          }
+        },
+        {
+          "kind": "email",
+          "label": "国际销售邮箱",
+          "value": "admin@gaochao360.com",
+          "entity_scope": "目录国际销售服务公司，法律主体待核",
+          "source": {
+            "document_id": "doc-gaochao-current",
+            "pdf_page": 1,
+            "excerpt": "国际销售邮箱：admin@gaochao360.com",
+            "verification": "ocr_reviewed"
+          }
+        },
+        {
+          "kind": "website",
+          "label": "目录网址",
+          "value": "http://www.gaochao360.com",
+          "entity_scope": "江西高超实业有限公司",
+          "source": {
+            "document_id": "doc-gaochao-current",
+            "pdf_page": 1,
+            "excerpt": "目录网址：http://www.gaochao360.com",
+            "verification": "ocr_reviewed"
+          }
+        },
+        {
+          "kind": "website",
+          "label": "目录品牌网址",
+          "value": "http://www.kimbetter.com",
+          "entity_scope": "江西高超实业有限公司",
+          "source": {
+            "document_id": "doc-gaochao-current",
+            "pdf_page": 1,
+            "excerpt": "目录品牌网址：http://www.kimbetter.com",
+            "verification": "ocr_reviewed"
+          }
+        }
+      ],
+      "product_scope": [
+        {
+          "value": "接线端子",
+          "source": {
+            "document_id": "doc-gaochao-current",
+            "pdf_page": 2,
+            "excerpt": "研究、生产、销售接线端子和塑胶配件",
+            "verification": "ocr_reviewed"
+          }
+        },
+        {
+          "value": "接线连接器",
+          "source": {
+            "document_id": "doc-gaochao-current",
+            "pdf_page": 2,
+            "excerpt": "研究、生产、销售接线端子和塑胶配件",
+            "verification": "ocr_reviewed"
+          }
+        },
+        {
+          "value": "塑胶配件",
+          "source": {
+            "document_id": "doc-gaochao-current",
+            "pdf_page": 2,
+            "excerpt": "研究、生产、销售接线端子和塑胶配件",
+            "verification": "ocr_reviewed"
+          }
+        }
+      ],
+      "certification_claims": [
+        {
+          "label": "ISO 9001",
+          "scope": "group_catalog_statement",
+          "source": {
+            "document_id": "doc-gaochao-current",
+            "pdf_page": 2,
+            "excerpt": "公司通过ISO9001、ISO14001等国际认证。",
+            "verification": "ocr_reviewed"
+          },
+          "verification": "catalog_claim_unverified",
+          "expiry": null
+        },
+        {
+          "label": "ISO 14001",
+          "scope": "group_catalog_statement",
+          "source": {
+            "document_id": "doc-gaochao-current",
+            "pdf_page": 2,
+            "excerpt": "公司通过ISO9001、ISO14001等国际认证。",
+            "verification": "ocr_reviewed"
+          },
+          "verification": "catalog_claim_unverified",
+          "expiry": null
+        }
+      ],
+      "related_entities": [
+        {
+          "name": "高超科技集团有限公司",
+          "relationship": "同册列示的集团主体；不与江西高超实业有限公司自动合并",
+          "source": {
+            "document_id": "doc-gaochao-current",
+            "pdf_page": 1,
+            "excerpt": "高超科技集团有限公司 / 江西高超实业有限公司",
+            "verification": "ocr_reviewed"
+          }
+        }
+      ],
+      "notes": [
+        "集团简介始建于1998年，未把集团起始年份当作江西主体的工商成立日期。",
+        "分公司及国际销售服务范围按目录分别标识，不推定为江西公司的注册联系方式。"
+      ],
+      "procurement": {
+        "credit_code": null,
+        "registered_capital": null,
+        "legal_representative": null,
+        "registered_address": null,
+        "admission_status": null,
+        "cooperation_status": null,
+        "supplier_tier": null,
+        "quality_score": null,
+        "delivery_score": null,
+        "service_score": null,
+        "certificate_expiry": null,
+        "payment_terms": null,
+        "lead_time": null,
+        "annual_spend": null
+      },
+      "statistics": {
+        "products": 432,
+        "specifications": 4317,
+        "variants": 0,
+        "categories": {
+          "闭端端子（105℃）铝管": 4,
+          "闭端端子（105℃）铜管": 4,
+          "闭端端子（750℃）铝管": 4,
+          "闭端端子（750℃）铜管": 4,
+          "弹簧螺式接线头": 7,
+          "防水弹簧螺式接线头": 1,
+          "防水双翼旋转端子": 2,
+          "双翼旋转端子": 5,
+          "电源线扣": 15,
+          "连接器GC221": 4,
+          "连接器GC222": 5,
+          "按钮式无螺纹接线端子": 4,
+          "按压快接端子PA11B系列": 4,
+          "按压快接端子PA11系列": 4,
+          "对接快速接线端子KB58A": 4,
+          "快速接线端子223系列": 6,
+          "连接器GC221-B系列": 4,
+          "连接器GC221-D系列": 4,
+          "快速接线端子KB58B": 4,
+          "快速接线端子KB58C": 4,
+          "端子台（H型）": 8,
+          "端子台（H型）带弹片": 8,
+          "端子台（平底型）": 5,
+          "端子台（高脚型）底座加高4.1mm": 4,
+          "端子台（方孔）": 4,
+          "端子台（方孔）铁兰锌": 2,
+          "端子台（方孔）带弹片": 4,
+          "防水接线盒": 3,
+          "防水接线盒适用端子": 14,
+          "按钮式无螺纹接线端子产品编码": 1,
+          "对插系列（英文标题）": 1,
+          "PG型尼龙电缆接头": 50,
+          "M型尼龙电缆接头": 74,
+          "尼龙扎线带": 110,
+          "R型线夹": 10,
+          "膨胀管": 7,
+          "纤维套管（自熄管）": 3,
+          "耐高温特殊玻璃纤维套管": 1,
+          "（内胶外纤）套管": 1,
+          "黄腊管": 1,
+          "纯硅橡胶软管PSR系列": 1,
+          "PVC套管": 1,
+          "热收缩套管": 1,
+          "接线柱五金不带弹片": 13,
+          "接线柱五金带弹片": 8,
+          "接线柱五金铁/铁包铜": 4
+        }
+      },
+      "catalog_status": "linked",
+      "status": "catalog_profile_unverified"
+    },
+    {
+      "id": "ghgm",
+      "name": "厦门广泓工贸有限公司",
+      "brand": "广泓 / GHGM",
+      "name_source": {
+        "document_id": "doc-ghgm-0512",
+        "pdf_page": 25,
+        "excerpt": "厦门广泓工贸有限公司",
+        "verification": "native_text"
+      },
+      "english_name": {
+        "value": "Xiamen GHGM Industrial Trade Co., Ltd.",
+        "source": {
+          "document_id": "doc-ghgm-0512",
+          "pdf_page": 25,
+          "excerpt": "Xiamen GHGM Industrial Trade Co., Ltd.",
+          "verification": "native_text"
+        }
+      },
+      "region": {
+        "province": "福建",
+        "city": "厦门",
+        "source": {
+          "document_id": "doc-ghgm-0512",
+          "pdf_page": 25,
+          "excerpt": "目录中文地址：福建省厦门市集美区华陵一路1号",
+          "verification": "native_text"
+        }
+      },
+      "founded_year": null,
+      "document_ids": [
+        "doc-ghgm-0512"
+      ],
+      "locations": [
+        {
+          "label": "目录中文地址",
+          "address": "福建省厦门市集美区华陵一路1号",
+          "primary": true,
+          "entity_scope": "目录同时列示三家厦门公司，具体主体使用情况待核",
+          "source": {
+            "document_id": "doc-ghgm-0512",
+            "pdf_page": 25,
+            "excerpt": "目录中文地址：福建省厦门市集美区华陵一路1号",
+            "verification": "native_text"
+          }
+        }
+      ],
+      "contacts": [
+        {
+          "kind": "phone",
+          "label": "目录共享电话",
+          "value": "+86-592-7262250",
+          "entity_scope": "目录列示的厦门广泓企业，实际接洽主体待核",
+          "source": {
+            "document_id": "doc-ghgm-0512",
+            "pdf_page": 25,
+            "excerpt": "目录共享电话：+86-592-7262250",
+            "verification": "native_text"
+          }
+        },
+        {
+          "kind": "website",
+          "label": "目录官网",
+          "value": "http://www.ghgm.cn",
+          "entity_scope": "厦门广泓工贸有限公司",
+          "source": {
+            "document_id": "doc-ghgm-0512",
+            "pdf_page": 25,
+            "excerpt": "目录官网：http://www.ghgm.cn",
+            "verification": "native_text"
+          }
+        },
+        {
+          "kind": "website",
+          "label": "目录英文网址",
+          "value": "http://www.ghgmlink.com",
+          "entity_scope": "厦门广泓工贸有限公司",
+          "source": {
+            "document_id": "doc-ghgm-0512",
+            "pdf_page": 25,
+            "excerpt": "目录英文网址：http://www.ghgmlink.com",
+            "verification": "native_text"
+          }
+        }
+      ],
+      "product_scope": [
+        {
+          "value": "快速接线端子",
+          "source": {
+            "document_id": "doc-ghgm-0512",
+            "pdf_page": 3,
+            "excerpt": "主营快速接线端子、LED连接器、PCB端子台、浮动板对板连接器、高密度板对板连接器、防水连接器、继电器、线束线缆、开关柜连接器等。",
+            "verification": "native_text"
+          }
+        },
+        {
+          "value": "LED连接器",
+          "source": {
+            "document_id": "doc-ghgm-0512",
+            "pdf_page": 3,
+            "excerpt": "主营快速接线端子、LED连接器、PCB端子台、浮动板对板连接器、高密度板对板连接器、防水连接器、继电器、线束线缆、开关柜连接器等。",
+            "verification": "native_text"
+          }
+        },
+        {
+          "value": "PCB端子台",
+          "source": {
+            "document_id": "doc-ghgm-0512",
+            "pdf_page": 3,
+            "excerpt": "主营快速接线端子、LED连接器、PCB端子台、浮动板对板连接器、高密度板对板连接器、防水连接器、继电器、线束线缆、开关柜连接器等。",
+            "verification": "native_text"
+          }
+        },
+        {
+          "value": "板对板连接器",
+          "source": {
+            "document_id": "doc-ghgm-0512",
+            "pdf_page": 3,
+            "excerpt": "主营快速接线端子、LED连接器、PCB端子台、浮动板对板连接器、高密度板对板连接器、防水连接器、继电器、线束线缆、开关柜连接器等。",
+            "verification": "native_text"
+          }
+        },
+        {
+          "value": "防水连接器",
+          "source": {
+            "document_id": "doc-ghgm-0512",
+            "pdf_page": 3,
+            "excerpt": "主营快速接线端子、LED连接器、PCB端子台、浮动板对板连接器、高密度板对板连接器、防水连接器、继电器、线束线缆、开关柜连接器等。",
+            "verification": "native_text"
+          }
+        },
+        {
+          "value": "线束线缆",
+          "source": {
+            "document_id": "doc-ghgm-0512",
+            "pdf_page": 3,
+            "excerpt": "主营快速接线端子、LED连接器、PCB端子台、浮动板对板连接器、高密度板对板连接器、防水连接器、继电器、线束线缆、开关柜连接器等。",
+            "verification": "native_text"
+          }
+        },
+        {
+          "value": "继电器",
+          "source": {
+            "document_id": "doc-ghgm-0512",
+            "pdf_page": 3,
+            "excerpt": "主营快速接线端子、LED连接器、PCB端子台、浮动板对板连接器、高密度板对板连接器、防水连接器、继电器、线束线缆、开关柜连接器等。",
+            "verification": "native_text"
+          }
+        },
+        {
+          "value": "开关柜连接配件",
+          "source": {
+            "document_id": "doc-ghgm-0512",
+            "pdf_page": 3,
+            "excerpt": "主营快速接线端子、LED连接器、PCB端子台、浮动板对板连接器、高密度板对板连接器、防水连接器、继电器、线束线缆、开关柜连接器等。",
+            "verification": "native_text"
+          }
+        }
+      ],
+      "certification_claims": [
+        {
+          "label": "IATF 16949",
+          "scope": "group_or_factory_catalog_statement",
+          "source": {
+            "document_id": "doc-ghgm-0512",
+            "pdf_page": 3,
+            "excerpt": "广泓设有两个工厂；通过了IATF16949、ISO9001、ISO14001等认证。",
+            "verification": "native_text"
+          },
+          "verification": "catalog_claim_unverified",
+          "expiry": null
+        },
+        {
+          "label": "ISO 9001",
+          "scope": "group_or_factory_catalog_statement",
+          "source": {
+            "document_id": "doc-ghgm-0512",
+            "pdf_page": 3,
+            "excerpt": "广泓设有两个工厂；通过了IATF16949、ISO9001、ISO14001等认证。",
+            "verification": "native_text"
+          },
+          "verification": "catalog_claim_unverified",
+          "expiry": null
+        },
+        {
+          "label": "ISO 14001",
+          "scope": "group_or_factory_catalog_statement",
+          "source": {
+            "document_id": "doc-ghgm-0512",
+            "pdf_page": 3,
+            "excerpt": "广泓设有两个工厂；通过了IATF16949、ISO9001、ISO14001等认证。",
+            "verification": "native_text"
+          },
+          "verification": "catalog_claim_unverified",
+          "expiry": null
+        }
+      ],
+      "related_entities": [
+        {
+          "name": "厦门广泓智能科技有限公司",
+          "relationship": "同册列示的关联企业；法律关系及合同主体待核",
+          "source": {
+            "document_id": "doc-ghgm-0512",
+            "pdf_page": 25,
+            "excerpt": "厦门广泓智能科技有限公司",
+            "verification": "native_text"
+          }
+        },
+        {
+          "name": "厦门广泓电气有限公司",
+          "relationship": "同册列示的关联企业；法律关系及合同主体待核",
+          "source": {
+            "document_id": "doc-ghgm-0512",
+            "pdf_page": 25,
+            "excerpt": "厦门广泓电气有限公司",
+            "verification": "native_text"
+          }
+        },
+        {
+          "name": "东莞市广泓精密电子科技有限公司",
+          "relationship": "同册列示的关联企业；法律关系及合同主体待核",
+          "source": {
+            "document_id": "doc-ghgm-0512",
+            "pdf_page": 25,
+            "excerpt": "东莞市广泓精密电子科技有限公司",
+            "verification": "native_text"
+          }
+        }
+      ],
+      "notes": [
+        "中文地址为华陵一路1号，英文写No.1-2，保留中文口径及差异，待联系核实。",
+        "本目录未列商务邮箱，不推测补齐。与江西高超为不同供应商。"
+      ],
+      "procurement": {
+        "credit_code": null,
+        "registered_capital": null,
+        "legal_representative": null,
+        "registered_address": null,
+        "admission_status": null,
+        "cooperation_status": null,
+        "supplier_tier": null,
+        "quality_score": null,
+        "delivery_score": null,
+        "service_score": null,
+        "certificate_expiry": null,
+        "payment_terms": null,
+        "lead_time": null,
+        "annual_spend": null
+      },
+      "statistics": {
+        "products": 135,
+        "specifications": 761,
+        "variants": 0,
+        "categories": {
+          "翻盖快速接线端子": 4,
+          "插入式快速接线端子": 3,
+          "按键式快速接线端子": 3,
+          "免螺丝PCB接线端子": 10,
+          "螺丝式PCB接线端子": 7,
+          "侧入式照明灯具连接器（塑壳）": 5,
+          "侧入式照明灯具连接器（金属）": 4,
+          "穿孔式照明灯具连接器": 3,
+          "LED球泡连接器插线母端": 6,
+          "LED球泡连接器插线母端（金属）": 3,
+          "索引型号": 1,
+          "LED球泡连接器插线公端（金属）": 1,
+          "PCB母端（胶壳）": 1,
+          "PCB母端（金属）": 1,
+          "智能照明连接器": 5,
+          "筒灯连接器": 6,
+          "灯管连接器 G17母端单排": 4,
+          "灯管连接器 G17插件公端": 1,
+          "T管直插公端": 2,
+          "射灯连接器": 3,
+          "拨码开关": 5,
+          "拨动开关": 3,
+          "草坪灯连接器": 2,
+          "防水连接器": 8,
+          "防水连接器附件": 18,
+          "凝胶盒": 4,
+          "快速接线端子组合表型号": 16,
+          "防水连接器索引代码": 5,
+          "免螺丝PCB接线端子索引系列": 1
+        }
+      },
+      "catalog_status": "linked",
+      "status": "catalog_profile_unverified"
+    },
+    {
+      "id": "heda",
+      "name": "乐清市合达电子有限公司",
+      "brand": "合达电子 / HEDA",
+      "name_source": {
+        "document_id": "doc-heda-2023",
+        "pdf_page": 1,
+        "excerpt": "乐清市合达电子有限公司",
+        "verification": "ocr_reviewed"
+      },
+      "english_name": {
+        "value": "YUEQING HEDA ELECTRONICS CO., LTD.",
+        "source": {
+          "document_id": "doc-heda-2023",
+          "pdf_page": 1,
+          "excerpt": "YUEQING HEDA ELECTRONICS CO., LTD.",
+          "verification": "ocr_reviewed"
+        }
+      },
+      "region": {
+        "province": "浙江",
+        "city": "乐清",
+        "source": {
+          "document_id": "doc-heda-2023",
+          "pdf_page": 77,
+          "excerpt": "厂址：浙江省乐清市宁康路2777号6幢（竹屿工业区）",
+          "verification": "ocr_reviewed"
+        }
+      },
+      "founded_year": {
+        "value": 2003,
+        "source": {
+          "document_id": "doc-heda-2023",
+          "pdf_page": 2,
+          "excerpt": "始创于2003年",
+          "verification": "ocr_reviewed"
+        }
+      },
+      "document_ids": [
+        "doc-heda-2023"
+      ],
+      "locations": [
+        {
+          "label": "厂址",
+          "address": "浙江省乐清市宁康路2777号6幢（竹屿工业区）",
+          "primary": true,
+          "entity_scope": "乐清市合达电子有限公司",
+          "source": {
+            "document_id": "doc-heda-2023",
+            "pdf_page": 77,
+            "excerpt": "厂址：浙江省乐清市宁康路2777号6幢（竹屿工业区）",
+            "verification": "ocr_reviewed"
+          }
+        },
+        {
+          "label": "分厂",
+          "address": "浙江省乐清市虹桥镇虹河西路155号",
+          "primary": false,
+          "entity_scope": "乐清市合达电子有限公司",
+          "source": {
+            "document_id": "doc-heda-2023",
+            "pdf_page": 77,
+            "excerpt": "分厂：浙江省乐清市虹桥镇虹河西路155号",
+            "verification": "ocr_reviewed"
+          }
+        }
+      ],
+      "contacts": [
+        {
+          "kind": "phone",
+          "label": "电话",
+          "value": "0577-62113277 / 0577-62328100",
+          "entity_scope": "乐清市合达电子有限公司",
+          "source": {
+            "document_id": "doc-heda-2023",
+            "pdf_page": 77,
+            "excerpt": "电话：0577-62113277 / 0577-62328100",
+            "verification": "ocr_reviewed"
+          }
+        },
+        {
+          "kind": "fax",
+          "label": "传真",
+          "value": "0577-62115078 / 0577-62329100",
+          "entity_scope": "乐清市合达电子有限公司",
+          "source": {
+            "document_id": "doc-heda-2023",
+            "pdf_page": 77,
+            "excerpt": "传真：0577-62115078 / 0577-62329100",
+            "verification": "ocr_reviewed"
+          }
+        },
+        {
+          "kind": "email",
+          "label": "商务邮箱",
+          "value": "heda@hedaele.com",
+          "entity_scope": "乐清市合达电子有限公司",
+          "source": {
+            "document_id": "doc-heda-2023",
+            "pdf_page": 77,
+            "excerpt": "商务邮箱：heda@hedaele.com",
+            "verification": "ocr_reviewed"
+          }
+        },
+        {
+          "kind": "website",
+          "label": "目录官网",
+          "value": "http://www.hedaele.com",
+          "entity_scope": "乐清市合达电子有限公司",
+          "source": {
+            "document_id": "doc-heda-2023",
+            "pdf_page": 77,
+            "excerpt": "目录官网：http://www.hedaele.com",
+            "verification": "ocr_reviewed"
+          }
+        }
+      ],
+      "product_scope": [
+        {
+          "value": "SMT连接器",
+          "source": {
+            "document_id": "doc-heda-2023",
+            "pdf_page": 2,
+            "excerpt": "产品系列有：SMT连接器系列、接线端子系列、车载线束系列、照明用灯头、灯座系列、电源插座系列、开关系列。",
+            "verification": "ocr_reviewed"
+          }
+        },
+        {
+          "value": "接线端子",
+          "source": {
+            "document_id": "doc-heda-2023",
+            "pdf_page": 2,
+            "excerpt": "产品系列有：SMT连接器系列、接线端子系列、车载线束系列、照明用灯头、灯座系列、电源插座系列、开关系列。",
+            "verification": "ocr_reviewed"
+          }
+        },
+        {
+          "value": "车载线束",
+          "source": {
+            "document_id": "doc-heda-2023",
+            "pdf_page": 2,
+            "excerpt": "产品系列有：SMT连接器系列、接线端子系列、车载线束系列、照明用灯头、灯座系列、电源插座系列、开关系列。",
+            "verification": "ocr_reviewed"
+          }
+        },
+        {
+          "value": "照明灯头 / 灯座",
+          "source": {
+            "document_id": "doc-heda-2023",
+            "pdf_page": 2,
+            "excerpt": "产品系列有：SMT连接器系列、接线端子系列、车载线束系列、照明用灯头、灯座系列、电源插座系列、开关系列。",
+            "verification": "ocr_reviewed"
+          }
+        },
+        {
+          "value": "电源插座",
+          "source": {
+            "document_id": "doc-heda-2023",
+            "pdf_page": 2,
+            "excerpt": "产品系列有：SMT连接器系列、接线端子系列、车载线束系列、照明用灯头、灯座系列、电源插座系列、开关系列。",
+            "verification": "ocr_reviewed"
+          }
+        },
+        {
+          "value": "开关",
+          "source": {
+            "document_id": "doc-heda-2023",
+            "pdf_page": 2,
+            "excerpt": "产品系列有：SMT连接器系列、接线端子系列、车载线束系列、照明用灯头、灯座系列、电源插座系列、开关系列。",
+            "verification": "ocr_reviewed"
+          }
+        }
+      ],
+      "certification_claims": [
+        {
+          "label": "IATF 16949:2016",
+          "scope": "company_and_partial_product_catalog_statement",
+          "source": {
+            "document_id": "doc-heda-2023",
+            "pdf_page": 2,
+            "excerpt": "公司已通过IATF16949:2016质量管理体系认证，产品通过国家CQC认证，部分产品通过VDE、TUV、CE认证。",
+            "verification": "ocr_reviewed"
+          },
+          "verification": "catalog_claim_unverified",
+          "expiry": null
+        },
+        {
+          "label": "CQC",
+          "scope": "company_and_partial_product_catalog_statement",
+          "source": {
+            "document_id": "doc-heda-2023",
+            "pdf_page": 2,
+            "excerpt": "公司已通过IATF16949:2016质量管理体系认证，产品通过国家CQC认证，部分产品通过VDE、TUV、CE认证。",
+            "verification": "ocr_reviewed"
+          },
+          "verification": "catalog_claim_unverified",
+          "expiry": null
+        },
+        {
+          "label": "VDE",
+          "scope": "company_and_partial_product_catalog_statement",
+          "source": {
+            "document_id": "doc-heda-2023",
+            "pdf_page": 2,
+            "excerpt": "公司已通过IATF16949:2016质量管理体系认证，产品通过国家CQC认证，部分产品通过VDE、TUV、CE认证。",
+            "verification": "ocr_reviewed"
+          },
+          "verification": "catalog_claim_unverified",
+          "expiry": null
+        },
+        {
+          "label": "TUV",
+          "scope": "company_and_partial_product_catalog_statement",
+          "source": {
+            "document_id": "doc-heda-2023",
+            "pdf_page": 2,
+            "excerpt": "公司已通过IATF16949:2016质量管理体系认证，产品通过国家CQC认证，部分产品通过VDE、TUV、CE认证。",
+            "verification": "ocr_reviewed"
+          },
+          "verification": "catalog_claim_unverified",
+          "expiry": null
+        },
+        {
+          "label": "CE",
+          "scope": "company_and_partial_product_catalog_statement",
+          "source": {
+            "document_id": "doc-heda-2023",
+            "pdf_page": 2,
+            "excerpt": "公司已通过IATF16949:2016质量管理体系认证，产品通过国家CQC认证，部分产品通过VDE、TUV、CE认证。",
+            "verification": "ocr_reviewed"
+          },
+          "verification": "catalog_claim_unverified",
+          "expiry": null
+        }
+      ],
+      "related_entities": [],
+      "notes": [
+        "新增77页画册仅完成企业档案提取；产品型号/参数/图片尚未纳入选型库，不计入已结构化产品数。",
+        "2023来自文件名；联系信息为历史目录记载，当前可用性待核验。"
+      ],
+      "procurement": {
+        "credit_code": null,
+        "registered_capital": null,
+        "legal_representative": null,
+        "registered_address": null,
+        "admission_status": null,
+        "cooperation_status": null,
+        "supplier_tier": null,
+        "quality_score": null,
+        "delivery_score": null,
+        "service_score": null,
+        "certificate_expiry": null,
+        "payment_terms": null,
+        "lead_time": null,
+        "annual_spend": null
+      },
+      "statistics": {
+        "products": 0,
+        "specifications": 0,
+        "variants": 0,
+        "categories": {}
+      },
+      "catalog_status": "pending_extraction",
+      "status": "catalog_profile_unverified"
+    }
+  ],
+  "documents": [
+    {
+      "id": "doc-changhe-2026",
+      "file_name": "江苏长河第2册目录  照明安防接线端子(1).pdf",
+      "sha256": "92696a2a56eb62ec81bb15ca1ffbe83acc8f88265ed3ef5e6e1f6f191a4f9933",
+      "page_count": 82,
+      "edition": "总目录第2册 2026"
+    },
+    {
+      "id": "doc-oujun-2025",
+      "file_name": "欧骏产品目录画册2025.pdf",
+      "sha256": "94ceebda4c140a4b541acd452baa5419955da3eae2669efe41a652b054c7b77d",
+      "page_count": 20,
+      "edition": null
+    },
+    {
+      "id": "doc-fulang-2026",
+      "file_name": "福朗2026照明端子-选型手册.pdf",
+      "sha256": "963fbdc006563f46e83dcb66a7a6ace7bc57d070a5e00550f1eab03c64da7a10",
+      "page_count": 10,
+      "edition": "20260529（封底印刷标记）"
+    },
+    {
+      "id": "doc-gaochao-current",
+      "file_name": "江西高超产品目录最新版.pdf",
+      "sha256": "2b1a38ee7da8b0cc0ded22d8d1657f5b3693edfe5b30ee901eade92f990aa7f0",
+      "page_count": 25,
+      "edition": "2025年 第一版"
+    },
+    {
+      "id": "doc-ghgm-0512",
+      "file_name": "GHGM照明及电源行业画册-0512(1).pdf",
+      "sha256": "e6f5ff4b1f7a32357348645d169c468ceb28562c10b43d3540f5da46a1dbccc0",
+      "page_count": 25,
+      "edition": null
+    },
+    {
+      "id": "doc-heda-2023",
+      "file_name": "乐清市合达电子有限公司-2023年产品目录.pdf",
+      "sha256": "ead5cc524bcabcaf11549181d0d9a16ebe198cedd4845d5d86cf2b2dbb1c4d5a",
+      "page_count": 77,
+      "edition": "文件名标示2023年；未据此推定当前有效版本"
+    }
+  ],
+  "statistics": {
+    "suppliers": 6,
+    "catalog_linked": 5,
+    "pending_extraction": 1,
+    "products": 1023,
+    "specifications": 11322
+  },
+  "limitations": [
+    "目录自述不等于当前工商/联系信息或有效认证核验。",
+    "无真实质量、交付、协同、准入或采购交易记录；不生成绩效分、分级或证书到期预警。"
+  ]
+}

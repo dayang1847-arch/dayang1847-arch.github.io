@@ -1,0 +1,17 @@
+/* Numeric operations for source-backed futures charts. No interpolation or model prices. */
+(function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.MarketTrendsCore=api;})(typeof window!=='undefined'?window:this,()=>{
+'use strict';
+const day=s=>typeof s==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(s)&&Number.isFinite(Date.parse(s))&&new Date(s+'T00:00:00Z').toISOString().slice(0,10)===s;
+const ms=s=>Date.parse(s+'T00:00:00Z'),iso=n=>new Date(n).toISOString().slice(0,10),delta=(a,b)=>a>0&&b>0?(a/b-1)*100:null;
+const definitions=[{id:'copper-futures',name:'沪铜连续',symbol:'CU0',color:'#a73545',dash:''},{id:'aluminum-futures',name:'沪铝连续',symbol:'AL0',color:'#356c97',dash:'7 2'},{id:'tin-futures',name:'沪锡连续',symbol:'SN0',color:'#a47457',dash:'3 2'},{id:'steel-futures',name:'热轧卷板连续',symbol:'HC0',color:'#68716c',dash:'10 3 2 3'}];
+function clean(record,today='9999-12-31'){const seen=new Set();return (record?.history||[]).filter(p=>day(p.date)&&p.date<=today&&Number.isFinite(p.price)&&p.price>0&&!seen.has(p.date)&&seen.add(p.date)).sort((a,b)=>a.date.localeCompare(b.date));}
+function parseSina(raw,today){if(typeof raw!=='string'||raw.length>2000000||!day(today))return null;const s=raw.trim().replace(/^```[^\n]*\n/,'').replace(/\n```$/,'');const m=s.match(/(?:=\s*\()?\s*(\[\s*\{[\s\S]*\}\s*\])\s*\)?\s*;?\s*$/);if(!m)return null;let rows;try{rows=JSON.parse(m[1]);}catch{return null;}if(!Array.isArray(rows)||rows.length<2||rows.length>20000)throw Error('日线条数无效');const out=[];for(const r of rows){const p=typeof r.c==='string'&&r.c.trim()?Number(r.c):r.c;if(!day(r.d)||r.d>today||!Number.isFinite(p)||p<=0||out.length&&r.d<=out.at(-1).date)throw Error('日线日期、收盘字段或排序无效');out.push({date:r.d,price:p});}return out.slice(-400);}
+function series(records,today){return definitions.map(d=>{const r=records.find(r=>r.id===d.id);return {...d,record:r,points:clean(r,today)};});}
+function endDate(ss){return ss.flatMap(s=>s.points.map(p=>p.date)).sort().at(-1)||null;}
+function windowed(ss,days){const end=endDate(ss);if(!end)return [];const start=iso(ms(end)-days*86400000);return ss.map(s=>({...s,points:s.points.filter(p=>p.date>=start&&p.date<=end)}));}
+function stats(s){const p=s.points,last=p.at(-1),previous=p.at(-2);if(!last)return null;const monthStart=last.date.slice(0,7)+'-01',monthBase=p.filter(p=>p.date<monthStart).at(-1),annual=p.find(p=>p.date>=iso(ms(last.date)-365*86400000)),two=p.find(p=>p.date>=iso(ms(last.date)-14*86400000));return {last,previous,change:delta(last.price,previous?.price),monthBase,monthChange:delta(last.price,monthBase?.price),annual,annualChange:delta(last.price,annual?.price),two,twoChange:delta(last.price,two?.price)};}
+function normalized(ss){return ss.map(s=>{const base=s.points[0];return {...s,base,points:s.points.map(p=>({...p,rawPrice:p.price,price:p.price/base.price*100}))};});}
+function segments(points,maxGapDays=10){const out=[];for(const p of points){if(!out.length||ms(p.date)-ms(out.at(-1).at(-1).date)>maxGapDays*86400000)out.push([]);out.at(-1).push(p);}return out;}
+function table(ss,limit=12){const dates=[...new Set(ss.flatMap(s=>s.points.map(p=>p.date)))].sort().slice(-limit).reverse();return dates.map(date=>({date,cells:ss.map(s=>{const i=s.points.findIndex(p=>p.date===date);return i<0?null:{price:s.points[i].price,change:delta(s.points[i].price,s.points[i-1]?.price)};})}));}
+return {day,ms,iso,delta,definitions,clean,parseSina,series,endDate,windowed,stats,normalized,segments,table};
+});

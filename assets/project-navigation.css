@@ -1,0 +1,112 @@
+.dc-back-link {
+  --dc-back-ink: #26383e;
+  --dc-back-paper: #ffffff;
+  --dc-back-border: #c7d3d7;
+  --dc-back-hover: #edf3f5;
+  --dc-back-focus: #12685e;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  gap: 8px;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 1px solid var(--dc-back-border);
+  border-radius: 8px;
+  background: var(--dc-back-paper);
+  color: var(--dc-back-ink);
+  font: 500 13px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+.dc-back-link:hover {
+  background: var(--dc-back-hover);
+  color: var(--dc-back-ink);
+  text-decoration: none;
+}
+
+.dc-back-link:focus-visible {
+  outline: 3px solid var(--dc-back-focus);
+  outline-offset: 3px;
+}
+
+[data-theme="dark"] .dc-back-link {
+  --dc-back-ink: #eff6f5;
+  --dc-back-paper: #24363d;
+  --dc-back-border: #657c85;
+  --dc-back-hover: #334c55;
+  --dc-back-focus: #9ee3cc;
+}
+
+.dc-project-navigation {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 60px;
+  padding: 8px clamp(15px, 2vw, 26px);
+  border-bottom: 1px solid #dfe7e8;
+  background: #f5f7f8;
+}
+
+[data-theme="dark"] .dc-project-navigation {
+  border-color: #40565f;
+  background: #16262d;
+}
+
+.dc-navigation-header {
+  gap: 12px;
+}
+
+.dc-navigation-header.topbar {
+  height: auto;
+  min-height: 61px;
+  flex-wrap: wrap;
+  padding-block: 8px;
+}
+
+.dc-navigation-header .topbar-actions,
+.site-header .header-actions:has(> .dc-back-link) {
+  flex-wrap: wrap;
+}
+
+.site-header .header-actions > .dc-back-link {
+  margin-right: auto;
+}
+
+.dc-viewport-project #root .app,
+.dc-viewport-project #root .app-boot {
+  height: calc(100dvh - 61px);
+  min-height: min(560px, calc(100dvh - 61px));
+}
+
+.dc-viewport-project #root .app:fullscreen,
+.dc-viewport-project #root .app.presentation {
+  height: 100dvh;
+  min-height: 100dvh;
+}
+
+@media (max-width: 680px) {
+  .dc-navigation-header .breadcrumb,
+  .dc-navigation-header .dc-navigation-breadcrumb {
+    display: none;
+  }
+
+  .site-header:has([data-dc-back]) {
+    height: auto;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding-block: 12px;
+  }
+
+  .site-header:has([data-dc-back]) > .brand,
+  .site-header:has([data-dc-back]) > .header-actions {
+    flex: 1 0 100%;
+    min-width: 0;
+  }
+}

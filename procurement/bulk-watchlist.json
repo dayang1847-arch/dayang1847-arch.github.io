@@ -1,0 +1,336 @@
+{
+  "schema_version": "bulk-watchlist-1",
+  "prepared_at": "2026-10-27",
+  "items": [
+    {
+      "id": "adc12",
+      "material": "ADC12",
+      "grade": "保太",
+      "url": "https://www.baotaigroup.com.cn/index/offer/hoffer/id/6.html",
+      "source_id": "baotai",
+      "access": "public",
+      "aliases": [
+        "ADC12"
+      ],
+      "proxy_aliases": [],
+      "source_row": 3,
+      "note": ""
+    },
+    {
+      "id": "spcc",
+      "material": "冷轧板",
+      "grade": "SPCC（0.5mm）",
+      "url": "https://index.mysteel.com/price/getChartMultiCity_6_0.html",
+      "source_id": "mysteel",
+      "access": "needs_mapping",
+      "aliases": [
+        "SPCC（0.5mm）",
+        "SPCC(0.5mm)"
+      ],
+      "proxy_aliases": [],
+      "source_row": 4,
+      "note": ""
+    },
+    {
+      "id": "pc-lxty",
+      "material": "PC",
+      "grade": "lxty1609",
+      "url": "https://www.sci99.com/",
+      "source_id": "sci99",
+      "access": "needs_mapping",
+      "aliases": [
+        "lxty1609"
+      ],
+      "proxy_aliases": [],
+      "source_row": 5,
+      "note": "原表牌号字段 lxty1609 待核实，不自动解释为PC牌号。"
+    },
+    {
+      "id": "pc-g1010",
+      "material": "PC",
+      "grade": "浙石化G1010-F",
+      "url": "https://www.sci99.com/",
+      "source_id": "sci99",
+      "access": "authorized",
+      "aliases": [
+        "浙石化G1010-F"
+      ],
+      "proxy_aliases": [],
+      "source_row": 6,
+      "note": ""
+    },
+    {
+      "id": "pc-0703",
+      "material": "PC",
+      "grade": "SABIC中东0703R",
+      "url": "https://www.sci99.com/",
+      "source_id": "sci99",
+      "access": "authorized",
+      "aliases": [
+        "SABIC中东0703R"
+      ],
+      "proxy_aliases": [],
+      "source_row": 7,
+      "note": ""
+    },
+    {
+      "id": "pc-dafeng",
+      "material": "PC",
+      "grade": "大风PC02-10R",
+      "url": "https://www.sci99.com/",
+      "source_id": "sci99",
+      "access": "authorized",
+      "aliases": [
+        "大风PC02-10R"
+      ],
+      "proxy_aliases": [],
+      "source_row": 8,
+      "note": ""
+    },
+    {
+      "id": "pc-2805",
+      "material": "PC",
+      "grade": "科思创2805余姚",
+      "url": "https://www.sci99.com/",
+      "source_id": "sci99",
+      "access": "authorized",
+      "aliases": [
+        "科思创2805余姚"
+      ],
+      "proxy_aliases": [],
+      "source_row": 9,
+      "note": ""
+    },
+    {
+      "id": "pbt",
+      "material": "PBT",
+      "grade": "华东粘度1.0",
+      "url": "https://www.sci99.com/",
+      "source_id": "sci99",
+      "access": "authorized",
+      "aliases": [
+        "华东粘度1.0"
+      ],
+      "proxy_aliases": [],
+      "source_row": 10,
+      "note": ""
+    },
+    {
+      "id": "pa6",
+      "material": "PA6",
+      "grade": "巢湖常规纺有光",
+      "url": "https://www.sci99.com/",
+      "source_id": "sci99",
+      "access": "authorized",
+      "aliases": [
+        "巢湖常规纺有光"
+      ],
+      "proxy_aliases": [],
+      "source_row": 11,
+      "note": ""
+    },
+    {
+      "id": "pp1080",
+      "material": "PP粒",
+      "grade": "台塑宁波1080",
+      "url": "https://www.sci99.com/",
+      "source_id": "sci99",
+      "access": "authorized",
+      "aliases": [
+        "台塑宁波1080"
+      ],
+      "proxy_aliases": [],
+      "source_row": 12,
+      "note": ""
+    },
+    {
+      "id": "abs0215",
+      "material": "ABS",
+      "grade": "吉林石化0215A",
+      "url": "https://www.sci99.com/",
+      "source_id": "sci99",
+      "access": "authorized",
+      "aliases": [
+        "吉林石化0215A"
+      ],
+      "proxy_aliases": [],
+      "source_row": 13,
+      "note": ""
+    },
+    {
+      "id": "ps-chimei",
+      "material": "PS",
+      "grade": "镇江奇美",
+      "url": "https://www.sci99.com/",
+      "source_id": "sci99",
+      "access": "authorized",
+      "aliases": [
+        "镇江奇美"
+      ],
+      "proxy_aliases": [],
+      "source_row": 14,
+      "note": "原表未列具体PS牌号，不能将品牌均价视为指定料价。"
+    },
+    {
+      "id": "pmma205",
+      "material": "PMMA",
+      "grade": "镇江奇美CM205",
+      "url": "https://www.sci99.com/",
+      "source_id": "sci99",
+      "access": "authorized",
+      "aliases": [
+        "镇江奇美CM205"
+      ],
+      "proxy_aliases": [],
+      "source_row": 15,
+      "note": ""
+    },
+    {
+      "id": "glass",
+      "material": "玻璃",
+      "grade": "青光5mm浮法玻璃",
+      "url": "https://glass.100ppi.com/",
+      "source_id": "sunsirs_glass",
+      "access": "public",
+      "aliases": [
+        "青光5mm浮法玻璃"
+      ],
+      "proxy_aliases": [
+        "玻璃"
+      ],
+      "source_row": 16,
+      "note": ""
+    },
+    {
+      "id": "lmo",
+      "material": "锰酸锂",
+      "grade": "储能型",
+      "url": "https://index.mysteel.com/price/getChartMultiCity_6_0.html",
+      "source_id": "mysteel",
+      "access": "needs_mapping",
+      "aliases": [
+        "储能型锰酸锂"
+      ],
+      "proxy_aliases": [],
+      "source_row": 17,
+      "note": "原表复用了冷轧板图表网址，尚未确认锰酸锂对应页面。"
+    },
+    {
+      "id": "copper1",
+      "material": "1#铜",
+      "grade": "1#",
+      "url": "https://www.smm.cn/",
+      "source_id": "smm",
+      "access": "authorized",
+      "aliases": [
+        "1#铜"
+      ],
+      "proxy_aliases": [],
+      "source_row": 18,
+      "note": ""
+    },
+    {
+      "id": "alu00",
+      "material": "A00铝",
+      "grade": "A00",
+      "url": "https://www.smm.cn/",
+      "source_id": "smm",
+      "access": "authorized",
+      "aliases": [
+        "A00铝"
+      ],
+      "proxy_aliases": [],
+      "source_row": 19,
+      "note": ""
+    },
+    {
+      "id": "lead",
+      "material": "铅",
+      "grade": null,
+      "url": "https://www.smm.cn/",
+      "source_id": "smm",
+      "access": "authorized",
+      "aliases": [
+        "铅"
+      ],
+      "proxy_aliases": [],
+      "source_row": 20,
+      "note": "原表未提供具体牌号与计价单位，采集前须核对。"
+    },
+    {
+      "id": "zinc",
+      "material": "锌",
+      "grade": null,
+      "url": "https://www.smm.cn/",
+      "source_id": "smm",
+      "access": "authorized",
+      "aliases": [
+        "锌"
+      ],
+      "proxy_aliases": [],
+      "source_row": 21,
+      "note": "原表未提供具体牌号与计价单位，采集前须核对。"
+    },
+    {
+      "id": "tin1",
+      "material": "锡",
+      "grade": "1#",
+      "url": "https://www.smm.cn/",
+      "source_id": "smm",
+      "access": "authorized",
+      "aliases": [
+        "1#锡"
+      ],
+      "proxy_aliases": [],
+      "source_row": 22,
+      "note": ""
+    },
+    {
+      "id": "nickel",
+      "material": "镍",
+      "grade": null,
+      "url": "https://www.smm.cn/",
+      "source_id": "smm",
+      "access": "authorized",
+      "aliases": [
+        "镍"
+      ],
+      "proxy_aliases": [],
+      "source_row": 23,
+      "note": "原表未提供具体牌号与计价单位，采集前须核对。"
+    },
+    {
+      "id": "silver",
+      "material": "银",
+      "grade": null,
+      "url": "https://www.smm.cn/",
+      "source_id": "smm",
+      "access": "authorized",
+      "aliases": [
+        "银"
+      ],
+      "proxy_aliases": [],
+      "source_row": 24,
+      "note": "原表未提供具体牌号与计价单位，采集前须核对。"
+    },
+    {
+      "id": "gold",
+      "material": "金",
+      "grade": null,
+      "url": "https://www.smm.cn/",
+      "source_id": "smm",
+      "access": "authorized",
+      "aliases": [
+        "金"
+      ],
+      "proxy_aliases": [],
+      "source_row": 25,
+      "note": "原表未提供具体牌号与计价单位，采集前须核对。"
+    }
+  ],
+  "notes": [
+    "仅提炼品名、牌号及公开网站；账号密码列未提取。",
+    "合并单元格的网站归属已展开，具体报价页面与权限未确认时保留待核实。",
+    "原表未提供历史价格；所有价格由公开来源另行采集，不虚构低位。"
+  ]
+}

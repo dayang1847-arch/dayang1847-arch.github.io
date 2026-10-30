@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <meta name="referrer" content="no-referrer">
+  <title>Web Showing · 账号密码登录</title>
+  <style>
+    :root { color-scheme: dark; }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 24px; background: #101b2c; color: #edf3fc; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; }
+    main { max-width: 440px; width: 100%; }
+    .eyebrow { margin: 0 0 16px; color: #9ab0cc; font-size: 12px; letter-spacing: .14em; }
+    h1 { margin: 0 0 16px; font-size: 28px; font-weight: 600; }
+    p { line-height: 1.8; color: #b9c8dc; }
+    a { color: #edf3fc; text-underline-offset: 5px; }
+    a:focus-visible { outline: 2px solid #8db7ff; outline-offset: 6px; }
+  </style>
+  <link rel="stylesheet" href="../assets/project-navigation.css?v=1">
+  <script defer src="../assets/project-navigation.js?v=1"></script>
+  
+  
+</head>
+<body>
+  <main>
+    <p><a class="dc-back-link" data-dc-back href="../?lang=zh#works"><span aria-hidden="true">←</span><span data-dc-back-label>返回上一页</span></a></p>
+    <p class="eyebrow">WEB SHOWING</p>
+    <h1 id="entry-title">Web Showing · 户外照明展示</h1>
+    <p id="entry-description">使用网站账号和密码登录查看产品与工程案例。登录页将在新标签页打开，可回到此页返回作品集。</p>
+    <p><a id="login-link" href="https://tospo-lighting-login.dayang0509.chatgpt.site/_gateway/login" target="_blank" rel="noopener noreferrer">打开账号登录页 ↗</a></p>
+  </main>
+  <script>
+    if (new URLSearchParams(location.search).get('lang') === 'en') {
+      document.documentElement.lang = 'en';
+      document.title = 'Web Showing · Account login';
+      document.getElementById('entry-title').textContent = 'Web Showing · Outdoor Lighting';
+      document.getElementById('entry-description').textContent = 'Sign in with your website account to view products and project references. The login opens in a new tab; return here to go back to the portfolio.';
+      document.getElementById('login-link').textContent = 'Open account login ↗';
+    }
+  </script>
+</body>
+</html>

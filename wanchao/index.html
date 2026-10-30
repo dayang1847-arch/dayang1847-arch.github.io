@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f1e8">
+  <meta name="description" content="万朝逐鹿：真实亚洲地图、500座城池、港口航线，秦汉唐宋元明六阵营实时攻城。DC Web 的网页联机策略游戏。">
+  <title>DC Web</title>
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./main.js"></script>
+  <link rel="stylesheet" href="../assets/project-navigation.css?v=1">
+  <script defer src="../assets/project-navigation.js?v=1"></script>
+  
+  
+</head>
+<body>
+  <a class="skip-link" href="#battlefield" data-i18n="skip">跳到战场</a>
+  <div class="app-shell" id="app">
+    <header class="site-header">
+      <a class="brand" href="./" id="home-button" aria-label="DC Web 首页">
+        <span class="brand-mark">DC</span>
+        <span class="brand-copy"><span class="brand-eyebrow">DC WEB / STRATEGY LAB</span><strong data-i18n="title">万朝逐鹿</strong></span>
+      </a>
+      <div class="header-center"><span class="status-dot"></span><span data-i18n="tagline">一张山河图，六种逐鹿之道。</span></div>
+      <div class="header-actions">
+        <a class="dc-back-link" data-dc-back href="../?lang=zh#works"><span aria-hidden="true">←</span><span data-dc-back-label>返回上一页</span></a>
+        <button class="text-button settings-toggle" id="settings-toggle" type="button" aria-haspopup="dialog" aria-controls="dialog-layer" data-i18n="settings">设置</button>
+        <button class="text-button" id="help-toggle" type="button"><span class="circle-icon">?</span><span data-i18n="help">玩法指南</span></button>
+        <span class="header-divider"></span>
+        <button class="icon-button language-button" id="language-toggle" type="button" aria-label="Switch to English">EN</button>
+        <button class="icon-button" id="theme-toggle" type="button" aria-label="切换深色主题"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.5 13A8.5 8.5 0 0 1 11 3.5 8.5 8.5 0 1 0 20.5 13Z"/></svg></button>
+      </div>
+    </header>
+    <main>
+      <section class="command-bar" aria-label="对局状态">
+        <div class="commander" id="player-badge"><span class="commander-seal">战</span><div><span class="eyebrow" data-i18n="battlefieldLabel">天下沙盘</span><strong data-i18n="previewTitle">群雄未起 · 静候军令</strong></div></div>
+        <div class="resource-group">
+          <div class="resource"><span class="resource-icon grain-icon" aria-hidden="true">穗</span><div><span data-i18n="food">粮草</span><strong id="resource-food">—</strong></div></div>
+          <div class="resource"><span class="resource-icon silver-icon" aria-hidden="true">两</span><div><span data-i18n="silver">银两</span><strong id="resource-silver">—</strong></div></div>
+          <div class="resource"><span class="resource-icon army-icon" aria-hidden="true">兵</span><div><span data-i18n="army">编队</span><strong id="resource-army">— / 24</strong></div></div>
+        </div>
+        <div class="session-info"><div class="timer"><span class="tiny-clock" aria-hidden="true"></span><strong id="match-time">00:00</strong></div><span id="connection-state" class="connection-badge" data-i18n="notConnected">尚未开局</span></div>
+      </section>
+      <div id="victory-banner" class="victory-banner" hidden></div>
+      <div class="game-layout">
+        <section class="battle-column" aria-label="实时战场">
+          <div class="map-frame">
+            <canvas id="battlefield" tabindex="0" aria-label="战场地图。鼠标框选军队，右键移动或攻击，方向键移动视角。"></canvas>
+            <section class="game-cover" id="game-cover" aria-labelledby="cover-title">
+              <img class="cover-image" id="cover-image" src="./assets/wanchao-epic-cover-v1.png" width="1672" height="941" alt="山川云雾之间，古代军阵向宏伟帝城进发。" fetchpriority="high">
+              <div class="cover-copy">
+                <p class="cover-eyebrow" data-i18n="coverEyebrow">跨越千年，争一统山河</p>
+                <h2 class="cover-title" id="cover-title" data-i18n="coverTitle">万朝逐鹿</h2>
+                <p class="cover-lead" data-i18n="coverLead">择一朝代，统率名将，在真实亚洲山河间扩张你的王朝。</p>
+                <p class="cover-meta" data-i18n="coverMeta">500 座真实城池 · 六朝争锋 · 实时战略</p>
+                <div class="cover-actions">
+                  <button class="cover-primary" id="cover-begin" type="button" data-i18n="coverBegin">进入练兵</button>
+                  <button class="cover-secondary" id="cover-view-map" type="button" data-i18n="coverViewMap">先看山河图</button>
+                </div>
+              </div>
+            </section>
+            <button class="cover-return" id="cover-return" type="button" data-i18n="coverReturn" hidden>返回封面</button>
+            <div class="map-heading"><span class="map-number">01</span><div><span class="eyebrow" data-i18n="mapName">亚洲五百城</span><span class="map-heading-sub" data-i18n="mapSubtitle">十四疆域 · 港口通海</span></div></div>
+            <div class="map-legend"><span><i class="legend-dot friendly"></i><span data-i18n="friendly">己方</span></span><span><i class="legend-dot hostile"></i><span data-i18n="hostile">敌方</span></span><span><i class="legend-dot neutral"></i><span data-i18n="neutral">中立</span></span></div>
+            <div class="map-navigation"><button id="map-pan-toggle" type="button" aria-pressed="true"><span aria-hidden="true">↔</span><span class="map-mode-label">拖动地图</span></button><span class="map-gesture-hint" data-i18n="mapGestureHint">拖动平移 · Shift 框选 · 单击查看</span></div>
+            <div class="map-tools"><button id="zoom-in" type="button" aria-label="放大战场">+</button><span id="zoom-level" class="zoom-level">100%</span><button id="zoom-out" type="button" aria-label="缩小战场">−</button><button id="center-view" type="button" aria-label="返回主城"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3v4m0 10v4M3 12h4m10 0h4"/><circle cx="12" cy="12" r="5"/></svg></button></div>
+            <div class="map-caption"><span class="live-dot"></span><span data-i18n="mapNote">架空历史战场 · 各朝代公平对战</span><span class="map-coordinate" aria-hidden="true">N ↑</span></div>
+          </div>
+          <div class="selection-panel" id="selection-panel"><div class="selection-emblem">令</div><div><strong data-i18n="awaitCommand">待君发令</strong><p data-i18n="selectionHint">选择一支军队，或点击城池查看局势。</p></div><div class="keyboard-guide"><kbd>左键</kbd><span data-i18n="select">选择</span><kbd>右键</kbd><span data-i18n="command">下令</span></div></div>
+          <div class="battle-footer"><span data-i18n="controlHint">框选编队 · 右键行军 · 滚轮缩放 · Ctrl + 数字设编队</span><span class="battle-footer-end" data-i18n="matchFormat">2–4 人 · 实时战略</span></div>
+        </section>
+        <aside class="strategy-panel" aria-label="军政面板">
+          <div class="panel-heading"><div><span class="eyebrow" data-i18n="commandCenter">军政司</span><h1 data-i18n="panelTitle">谋定而后动</h1></div><span class="panel-ornament" aria-hidden="true">策</span></div>
+          <div id="inspector" class="inspector" hidden></div>
+          <nav class="action-tabs" id="action-tabs" aria-label="军政操作">
+            <button type="button" data-tab="lobby" class="active" data-i18n="tabLobby">开局</button>
+            <button type="button" data-tab="build" data-i18n="tabBuild">建设</button>
+            <button type="button" data-tab="train" data-i18n="tabTrain">征兵</button>
+            <button type="button" data-tab="tech" data-i18n="tabTech">科技</button>
+          </nav>
+          <div class="action-scroll"><div id="room-panel"></div><div id="action-content"><div class="loading-state"><span class="loading-seal">令</span><p data-i18n="loading">正在展开山河图…</p></div></div></div>
+          <section class="dispatch-section" aria-label="战报"><div class="dispatch-heading"><span data-i18n="dispatch">军情简报</span><span class="dispatch-line"></span><span class="eyebrow">LIVE</span></div><ol id="event-list"><li class="quiet" data-i18n="dispatchEmpty">烽火未起，先定谋略。</li></ol></section>
+        </aside>
+      </div>
+    </main>
+    <footer class="site-footer"><span><a href="../" data-i18n="portfolioLink">DC Web 作品集</a> <span class="footer-dot">·</span> <span data-i18n="footerGame">万朝逐鹿 / 跨朝代实时战略</span></span><details class="author-details" lang="en"><summary>About Dayang.Cao</summary><p>I’m an Algorithm Engineer. This portfolio brings together my projects in lighting engineering and AI applications, including LumiPilot and Tospo Outdoor Lighting web.</p><p>I use this website to share selected work and the thinking behind it.</p><details><summary>A few milestones</summary><ol><li>2023 · First Prize · Zhejiang Province E-commerce Competition</li><li>2022 · First Prize · Zhejiang Province Quantitative Investment Competition</li><li>2022 · First Prize · Zhejiang Province Computer Design Competition</li></ol></details></details></footer>
+  </div>
+  <div id="dialog-layer"></div>
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+</body>
+</html>

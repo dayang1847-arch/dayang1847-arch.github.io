@@ -1,0 +1,2195 @@
+{
+  "schema_version": "procurement-parameters-1",
+  "id": "procurement-common",
+  "version": "1.0",
+  "updated_at": "2026-10-22",
+  "title": "采购物料统一参数标准",
+  "fields": [
+    {
+      "id": "accessory",
+      "label": "配套附件",
+      "group": "配套与其他",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "配套附件"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "accessory_protection_rating",
+      "label": "附件防护等级",
+      "group": "配套与其他",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "附件防护等级"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "aged_elongation",
+      "label": "老化后伸长率",
+      "group": "配套与其他",
+      "kind": "numeric",
+      "unit": "%",
+      "aliases": [
+        "老化后伸长率"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "aged_tensile_strength",
+      "label": "老化后拉伸强度",
+      "group": "配套与其他",
+      "kind": "numeric",
+      "unit": "MPa",
+      "aliases": [
+        "老化后拉伸强度"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "aging_test",
+      "label": "老化试验",
+      "group": "环境与安全",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "老化试验"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "applicable_wire",
+      "label": "适用导线",
+      "group": "接线与导线",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "适用导线"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "average_breakdown_voltage",
+      "label": "平均击穿电压",
+      "group": "配套与其他",
+      "kind": "numeric",
+      "unit": "V",
+      "aliases": [
+        "平均击穿电压"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "axial_change",
+      "label": "轴向变化率",
+      "group": "配套与其他",
+      "kind": "numeric",
+      "unit": "%",
+      "aliases": [
+        "轴向变化率"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "ballast_load",
+      "label": "镇流器负载",
+      "group": "电气与额定值",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "镇流器负载"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "ballast_load_rating",
+      "label": "镇流器负载额定值",
+      "group": "配套与其他",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "镇流器负载额定值"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "branch_count",
+      "label": "支路/接口数量",
+      "group": "配套与其他",
+      "kind": "numeric",
+      "unit": "",
+      "aliases": [
+        "支路/接口数量"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "breakdown_strength",
+      "label": "击穿强度",
+      "group": "配套与其他",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "击穿强度"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "breakdown_voltage",
+      "label": "击穿电压",
+      "group": "电气与额定值",
+      "kind": "numeric",
+      "unit": "V",
+      "aliases": [
+        "击穿电压"
+      ],
+      "source_keys": [],
+      "rating_scoped": true,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "cable_diameter",
+      "label": "适配电缆直径",
+      "group": "结构与尺寸",
+      "kind": "numeric",
+      "unit": "mm",
+      "aliases": [
+        "适配电缆直径"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "cable_outer_diameter",
+      "label": "电缆外径",
+      "group": "结构与尺寸",
+      "kind": "numeric",
+      "unit": "mm",
+      "aliases": [
+        "电缆外径"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "cold_bend",
+      "label": "低温弯曲",
+      "group": "环境与安全",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "低温弯曲"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "collar",
+      "label": "挡圈",
+      "group": "材料与部件",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "挡圈"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "color",
+      "label": "颜色",
+      "group": "材料与部件",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "颜色"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "compatibility",
+      "label": "适配性",
+      "group": "配套与其他",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "适配性"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "compatible_box",
+      "label": "适配盒体",
+      "group": "配套与其他",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "适配盒体"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "compatible_gel_box",
+      "label": "适配凝胶盒",
+      "group": "配套与其他",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "适配凝胶盒"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "compatible_models",
+      "label": "适配型号",
+      "group": "配套与其他",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "适配型号"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "compatible_series",
+      "label": "适配系列",
+      "group": "配套与其他",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "适配系列"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "component_models",
+      "label": "原文配对/并列型号",
+      "group": "配套与其他",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "原文配对/并列型号"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "connection_method",
+      "label": "连接方式",
+      "group": "接线与导线",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "连接方式",
+        "接线方式",
+        "Connection method"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "construction_features",
+      "label": "结构/方向说明",
+      "group": "配套与其他",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "结构/方向说明"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "contact_material",
+      "label": "接触件材料",
+      "group": "材料与部件",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "接触件材料",
+        "接触材料",
+        "Contact material"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "contact_resistance",
+      "label": "接触电阻",
+      "group": "电气与额定值",
+      "kind": "numeric",
+      "unit": "mΩ",
+      "aliases": [
+        "接触电阻"
+      ],
+      "source_keys": [],
+      "rating_scoped": true,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "dimension_a",
+      "label": "图示尺寸 A",
+      "group": "结构与尺寸",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "图示尺寸 A"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "dimension_b",
+      "label": "图示尺寸 B",
+      "group": "结构与尺寸",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "图示尺寸 B"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "dimension_c",
+      "label": "图纸尺寸C",
+      "group": "结构与尺寸",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "图纸尺寸C"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "dimension_d",
+      "label": "图纸尺寸D",
+      "group": "结构与尺寸",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "图纸尺寸D"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "dimension_e",
+      "label": "图纸尺寸E",
+      "group": "结构与尺寸",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "图纸尺寸E"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "dimension_f",
+      "label": "图纸尺寸F",
+      "group": "结构与尺寸",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "图纸尺寸F"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "double_insulation",
+      "label": "双重绝缘",
+      "group": "配套与其他",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "双重绝缘"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "drawing_annotations",
+      "label": "图纸原始OCR标注（方向/归属待核）",
+      "group": "结构与尺寸",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "图纸原始OCR标注（方向/归属待核）"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "drawing_dimensions",
+      "label": "图纸尺寸标注（方向关系见原图）",
+      "group": "结构与尺寸",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "图纸尺寸标注（方向关系见原图）"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "drawing_reference",
+      "label": "外形/PCB尺寸图位置",
+      "group": "结构与尺寸",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "外形/PCB尺寸图位置",
+        "尺寸图"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "electronic_ballast_load",
+      "label": "电子镇流器负载",
+      "group": "配套与其他",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "电子镇流器负载"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "elongation",
+      "label": "伸长率",
+      "group": "配套与其他",
+      "kind": "numeric",
+      "unit": "%",
+      "aliases": [
+        "伸长率"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "end_user_wire",
+      "label": "用户侧导线",
+      "group": "接线与导线",
+      "kind": "numeric",
+      "unit": "mm²",
+      "aliases": [
+        "用户侧导线"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "extension",
+      "label": "延伸部分",
+      "group": "配套与其他",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "延伸部分"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "factory_wire",
+      "label": "工厂侧导线",
+      "group": "接线与导线",
+      "kind": "numeric",
+      "unit": "mm²",
+      "aliases": [
+        "工厂侧导线"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "flame_class",
+      "label": "阻燃等级",
+      "group": "环境与安全",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "阻燃等级",
+        "Flammability"
+      ],
+      "source_keys": [
+        "flammability_rating"
+      ],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "frequency",
+      "label": "频率",
+      "group": "电气与额定值",
+      "kind": "numeric",
+      "unit": "Hz",
+      "aliases": [
+        "频率"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "full_shrink_temperature",
+      "label": "完全收缩温度",
+      "group": "环境与安全",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "完全收缩温度"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "glow_wire_temperature",
+      "label": "灼热丝温度",
+      "group": "接线与导线",
+      "kind": "numeric",
+      "unit": "℃",
+      "aliases": [
+        "灼热丝温度"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "handle_angle",
+      "label": "手柄角度",
+      "group": "配套与其他",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "手柄角度"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "handle_length",
+      "label": "手柄长度",
+      "group": "结构与尺寸",
+      "kind": "numeric",
+      "unit": "mm",
+      "aliases": [
+        "手柄长度"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "height",
+      "label": "高度",
+      "group": "结构与尺寸",
+      "kind": "numeric",
+      "unit": "mm",
+      "aliases": [
+        "高度"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "horizontal_flame_test",
+      "label": "水平燃烧试验",
+      "group": "环境与安全",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "水平燃烧试验"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "housing_material",
+      "label": "外壳材料",
+      "group": "材料与部件",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "外壳材料",
+        "壳体材料",
+        "绝缘壳体材料",
+        "Housing material"
+      ],
+      "source_keys": [
+        "housing",
+        "insulating_housing_material"
+      ],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "immersion_test_condition",
+      "label": "浸水试验条件",
+      "group": "环境与安全",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "浸水试验条件"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "impact_rating",
+      "label": "抗冲击等级",
+      "group": "环境与安全",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "抗冲击等级"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "impulse_withstand_voltage",
+      "label": "脉冲耐受电压",
+      "group": "电气与额定值",
+      "kind": "numeric",
+      "unit": "V",
+      "aliases": [
+        "脉冲耐受电压"
+      ],
+      "source_keys": [],
+      "rating_scoped": true,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "in_out",
+      "label": "进出线配置",
+      "group": "配套与其他",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "进出线配置"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "initial_shrink_temperature",
+      "label": "起始收缩温度",
+      "group": "环境与安全",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "起始收缩温度"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "inner_diameter",
+      "label": "内径",
+      "group": "结构与尺寸",
+      "kind": "numeric",
+      "unit": "mm",
+      "aliases": [
+        "内径"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "input_wire_awg",
+      "label": "进线线规",
+      "group": "电气与额定值",
+      "kind": "numeric",
+      "unit": "AWG",
+      "aliases": [
+        "进线线规"
+      ],
+      "source_keys": [],
+      "rating_scoped": true,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "input_wire_cross_section",
+      "label": "进线截面积",
+      "group": "电气与额定值",
+      "kind": "numeric",
+      "unit": "mm²",
+      "aliases": [
+        "进线截面积"
+      ],
+      "source_keys": [],
+      "rating_scoped": true,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "insulation_resistance",
+      "label": "绝缘电阻",
+      "group": "电气与额定值",
+      "kind": "numeric",
+      "unit": "MΩ",
+      "aliases": [
+        "绝缘电阻"
+      ],
+      "source_keys": [],
+      "rating_scoped": true,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "interface",
+      "label": "接口",
+      "group": "配套与其他",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "接口"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "internal_terminal",
+      "label": "内置端子",
+      "group": "配套与其他",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "内置端子"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "led_load_rating",
+      "label": "LED负载额定值",
+      "group": "电气与额定值",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "LED负载额定值"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "leg_length",
+      "label": "引脚长度",
+      "group": "结构与尺寸",
+      "kind": "numeric",
+      "unit": "mm",
+      "aliases": [
+        "引脚长度"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "length",
+      "label": "长度",
+      "group": "结构与尺寸",
+      "kind": "numeric",
+      "unit": "mm",
+      "aliases": [
+        "长度"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "lighting_wire",
+      "label": "灯具侧导线",
+      "group": "接线与导线",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "灯具侧导线"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "load_rating",
+      "label": "负载额定值",
+      "group": "电气与额定值",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "负载额定值"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "load_type",
+      "label": "负载类型",
+      "group": "配套与其他",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "负载类型"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "lower_wire_solid",
+      "label": "下层实心线范围",
+      "group": "接线与导线",
+      "kind": "numeric",
+      "unit": "mm²",
+      "aliases": [
+        "下层实心线范围"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "main_wire",
+      "label": "主线",
+      "group": "接线与导线",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "主线"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "manual_soldering",
+      "label": "手工焊接条件",
+      "group": "配套与其他",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "手工焊接条件"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "material_as_printed",
+      "label": "目录材料原文",
+      "group": "材料与部件",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "目录材料原文"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "material_evidence",
+      "label": "材料原文依据",
+      "group": "材料与部件",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "材料原文依据"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "max_bundle_diameter",
+      "label": "最大捆扎直径",
+      "group": "结构与尺寸",
+      "kind": "numeric",
+      "unit": "mm",
+      "aliases": [
+        "最大捆扎直径"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "mechanical_life",
+      "label": "机械寿命",
+      "group": "配套与其他",
+      "kind": "numeric",
+      "unit": "cycles",
+      "aliases": [
+        "机械寿命"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "minimum_breakdown_voltage",
+      "label": "最小击穿电压",
+      "group": "配套与其他",
+      "kind": "numeric",
+      "unit": "V",
+      "aliases": [
+        "最小击穿电压"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "mounting",
+      "label": "安装方式",
+      "group": "配套与其他",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "安装方式",
+        "Mounting"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "needle_length",
+      "label": "针长",
+      "group": "结构与尺寸",
+      "kind": "numeric",
+      "unit": "mm",
+      "aliases": [
+        "针长"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "opening",
+      "label": "开口",
+      "group": "结构与尺寸",
+      "kind": "numeric",
+      "unit": "mm",
+      "aliases": [
+        "开口"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "opening_diameter",
+      "label": "开孔直径",
+      "group": "结构与尺寸",
+      "kind": "numeric",
+      "unit": "mm",
+      "aliases": [
+        "开孔直径"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "operation_method",
+      "label": "操作方式",
+      "group": "配套与其他",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "操作方式"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "order_code",
+      "label": "订货代码",
+      "group": "配套与其他",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "订货代码"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "order_note",
+      "label": "订货说明",
+      "group": "配套与其他",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "订货说明"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "outer_diameter",
+      "label": "外径",
+      "group": "结构与尺寸",
+      "kind": "numeric",
+      "unit": "mm",
+      "aliases": [
+        "外径"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "output_wire_awg",
+      "label": "出线线规",
+      "group": "电气与额定值",
+      "kind": "numeric",
+      "unit": "AWG",
+      "aliases": [
+        "出线线规"
+      ],
+      "source_keys": [],
+      "rating_scoped": true,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "output_wire_cross_section",
+      "label": "出线截面积",
+      "group": "电气与额定值",
+      "kind": "numeric",
+      "unit": "mm²",
+      "aliases": [
+        "出线截面积"
+      ],
+      "source_keys": [],
+      "rating_scoped": true,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "packing",
+      "label": "包装",
+      "group": "配套与其他",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "包装"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "pcb_hole_diameter",
+      "label": "PCB孔径",
+      "group": "结构与尺寸",
+      "kind": "numeric",
+      "unit": "mm",
+      "aliases": [
+        "PCB孔径"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "pcb_thickness",
+      "label": "PCBA板厚度(T)",
+      "group": "结构与尺寸",
+      "kind": "numeric",
+      "unit": "mm",
+      "aliases": [
+        "PCBA板厚度(T)"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "pin_column_raw",
+      "label": "原表芯数栏原值",
+      "group": "配套与其他",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "原表芯数栏原值"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "pin_retention_force",
+      "label": "引脚保持力",
+      "group": "配套与其他",
+      "kind": "numeric",
+      "unit": "N",
+      "aliases": [
+        "引脚保持力"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "pin_size",
+      "label": "方针尺寸",
+      "group": "结构与尺寸",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "方针尺寸"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "pin_square",
+      "label": "针截面",
+      "group": "结构与尺寸",
+      "kind": "numeric",
+      "unit": "mm",
+      "aliases": [
+        "针截面"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "pitch",
+      "label": "间距",
+      "group": "结构与尺寸",
+      "kind": "numeric",
+      "unit": "mm",
+      "aliases": [
+        "间距",
+        "针距",
+        "脚距",
+        "Pin pitch",
+        "Pitch"
+      ],
+      "source_keys": [
+        "pin_pitch"
+      ],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "poles",
+      "label": "极数",
+      "group": "配套与其他",
+      "kind": "numeric",
+      "unit": "",
+      "aliases": [
+        "极数",
+        "Poles",
+        "Number of poles"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "positions",
+      "label": "位数",
+      "group": "配套与其他",
+      "kind": "numeric",
+      "unit": "",
+      "aliases": [
+        "位数"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "protection_rating",
+      "label": "防护等级",
+      "group": "配套与其他",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "防护等级",
+        "IP等级",
+        "IP rating"
+      ],
+      "source_keys": [
+        "ip_rating"
+      ],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "rated_current",
+      "label": "额定电流",
+      "group": "电气与额定值",
+      "kind": "numeric",
+      "unit": "A",
+      "aliases": [
+        "额定电流",
+        "Rated current",
+        "current rating"
+      ],
+      "source_keys": [
+        "current_rating",
+        "nominal_current"
+      ],
+      "rating_scoped": true,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "rated_impulse_voltage",
+      "label": "额定脉冲耐受电压",
+      "group": "电气与额定值",
+      "kind": "numeric",
+      "unit": "kV",
+      "aliases": [
+        "额定脉冲耐受电压"
+      ],
+      "source_keys": [],
+      "rating_scoped": true,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "rated_insulation_voltage",
+      "label": "额定绝缘电压",
+      "group": "电气与额定值",
+      "kind": "numeric",
+      "unit": "V",
+      "aliases": [
+        "额定绝缘电压"
+      ],
+      "source_keys": [],
+      "rating_scoped": true,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "rated_power",
+      "label": "额定功率",
+      "group": "电气与额定值",
+      "kind": "numeric",
+      "unit": "W",
+      "aliases": [
+        "额定功率"
+      ],
+      "source_keys": [],
+      "rating_scoped": true,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "rated_voltage",
+      "label": "额定电压",
+      "group": "电气与额定值",
+      "kind": "numeric",
+      "unit": "V",
+      "aliases": [
+        "额定电压",
+        "Rated voltage",
+        "voltage rating"
+      ],
+      "source_keys": [
+        "voltage_rating",
+        "nominal_voltage"
+      ],
+      "rating_scoped": true,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "reflow_soldering",
+      "label": "回流焊条件",
+      "group": "配套与其他",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "回流焊条件"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "row_pitch",
+      "label": "排距",
+      "group": "结构与尺寸",
+      "kind": "numeric",
+      "unit": "mm",
+      "aliases": [
+        "排距"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "screw",
+      "label": "螺钉",
+      "group": "材料与部件",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "螺钉"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "screw_hole",
+      "label": "螺钉孔",
+      "group": "结构与尺寸",
+      "kind": "numeric",
+      "unit": "mm",
+      "aliases": [
+        "螺钉孔"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "screw_material",
+      "label": "螺钉材料",
+      "group": "材料与部件",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "螺钉材料"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "screw_size",
+      "label": "螺钉规格",
+      "group": "配套与其他",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "螺钉规格"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "sealant",
+      "label": "密封材料",
+      "group": "材料与部件",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "密封材料"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "self_extinguishing_time",
+      "label": "自熄时间",
+      "group": "配套与其他",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "自熄时间"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "shrink_ratio",
+      "label": "收缩比",
+      "group": "环境与安全",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "收缩比"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "size",
+      "label": "尺寸",
+      "group": "结构与尺寸",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "尺寸"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "size_as_printed",
+      "label": "目录尺寸原文",
+      "group": "结构与尺寸",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "目录尺寸原文"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "size_table",
+      "label": "完整尺寸表（按原列序）",
+      "group": "结构与尺寸",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "完整尺寸表（按原列序）"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "spanner_size",
+      "label": "扳手尺寸",
+      "group": "结构与尺寸",
+      "kind": "numeric",
+      "unit": "mm",
+      "aliases": [
+        "扳手尺寸"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "spring",
+      "label": "弹簧",
+      "group": "材料与部件",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "弹簧"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "spring_material",
+      "label": "弹簧材料",
+      "group": "材料与部件",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "弹簧材料"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "storage_temperature",
+      "label": "储存温度",
+      "group": "环境与安全",
+      "kind": "numeric",
+      "unit": "℃",
+      "aliases": [
+        "储存温度"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "stripping_length",
+      "label": "剥线长度",
+      "group": "接线与导线",
+      "kind": "numeric",
+      "unit": "mm",
+      "aliases": [
+        "剥线长度",
+        "Strip length",
+        "Wire stripping length"
+      ],
+      "source_keys": [
+        "strip_length",
+        "wire_strip_length"
+      ],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "submerge_water_test",
+      "label": "浸水试验",
+      "group": "配套与其他",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "浸水试验"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "switch_life",
+      "label": "开关寿命",
+      "group": "配套与其他",
+      "kind": "numeric",
+      "unit": "cycles",
+      "aliases": [
+        "开关寿命"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "switch_method",
+      "label": "开关方式",
+      "group": "配套与其他",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "开关方式"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "switch_rating",
+      "label": "开关额定值",
+      "group": "电气与额定值",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "开关额定值"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "temperature",
+      "label": "温度范围",
+      "group": "环境与安全",
+      "kind": "numeric",
+      "unit": "℃",
+      "aliases": [
+        "温度范围",
+        "工作温度",
+        "工作温度范围",
+        "使用温度范围",
+        "Operating temperature"
+      ],
+      "source_keys": [
+        "operating_temperature",
+        "operating_temp"
+      ],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "temperature_designation",
+      "label": "温度标识",
+      "group": "环境与安全",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "温度标识"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "temperature_endurance",
+      "label": "耐温性能",
+      "group": "环境与安全",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "耐温性能"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "temperature_marking",
+      "label": "温度标记",
+      "group": "环境与安全",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "温度标记"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "tensile_strength",
+      "label": "拉伸强度",
+      "group": "配套与其他",
+      "kind": "numeric",
+      "unit": "MPa",
+      "aliases": [
+        "拉伸强度"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "tensile_strength_kgs",
+      "label": "拉力（kg）",
+      "group": "配套与其他",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "拉力（kg）"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "tensile_strength_lbs",
+      "label": "拉力（lb）",
+      "group": "配套与其他",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "拉力（lb）"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "terminal_capacity",
+      "label": "端子接线容量",
+      "group": "接线与导线",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "端子接线容量"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "test_standard",
+      "label": "试验标准",
+      "group": "配套与其他",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "试验标准"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "test_voltage",
+      "label": "试验电压",
+      "group": "电气与额定值",
+      "kind": "numeric",
+      "unit": "V",
+      "aliases": [
+        "试验电压"
+      ],
+      "source_keys": [],
+      "rating_scoped": true,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "thickness",
+      "label": "厚度",
+      "group": "结构与尺寸",
+      "kind": "numeric",
+      "unit": "mm",
+      "aliases": [
+        "厚度"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "thread",
+      "label": "螺纹规格",
+      "group": "结构与尺寸",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "螺纹规格"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "thread_length",
+      "label": "螺纹长度",
+      "group": "结构与尺寸",
+      "kind": "numeric",
+      "unit": "mm",
+      "aliases": [
+        "螺纹长度"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "thread_length_gl",
+      "label": "螺纹长度 GL",
+      "group": "结构与尺寸",
+      "kind": "numeric",
+      "unit": "mm",
+      "aliases": [
+        "螺纹长度 GL"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "thread_outer_diameter",
+      "label": "螺纹外径",
+      "group": "结构与尺寸",
+      "kind": "numeric",
+      "unit": "mm",
+      "aliases": [
+        "螺纹外径"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "title_protection_rating",
+      "label": "标题防护等级",
+      "group": "配套与其他",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "标题防护等级"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "torque",
+      "label": "扭矩",
+      "group": "配套与其他",
+      "kind": "numeric",
+      "unit": "N.m",
+      "aliases": [
+        "扭矩"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "tungsten_load",
+      "label": "钨丝灯负载",
+      "group": "配套与其他",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "钨丝灯负载"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "upper_wire_cross_section",
+      "label": "上层线截面积",
+      "group": "接线与导线",
+      "kind": "numeric",
+      "unit": "mm²",
+      "aliases": [
+        "上层线截面积"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "uv_rating",
+      "label": "抗紫外等级",
+      "group": "环境与安全",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "抗紫外等级"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "voltage_grade",
+      "label": "电压等级",
+      "group": "配套与其他",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "电压等级"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "volume_resistivity",
+      "label": "体积电阻率",
+      "group": "环境与安全",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "体积电阻率"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "width",
+      "label": "宽度",
+      "group": "结构与尺寸",
+      "kind": "numeric",
+      "unit": "mm",
+      "aliases": [
+        "宽度"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "wing_width",
+      "label": "翼宽",
+      "group": "结构与尺寸",
+      "kind": "numeric",
+      "unit": "mm",
+      "aliases": [
+        "翼宽"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "wire_awg",
+      "label": "导线线规",
+      "group": "电气与额定值",
+      "kind": "numeric",
+      "unit": "AWG",
+      "aliases": [
+        "导线线规"
+      ],
+      "source_keys": [],
+      "rating_scoped": true,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "wire_combination",
+      "label": "接线组合",
+      "group": "接线与导线",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "接线组合"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "wire_count",
+      "label": "导线数",
+      "group": "接线与导线",
+      "kind": "numeric",
+      "unit": "",
+      "aliases": [
+        "导线数"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "wire_cross_section",
+      "label": "导线截面积",
+      "group": "电气与额定值",
+      "kind": "numeric",
+      "unit": "mm²",
+      "aliases": [
+        "导线截面积"
+      ],
+      "source_keys": [],
+      "rating_scoped": true,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "wire_diameter",
+      "label": "铜线直径",
+      "group": "接线与导线",
+      "kind": "numeric",
+      "unit": "mm",
+      "aliases": [
+        "铜线直径"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "wire_dimensions",
+      "label": "导线尺寸",
+      "group": "接线与导线",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "导线尺寸"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "wire_fixing",
+      "label": "导线固定方式",
+      "group": "接线与导线",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "导线固定方式"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "wire_load_mapping",
+      "label": "线径与负载对应关系",
+      "group": "接线与导线",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "线径与负载对应关系"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "wire_range",
+      "label": "接线范围",
+      "group": "电气与额定值",
+      "kind": "numeric",
+      "unit": "mm²",
+      "aliases": [
+        "接线范围",
+        "Wire range"
+      ],
+      "source_keys": [],
+      "rating_scoped": true,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "wire_solid",
+      "label": "实心导线范围",
+      "group": "电气与额定值",
+      "kind": "numeric",
+      "unit": "mm²",
+      "aliases": [
+        "实心导线范围",
+        "单股硬线",
+        "Solid wire"
+      ],
+      "source_keys": [],
+      "rating_scoped": true,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "wire_stranded",
+      "label": "绞合导线范围",
+      "group": "电气与额定值",
+      "kind": "numeric",
+      "unit": "mm²",
+      "aliases": [
+        "绞合导线范围",
+        "多股软线",
+        "Stranded wire"
+      ],
+      "source_keys": [],
+      "rating_scoped": true,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "wire_type",
+      "label": "导线类型",
+      "group": "接线与导线",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "导线类型"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "仅收录目录明确给出的数值及标准/条件；缺失留空，不推定认证或适用性。"
+    },
+    {
+      "id": "creepage_distance",
+      "label": "爬电距离",
+      "group": "电气与额定值",
+      "kind": "numeric",
+      "unit": "mm",
+      "aliases": [
+        "爬电距离"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "标准预留字段；原资料未提供时为null。"
+    },
+    {
+      "id": "clearance_distance",
+      "label": "电气间隙",
+      "group": "电气与额定值",
+      "kind": "numeric",
+      "unit": "mm",
+      "aliases": [
+        "电气间隙"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "标准预留字段；原资料未提供时为null。"
+    },
+    {
+      "id": "contact_plating",
+      "label": "接触件镀层",
+      "group": "材料与部件",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "接触件镀层"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "标准预留字段；原资料未提供时为null。"
+    },
+    {
+      "id": "vibration_rating",
+      "label": "抗振等级",
+      "group": "环境与安全",
+      "kind": "text",
+      "unit": "",
+      "aliases": [
+        "抗振等级"
+      ],
+      "source_keys": [],
+      "rating_scoped": false,
+      "description": "标准预留字段；原资料未提供时为null。"
+    }
+  ]
+}

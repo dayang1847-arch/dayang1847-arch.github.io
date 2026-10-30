@@ -1,0 +1,47 @@
+{
+  "version": "2.4.0",
+  "date": "2026-10-30",
+  "sourceCommit": "b82dacd2cdf0ff07f6763144ceaa3b6d7d6796fa",
+  "sourceTree": "210cc9dfe9b828370b4ea128a0ea5753048625fe",
+  "sourceDirectory": "source",
+  "fileCount": 422,
+  "bytes": 14786105,
+  "scope": "Local edition source; existing Cloudflare entry preserved; no online redeployment",
+  "verification": {
+    "data": {
+      "errors": 0,
+      "warnings": 0
+    },
+    "fullRegression": {
+      "tests": 222,
+      "passed": 221,
+      "failed": 1,
+      "knownFailure": "Existing traffic CPU 17.3ms > 6ms"
+    },
+    "finalFocusedChecks": {
+      "passed": 76,
+      "includesNewPlanHistoryRetentionTest": true
+    },
+    "finalWaterChecks": {
+      "passed": 3
+    },
+    "browserViewports": [
+      "1280x720",
+      "390x844"
+    ],
+    "browserViews": [
+      "day curved confluence",
+      "night curved confluence",
+      "autonomous plan console"
+    ],
+    "realPhonesTested": false,
+    "paidModelsCalled": false
+  },
+  "excluded": [
+    "city saves",
+    "runtime financial journals",
+    "credentials",
+    "backups",
+    "Hangzhou GIS data"
+  ]
+}
