@@ -1,5 +1,6 @@
 <!doctype html>
-<html lang="zh-CN" data-view="system"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#070b12"><meta name="description" content="探索太阳与八大行星：三维观察、天体档案、双星对比、彗星轨道、演变历史与88星座互动星图。"><title>太阳系探索 · Solar Atlas</title><link rel="icon" href="../assets/favicon-dc.png"><link rel="stylesheet" href="./atlas.css?v=86ecb257378a"><script type="module" src="./app.js?v=8cbec0d5cb5b"></script></head>
+<html lang="zh-CN" data-view="system"><head><meta charset="utf-8">
+<script src="../assets/view-counts.js?v=auto-2" data-view-page="solar-system" data-endpoint="https://astra-ocean-views.umi-ilot.workers.dev/views"></script><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#070b12"><meta name="description" content="探索太阳与八大行星：三维观察、天体档案、双星对比、彗星轨道、演变历史与88星座互动星图。"><title>太阳系探索 · Solar Atlas</title><link rel="icon" href="../assets/favicon-dc.png"><link rel="stylesheet" href="./atlas.css?v=86ecb257378a"><script type="module" src="./app.js?v=8cbec0d5cb5b"></script></head>
 <body>
 <canvas id="solar-canvas" tabindex="0" aria-label="三维太阳系：拖动旋转，滚动缩放，方向键旋转，加减键缩放"></canvas>
 <section id="sky-stage" hidden aria-label="星座图"><canvas id="sky-canvas" tabindex="0" aria-label="星座图：拖动旋转，滚动缩放，方向键旋转，加减键缩放"></canvas><div id="sky-status" role="status"></div></section>
@@ -18,5 +19,5 @@
 <dialog id="compare-dialog" aria-labelledby="compare-title"><div class="dialog-header"><div><p class="eyebrow">WORLDS, SIDE BY SIDE</p><h2 id="compare-title" data-i18n="compare">双星对比</h2></div><button type="button" data-close-dialog="compare-dialog" data-i18n="close">关闭</button></div><div class="compare-selectors"><label><span data-i18n="firstPlanet">第一颗行星</span><select id="compare-a"></select></label><span aria-hidden="true">×</span><label><span data-i18n="secondPlanet">第二颗行星</span><select id="compare-b"></select></label></div><div id="size-comparison"></div><p id="ratio-copy"></p><div class="table-scroll"><table id="compare-table"></table></div><p class="muted" data-i18n="compareNote">圆盘直径采用相同比例；不含行星环。参数比较与主场景的视觉缩放独立。</p></dialog>
 <dialog id="sources-dialog" aria-labelledby="sources-title"><div class="dialog-header"><div><p class="eyebrow">READ · EXPLORE · VERIFY</p><h2 id="sources-title" data-i18n="sources">资料与使用说明</h2></div><button type="button" data-close-dialog="sources-dialog" data-i18n="close">关闭</button></div><div id="sources-content"></div></dialog>
 <noscript>请启用 JavaScript 以使用三维太阳系、天体档案和互动星图。Enable JavaScript to explore the atlas.</noscript>
-<script defer src="../assets/view-counts.js?v=1" data-view-page="solar-system" data-endpoint="https://astra-ocean-views.umi-ilot.workers.dev/views"></script>
+
 </body></html>

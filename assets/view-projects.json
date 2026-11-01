@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "projects": [
+    {
+      "id": "solar-system",
+      "entry": "solar-system/index.html"
+    },
+    {
+      "id": "dc-world",
+      "entry": "dc-world/index.html"
+    },
+    {
+      "id": "lumipilot",
+      "entry": "LumiPilot/index.html"
+    },
+    {
+      "id": "tospo",
+      "entry": "TP-outdoor-lighting/index.html"
+    },
+    {
+      "id": "lumina",
+      "entry": "LUMINA/index.html"
+    },
+    {
+      "id": "vietquest",
+      "entry": "vietnamese-learning/index.html"
+    },
+    {
+      "id": "wanchao",
+      "entry": "wanchao/index.html"
+    },
+    {
+      "id": "pdf-cad",
+      "entry": "pdf-to-cad/index.html"
+    },
+    {
+      "id": "procurement",
+      "entry": "procurement/index.html"
+    }
+  ]
+}
