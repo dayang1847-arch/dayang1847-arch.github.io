@@ -1,6 +1,7 @@
 const CACHE_PREFIX = `vietnamese-learning-${encodeURIComponent(self.registration.scope)}-`;
-const CACHE = `${CACHE_PREFIX}v16`;
+const CACHE = `${CACHE_PREFIX}v17`;
 const CORE = [
+  '../assets/view-counts.js?v=1', '../assets/views-history.json',
   '../assets/project-navigation.css?v=1', '../assets/project-navigation.js?v=1',
   './', './index.html', './styles.css?v=12', './app.js?v=12', './course.js',
   './speech.js?v=12', './audio-data.js', './audio/manifest.json', './audio/SOURCES.md',
@@ -54,3 +55,4 @@ self.addEventListener('fetch', event => {
   }
   event.respondWith(caches.open(CACHE).then(cache => cache.match(request).then(cached => cached || fetch(request))));
 });
+

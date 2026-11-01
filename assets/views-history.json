@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "mode": "snapshot",
+  "counts": {
+    "home": 111,
+    "dc-world": 0,
+    "lumipilot": 33,
+    "market-console": 4,
+    "tospo": 4,
+    "lumina": 19,
+    "vietquest": 2,
+    "wanchao": 2,
+    "pdf-cad": 5,
+    "procurement": 0,
+    "solar-system": 0
+  },
+  "startedAt": "2026-10-16T04:32:43.361Z",
+  "importedAt": "2026-11-01T14:25:15.835Z"
+}
