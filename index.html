@@ -8,7 +8,7 @@
 <meta content="#050b16" name="theme-color"/>
 <title>Astra Ocean</title>
 <script>try{const t=localStorage.getItem('dayang-theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t;}catch{}</script>
-<link rel="icon" href="./assets/favicon-dc.png" type="image/png"/><meta content="light dark" name="color-scheme"/><link href="./styles.css?v=27-astra-guide-cover" rel="stylesheet"/><script defer="" src="./main.js?v=cover-20261101-29-milky"></script></head>
+<link rel="icon" href="./assets/favicon-dc.png" type="image/png"/><meta content="light dark" name="color-scheme"/><link href="./styles.css?v=27-astra-guide-cover" rel="stylesheet"/><script defer="" src="./main.js?v=30-zoom"></script></head>
 <body>
 <a class="skip-link" data-i18n="skip" href="#main">跳到正文</a>
 <header id="top">
@@ -18,14 +18,14 @@
 </header>
 <main id="main">
 <section class="space-hero" id="home" aria-labelledby="hero-title">
-  <div class="hero-stage"><canvas id="universe" tabindex="0" aria-label="拖动或方向键旋转粒子，滚动或加减键缩放" data-i18n-aria="particleCanvas"></canvas></div>
+  <div class="hero-stage"><canvas id="universe" tabindex="0" aria-label="拖动或方向键旋转粒子，滚轮、双指或加减键缩放" data-i18n-aria="particleCanvas"></canvas></div>
   <div class="hero-copy"><p class="hero-kicker" lang="en">INDEPENDENT WORK / SELECTED PROJECTS</p>
     <h1 id="hero-title" lang="en">Astra Ocean</h1>
     <p class="hero-description" data-i18n="heroDescription">Dayang.Cao 的个人网站</p>
     <div class="hero-actions"><a class="hero-link" href="#works"><span data-i18n="heroBrowse">浏览作品</span><span class="icon icon-download" aria-hidden="true"></span></a><button class="solar-launch" data-open-solar type="button"><span data-i18n="solarExplore">探索太阳系</span><span class="icon icon-arrow" aria-hidden="true"></span></button></div>
     <p class="particle-status" id="status" role="status">银河系 · 棒旋结构示意</p>
   </div>
-  <div class="hero-controls"><div class="shape-switch" role="group" aria-label="粒子形态" data-i18n-aria="particleShapes"><button data-shape="0" type="button" aria-pressed="true"><small>01</small><span data-i18n="shapeGalaxy">银河系</span></button><button data-shape="1" type="button" aria-pressed="false"><small>02</small><span data-i18n="shapeRing">引力环</span></button><button data-shape="2" type="button" aria-pressed="false"><small>03</small><span data-i18n="shapeGlobe">星球</span></button></div><p class="particle-hint" data-i18n="particleHint">移动扰动 · 拖动旋转</p><button id="reset" type="button" disabled data-i18n="resetView">重置视角</button></div>
+  <div class="hero-controls"><div class="shape-switch" role="group" aria-label="粒子形态" data-i18n-aria="particleShapes"><button data-shape="0" type="button" aria-pressed="true"><small>01</small><span data-i18n="shapeGalaxy">银河系</span></button><button data-shape="1" type="button" aria-pressed="false"><small>02</small><span data-i18n="shapeRing">引力环</span></button><button data-shape="2" type="button" aria-pressed="false"><small>03</small><span data-i18n="shapeGlobe">星球</span></button></div><p class="particle-hint" data-i18n="particleHint">滚动 / 双指缩放 · 拖动旋转</p><button id="reset" type="button" disabled data-i18n="resetView">重置视角</button></div>
   <div id="fallback" hidden><p data-i18n="particleFallback">3D 场景暂不可用，仍可浏览下方作品。</p></div>
 </section>
 <section aria-labelledby="works-title" id="works">
@@ -171,3 +171,4 @@
 <script defer src="./assets/view-counts.js?v=1" data-view-page="home" data-endpoint="https://astra-ocean-views.umi-ilot.workers.dev/views"></script>
 </body>
 </html>
+
