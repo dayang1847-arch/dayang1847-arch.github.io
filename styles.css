@@ -323,3 +323,9 @@ body{overflow-x:clip}header,main,footer{max-width:1376px;padding-inline:56px}hea
 @media(max-width:640px){.identity{font-size:20px;letter-spacing:-.6px}.footer-info{align-items:flex-start;flex-direction:column;gap:8px}.project-footer>.project-views{min-height:34px;font-size:10px}.site-metrics>summary{gap:16px}}
 
 .guide-projects{align-items:start}.guide-project{padding:22px 24px}.guide-project p{font-size:13px;line-height:1.8;max-width:60ch}.guide-project a{min-height:44px;display:inline-flex;align-items:center}.guide-project h4{margin-bottom:12px}@media(max-width:640px){.guide-project{padding:18px}.guide-project p{font-size:13px}}
+
+/* Project cover artwork */
+.project-cover img{object-position:center}
+
+/* Project cover artwork */
+.project-cover img{object-position:center}
