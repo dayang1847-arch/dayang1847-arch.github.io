@@ -4,11 +4,11 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<meta content="Astra Ocean — personal projects in lighting engineering, market research, product crawling and recommendation analysis, PDF-to-CAD conversion, procurement collaboration demos, AI applications, Vietnamese learning and real-time strategy." name="description"/>
+<meta content="Astra Ocean — personal projects in lighting engineering, market research, product crawling and recommendation analysis, PDF-to-CAD conversion, procurement collaboration demos, AI applications, solar-system and constellation exploration, Vietnamese learning and real-time strategy." name="description"/>
 <meta content="#050b16" name="theme-color"/>
 <title>Astra Ocean</title>
 <script>try{const t=localStorage.getItem('dayang-theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t;}catch{}</script>
-<link rel="icon" href="./assets/favicon-dc.png" type="image/png"/><meta content="light dark" name="color-scheme"/><link href="./styles.css?v=27-astra-guide-cover" rel="stylesheet"/><script defer="" src="./main.js?v=30-zoom"></script></head>
+<link rel="icon" href="./assets/favicon-dc.png" type="image/png"/><meta content="light dark" name="color-scheme"/><link href="./styles.css?v=solar-atlas-20261101" rel="stylesheet"/><script defer="" src="./main.js?v=solar-atlas-20261101"></script></head>
 <body>
 <a class="skip-link" data-i18n="skip" href="#main">跳到正文</a>
 <header id="top">
@@ -31,15 +31,15 @@
 <section aria-labelledby="works-title" id="works">
   <div class="collection-heading">
     <div><h2 data-i18n="works" id="works-title">项目作品</h2></div>
-    <div class="collection-side"><p class="collection-count"><span id="collection-count">09</span><span data-i18n="collectionUnit">个项目</span></p><button class="collection-solar" data-open-solar type="button" data-i18n="solarShort" data-i18n-aria="solarExplore">探索太阳系</button></div>
+    <div class="collection-side"><p class="collection-count"><span id="collection-count">10</span><span data-i18n="collectionUnit">个项目</span></p><button class="collection-solar" data-open-solar type="button" data-i18n="solarShort" data-i18n-aria="solarExplore">探索太阳系</button></div>
   </div>
   <div class="project-tools" hidden>
     <div class="project-filters" role="group" aria-label="项目分类" data-i18n-aria="filterLabel">
-      <button type="button" data-filter="all" aria-pressed="true" aria-controls="project-grid"><span data-i18n="filterAll">全部</span><span class="filter-count">9</span></button>
+      <button type="button" data-filter="all" aria-pressed="true" aria-controls="project-grid"><span data-i18n="filterAll">全部</span><span class="filter-count">10</span></button>
       <button type="button" data-filter="research" aria-pressed="false" aria-controls="project-grid"><span data-i18n="filterResearch">研发工具</span><span class="filter-count">2</span></button>
       <button type="button" data-filter="procurement" aria-pressed="false" aria-controls="project-grid"><span data-i18n="filterProcurement">采购协同</span><span class="filter-count">1</span></button>
       <button type="button" data-filter="showcase" aria-pressed="false" aria-controls="project-grid"><span data-i18n="filterShowcase">产品展示</span><span class="filter-count">1</span></button>
-      <button type="button" data-filter="simulation" aria-pressed="false" aria-controls="project-grid"><span data-i18n="filterSimulation">场景仿真</span><span class="filter-count">2</span></button>
+      <button type="button" data-filter="simulation" aria-pressed="false" aria-controls="project-grid"><span data-i18n="filterSimulation">场景仿真</span><span class="filter-count">3</span></button>
       <button type="button" data-filter="learning" aria-pressed="false" aria-controls="project-grid"><span data-i18n="filterLearning">语言学习</span><span class="filter-count">1</span></button>
       <button type="button" data-filter="strategy" aria-pressed="false" aria-controls="project-grid"><span data-i18n="filterStrategy">策略游戏</span><span class="filter-count">1</span></button>
     </div>
@@ -51,8 +51,18 @@
       <button class="search-clear" type="button" aria-label="清除搜索" data-i18n-aria="clearSearch" hidden><span data-i18n="clearSearch">清除搜索</span></button>
     </form>
   </div>
-  <div class="collection-meta"><p id="project-results" role="status" aria-live="polite" aria-atomic="true">展示全部 9 个项目</p></div>
+  <div class="collection-meta"><p id="project-results" role="status" aria-live="polite" aria-atomic="true">展示全部 10 个项目</p></div>
   <div class="project-grid" id="project-grid">
+    <article class="project-card" id="solar-atlas" data-category="simulation" data-keywords="Solar Atlas solar system planets constellation sky orbit astronomy 太阳系 星球 星座 星图 轨道 天文" aria-labelledby="solar-atlas-title">
+      <div class="project-cover cover-solar-atlas"><img src="./assets/solar-atlas-preview.svg" alt="太阳系探索：行星轨道与星座连线" data-i18n-alt="solarAtlasAlt" width="960" height="675" loading="lazy"/></div>
+      <div class="project-content">
+        <div class="project-topline"><span class="project-category" data-i18n="filterSimulation">场景仿真</span><span class="work-status" data-i18n="solarAtlasStatus">互动探索</span></div>
+        <h2 id="solar-atlas-title">Solar Atlas</h2><p class="work-title" data-i18n="solarAtlasTitle">太阳系与星座探索</p>
+        <div class="project-bottom"><div class="work-actions"><a class="primary" href="./solar-system/?lang=zh" data-solar-project><span data-i18n="solarAtlasEnter">进入独立项目</span><span class="icon icon-arrow" aria-hidden="true"></span></a><button class="secondary" data-open-solar type="button" data-i18n="solarAtlasQuick">快速探索</button></div></div>
+        <div class="project-footer"><details class="project-details"><summary><span data-i18n="projectDetails">详情</span></summary><div class="project-detail-content"><p data-i18n="solarAtlasDescription">探索太阳与八大行星的档案、地貌与云层、双星对比和俯视轨道；可点选地球七大洲，查看地月及主要卫星轨道。另有 88 星座、5,044 颗恒星的 J2000 星图。无需登录，支持中英文与手机浏览。科普示意模型，非实时天象或当地观测预报。</p></div></details></div>
+      </div>
+    </article>
+
     <article class="project-card" id="dc-world" data-category="simulation" data-keywords="DC World DeepSeek AI city town city-building game 城市建设 小镇 群体决策 企业 税收 草地牛 游戏" aria-labelledby="dc-world-title">
       <div class="project-cover"><img src="./assets/cover-dc-world-20261101.webp" alt="城市建设概念封面" data-i18n-alt="coverNew0" width="1200" height="675" loading="lazy"/></div>
       <div class="project-content">
@@ -139,6 +149,7 @@
       <section class="guide-chapter" aria-labelledby="guide-projects-title">
         <h3 id="guide-projects-title"><span class="guide-number" aria-hidden="true">02</span><span data-i18n="guideProjectsTitle">各项目怎样使用</span></h3>
         <div class="guide-projects">
+          <section class="guide-project" id="guide-solar-atlas" tabindex="-1"><h4>Solar Atlas</h4><p data-i18n="solarAtlasDescription">太阳系、七大洲与主要卫星轨道，及星座图。</p><a href="./solar-system/?lang=zh" data-solar-project data-i18n="solarAtlasEnter">进入独立项目</a></section>
           <section class="guide-project" id="guide-dc-world" tabindex="-1"><h4>DC World</h4><p data-i18n="guideDCWorld">按游戏引导配置自己的 DeepSeek，查看居民、城市议事与建设进度。每个浏览器独立城市；自动议事需保持页面打开。</p><a href="./dc-world/" data-i18n="guideDCWorldLink">进入 DC World ↗</a></section>
           <section class="guide-project"><h4>LumiPilot</h4><p data-i18n="guideLumi">登录后浏览人物、产品情报及照明方案；实时研究与采集以工作台内的服务说明为准。</p><a href="./LumiPilot/#help" data-lumi-link="./LumiPilot/#help" data-i18n="guideLumiLink">登录后查看工作台使用指南 ↗</a></section>
           <section class="guide-project"><h4>Web Showing</h4><p data-i18n="guideTospo">从入口登录，浏览户外灯具与工程案例；登录页在新标签页打开。</p><a href="./TP-outdoor-lighting/?lang=zh" data-tospo-link="./TP-outdoor-lighting/" data-i18n="guideTospoLink" data-i18n-aria="tospoVisitLabel" aria-label="访问 Web Showing 登录入口（账号密码登录）">前往账号登录入口 ↗</a></section>
@@ -157,7 +168,7 @@
     </div>
   </details>
 </section>
-<section aria-label="About Dayang" class="author-section" id="about" lang="en"><details class="author-details"><summary aria-controls="author-content" class="author-summary">About Dayang</summary><div class="author-content" id="author-content"><div class="author-identity"><h2 id="author-name">Dayang.Cao</h2><p class="author-role">Algorithm Engineer</p></div><div class="author-biography"><p class="intro-copy">I’m Dayang.Cao, an Algorithm Engineer creating lighting tools (LUMINA, LumiPilot), product showcases including Web Showing, market research through LumiPilot, procurement tools, PDF-to-CAD workflows, language-learning experiences and strategy simulations such as DC World. Each project states its online, local or demonstration scope.</p><div class="author-notes"><details class="recognition"><summary>A few milestones</summary><ol class="award-list">
+<section aria-label="About Dayang" class="author-section" id="about" lang="en"><details class="author-details"><summary aria-controls="author-content" class="author-summary">About Dayang</summary><div class="author-content" id="author-content"><div class="author-identity"><h2 id="author-name">Dayang.Cao</h2><p class="author-role">Algorithm Engineer</p></div><div class="author-biography"><p class="intro-copy">I’m Dayang.Cao, an Algorithm Engineer creating lighting tools (LUMINA, LumiPilot), product showcases including Web Showing, market research through LumiPilot, procurement tools, PDF-to-CAD workflows, language-learning experiences, Solar Atlas for planetary and constellation exploration, and strategy simulations such as DC World. Each project states its online, local or demonstration scope.</p><div class="author-notes"><details class="recognition"><summary>A few milestones</summary><ol class="award-list">
 <li><time datetime="2024">2024</time><div><span class="award-prize">National Gold Award</span><h4>China International College Students’ Innovation Competition</h4></div></li>
 <li><time datetime="2023">2023</time><div><span class="award-prize">First Prize</span><h4>Zhejiang Province E-commerce Competition</h4></div></li>
 <li><time datetime="2022">2022</time><div><span class="award-prize">First Prize</span><h4>Zhejiang Province Quantitative Investment Competition</h4></div></li>
@@ -171,4 +182,5 @@
 <script defer src="./assets/view-counts.js?v=1" data-view-page="home" data-endpoint="https://astra-ocean-views.umi-ilot.workers.dev/views"></script>
 </body>
 </html>
+
 

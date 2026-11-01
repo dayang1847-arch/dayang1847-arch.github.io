@@ -1,0 +1,22 @@
+Solar Atlas — astronomical data provenance
+Retrieved: 2026-11-01
+Coordinates: equatorial, epoch J2000, catalogue positions only; no proper-motion correction.
+Source: https://github.com/ofrohn/d3-celestial/tree/master/data
+Runtime derived by scripts/prepare-data.mjs; retains English/Chinese names and catalogue values.
+Stars through apparent magnitude 6. HIP identifiers; underlying catalogue: Hipparcos / VizieR I/239.
+Star name translations: Stellarium skycultures via d3-celestial.
+Constellations: IAU reference, line modifications and label positions by d3-celestial; translations from Wikipedia.
+89 label/line features represent 88 constellations: Serpens has two disconnected parts.
+BSD-3-Clause notice: LICENSE-d3-celestial.txt. Upstream provenance: https://github.com/ofrohn/d3-celestial#files
+No constellation artwork, deep-sky images or traditional skyculture illustrations are included.
+
+Source SHA-256:
+stars.6.json 0297b8fa3adfbce1dc26566f61c4abcc1df4f29c6a28729ca06b56d1c6d25602
+starnames.json 19c84bc885f8a97c3b8e1f6a380084c575a9758dedfe35256e911a823ec3a695
+constellations.json ab4ae692027cbc042c0d6791a84456a65eb7c55656107fd00c58ff6e55d4d8b2
+constellations.lines.json 294f66bef5d5cf50b1e17f16d2efa1d97a15131612c68dd935adef6e7373e13c
+
+Deep explorer additions:
+- Simplified continent-region outlines: Natural Earth ne_110m_geography_regions_polys, public domain; Australia plus Oceania island-group regions. Not political borders or precise coastlines. https://github.com/nvkelso/natural-earth-vector/blob/master/geojson/ne_110m_geography_regions_polys.geojson
+- Major satellite mean elements: https://ssd.jpl.nasa.gov/sats/elem/ ; snapshot retrieved 2026-11-01. Records retain epoch and reference-plane labels. Display uses compressed distances and illustrative orbital-plane orientation.
+- Geological labels: NASA body facts, NASA Photojournal and USGS Gazetteer. Feature records carry source links. Atmospheric and solar markers are conceptual, not current storm or sunspot positions.
