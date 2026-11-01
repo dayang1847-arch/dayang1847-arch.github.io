@@ -2,6 +2,10 @@
   "version": 1,
   "projects": [
     {
+      "id": "streetlight",
+      "entry": "streetlight/index.html"
+    },
+    {
       "id": "solar-system",
       "entry": "solar-system/index.html"
     },

@@ -1,0 +1,222 @@
+{
+  "concept": {
+    "id": "SL-01",
+    "version": "1.0.0",
+    "name": "分腔式概念路灯",
+    "units": "mm",
+    "optical": {
+      "length": 332,
+      "width": 222,
+      "depth": 36,
+      "radius": 22,
+      "wall": 5,
+      "plate": 5,
+      "centerX": -105
+    },
+    "gear": {
+      "length": 200,
+      "width": 184,
+      "depth": 64,
+      "radius": 16,
+      "wall": 4,
+      "centerX": 157
+    },
+    "fins": {
+      "count": 13,
+      "length": 292,
+      "thickness": 1.8,
+      "height": 24,
+      "pitch": 14
+    },
+    "board": {
+      "length": 300,
+      "width": 188,
+      "thickness": 1.6
+    },
+    "led": {
+      "columns": 4,
+      "rows": 3,
+      "packagesPerModule": 4,
+      "packageSize": [
+        5,
+        5,
+        1.6
+      ]
+    },
+    "pole": {
+      "innerDiameter": 60,
+      "wall": 5,
+      "length": 105
+    },
+    "driver": {
+      "length": 132,
+      "width": 74,
+      "height": 34,
+      "equivalentMassKg": 0.22
+    },
+    "spd": {
+      "length": 38,
+      "width": 44,
+      "height": 29
+    },
+    "terminals": {
+      "length": 45,
+      "width": 22,
+      "height": 12
+    },
+    "window": {
+      "length": 310,
+      "width": 200,
+      "thickness": 2.7,
+      "radius": 16
+    },
+    "tim": {
+      "length": 292,
+      "width": 182,
+      "thickness": 1.2
+    },
+    "lensModule": {
+      "length": 59,
+      "width": 49,
+      "thickness": 1.5,
+      "pitchX": 70,
+      "pitchY": 60
+    },
+    "materials": {
+      "aluminium": {
+        "name": "涂层铝合金 · 概念值",
+        "k": 160,
+        "rho": 2700,
+        "cp": 900,
+        "epsilon": 0.85
+      },
+      "board": {
+        "name": "铝基板等效材料 · 概念值",
+        "k": 80,
+        "rho": 2700,
+        "cp": 900
+      },
+      "led": {
+        "name": "LED阵列等效封装 · 概念值",
+        "rho": 4000,
+        "cp": 800
+      },
+      "driver": {
+        "name": "驱动内部等效材料 · 概念值",
+        "rho": 1800,
+        "cp": 900
+      }
+    },
+    "status": "所有尺寸、材料与热参数均为教学假设，不对应具体商品或已验证工程设计。"
+  },
+  "components": [
+    {
+      "id": "led",
+      "name": "LED阵列",
+      "english": "LED ARRAY",
+      "role": "48个示意封装将电能转换为光与热。",
+      "node": "led"
+    },
+    {
+      "id": "board",
+      "name": "光源板",
+      "english": "LIGHT ENGINE",
+      "role": "承载光源并扩散热量的等效铝基板。",
+      "node": "board"
+    },
+    {
+      "id": "lenses",
+      "name": "透镜模组",
+      "english": "OPTICAL ARRAY",
+      "role": "改变光的传播方向；曲面和光路为原理示意。"
+    },
+    {
+      "id": "tim",
+      "name": "导热界面",
+      "english": "THERMAL INTERFACE",
+      "role": "连接光源板与散热基板；热模型将其表示为接触热阻。"
+    },
+    {
+      "id": "body",
+      "name": "光学区灯壳",
+      "english": "OPTICAL HOUSING",
+      "role": "为光学组件提供结构支承，并承接热量。",
+      "node": "body"
+    },
+    {
+      "id": "fins",
+      "name": "散热筋",
+      "english": "HEAT-SINK FINS",
+      "role": "扩大与环境交换热量的有效表面积。",
+      "node": "fins"
+    },
+    {
+      "id": "spd",
+      "name": "防雷器 SPD",
+      "english": "SURGE PROTECTION",
+      "role": "独立的并联浪涌保护概念模块。等级、保护模式和配合要求待实际选型；本期未求解其温度。"
+    },
+    {
+      "id": "terminals",
+      "name": "接线端子",
+      "english": "TERMINAL BLOCK",
+      "role": "展示L、N、PE与驱动、SPD的概念连接，正式接线须依据具体产品图纸。"
+    },
+    {
+      "id": "driver",
+      "name": "LED驱动",
+      "english": "LED DRIVER",
+      "role": "提供电能；输入与输出的差额形成驱动损耗。",
+      "node": "driver"
+    },
+    {
+      "id": "gear",
+      "name": "驱动腔壳体",
+      "english": "GEAR COMPARTMENT",
+      "role": "提供独立的驱动布置与检修空间。",
+      "node": "gear"
+    },
+    {
+      "id": "lid",
+      "name": "检修盖",
+      "english": "SERVICE COVER",
+      "role": "开启后露出驱动和接线区域。"
+    },
+    {
+      "id": "gaskets",
+      "name": "密封圈",
+      "english": "SEALING GASKETS",
+      "role": "表达密封接合关系；没有据此判定IP等级。"
+    },
+    {
+      "id": "glass",
+      "name": "保护玻璃",
+      "english": "PROTECTIVE WINDOW",
+      "role": "保护光学组件，未求解其温度或光学损耗。"
+    },
+    {
+      "id": "pole",
+      "name": "安装套筒",
+      "english": "MOUNTING SPIGOT",
+      "role": "连接灯体与灯杆的概念结构。"
+    },
+    {
+      "id": "fasteners",
+      "name": "紧固件",
+      "english": "FASTENERS",
+      "role": "表达固定与维护关系，不表示螺纹或扭矩已核定。"
+    },
+    {
+      "id": "socket",
+      "name": "顶部控制接口",
+      "english": "CONTROL INTERFACE",
+      "role": "为控制节点提供概念安装位置，不代表特定接口合规。"
+    },
+    {
+      "id": "cable",
+      "name": "接线与出线",
+      "english": "WIRING & CABLE GLAND",
+      "role": "展示电气连接路径，不替代接线图或电气验证。"
+    }
+  ]
+}

@@ -4,11 +4,11 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<meta content="Astra Ocean — personal projects in lighting engineering, market research, product crawling and recommendation analysis, PDF-to-CAD conversion, procurement collaboration demos, AI applications, solar-system and constellation exploration, Vietnamese learning and real-time strategy." name="description"/>
+<meta content="Astra Ocean — personal projects in lighting engineering, 3D streetlight anatomy and simplified thermal exploration, market research, product crawling and recommendation analysis, PDF-to-CAD conversion, procurement collaboration demos, AI applications, solar-system and constellation exploration, Vietnamese learning and real-time strategy." name="description"/>
 <meta content="#050b16" name="theme-color"/>
 <title>Astra Ocean</title>
 <script>try{const t=localStorage.getItem('dayang-theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t;}catch{}</script>
-<link rel="icon" href="./assets/favicon-dc.png" type="image/png"/><meta content="light dark" name="color-scheme"/><link href="./styles.css?v=solar-particles-20261102" rel="stylesheet"/><script defer="" src="./main.js?v=solar-particles-20261102"></script></head>
+<link rel="icon" href="./assets/favicon-dc.png" type="image/png"/><meta content="light dark" name="color-scheme"/><link href="./styles.css?v=solar-particles-20261102" rel="stylesheet"/><script defer="" src="./main.js?v=streetlight-20261102"></script></head>
 <body>
 <a class="skip-link" data-i18n="skip" href="#main">跳到正文</a>
 <header id="top">
@@ -38,7 +38,7 @@
       <button type="button" data-filter="all" aria-pressed="true" aria-controls="project-grid"><span data-i18n="filterAll">全部</span><span class="filter-count">10</span></button>
       <button type="button" data-filter="research" aria-pressed="false" aria-controls="project-grid"><span data-i18n="filterResearch">研发工具</span><span class="filter-count">2</span></button>
       <button type="button" data-filter="procurement" aria-pressed="false" aria-controls="project-grid"><span data-i18n="filterProcurement">采购协同</span><span class="filter-count">1</span></button>
-      <button type="button" data-filter="showcase" aria-pressed="false" aria-controls="project-grid"><span data-i18n="filterShowcase">产品展示</span><span class="filter-count">1</span></button>
+      <button type="button" data-filter="showcase" aria-pressed="false" aria-controls="project-grid"><span data-i18n="filterShowcase">产品展示</span><span class="filter-count">2</span></button>
       <button type="button" data-filter="simulation" aria-pressed="false" aria-controls="project-grid"><span data-i18n="filterSimulation">场景仿真</span><span class="filter-count">3</span></button>
       <button type="button" data-filter="learning" aria-pressed="false" aria-controls="project-grid"><span data-i18n="filterLearning">语言学习</span><span class="filter-count">1</span></button>
       <button type="button" data-filter="strategy" aria-pressed="false" aria-controls="project-grid"><span data-i18n="filterStrategy">策略游戏</span><span class="filter-count">1</span></button>
@@ -53,6 +53,16 @@
   </div>
   <div class="collection-meta"><p id="project-results" role="status" aria-live="polite" aria-atomic="true">展示全部 10 个项目</p></div>
   <div class="project-grid" id="project-grid">
+    <article class="project-card" id="streetlight-lab" data-category="showcase" data-keywords="Streetlight Lab road luminaire LED lens optics driver SPD thermal 路灯 材质 灯珠 透镜 配光 驱动 防雷 安装 接线 热分析" aria-labelledby="streetlight-title">
+      <div class="project-cover"><img src="./assets/streetlight-preview-20261102.png" alt="概念路灯三维拆解网站的实际界面" data-i18n-alt="streetlightAlt" width="1280" height="720" loading="lazy"/></div>
+      <div class="project-content">
+        <div class="project-topline"><span class="project-category" data-i18n="filterShowcase">产品展示</span><span class="work-status" data-i18n="streetlightStatus">三维科普</span></div>
+        <h2 id="streetlight-title">Streetlight Lab</h2><p class="work-title" data-i18n="streetlightTitle">看懂一盏路灯</p>
+        <div class="project-bottom"><div class="work-actions"><a class="primary" href="./streetlight/?lang=zh" data-streetlight-project><span data-i18n="streetlightEnter">进入三维拆解</span><span class="icon icon-arrow" aria-hidden="true"></span></a></div></div>
+        <div class="project-footer"><details class="project-details"><summary><span data-i18n="projectDetails">详情</span></summary><div class="project-detail-content"><p data-i18n="streetlightDescription">拆解材质、灯珠、透镜配光、驱动、SPD与安装接线；调整工况，比较六节点温升曲线。</p><p class="detail-note" data-i18n="streetlightAccess">无需登录，中文界面。模型与热参数为教学假设，简化估算不代表工程验证。</p></div></details><span class="project-views" data-view-project="streetlight" aria-busy="true"><span data-i18n="projectViews" aria-hidden="true">访问</span><strong data-view-count aria-hidden="true">—</strong></span></div>
+      </div>
+    </article>
+
     <article class="project-card" id="solar-atlas" data-category="simulation" data-keywords="Solar Atlas solar system planets constellation sky orbit astronomy 太阳系 星球 星座 星图 轨道 天文 彗星 演变 历史 comet evolution history" aria-labelledby="solar-atlas-title">
       <div class="project-cover cover-solar-atlas"><img src="./assets/solar-atlas-preview.svg" alt="太阳系探索：行星轨道与星座连线" data-i18n-alt="solarAtlasAlt" width="960" height="675" loading="lazy"/></div>
       <div class="project-content">
@@ -149,6 +159,7 @@
       <section class="guide-chapter" aria-labelledby="guide-projects-title">
         <h3 id="guide-projects-title"><span class="guide-number" aria-hidden="true">02</span><span data-i18n="guideProjectsTitle">各项目怎样使用</span></h3>
         <div class="guide-projects">
+          <section class="guide-project" id="guide-streetlight" tabindex="-1"><h4>Streetlight Lab</h4><p data-i18n="streetlightDescription">拆解材质、灯珠、透镜配光、驱动、SPD与安装接线；调整工况，比较六节点温升曲线。</p><a href="./streetlight/?lang=zh" data-streetlight-project data-i18n="streetlightEnter">进入三维拆解</a></section>
           <section class="guide-project" id="guide-solar-atlas" tabindex="-1"><h4>Solar Atlas</h4><p data-i18n="solarAtlasDescription">探索太阳与八大行星的档案和演变历史，点选地球七大洲，查看主要卫星与五颗彗星轨道；支持双星对比及 88 星座星图。</p><a href="./solar-system/?lang=zh" data-solar-project data-i18n="solarAtlasEnter">进入独立项目</a></section>
           <section class="guide-project" id="guide-dc-world" tabindex="-1"><h4>DC World</h4><p data-i18n="guideDCWorld">按游戏引导配置自己的 DeepSeek，查看居民、城市议事与建设进度。每个浏览器独立城市；自动议事需保持页面打开。</p><a href="./dc-world/" data-i18n="guideDCWorldLink">进入 DC World ↗</a></section>
           <section class="guide-project"><h4>LumiPilot</h4><p data-i18n="guideLumi">在情报操作台浏览人物、产品与照明方案。公开界面保留已发布资料，实时采集、编辑和模型分析需完整后台。</p><a href="./LumiPilot/#help" data-lumi-link="./LumiPilot/#help" data-i18n="guideLumiLink">查看情报操作台与说明 ↗</a></section>
@@ -168,7 +179,7 @@
     </div>
   </details>
 </section>
-<section aria-label="About Dayang" class="author-section" id="about" lang="en"><details class="author-details"><summary aria-controls="author-content" class="author-summary">About Dayang</summary><div class="author-content" id="author-content"><div class="author-identity"><h2 id="author-name">Dayang.Cao</h2><p class="author-role">Algorithm Engineer</p></div><div class="author-biography"><p class="intro-copy">I’m Dayang.Cao, an Algorithm Engineer creating lighting tools, research and procurement workspaces, PDF-to-CAD workflows, language learning and strategy simulations. Projects include LUMINA, LumiPilot, Web Showing, Solar Atlas and DC World. The homepage adds a lightweight particle solar system. Each entry states its access requirements and demonstration scope.</p><div class="author-notes"><details class="recognition"><summary>A few milestones</summary><ol class="award-list">
+<section aria-label="About Dayang" class="author-section" id="about" lang="en"><details class="author-details"><summary aria-controls="author-content" class="author-summary">About Dayang</summary><div class="author-content" id="author-content"><div class="author-identity"><h2 id="author-name">Dayang.Cao</h2><p class="author-role">Algorithm Engineer</p></div><div class="author-biography"><p class="intro-copy">I’m Dayang.Cao, an Algorithm Engineer creating lighting tools, research and procurement workspaces, PDF-to-CAD workflows and interactive learning experiences. Projects include LUMINA, LumiPilot, Web Showing, Streetlight Lab, Solar Atlas and DC World. Streetlight Lab explains a concept luminaire through 3D disassembly and simplified thermal estimates. Each entry states its access requirements and demonstration scope.</p><div class="author-notes"><details class="recognition"><summary>A few milestones</summary><ol class="award-list">
 <li><time datetime="2024">2024</time><div><span class="award-prize">National Gold Award</span><h4>China International College Students’ Innovation Competition</h4></div></li>
 <li><time datetime="2023">2023</time><div><span class="award-prize">First Prize</span><h4>Zhejiang Province E-commerce Competition</h4></div></li>
 <li><time datetime="2022">2022</time><div><span class="award-prize">First Prize</span><h4>Zhejiang Province Quantitative Investment Competition</h4></div></li>
@@ -181,3 +192,4 @@
 <script defer src="./assets/view-counts.js?v=auto-2" data-view-page="home" data-endpoint="https://astra-ocean-views.umi-ilot.workers.dev/views"></script>
 </body>
 </html>
+

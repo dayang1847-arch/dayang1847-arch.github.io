@@ -1,0 +1,155 @@
+{
+  "status": "教学概念假设，不代表工程性能验证",
+  "units": "SI; temperature Celsius, radiation converted to Kelvin",
+  "defaults": {
+    "power": 100,
+    "ambient": 25,
+    "driverEfficiency": 0.9,
+    "ledHeatFraction": 0.7,
+    "contactResistance": 0.15,
+    "h": 7,
+    "emissivity": 0.85,
+    "aluminiumK": 160,
+    "density": 2700,
+    "specificHeat": 900,
+    "duration": 3600
+  },
+  "bounds": {
+    "power": [
+      0,
+      200
+    ],
+    "ambient": [
+      -20,
+      60
+    ],
+    "driverEfficiency": [
+      0.5,
+      1
+    ],
+    "ledHeatFraction": [
+      0,
+      1
+    ],
+    "contactResistance": [
+      0.03,
+      1.2
+    ],
+    "h": [
+      2,
+      25
+    ],
+    "emissivity": [
+      0.05,
+      0.98
+    ],
+    "aluminiumK": [
+      60,
+      240
+    ],
+    "density": [
+      2000,
+      3000
+    ],
+    "specificHeat": [
+      600,
+      1200
+    ],
+    "duration": [
+      300,
+      7200
+    ]
+  },
+  "network": {
+    "ambient": 25,
+    "nodes": [
+      {
+        "id": "led",
+        "capacity": 6.144000000000001,
+        "area": 0,
+        "h": 7,
+        "emissivity": 0.85,
+        "source": 62.99999999999999
+      },
+      {
+        "id": "board",
+        "capacity": 219.2832,
+        "area": 0,
+        "h": 7,
+        "emissivity": 0.85,
+        "source": 0
+      },
+      {
+        "id": "body",
+        "capacity": 1300.3011660806487,
+        "area": 0.085,
+        "h": 7,
+        "emissivity": 0.85,
+        "source": 0
+      },
+      {
+        "id": "fins",
+        "capacity": 398.48889600000007,
+        "area": 0.22,
+        "h": 7,
+        "emissivity": 0.85,
+        "source": 0
+      },
+      {
+        "id": "driver",
+        "capacity": 198,
+        "area": 0,
+        "h": 7,
+        "emissivity": 0.85,
+        "source": 9.999999999999998
+      },
+      {
+        "id": "gear",
+        "capacity": 781.310454822464,
+        "area": 0.085,
+        "h": 7,
+        "emissivity": 0.85,
+        "source": 0
+      }
+    ],
+    "edges": [
+      {
+        "a": 0,
+        "b": 1,
+        "resistance": 0.2,
+        "name": "LED → 光源板"
+      },
+      {
+        "a": 1,
+        "b": 2,
+        "resistance": 0.15,
+        "name": "导热接触界面"
+      },
+      {
+        "a": 2,
+        "b": 3,
+        "resistance": 0.12,
+        "name": "灯壳 → 散热筋"
+      },
+      {
+        "a": 2,
+        "b": 5,
+        "resistance": 1.8,
+        "name": "两腔壳体热耦合"
+      },
+      {
+        "a": 4,
+        "b": 5,
+        "resistance": 1,
+        "name": "驱动 → 驱动壳"
+      }
+    ]
+  },
+  "method": "nonlinear implicit Euler, Newton iteration, dt=0.5s, sampling=5s",
+  "references": [
+    {
+      "title": "MIT thermal modeling",
+      "url": "https://circuits.mit.edu/_static/F23/6s060/KPVS_ThermalModeling.pdf"
+    }
+  ]
+}
