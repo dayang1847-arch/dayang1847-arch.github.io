@@ -20,3 +20,9 @@ Deep explorer additions:
 - Simplified continent-region outlines: Natural Earth ne_110m_geography_regions_polys, public domain; Australia plus Oceania island-group regions. Not political borders or precise coastlines. https://github.com/nvkelso/natural-earth-vector/blob/master/geojson/ne_110m_geography_regions_polys.geojson
 - Major satellite mean elements: https://ssd.jpl.nasa.gov/sats/elem/ ; snapshot retrieved 2026-11-01. Records retain epoch and reference-plane labels. Display uses compressed distances and illustrative orbital-plane orientation.
 - Geological labels: NASA body facts, NASA Photojournal and USGS Gazetteer. Feature records carry source links. Atmospheric and solar markers are conceptual, not current storm or sunspot positions.
+
+Evolution & comet additions:
+- Sun and eight-planet histories: NASA Science body facts pages; each history links to its source. Models and unsettled interpretations are explicitly marked.
+- Five representative comet elements: JPL Small-Body Database API, https://ssd-api.jpl.nasa.gov/doc/sbdb.html ; snapshot retrieved 2026-11-01. data/comets.json retains each record's element epoch (JD) and query URL. Values are rounded reference elements, not a live ephemeris.
+- Comet orbital display: Keplerian reference orbits with nonlinear radial compression. Sizes, tails and initial phases are illustrative.
+- Decorative background dust band and solar prominence loops are procedural artwork, not a measured sky map or current solar activity.
