@@ -26,3 +26,12 @@ Evolution & comet additions:
 - Five representative comet elements: JPL Small-Body Database API, https://ssd-api.jpl.nasa.gov/doc/sbdb.html ; snapshot retrieved 2026-11-01. data/comets.json retains each record's element epoch (JD) and query URL. Values are rounded reference elements, not a live ephemeris.
 - Comet orbital display: Keplerian reference orbits with nonlinear radial compression. Sizes, tails and initial phases are illustrative.
 - Decorative background dust band and solar prominence loops are procedural artwork, not a measured sky map or current solar activity.
+
+Earth artificial-satellite directory:
+- CelesTrak SATCAT CSV: https://celestrak.org/pub/satcat.csv; retrieved 2026-11-01T16:36:58+00:00; original SHA-256 b93c426145a4fd5c528902154c0f55bb3cab27f8137dc1c9f3003a10cf808f48.
+- 71228 source records; 20270 payloads without recorded decay in Earth orbit, including docked payloads; 17372 source-defined active. Excludes debris, rocket bodies, unknown types and non-Earth craft. Public inventory is not worldwide-complete or independent confirmation of present orbit. Numeric blanks remain null.
+- https://celestrak.org/satcat/satcat-format.php ; https://celestrak.org/satcat/status.php ; https://celestrak.org/satcat/sources.php ; https://celestrak.org/usage-policy.php . Shared manual snapshots, not per-visitor bulk requests.
+
+Earth orbit view:
+- CelesTrak active GP/OMM JSON: https://celestrak.org/NORAD/elements/gp.php?GROUP=active&FORMAT=json; retrieved 2026-11-01T16:42:10+00:00; 16847 element records; original SHA-256 4c2539218a84dcaf763f04e5513720269e7366a72d00f1ef133e3b680023fdea.
+- Satellite.js 7.1.0 (MIT), SGP4/SDP4; https://github.com/shashwatak/satellite-js . Coordinates use TEME with north up; Earth texture rotates with GMST. One orbit from each element epoch, no live telemetry or maneuvers. Marker size exaggerated; Earth and orbital distances share one linear scale. Missing or failed propagation remains unavailable.
