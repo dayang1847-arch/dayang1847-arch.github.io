@@ -2,6 +2,13 @@
   const root = document.documentElement;
   const copy = {
   "zh": {
+    "heroLead": "创造，",
+    "heroAccent": "源于探索。",
+    "heroDescription": "照明工具、AI 应用与交互实验。",
+    "heroBrowse": "浏览作品",
+    "pauseStars": "暂停星空动画",
+    "playStars": "播放星空动画",
+
     "dcWorldTitle": "AI 群体决策与城市建设",
     "dcWorldSummary": "四位城市负责人共同规划，草地牛设计建筑；管理企业、税收与城市发展。",
     "dcWorldAccess": "自备 DeepSeek API · 每个浏览器独立城市 · 自动议事需保持页面打开",
@@ -179,6 +186,13 @@
     "openLuminaPurchase": "采购与节能对比"
   },
   "en": {
+    "heroLead": "Built to",
+    "heroAccent": "explore.",
+    "heroDescription": "Lighting tools, AI applications and interactive experiments.",
+    "heroBrowse": "Explore the work",
+    "pauseStars": "Pause starfield animation",
+    "playStars": "Play starfield animation",
+
     "dcWorldTitle": "AI collective decisions & city building",
     "dcWorldSummary": "Four city leaders plan together while designer Caodi Niu designs buildings. Explore simulated enterprises, taxes and urban development.",
     "dcWorldAccess": "Bring your own DeepSeek API · A city per browser · Keep the game open for automatic decisions",
@@ -431,14 +445,38 @@
   const query = new URLSearchParams(location.search).get('lang');
   let language = ['zh','en'].includes(query) ? query : saved('dayang-language') === 'en' ? 'en' : 'zh';
   const initialLanguage = language;
-  let theme = saved('dayang-theme') === 'dark' ? 'dark' : 'light';
+  let theme = saved('dayang-theme') === 'light' ? 'light' : 'dark';
+  const motionButton = document.querySelector('.motion-toggle');
+  const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+  let motionPaused = reducedMotion.matches || saved('dayang-motion') === 'paused';
+  function updateMotion() {
+    root.dataset.motion = motionPaused ? 'paused' : 'playing';
+    if (!motionButton) return;
+    const label = copy[language][motionPaused ? 'playStars' : 'pauseStars'];
+    motionButton.setAttribute('aria-label', label);
+    motionButton.title = label;
+    motionButton.dataset.paused = String(motionPaused);
+    motionButton.querySelector('.sr-only').textContent = label;
+  }
+  motionButton?.addEventListener('click', () => {
+    motionPaused = !motionPaused;
+    remember('dayang-motion', motionPaused ? 'paused' : 'playing');
+    updateMotion();
+  });
+  reducedMotion.addEventListener('change', event => {
+    motionPaused = event.matches || saved('dayang-motion') === 'paused';
+    updateMotion();
+  });
+  window.addEventListener('dc-starfield-status', event => {
+    if (motionButton) motionButton.hidden = !event.detail.available;
+  });
   function updateDate() { dateNote.textContent = copy[language].protectedStats; }
   function updateTheme() {
     root.dataset.theme = theme;
     const label = copy[language][theme === 'dark' ? 'themeLight' : 'themeDark'];
     themeButton.setAttribute('aria-label',label);
     themeButton.title = label;
-    document.querySelector('meta[name="theme-color"]').content = theme === 'dark' ? '#101721' : '#f7f8fa';
+    document.querySelector('meta[name="theme-color"]').content = theme === 'dark' ? '#050b16' : '#f3f6fb';
   }
   function updateLanguage() {
     root.lang = language === 'en' ? 'en' : 'zh-CN';
@@ -456,6 +494,7 @@
     languageSwitch.setAttribute('aria-label',copy[language].switchLanguage);
     languageSwitch.title = copy[language].switchLanguage;
     updateTheme();
+    updateMotion();
     updateDate();
     document.querySelectorAll('[data-i18n-placeholder]').forEach(node => { node.placeholder = copy[language][node.dataset.i18nPlaceholder]; });
     document.querySelectorAll('[data-game-link]').forEach(link => { link.setAttribute('href', `${link.dataset.gameLink}?lang=${language}`); });
@@ -507,4 +546,14 @@
   });
   themeButton.addEventListener('click',() => { theme = theme === 'dark' ? 'light' : 'dark';remember('dayang-theme',theme);updateTheme(); });
 
+  // Load the local decorative bundle after the content and controls are ready.
+  const canvas = document.querySelector('#starfield-canvas');
+  if (canvas && !navigator.connection?.saveData) {
+    const loadStars = () => import('./assets/starfield.min.js?v=1').then(module => module.createStarfield(canvas)).catch(() => {
+      root.dataset.starfield = 'fallback';
+      if (motionButton) motionButton.hidden = true;
+    });
+    if ('requestIdleCallback' in window) requestIdleCallback(loadStars, { timeout: 1200 });
+    else setTimeout(loadStars, 250);
+  }
 })();
