@@ -334,3 +334,6 @@ body{overflow-x:clip}header,main,footer{max-width:1376px;padding-inline:56px}hea
 .cover-solar-atlas{background:#080e19}.cover-solar-atlas img{width:100%;height:100%;object-fit:cover}
 
 #solar-atlas button.secondary{font:inherit;font-size:11px;background:transparent;border:0;color:var(--muted);padding:0;cursor:pointer;text-decoration:underline;text-underline-offset:4px}#solar-atlas button.secondary:hover{color:var(--ink)}
+
+.solar-particle-labels{position:absolute;inset:0;pointer-events:none;overflow:hidden}.solar-particle-label{position:absolute;top:0;left:0;font-size:10px;letter-spacing:.07em;line-height:1.4;color:#d5c9b6;text-shadow:0 1px 8px #000,0 0 3px #000;white-space:nowrap}.hero-controls .shape-switch{gap:16px}
+@media(max-width:700px){.hero-controls .shape-switch{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px;width:100%}.shape-switch button{justify-content:center;gap:5px;padding-inline:4px;font-size:11px;min-height:42px}.shape-switch button:first-child{padding-left:4px}.shape-switch small{font-size:8px}.solar-particle-label{font-size:9px}}
