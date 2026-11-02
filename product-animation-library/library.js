@@ -5,11 +5,30 @@
   const escape=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   function render(){const c=copy[lang];document.documentElement.lang=lang==='zh'?'zh-CN':'en';document.title=(lang==='zh'?'产品动画库':'Product Motion')+' · DC Web';document.querySelectorAll('[data-i18n]').forEach(e=>e.textContent=c[e.dataset.i18n]);document.querySelectorAll('[data-placeholder]').forEach(e=>e.placeholder=c[e.dataset.placeholder]);$('#language').textContent=lang==='zh'?'EN':'中文';$('#warehouse').textContent=c.warehouse+' '+String(projects.length).padStart(2,'0')+' ▾';$('#total').textContent=String(projects.length).padStart(2,'0');renderProjects();}
   function renderProjects(){const c=copy[lang],query=$('#query').value.trim().toLowerCase(),category=$('#category').value;const matches=projects.filter(p=>(category==='all'||p.category===category)&&[p.title.zh,p.title.en,p.keywords,...p.tags[lang]].join(' ').toLowerCase().includes(query));$('#projects').innerHTML=matches.map(p=>`<article class="exhibit"><a class="exhibit-image" href="#project=${p.id}" aria-label="${escape(c.open+' · '+p.title[lang])}"><div class="image-label"><span>NO. ${p.number}</span><span>${c.featured}</span></div><img src="${p.cover}" alt="${escape(p.title[lang])}" width="1280" height="720"><span class="image-open" aria-hidden="true">↗</span></a><div class="exhibit-info"><p class="eyebrow">${p.subtitle}</p><h3>${p.title[lang]}</h3><p class="description">${p.description[lang]}</p><div class="tags">${p.tags[lang].map(t=>`<span>${t}</span>`).join('')}</div><div class="facts">${p.facts.map(f=>`<div><strong>${f.value}</strong><small>${f.label[lang]}</small></div>`).join('')}</div><a class="enter" href="#project=${p.id}">${c.open}<span aria-hidden="true">↗</span></a><p class="project-note">${p.note[lang]}</p></div></article>`).join('');$('#empty').hidden=matches.length>0;$('#result-count').textContent=c.result(matches.length);}
-  let activeId=null,previousScroll=0;
-  function route(){const id=new URLSearchParams(location.hash.slice(1)).get('project'),project=projects.find(p=>p.id===id);if(!project){if(activeId){$('#frame-host').replaceChildren();activeId=null;document.body.classList.remove('viewing');$('#viewer').hidden=true;$('#catalog').hidden=false;$('#footer').hidden=false;scrollTo(0,previousScroll);$('#collection-heading').setAttribute('tabindex','-1');$('#collection-heading').focus({preventScroll:true});}return;}
+  let activeId=null,previousScroll=0,loadSession=0,loadTimer;
+  const loadCopy=()=>lang==='zh'?{loading:'正在载入模型',init:'正在组装场景与材质',hint:'首次进入需要准备三维组件，请稍候。',slow:'准备时间较长，可以继续等待或重试。',error:'模型未能载入，请重试。',retry:'重新加载'}:{loading:'Loading your model',init:'Preparing geometry and materials',hint:'Preparing the 3D components for your first frame.',slow:'This is taking longer. Keep waiting or try again.',error:'The model could not load. Please retry.',retry:'Try again'};
+  function startModel(project){
+    const session=String(++loadSession),c=loadCopy();clearTimeout(loadTimer);
+    const host=$('#frame-host');host.setAttribute('aria-busy','true');
+    host.innerHTML=`<div class="scene-loader" role="status" aria-live="polite"><div class="loader-orbit" aria-hidden="true"><i></i><b>TD</b></div><small>PRODUCT MOTION / PREPARING</small><h2>${escape(project.title[lang])}</h2><p class="load-stage">${c.loading}</p><div class="load-track" aria-hidden="true"><i></i></div><p class="load-hint">${c.hint}</p><button class="load-retry" hidden>${c.retry}</button></div>`;
+    host.querySelector('.load-retry').onclick=()=>startModel(project);
+    const iframe=document.createElement('iframe');iframe.title=project.title[lang];iframe.allow='fullscreen';iframe.setAttribute('allowfullscreen','');iframe.style.opacity='0';iframe.inert=true;
+    // Paint the lightweight loading UI before starting the heavy iframe.
+    requestAnimationFrame(()=>requestAnimationFrame(()=>{if(String(loadSession)!==session||activeId!==project.id)return;const url=new URL(project.entry,location.href);url.searchParams.set('motionSession',session);iframe.src=url.href;host.append(iframe);}));
+    loadTimer=setTimeout(()=>{if(String(loadSession)!==session)return;const hint=host.querySelector('.load-hint');if(hint){hint.textContent=c.slow;host.querySelector('.load-retry').hidden=false;}},30000);
+  }
+  addEventListener('message',event=>{
+    const frame=$('#frame-host iframe'),data=event.data;
+    if(!frame||event.source!==frame.contentWindow||event.origin!==new URL(frame.src).origin||!data||data.type!=='product-motion'||data.session!==String(loadSession))return;
+    const loader=$('.scene-loader');if(!loader)return;
+    if(data.state==='initializing')loader.querySelector('.load-stage').textContent=loadCopy().init;
+    if(data.state==='error'){clearTimeout(loadTimer);loader.classList.add('failed');loader.querySelector('.load-stage').textContent=loadCopy().error;loader.querySelector('.load-retry').hidden=false;}
+    if(data.state==='ready'){clearTimeout(loadTimer);frame.style.opacity='1';frame.inert=false;$('#frame-host').setAttribute('aria-busy','false');loader.classList.add('complete');setTimeout(()=>loader.remove(),300);}
+  });
+  function route(){const id=new URLSearchParams(location.hash.slice(1)).get('project'),project=projects.find(p=>p.id===id);if(!project){if(activeId){++loadSession;clearTimeout(loadTimer);$('#frame-host').replaceChildren();activeId=null;document.body.classList.remove('viewing');$('#viewer').hidden=true;$('#catalog').hidden=false;$('#footer').hidden=false;scrollTo(0,previousScroll);$('#collection-heading').setAttribute('tabindex','-1');$('#collection-heading').focus({preventScroll:true});}return;}
     if(!activeId)previousScroll=scrollY;$('#viewer-name').textContent=project.title[lang];$('#viewer-category').textContent=project.subtitle;$('#standalone').href=project.entry;
-    if(activeId!==id){const iframe=document.createElement('iframe');iframe.title=project.title[lang];iframe.src=project.entry;iframe.allow='fullscreen';iframe.setAttribute('allowfullscreen','');$('#frame-host').replaceChildren(iframe);activeId=id;}
     $('#catalog').hidden=true;$('#footer').hidden=true;$('#viewer').hidden=false;document.body.classList.add('viewing');scrollTo(0,0);
+    if(activeId!==id){activeId=id;startModel(project);}
   }
   function openWarehouse(){const c=copy[lang];$('#warehouse-models').innerHTML=projects.map(p=>`<button class="warehouse-model" data-model="${p.id}" aria-current="${activeId===p.id}"><img src="${p.cover}" alt="" width="1000" height="720"><span class="warehouse-model-copy"><small>${p.subtitle}</small><strong>${p.title[lang]}</strong><span>${activeId===p.id?c.current:c.select} ↗</span></span></button>`).join('');$('#warehouse-dialog').showModal();}
   $('#warehouse').onclick=openWarehouse;$('#warehouse-close').onclick=()=>$('#warehouse-dialog').close();
@@ -17,7 +36,7 @@
   $('#warehouse-dialog').onclick=e=>{if(e.target===$('#warehouse-dialog')){const b=e.target.getBoundingClientRect();if(e.clientX<b.left||e.clientX>b.right||e.clientY<b.top||e.clientY>b.bottom)e.target.close();}};
   $('#query').addEventListener('input',renderProjects);$('#category').addEventListener('change',renderProjects);
   $('#language').onclick=()=>{lang=lang==='zh'?'en':'zh';const url=new URL(location.href);url.searchParams.set('lang',lang);history.replaceState(null,'',url);render();route();};
-  $('#back').onclick=()=>{location.hash='collection';};$('#restart').onclick=()=>{const iframe=$('#frame-host iframe');if(iframe)iframe.src=iframe.src;};
+  $('#back').onclick=()=>{location.hash='collection';};$('#restart').onclick=()=>{const project=projects.find(p=>p.id===activeId);if(project)startModel(project);};
   $('#fullscreen').onclick=async()=>{try{if(document.fullscreenElement)await document.exitFullscreen();else if($('#viewer').requestFullscreen)await $('#viewer').requestFullscreen();else window.open($('#standalone').href,'_blank','noopener');}catch{$('#viewer-help').textContent=lang==='zh'?'此浏览器不支持全屏，请使用“独立打开”。':'Fullscreen is unavailable. Use “Open separately”.';}};
   addEventListener('hashchange',route);render();route();
 })();

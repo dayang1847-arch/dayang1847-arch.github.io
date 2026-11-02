@@ -1,6 +1,6 @@
 // Add a self-contained browser demo and its metadata here to extend the collection.
 window.MOTION_PROJECTS=[{
-  id:'terror-drone',number:'001',category:'robotics',cover:'./assets/terror-drone.png',entry:'./projects/terror-drone/index.html',
+  id:'terror-drone',number:'001',category:'robotics',cover:'./assets/terror-drone.png',entry:'./projects/terror-drone/index.html?v=3',
   title:{zh:'恐怖机器人',en:'Terror Drone'},subtitle:'TERROR DRONE / TD–04',
   description:{zh:'四足行走、四角变形、旋翼起飞。打开装甲，探索能源舱和腹部激光装置，在同一个模型中切换结构拆解与动作演示。',en:'Walk on four articulated legs, unfold the corner rotors and take flight. Open the armor to explore the power bay and belly laser, then switch from structural inspection to motion.'},
   tags:{zh:['结构拆解','变形飞行','激光演示'],en:['Disassembly','Transform & fly','Laser effects']},
