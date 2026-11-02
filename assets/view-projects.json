@@ -2,8 +2,8 @@
   "version": 1,
   "projects": [
     {
-      "id": "streetlight",
-      "entry": "streetlight/index.html"
+      "id": "product-animation-library",
+      "entry": "product-animation-library/index.html"
     },
     {
       "id": "solar-system",
