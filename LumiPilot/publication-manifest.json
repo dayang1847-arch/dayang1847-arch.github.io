@@ -54,8 +54,8 @@
       "sha256": "4006be28b9120fd70166e5a205752b5d6a3d074afe3d9eafa6d172c95b32f976"
     },
     "index.html": {
-      "bytes": 2917,
-      "sha256": "93f1a38625e6c58d6c66d5ee2936072e5c4415940a48748c56867dfe87c21ee2"
+      "bytes": 2959,
+      "sha256": "725bd3daa7cf666391dc85db884c41681749c2762329ad03bb4e94f1793b5b16"
     },
     "interface-data.json": {
       "bytes": 516351,
@@ -594,7 +594,10 @@
     "login_url": "https://lumipilot-share.umi-ilot.workers.dev/login",
     "login_method": "email_and_password",
     "github_account_required": false,
-    "cloud_workspace_mode": "readonly_migration_pending",
-    "business_snapshot_preserved": true
+    "cloud_workspace_mode": "writable_customer_collection",
+    "business_snapshot_preserved": true,
+    "personal_api_configuration": true,
+    "provider_live_acceptance": "requires_user_api_configuration",
+    "feature_revision": "cloud-team-api-2026-11-04"
   }
 }
