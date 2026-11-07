@@ -38,5 +38,6 @@
       390
     ]
   ],
-  "workerVersion": "974d2339-4736-4989-9d24-561f94678ae0"
+  "workerVersion": "bce57349-e7fc-4f3b-b082-f63d0756c480",
+  "mobileHotspotLabels": "viewport-bounded"
 }
