@@ -1,0 +1,42 @@
+{
+  "application": "LUMINA",
+  "release": "2026-11-08-generation-home-sketch-templates",
+  "entry": "https://lumina-access.umi-ilot.workers.dev/LUMINA/",
+  "sourceVersion": "1.3.11",
+  "featuredCases": 13,
+  "customerGenerationTemplates": [
+    "indoor",
+    "outdoor"
+  ],
+  "sketchInputTemplates": [
+    "indoor-retail",
+    "outdoor-walkway"
+  ],
+  "firstEntry": "generation-home",
+  "mobileLayout": "responsive",
+  "privateDataIncluded": false,
+  "publicBuildVersion": "1.3.11-20261108-generation",
+  "mobileBrowserViewports": [
+    [
+      320,
+      740
+    ],
+    [
+      390,
+      844
+    ],
+    [
+      430,
+      932
+    ],
+    [
+      768,
+      1024
+    ],
+    [
+      844,
+      390
+    ]
+  ],
+  "workerVersion": "974d2339-4736-4989-9d24-561f94678ae0"
+}
