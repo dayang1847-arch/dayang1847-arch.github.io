@@ -1,8 +1,8 @@
 {
   "application": "LUMINA",
-  "release": "2026-11-08-generation-home-sketch-templates",
+  "release": "2026-11-13-editable-workbench",
   "entry": "https://lumina-access.umi-ilot.workers.dev/LUMINA/",
-  "sourceVersion": "1.3.11",
+  "sourceVersion": "1.3.83",
   "featuredCases": 13,
   "customerGenerationTemplates": [
     "indoor",
@@ -15,29 +15,36 @@
   "firstEntry": "generation-home",
   "mobileLayout": "responsive",
   "privateDataIncluded": false,
-  "publicBuildVersion": "1.3.11-20261108-generation",
+  "publicBuildVersion": "1.3.83",
   "mobileBrowserViewports": [
     [
       320,
-      740
+      844
     ],
     [
       390,
       844
     ],
     [
-      430,
-      932
-    ],
-    [
-      768,
-      1024
-    ],
-    [
       844,
-      390
+      844
     ]
   ],
-  "workerVersion": "bce57349-e7fc-4f3b-b082-f63d0756c480",
-  "mobileHotspotLabels": "viewport-bounded"
+  "workerVersion": "656a9dee-e380-461a-a950-d664b7419e49",
+  "mobileHotspotLabels": "viewport-bounded",
+  "browserStorageVerified": true,
+  "desktopWorkbenchVerified": true,
+  "features": [
+    "editable-space-workbench",
+    "lighting-placement-and-reload",
+    "ies-analysis",
+    "ugr-visualization",
+    "dialux-project-structure-demonstrations",
+    "limited-evo-import",
+    "source-visual-notes-in-room-views"
+  ],
+  "localEditionServices": [
+    "experimental-furniture-recovery"
+  ],
+  "physicalPhoneVerified": false
 }
