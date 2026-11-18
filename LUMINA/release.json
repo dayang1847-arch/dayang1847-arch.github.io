@@ -1,8 +1,8 @@
 {
   "application": "LUMINA",
-  "release": "2026-11-13-editable-workbench",
+  "release": "2026-11-19-art-direction-dxf",
   "entry": "https://lumina-access.umi-ilot.workers.dev/LUMINA/",
-  "sourceVersion": "1.3.83",
+  "sourceVersion": "1.3.98",
   "featuredCases": 13,
   "customerGenerationTemplates": [
     "indoor",
@@ -15,22 +15,14 @@
   "firstEntry": "generation-home",
   "mobileLayout": "responsive",
   "privateDataIncluded": false,
-  "publicBuildVersion": "1.3.83",
+  "publicBuildVersion": "1.3.98",
   "mobileBrowserViewports": [
-    [
-      320,
-      844
-    ],
     [
       390,
       844
-    ],
-    [
-      844,
-      844
     ]
   ],
-  "workerVersion": "656a9dee-e380-461a-a950-d664b7419e49",
+  "workerVersion": "3ed51149-972a-4a75-b706-b3e4e340f53a",
   "mobileHotspotLabels": "viewport-bounded",
   "browserStorageVerified": true,
   "desktopWorkbenchVerified": true,
@@ -41,10 +33,22 @@
     "ugr-visualization",
     "dialux-project-structure-demonstrations",
     "limited-evo-import",
-    "source-visual-notes-in-room-views"
+    "source-visual-notes-in-room-views",
+    "arc-18-dxf-example",
+    "five-artist-style-gallery",
+    "artist-references-and-lighting-principles",
+    "project-style-variants",
+    "p02-product-demonstration"
   ],
   "localEditionServices": [
     "experimental-furniture-recovery"
   ],
-  "physicalPhoneVerified": false
+  "physicalPhoneVerified": false,
+  "previousCloudVersion": "1.3.68",
+  "cloudFeatureChecks": [
+    "arc-18-dxf-example",
+    "29-fixture-import",
+    "artist-details",
+    "browser-local-project-style-variants"
+  ]
 }
