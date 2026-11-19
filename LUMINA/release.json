@@ -1,8 +1,8 @@
 {
   "application": "LUMINA",
-  "release": "2026-11-19-art-direction-dxf",
+  "release": "2026-11-19-outdoor-catalogue",
   "entry": "https://lumina-access.umi-ilot.workers.dev/LUMINA/",
-  "sourceVersion": "1.3.98",
+  "sourceVersion": "1.3.104",
   "featuredCases": 13,
   "customerGenerationTemplates": [
     "indoor",
@@ -15,14 +15,14 @@
   "firstEntry": "generation-home",
   "mobileLayout": "responsive",
   "privateDataIncluded": false,
-  "publicBuildVersion": "1.3.98",
+  "publicBuildVersion": "1.3.104",
   "mobileBrowserViewports": [
     [
       390,
       844
     ]
   ],
-  "workerVersion": "3ed51149-972a-4a75-b706-b3e4e340f53a",
+  "workerVersion": "66ffd60d-9a47-4d4f-8157-8f1aa2efe5ca",
   "mobileHotspotLabels": "viewport-bounded",
   "browserStorageVerified": true,
   "desktopWorkbenchVerified": true,
@@ -38,17 +38,23 @@
     "five-artist-style-gallery",
     "artist-references-and-lighting-principles",
     "project-style-variants",
-    "p02-product-demonstration"
+    "p02-product-demonstration",
+    "outdoor-hd-models",
+    "outdoor-series-ranking",
+    "fixture-loadout",
+    "p03v2-60d-90d",
+    "mega-wattage-specific-optics"
   ],
   "localEditionServices": [
     "experimental-furniture-recovery"
   ],
   "physicalPhoneVerified": false,
-  "previousCloudVersion": "1.3.68",
+  "previousCloudVersion": "1.3.98",
   "cloudFeatureChecks": [
-    "arc-18-dxf-example",
-    "29-fixture-import",
-    "artist-details",
-    "browser-local-project-style-variants"
-  ]
+    "outdoor-series-ranking",
+    "p03v2-60d-90d",
+    "mega-3d-assembly",
+    "source-catalogue-images"
+  ],
+  "catalogueProducts": 493
 }
