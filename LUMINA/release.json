@@ -1,8 +1,8 @@
 {
   "application": "LUMINA",
-  "release": "2026-11-19-shopping-cart",
+  "release": "2026-11-19-project-cargo",
   "entry": "https://lumina-access.umi-ilot.workers.dev/LUMINA/",
-  "sourceVersion": "1.3.107",
+  "sourceVersion": "1.3.108",
   "featuredCases": 13,
   "customerGenerationTemplates": [
     "indoor",
@@ -15,14 +15,14 @@
   "firstEntry": "generation-home",
   "mobileLayout": "responsive",
   "privateDataIncluded": false,
-  "publicBuildVersion": "1.3.107",
+  "publicBuildVersion": "1.3.108",
   "mobileBrowserViewports": [
     [
       390,
       844
     ]
   ],
-  "workerVersion": "4ba1adf3-ef0a-44cd-a4bd-583546d55575",
+  "workerVersion": "917aa2df-5eac-4ca8-958b-3b59c3dbc872",
   "mobileHotspotLabels": "viewport-bounded",
   "browserStorageVerified": true,
   "desktopWorkbenchVerified": true,
@@ -46,20 +46,22 @@
     "mega-wattage-specific-optics",
     "solid-optical-assemblies",
     "mesh-wireframe",
-    "shopping-cart"
+    "shopping-cart",
+    "project-cargo-diagram"
   ],
   "localEditionServices": [
     "experimental-furniture-recovery"
   ],
   "physicalPhoneVerified": false,
-  "previousCloudVersion": "1.3.106",
+  "previousCloudVersion": "1.3.107",
   "cloudFeatureChecks": [
     "outdoor-series-ranking",
     "p03v2-60d-90d",
     "mega-3d-assembly",
     "source-catalogue-images",
     "mesh-wireframe",
-    "shopping-cart"
+    "shopping-cart",
+    "project-cargo-diagram"
   ],
   "catalogueProducts": 493
 }
