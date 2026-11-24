@@ -1,1 +1,47 @@
-<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="refresh" content="2;url=https://lumina-access.umi-ilot.workers.dev/LUMINA/?v=1.3.108"><meta name="robots" content="noindex,nofollow"><title>LUMINA · 正在进入</title><script>(()=>{const origin="https://lumina-access.umi-ilot.workers.dev";let next=location.pathname+location.search+location.hash;if(/\/login(?:\.html)?$/.test(location.pathname)){const n=new URLSearchParams(location.search).get('next');next=n&&n.startsWith('/LUMINA/')&&!n.startsWith('//')?n:'/LUMINA/';}const target=new URL(origin+next);target.searchParams.set("v","1.3.108");async function move(){if('serviceWorker'in navigator){try{await Promise.race([navigator.serviceWorker.getRegistrations().then(rs=>Promise.all(rs.filter(r=>new URL(r.scope).pathname==='/LUMINA/').map(r=>r.unregister()))),new Promise(r=>setTimeout(r,700))]);}catch{}}location.replace(target);}void move();})();</script><body><p>正在进入 LUMINA 安全登录入口…</p><p><a href="https://lumina-access.umi-ilot.workers.dev/LUMINA/?v=1.3.108">点击继续登录 LUMINA</a></p></body></html>
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>LUMINA · 正在进入</title>
+  <script>
+  (() => {
+    const origin = 'https://lumina-access.umi-ilot.workers.dev';
+    const fallback = '/LUMINA/';
+    const version = '1.3.108';
+    const requested = /\/login(?:\.html)?$/.test(location.pathname)
+      ? new URLSearchParams(location.search).get('next')
+      : location.pathname + location.search + location.hash;
+    let target = new URL(fallback, origin);
+    if (requested?.startsWith('/LUMINA/')) {
+      const candidate = new URL(origin + requested);
+      if (candidate.pathname.startsWith('/LUMINA/')) target = candidate;
+    }
+    target.searchParams.set('v', version);
+
+    // Only a page controlled by the old Pages worker needs to wait for cleanup.
+    async function leave() {
+      try {
+        const workers = navigator.serviceWorker;
+        if (workers?.controller) {
+          const cleanup = workers.getRegistration('/LUMINA/').then(registration => {
+            if (registration && new URL(registration.scope).pathname === '/LUMINA/') {
+              return registration.unregister();
+            }
+          });
+          await Promise.race([cleanup, new Promise(resolve => setTimeout(resolve, 700))]);
+        }
+      } catch {}
+      location.replace(target);
+    }
+    void leave();
+  })();
+  </script>
+  <noscript><meta http-equiv="refresh" content="0;url=https://lumina-access.umi-ilot.workers.dev/LUMINA/?v=1.3.108"></noscript>
+</head>
+<body>
+  <p>正在进入 LUMINA 安全登录入口…</p>
+  <p><a href="https://lumina-access.umi-ilot.workers.dev/LUMINA/?v=1.3.108">点击继续登录 LUMINA</a></p>
+</body>
+</html>
